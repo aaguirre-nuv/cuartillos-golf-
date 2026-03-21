@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuartillos Club de Golf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ─── Variables ─────────────────────────────────────────── */
+:root {
+  --navy:   #1B3A72;
+  --navy2:  #142d5a;
+  --red:    #C8102E;
+  --gold:   #F5B900;
+  --white:  #ffffff;
+  --gray:   #f4f6f9;
+  --gray2:  #e8ecf2;
+  --text:   #1a2235;
+  --muted:  #6b7a9a;
+  --radius: 8px;
+  --shadow: 0 2px 16px rgba(27,58,114,0.10);
+  --shadow-lg: 0 8px 32px rgba(27,58,114,0.16);
+}
+
+/* ─── Reset ─────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:‘Barlow’,sans-serif;background:var(–gray);color:var(–text);min-height:100vh}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;font-family:‘Barlow’,sans-serif}
+
+/* ─── Header ────────────────────────────────────────────── */
+header {
+background: var(–navy);
+position: sticky; top:0; z-index:100;
+box-shadow: 0 2px 16px rgba(0,0,0,.25);
+}
+.header-inner {
+max-width:1200px; margin:0 auto;
+display:flex; align-items:center; gap:16px;
+padding:10px 20px;
+}
+.logo-wrap { display:flex; align-items:center; gap:10px; flex-shrink:0 }
+.logo-wrap img { height:52px; width:auto }
+.logo-text { line-height:1.1 }
+.logo-title {
+font-family:‘Bebas Neue’,sans-serif;
+font-size:22px; letter-spacing:1.5px;
+color:var(–white);
+}
+.logo-sub {
+font-family:‘Barlow Condensed’,sans-serif;
+font-size:11px; letter-spacing:2px; text-transform:uppercase;
+color:var(–gold);
+}
+nav {
+display:flex; gap:4px; flex:1; justify-content:center;
+flex-wrap:wrap;
+}
+nav button {
+background:transparent; color:rgba(255,255,255,.75);
+font-family:‘Barlow Condensed’,sans-serif;
+font-size:13px; font-weight:600; letter-spacing:.8px;
+text-transform:uppercase;
+padding:7px 14px; border-radius:4px;
+transition:all .2s;
+}
+nav button:hover { background:rgba(255,255,255,.12); color:#fff }
+nav button.active { background:var(–gold); color:var(–navy); }
+.season-sel {
+flex-shrink:0;
+background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2);
+color:#fff; font-family:‘Barlow’,sans-serif; font-size:13px;
+padding:6px 10px; border-radius:4px;
+}
+.season-sel option{background:var(–navy);color:#fff}
+
+/* ─── Main ──────────────────────────────────────────────── */
+main { max-width:1200px; margin:0 auto; padding:24px 20px 60px }
+
+/* ─── Section header ────────────────────────────────────── */
+.section-header {
+display:flex; align-items:center; gap:12px; margin-bottom:24px;
+}
+.section-header h2 {
+font-family:‘Bebas Neue’,sans-serif;
+font-size:32px; letter-spacing:1px; color:var(–navy);
+}
+.section-header .accent-line {
+flex:1; height:2px;
+background:linear-gradient(90deg,var(–gold),transparent);
+}
+.badge {
+background:var(–red); color:#fff;
+font-size:11px; font-weight:700; letter-spacing:.5px;
+padding:3px 8px; border-radius:20px; text-transform:uppercase;
+}
+.badge-navy { background:var(–navy) }
+.badge-gold { background:var(–gold); color:var(–navy) }
+
+/* ─── Cards / grid ──────────────────────────────────────── */
+.card {
+background:#fff; border-radius:var(–radius);
+box-shadow:var(–shadow); overflow:hidden;
+}
+.card-title {
+font-family:‘Barlow Condensed’,sans-serif;
+font-size:14px; font-weight:700; letter-spacing:1px;
+text-transform:uppercase; color:var(–muted);
+padding:16px 20px 0;
+}
+.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px }
+.grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:16px }
+@media(max-width:768px){
+.grid-3,.grid-2{grid-template-columns:1fr}
+nav button{font-size:11px;padding:6px 8px}
+.logo-title{font-size:18px}
+}
+
+/* ─── KPI Cards ─────────────────────────────────────────── */
+.kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:24px }
+@media(max-width:900px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
+.kpi {
+background:#fff; border-radius:var(–radius);
+box-shadow:var(–shadow); padding:18px 20px;
+border-top:3px solid var(–navy);
+display:flex; flex-direction:column; gap:4px;
+}
+.kpi.kpi-red{border-color:var(–red)}
+.kpi.kpi-gold{border-color:var(–gold)}
+.kpi.kpi-green{border-color:#27ae60}
+.kpi-label{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(–muted)}
+.kpi-value{font-family:‘Bebas Neue’,sans-serif;font-size:36px;color:var(–navy);line-height:1}
+.kpi-sub{font-size:12px;color:var(–muted)}
+
+/* ─── Table ─────────────────────────────────────────────── */
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+thead tr{background:var(–navy)}
+thead th{
+color:#fff;font-family:‘Barlow Condensed’,sans-serif;
+font-size:12px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;
+padding:10px 14px;text-align:left;white-space:nowrap;
+}
+tbody tr{border-bottom:1px solid var(–gray2);transition:background .15s}
+tbody tr:hover{background:var(–gray)}
+tbody td{padding:10px 14px;vertical-space:nowrap}
+tbody tr:nth-child(1) td{font-weight:700}
+.pos-cell{
+font-family:‘Bebas Neue’,sans-serif;font-size:20px;
+color:var(–navy);width:40px;text-align:center;
+}
+tr:nth-child(1) .pos-cell{color:var(–gold)}
+tr:nth-child(2) .pos-cell{color:var(–muted)}
+tr:nth-child(3) .pos-cell{color:#cd7f32}
+.pts-chip{
+display:inline-block;background:var(–navy);color:#fff;
+font-weight:700;font-size:12px;
+padding:3px 8px;border-radius:20px;
+}
+.pts-chip.gold{background:var(–gold);color:var(–navy)}
+.pts-chip.red{background:var(–red)}
+.icon-cell{font-size:18px}
+
+/* ─── Calendario ────────────────────────────────────────── */
+.cal-grid{display:grid;gap:10px}
+.cal-item{
+background:#fff;border-radius:var(–radius);
+box-shadow:var(–shadow);
+display:flex;align-items:center;gap:0;
+overflow:hidden;
+transition:transform .15s,box-shadow .15s;
+}
+.cal-item:hover{transform:translateY(-1px);box-shadow:var(–shadow-lg)}
+.cal-date{
+background:var(–navy);color:#fff;
+min-width:72px;padding:14px 12px;text-align:center;flex-shrink:0;
+}
+.cal-day{font-family:‘Bebas Neue’,sans-serif;font-size:32px;line-height:1}
+.cal-month{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(–gold)}
+.cal-year{font-size:10px;color:rgba(255,255,255,.6)}
+.cal-info{padding:12px 16px;flex:1}
+.cal-campo{font-weight:700;font-size:15px;color:var(–navy)}
+.cal-meta{font-size:12px;color:var(–muted);margin-top:2px}
+.cal-tipo{
+margin-left:auto;padding:12px 16px;flex-shrink:0;
+display:flex;flex-direction:column;align-items:flex-end;gap:6px;
+}
+.tipo-badge{
+font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+padding:3px 8px;border-radius:20px;
+}
+.tipo-1{background:#fff3cd;color:#a07000}  /* The Final */
+.tipo-2{background:#e8f4fd;color:#1565c0}  /* Normal */
+.tipo-3{background:#fde8e8;color:#c0281b}  /* Major */
+.jugado-si{background:#e8f5e9;color:#2e7d32}
+.jugado-no{background:#fce4ec;color:#c62828}
+
+/* ─── Perfil jugador ─────────────────────────────────────── */
+.search-wrap{display:flex;gap:10px;margin-bottom:20px}
+.search-input{
+flex:1;padding:10px 14px;border:1.5px solid var(–gray2);
+border-radius:var(–radius);font-family:‘Barlow’,sans-serif;font-size:14px;
+outline:none;transition:border .2s;
+}
+.search-input:focus{border-color:var(–navy)}
+.btn{
+background:var(–navy);color:#fff;
+font-family:‘Barlow Condensed’,sans-serif;font-size:13px;font-weight:700;
+letter-spacing:.8px;text-transform:uppercase;
+padding:10px 20px;border-radius:var(–radius);
+transition:background .2s;
+}
+.btn:hover{background:var(–navy2)}
+.btn-red{background:var(–red)}
+.btn-red:hover{background:#a50d25}
+.player-card{
+background:#fff;border-radius:var(–radius);
+box-shadow:var(–shadow);padding:24px;
+border-left:4px solid var(–navy);
+}
+.player-name{
+font-family:‘Bebas Neue’,sans-serif;
+font-size:28px;color:var(–navy);
+}
+.player-meta{font-size:13px;color:var(–muted);margin-top:2px}
+
+/* ─── Stats de campo ─────────────────────────────────────── */
+.hoyo-bar{
+display:flex;align-items:center;gap:10px;
+padding:8px 0;border-bottom:1px solid var(–gray2);
+}
+.hoyo-num{
+font-family:‘Bebas Neue’,sans-serif;font-size:20px;
+color:var(–navy);width:30px;text-align:center;
+}
+.hoyo-bar-inner{flex:1;position:relative;height:20px;background:var(–gray2);border-radius:4px;overflow:hidden}
+.hoyo-fill{height:100%;border-radius:4px;transition:width .6s}
+.fill-easy{background:linear-gradient(90deg,#27ae60,#2ecc71)}
+.fill-hard{background:linear-gradient(90deg,var(–red),#e74c3c)}
+.fill-neutral{background:linear-gradient(90deg,var(–navy),#3498db)}
+.hoyo-val{font-weight:600;font-size:13px;width:50px;text-align:right}
+.hoyo-par{font-size:11px;color:var(–muted);width:40px}
+
+/* ─── Loader ─────────────────────────────────────────────── */
+.loader{
+text-align:center;padding:60px 20px;
+font-size:14px;color:var(–muted);
+}
+.spinner{
+width:36px;height:36px;
+border:3px solid var(–gray2);
+border-top-color:var(–navy);
+border-radius:50%;
+animation:spin .8s linear infinite;
+margin:0 auto 12px;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ─── Torneo selector ────────────────────────────────────── */
+.torneo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:20px}
+.torneo-btn{
+background:#fff;border:2px solid var(–gray2);
+border-radius:var(–radius);padding:12px;
+font-family:‘Barlow Condensed’,sans-serif;font-size:13px;font-weight:600;
+text-align:left;transition:all .15s;
+}
+.torneo-btn:hover{border-color:var(–navy);background:var(–gray)}
+.torneo-btn.selected{border-color:var(–gold);background:#fffbea}
+.torneo-btn .t-n{font-family:‘Bebas Neue’,sans-serif;font-size:22px;color:var(–navy)}
+.torneo-btn .t-campo{font-size:12px;color:var(–muted);margin-top:2px}
+
+/* ─── Equipo cards ───────────────────────────────────────── */
+.eq-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.eq-card{
+background:#fff;border-radius:var(–radius);
+box-shadow:var(–shadow);padding:20px;
+border-top:3px solid var(–navy);
+display:flex;flex-direction:column;gap:4px;
+position:relative;
+}
+.eq-rank{
+position:absolute;top:12px;right:14px;
+font-family:‘Bebas Neue’,sans-serif;font-size:36px;
+color:var(–gray2);line-height:1;
+}
+.eq-nombre{font-weight:700;font-size:15px;color:var(–navy)}
+.eq-puntos{font-family:‘Bebas Neue’,sans-serif;font-size:28px;color:var(–red)}
+.eq-label{font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(–muted)}
+
+/* ─── Historico season tabs ──────────────────────────────── */
+.season-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.stab{
+background:#fff;border:2px solid var(–gray2);
+color:var(–muted);font-family:‘Barlow Condensed’,sans-serif;
+font-size:14px;font-weight:700;letter-spacing:.5px;
+padding:7px 18px;border-radius:20px;transition:all .15s;
+}
+.stab:hover{border-color:var(–navy);color:var(–navy)}
+.stab.active{background:var(–navy);border-color:var(–navy);color:#fff}
+
+/* ─── Footer ─────────────────────────────────────────────── */
+.page-footer{
+text-align:center;margin-top:40px;
+font-size:12px;color:var(–muted);
+}
+</style>
+
+</head>
+<body>
+
+<!-- ─── Header ─────────────────────────────────────────── -->
+
+<header>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <img src="https://golfdirecto-www.s3.eu-south-2.amazonaws.com/uploads/file/2026/02/1770721435907-cuartillos-microsite.html" 
+           onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='flex'"
+           alt="Logo Cuartillos" id="logo-img" style="display:none">
+      <div id="logo-fallback" style="width:48px;height:48px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--navy)">C</div>
+      <div class="logo-text">
+        <div class="logo-title">Cuartillos</div>
+        <div class="logo-sub">Club de Golf</div>
+      </div>
+    </div>
+    <nav>
+      <button class="active" onclick="showSection('inicio')">Inicio</button>
+      <button onclick="showSection('calendario')">Calendario</button>
+      <button onclick="showSection('clasificacion')">Clasificación</button>
+      <button onclick="showSection('equipos')">Equipos</button>
+      <button onclick="showSection('vueltas')">Vueltas</button>
+      <button onclick="showSection('estadisticas')">Estadísticas</button>
+      <button onclick="showSection('jugador')">Mi Perfil</button>
+    </nav>
+    <select class="season-sel" id="season-global" onchange="onSeasonChange()">
+      <option value="2025">2025</option>
+      <option value="2024">2024</option>
+      <option value="2023">2023</option>
+      <option value="2022">2022</option>
+    </select>
+  </div>
+</header>
+
+<main>
+
+<!-- ─── INICIO ─────────────────────────────────────────── -->
+
+<section id="sec-inicio">
+  <div class="section-header">
+    <h2>Temporada <span id="title-season">2025</span></h2>
+    <div class="accent-line"></div>
+    <span class="badge badge-gold">En curso</span>
+  </div>
+
+  <div class="kpi-grid" id="kpi-grid">
+    <div class="loader"><div class="spinner"></div>Cargando...</div>
+  </div>
+
+  <div class="grid-2" style="margin-top:0">
+    <div class="card">
+      <div class="card-title">🏆 Clasificación Individual</div>
+      <div class="table-wrap" id="home-clas-table">
+        <div class="loader"><div class="spinner"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">🤝 Clasificación Equipos</div>
+      <div id="home-eq-table">
+        <div class="loader"><div class="spinner"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <div class="card-title">📅 Próximos torneos</div>
+    <div id="home-proximos" style="padding:16px">
+      <div class="loader"><div class="spinner"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CALENDARIO ────────────────────────────────────── -->
+
+<section id="sec-calendario" style="display:none">
+  <div class="section-header">
+    <h2>Calendario <span id="cal-season-title">2025</span></h2>
+    <div class="accent-line"></div>
+  </div>
+  <div class="cal-grid" id="cal-list">
+    <div class="loader"><div class="spinner"></div>Cargando...</div>
+  </div>
+</section>
+
+<!-- ─── CLASIFICACIÓN ─────────────────────────────────── -->
+
+<section id="sec-clasificacion" style="display:none">
+  <div class="section-header">
+    <h2>Clasificación Individual</h2>
+    <div class="accent-line"></div>
+  </div>
+  <div class="card">
+    <div class="table-wrap" id="clas-table">
+      <div class="loader"><div class="spinner"></div>Cargando...</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── EQUIPOS ───────────────────────────────────────── -->
+
+<section id="sec-equipos" style="display:none">
+  <div class="section-header">
+    <h2>Clasificación Equipos</h2>
+    <div class="accent-line"></div>
+  </div>
+  <div id="eq-cards" class="eq-grid">
+    <div class="loader"><div class="spinner"></div>Cargando...</div>
+  </div>
+  <div class="card" style="margin-top:20px">
+    <div class="card-title">Detalle por torneo</div>
+    <div class="table-wrap" id="eq-detail-table" style="padding:16px">
+      <div class="loader"><div class="spinner"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── VUELTAS ───────────────────────────────────────── -->
+
+<section id="sec-vueltas" style="display:none">
+  <div class="section-header">
+    <h2>Vueltas por Torneo</h2>
+    <div class="accent-line"></div>
+  </div>
+  <div class="torneo-grid" id="torneo-selector">
+    <div class="loader"><div class="spinner"></div>Cargando...</div>
+  </div>
+  <div id="vuelta-detalle" style="display:none">
+    <div class="section-header" style="margin-top:8px">
+      <h2 id="vuelta-title">Torneo</h2>
+      <div class="accent-line"></div>
+    </div>
+    <div class="card">
+      <div class="table-wrap" id="vuelta-table"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ESTADÍSTICAS ──────────────────────────────────── -->
+
+<section id="sec-estadisticas" style="display:none">
+  <div class="section-header">
+    <h2>Estadísticas por Campo</h2>
+    <div class="accent-line"></div>
+  </div>
+  <div style="margin-bottom:16px">
+    <select id="campo-sel" class="season-sel" style="background:var(--navy);padding:8px 14px;font-size:14px" onchange="renderHoyosStats()">
+      <option value="">Selecciona campo...</option>
+    </select>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title" style="padding-bottom:12px">🟢 Hoyos más fáciles (vs par)</div>
+      <div id="hoyos-faciles" style="padding:0 16px 16px"></div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="padding-bottom:12px">🔴 Hoyos más difíciles (vs par)</div>
+      <div id="hoyos-dificiles" style="padding:0 16px 16px"></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <div class="card-title">Golpes promedio por hoyo</div>
+    <div id="all-hoyos-stats" style="padding:16px"></div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <div class="card-title">📊 Asistencia por torneo</div>
+    <div class="table-wrap" id="asistencia-table" style="padding:16px"></div>
+  </div>
+</section>
+
+<!-- ─── MI PERFIL ─────────────────────────────────────── -->
+
+<section id="sec-jugador" style="display:none">
+  <div class="section-header">
+    <h2>Perfil del Jugador</h2>
+    <div class="accent-line"></div>
+  </div>
+  <div class="search-wrap">
+    <input type="text" class="search-input" id="jugador-search" placeholder="Escribe tu nombre o mote..." oninput="filterJugadores()">
+  </div>
+  <div id="jugador-suggestions" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px"></div>
+  <div id="jugador-perfil" style="display:none">
+    <div class="player-card" id="player-header"></div>
+    <div class="grid-2" style="margin-top:16px">
+      <div class="card">
+        <div class="card-title">Puntos por temporada</div>
+        <div class="table-wrap" id="player-season-table" style="padding:12px"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Últimas vueltas</div>
+        <div class="table-wrap" id="player-vueltas-table" style="padding:12px"></div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <div class="card-title">Historial de handicap</div>
+      <div class="table-wrap" id="player-hdcp-table" style="padding:12px"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="page-footer">
+  Cuartillos Club de Golf &nbsp;·&nbsp; Datos actualizados desde la base de datos del club
+</footer>
+
+<script>
+// ─── CONFIG ────────────────────────────────────────────────
+// IMPORTANTE: cambia esta URL base a tu repositorio de GitHub Pages
+const BASE_URL = './datos/';
+
+// ─── CACHE ────────────────────────────────────────────────
+const cache = {};
+async function loadJSON(file) {
+  if (cache[file]) return cache[file];
+  try {
+    const r = await fetch(BASE_URL + file);
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    cache[file] = await r.json();
+    return cache[file];
+  } catch(e) {
+    console.warn('No se pudo cargar', file, e.message);
+    return null;
+  }
+}
+
+// ─── SEASON ────────────────────────────────────────────────
+let currentSeason = 2025;
+function getSeason() { return parseInt(document.getElementById('season-global').value); }
+function onSeasonChange() {
+  currentSeason = getSeason();
+  document.querySelectorAll('[id$="-season-title"],[id="title-season"]').forEach(el => el.textContent = currentSeason);
+  const active = document.querySelector('nav button.active');
+  if (active) {
+    const sec = active.getAttribute('onclick').match(/showSection\('(.+?)'\)/)[1];
+    renderSection(sec);
+  }
+}
+
+// ─── NAVIGATION ───────────────────────────────────────────
+const SECTIONS = ['inicio','calendario','clasificacion','equipos','vueltas','estadisticas','jugador'];
+function showSection(name) {
+  SECTIONS.forEach(s => {
+    document.getElementById('sec-'+s).style.display = (s===name)?'block':'none';
+  });
+  document.querySelectorAll('nav button').forEach((btn,i) => {
+    btn.classList.toggle('active', SECTIONS[i]===name);
+  });
+  renderSection(name);
+}
+
+const rendered = new Set();
+function renderSection(name) {
+  const key = name + '_' + currentSeason;
+  if (rendered.has(key)) return;
+  rendered.add(key);
+  switch(name) {
+    case 'inicio': renderInicio(); break;
+    case 'calendario': renderCalendario(); break;
+    case 'clasificacion': renderClasificacion(); break;
+    case 'equipos': renderEquipos(); break;
+    case 'vueltas': renderVueltas(); break;
+    case 'estadisticas': renderEstadisticas(); break;
+    case 'jugador': initJugador(); break;
+  }
+}
+
+// ─── HELPERS ──────────────────────────────────────────────
+const MESES = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+const TIPOS = {1:'The Final',2:'Normal',3:'Major'};
+const TIPO_CLASS = {1:'tipo-1',2:'tipo-2',3:'tipo-3'};
+function fmtDate(d) {
+  if (!d) return '—';
+  const dt = new Date(d);
+  return `${dt.getDate()} ${MESES[dt.getMonth()]} ${dt.getFullYear()}`;
+}
+function nombre(id) { return id ? id.replace(/^\d+:/,'') : '—' }
+function pts(n) {
+  if (!n && n!==0) return '—';
+  return `<span class="pts-chip">${n.toLocaleString('es')}</span>`;
+}
+
+// ─── INICIO ───────────────────────────────────────────────
+async function renderInicio() {
+  const [cal, clas, ceq] = await Promise.all([
+    loadJSON('calendario.json'),
+    loadJSON('clasificacion.json'),
+    loadJSON('equipos_clasificacion.json')
+  ]);
+  const s = currentSeason;
+
+  // KPIs
+  const torneos = cal ? cal.filter(t => t.temporada === s) : [];
+  const jugados = torneos.filter(t => t.jugado === 1).length;
+  const clasS = clas ? clas.filter(c => c.temporada === s) : [];
+  const jugadores = [...new Set(clasS.map(c => c.idTempJugador))].length;
+  const eqList = ceq ? ceq.equipos.filter(e => e.temporada === s) : [];
+
+  document.getElementById('kpi-grid').innerHTML = `
+    <div class="kpi"><div class="kpi-label">Torneos jugados</div><div class="kpi-value">${jugados}</div><div class="kpi-sub">de ${torneos.length} en la temporada</div></div>
+    <div class="kpi kpi-red"><div class="kpi-label">Jugadores</div><div class="kpi-value">${jugadores}</div><div class="kpi-sub">participantes en ${s}</div></div>
+    <div class="kpi kpi-gold"><div class="kpi-label">Equipos</div><div class="kpi-value">${eqList.length}</div><div class="kpi-sub">en competición</div></div>
+    <div class="kpi kpi-green"><div class="kpi-label">Vueltas registradas</div><div class="kpi-value">${clasS.length}</div><div class="kpi-sub">esta temporada</div></div>
+  `;
+
+  // Top 10 clasificación
+  const puntosMap = {};
+  clasS.forEach(r => {
+    const jug = r.idTempJugador;
+    if (!puntosMap[jug]) puntosMap[jug] = {pts:0, vueltas:0};
+    puntosMap[jug].pts += (r.puntos||0);
+    puntosMap[jug].vueltas++;
+  });
+  const top10 = Object.entries(puntosMap).sort((a,b)=>b[1].pts-a[1].pts).slice(0,10);
+  document.getElementById('home-clas-table').innerHTML = `
+    <table><thead><tr><th>#</th><th>Jugador</th><th>Puntos</th><th>Vueltas</th></tr></thead>
+    <tbody>${top10.map(([id,d],i)=>`
+      <tr><td class="pos-cell">${i+1}</td>
+      <td>${nombre(id)}</td>
+      <td>${pts(d.pts)}</td>
+      <td>${d.vueltas}</td></tr>`).join('')}
+    </tbody></table>`;
+
+  // Equipos
+  const eqPts = {};
+  if (ceq) ceq.clasificacion.filter(c=>c.temporada===s).forEach(r => {
+    const eq = r.idTempEquipo;
+    if (!eqPts[eq] || r.puntosTotales > eqPts[eq]) eqPts[eq] = r.puntosTotales;
+  });
+  const eqRanked = Object.entries(eqPts).sort((a,b)=>b[1]-a[1]);
+  const eqNames = {};
+  if (ceq) ceq.equipos.forEach(e => { eqNames[e.idTempEquipo] = e.nombre; });
+  document.getElementById('home-eq-table').innerHTML = `
+    <table><thead><tr><th>#</th><th>Equipo</th><th>Puntos</th></tr></thead>
+    <tbody>${eqRanked.map(([id,p],i)=>`
+      <tr><td class="pos-cell">${i+1}</td>
+      <td style="font-weight:700">${eqNames[id]||nombre(id)}</td>
+      <td>${pts(p)}</td></tr>`).join('')}
+    </tbody></table>`;
+
+  // Próximos
+  const proximos = torneos.filter(t=>t.jugado!==1).slice(0,3);
+  if (proximos.length === 0) {
+    document.getElementById('home-proximos').innerHTML = '<p style="color:var(--muted);font-size:14px">No hay torneos pendientes en esta temporada.</p>';
+  } else {
+    document.getElementById('home-proximos').innerHTML = proximos.map(t => {
+      const dt = new Date(t.fecha);
+      return `<div class="cal-item" style="margin-bottom:8px">
+        <div class="cal-date">
+          <div class="cal-day">${dt.getDate()}</div>
+          <div class="cal-month">${MESES[dt.getMonth()]}</div>
+        </div>
+        <div class="cal-info">
+          <div class="cal-campo">${t.campo}</div>
+          <div class="cal-meta">Torneo ${t.nTorneo} &middot; ${t.barras||'—'}</div>
+        </div>
+        <div class="cal-tipo">
+          <span class="tipo-badge ${TIPO_CLASS[t.tipoTorneo]||'tipo-2'}">${TIPOS[t.tipoTorneo]||'Liga'}</span>
+        </div>
+      </div>`;
+    }).join('');
+  }
+}
+
+// ─── CALENDARIO ───────────────────────────────────────────
+async function renderCalendario() {
+  document.getElementById('cal-season-title').textContent = currentSeason;
+  const cal = await loadJSON('calendario.json');
+  if (!cal) { document.getElementById('cal-list').innerHTML = '<div class="loader">Error cargando datos</div>'; return; }
+  const torneos = cal.filter(t => t.temporada === currentSeason);
+  document.getElementById('cal-list').innerHTML = torneos.map(t => {
+    const dt = new Date(t.fecha);
+    const jugado = t.jugado === 1;
+    return `<div class="cal-item">
+      <div class="cal-date">
+        <div class="cal-day">${dt.getDate()}</div>
+        <div class="cal-month">${MESES[dt.getMonth()]}</div>
+        <div class="cal-year">${dt.getFullYear()}</div>
+      </div>
+      <div class="cal-info">
+        <div class="cal-campo">${t.campo}</div>
+        <div class="cal-meta">Torneo nº ${t.nTorneo} &middot; Barras ${t.barras||'—'} &middot; Par ${t.parTotal||'72'}</div>
+        ${t.observaciones?`<div class="cal-meta" style="margin-top:4px;font-style:italic">${t.observaciones}</div>`:''}
+      </div>
+      <div class="cal-tipo">
+        <span class="tipo-badge ${TIPO_CLASS[t.tipoTorneo]||'tipo-2'}">${TIPOS[t.tipoTorneo]||'Liga'}</span>
+        <span class="tipo-badge ${jugado?'jugado-si':'jugado-no'}">${jugado?'✓ Jugado':'Pendiente'}</span>
+        ${t.precio?`<span style="font-size:11px;color:var(--muted)">${t.precio}€</span>`:''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ─── CLASIFICACIÓN ────────────────────────────────────────
+async function renderClasificacion() {
+  const clas = await loadJSON('clasificacion.json');
+  if (!clas) return;
+  const s = currentSeason;
+  const puntosMap = {};
+  clas.filter(c=>c.temporada===s).forEach(r => {
+    const jug = r.idTempJugador;
+    if (!puntosMap[jug]) puntosMap[jug] = {pts:0,vueltas:0,handicap:r.handicapReal,neto_sum:0};
+    puntosMap[jug].pts += (r.puntos||0);
+    puntosMap[jug].vueltas++;
+    puntosMap[jug].neto_sum += (r.neto||0);
+    puntosMap[jug].handicap = r.handicapReal;
+  });
+  const ranked = Object.entries(puntosMap).sort((a,b)=>b[1].pts-a[1].pts);
+  document.getElementById('clas-table').innerHTML = `
+    <table><thead><tr>
+      <th>#</th><th>Jugador</th><th>Puntos</th><th>Vueltas</th><th>Neto medio</th><th>Hcp</th>
+    </tr></thead>
+    <tbody>${ranked.map(([id,d],i)=>`
+      <tr>
+        <td class="pos-cell">${i+1}</td>
+        <td style="font-weight:600">${nombre(id)}</td>
+        <td>${pts(d.pts)}</td>
+        <td style="text-align:center">${d.vueltas}</td>
+        <td style="text-align:center">${(d.neto_sum/d.vueltas).toFixed(1)}</td>
+        <td style="text-align:center;color:var(--muted)">${d.handicap!=null?d.handicap:'—'}</td>
+      </tr>`).join('')}
+    </tbody></table>`;
+}
+
+// ─── EQUIPOS ──────────────────────────────────────────────
+async function renderEquipos() {
+  const ceq = await loadJSON('equipos_clasificacion.json');
+  if (!ceq) return;
+  const s = currentSeason;
+  const eqList = ceq.equipos.filter(e=>e.temporada===s);
+  const eqNames = {};
+  eqList.forEach(e=>{eqNames[e.idTempEquipo]=e.nombre});
+  const eqPts = {};
+  ceq.clasificacion.filter(c=>c.temporada===s).forEach(r=>{
+    const eq = r.idTempEquipo;
+    if (!eqPts[eq] || r.puntosTotales > eqPts[eq]) eqPts[eq] = r.puntosTotales;
+  });
+  const ranked = Object.entries(eqPts).sort((a,b)=>b[1]-a[1]);
+  document.getElementById('eq-cards').innerHTML = ranked.map(([id,p],i)=>`
+    <div class="eq-card" style="border-top-color:${['var(--gold)','var(--muted)','#cd7f32','var(--navy)'][Math.min(i,3)]}">
+      <div class="eq-rank">${i+1}</div>
+      <div class="eq-label">Equipo</div>
+      <div class="eq-nombre">${eqNames[id]||nombre(id)}</div>
+      <div class="eq-label" style="margin-top:8px">Puntos totales</div>
+      <div class="eq-puntos">${p.toLocaleString('es')}</div>
+    </div>`).join('');
+
+  // Detalle por torneo
+  const cal = await loadJSON('calendario.json');
+  const torneosS = cal ? cal.filter(t=>t.temporada===s&&t.jugado===1) : [];
+  const detalle = ceq.clasificacion.filter(c=>c.temporada===s);
+  let html = `<table><thead><tr><th>Torneo</th><th>Campo</th>`;
+  ranked.forEach(([id])=>{html+=`<th>${eqNames[id]||nombre(id)}</th>`});
+  html += '</tr></thead><tbody>';
+  torneosS.forEach(t=>{
+    const td = detalle.filter(d=>d.idTorneo===t.id);
+    html += `<tr><td style="font-weight:700">T${t.nTorneo}</td><td>${t.campo}</td>`;
+    ranked.forEach(([id])=>{
+      const dr = td.find(d=>d.idTempEquipo===id);
+      html += dr ? `<td><span class="pts-chip ${dr.ranking===1?'gold':''}">${dr.puntosEquipos||'—'}</span></td>` : '<td style="color:var(--muted)">—</td>';
+    });
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+  document.getElementById('eq-detail-table').innerHTML = html;
+}
+
+// ─── VUELTAS ──────────────────────────────────────────────
+async function renderVueltas() {
+  const [cal, clas] = await Promise.all([loadJSON('calendario.json'), loadJSON('clasificacion.json')]);
+  if (!cal) return;
+  const s = currentSeason;
+  const torneos = cal.filter(t=>t.temporada===s&&t.jugado===1);
+  document.getElementById('torneo-selector').innerHTML = torneos.map(t=>`
+    <button class="torneo-btn" onclick="showVuelta('${t.id}','${t.campo}',${t.nTorneo})">
+      <div class="t-n">T${t.nTorneo}</div>
+      <div class="t-campo">${t.campo}</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:2px">${fmtDate(t.fecha)}</div>
+    </button>`).join('');
+  window._clas = clas;
+}
+
+async function showVuelta(idTorneo, campo, nTorneo) {
+  document.querySelectorAll('.torneo-btn').forEach(b=>b.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+  document.getElementById('vuelta-title').textContent = `Torneo ${nTorneo} — ${campo}`;
+  document.getElementById('vuelta-detalle').style.display = 'block';
+  const clas = window._clas || await loadJSON('clasificacion.json');
+  const rows = clas.filter(c=>c.idTorneo===idTorneo).sort((a,b)=>(a.posicionTorneo||99)-(b.posicionTorneo||99));
+  document.getElementById('vuelta-table').innerHTML = `
+    <table><thead><tr>
+      <th>#</th><th>Jugador</th><th>Hcp</th><th>Bruto</th><th>Neto</th><th>Stab</th><th>Dif Bruto</th><th>Puntos</th>
+    </tr></thead>
+    <tbody>${rows.map(r=>`
+      <tr>
+        <td class="pos-cell">${r.posicionTorneo||'—'}</td>
+        <td style="font-weight:600">${nombre(r.idTempJugador)}</td>
+        <td style="color:var(--muted)">${r.handicapReal!=null?r.handicapReal:'—'}</td>
+        <td>${r.bruto!=null?r.bruto:'—'}</td>
+        <td style="font-weight:600">${r.neto!=null?r.neto:'—'}</td>
+        <td>${r.stab!=null?r.stab:'—'}</td>
+        <td style="color:${r.difBruto<0?'#27ae60':r.difBruto>0?'var(--red)':'inherit'}">${r.difBruto!=null?(r.difBruto>0?'+':'')+r.difBruto:'—'}</td>
+        <td>${pts(r.puntos)}</td>
+      </tr>`).join('')}
+    </tbody></table>`;
+}
+
+// ─── ESTADÍSTICAS ─────────────────────────────────────────
+async function renderEstadisticas() {
+  const [stats, campos] = await Promise.all([
+    loadJSON('estadisticas.json'),
+    loadJSON('campos.json')
+  ]);
+  window._stats = stats;
+  window._campos = campos;
+  if (!stats) return;
+
+  // Populate campo selector
+  const camposUnicos = [...new Set(stats.hoyosPorCampo.map(h=>h.campo))].sort();
+  const sel = document.getElementById('campo-sel');
+  sel.innerHTML = '<option value="">Selecciona campo...</option>' +
+    camposUnicos.map(c=>`<option value="${c}">${c}</option>`).join('');
+
+  // Asistencia
+  const asist = stats.asistencia.sort((a,b)=>a.temporada-b.temporada||a.nTorneo-b.nTorneo);
+  document.getElementById('asistencia-table').innerHTML = `
+    <table><thead><tr><th>Temporada</th><th>Torneo</th><th>Jugadores</th></tr></thead>
+    <tbody>${asist.map(a=>`
+      <tr><td>${a.temporada}</td><td>T${a.nTorneo}</td>
+      <td><div style="display:flex;align-items:center;gap:8px">
+        <div style="height:8px;width:${Math.round(a.jugadores/35*100)}%;background:var(--navy);border-radius:4px;max-width:200px"></div>
+        <span style="font-weight:700">${a.jugadores}</span>
+      </div></td></tr>`).join('')}
+    </tbody></table>`;
+}
+
+function renderHoyosStats() {
+  const campo = document.getElementById('campo-sel').value;
+  if (!campo || !window._stats) return;
+  const hoyos = window._stats.hoyosPorCampo
+    .filter(h=>h.campo===campo)
+    .sort((a,b)=>a.hoyo-b.hoyo);
+  if (hoyos.length === 0) return;
+
+  const maxDif = Math.max(...hoyos.map(h=>Math.abs(h.mediaDifBruto)));
+  const sorted = [...hoyos].sort((a,b)=>a.mediaDifBruto-b.mediaDifBruto);
+  const faciles = sorted.slice(0,5);
+  const dificiles = sorted.slice(-5).reverse();
+
+  function barHtml(h, mode) {
+    const pct = Math.min(100, Math.abs(h.mediaDifBruto)/maxDif*100);
+    const cls = mode==='easy'?'fill-easy':mode==='hard'?'fill-hard':'fill-neutral';
+    const sign = h.mediaDifBruto>0?'+':'';
+    return `<div class="hoyo-bar">
+      <div class="hoyo-num">${h.hoyo}</div>
+      <div class="hoyo-bar-inner"><div class="hoyo-fill ${cls}" style="width:${pct}%"></div></div>
+      <div class="hoyo-val">${sign}${h.mediaDifBruto.toFixed(2)}</div>
+      <div class="hoyo-par">Par ${h.par}</div>
+    </div>`;
+  }
+
+  document.getElementById('hoyos-faciles').innerHTML = faciles.map(h=>barHtml(h,'easy')).join('');
+  document.getElementById('hoyos-dificiles').innerHTML = dificiles.map(h=>barHtml(h,'hard')).join('');
+
+  document.getElementById('all-hoyos-stats').innerHTML = `
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px">
+    ${hoyos.map(h=>`
+      <div style="background:var(--gray);border-radius:6px;padding:10px;text-align:center">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--navy)">Hoyo ${h.hoyo}</div>
+        <div style="font-size:11px;color:var(--muted)">Par ${h.par} &middot; ${h.partidas} vueltas</div>
+        <div style="font-size:20px;font-weight:700;color:${h.mediaDifBruto>0?'var(--red)':'#27ae60'};margin-top:4px">
+          ${h.mediaDifBruto>0?'+':''}${h.mediaBruto.toFixed(1)}
+        </div>
+        <div style="font-size:11px;color:var(--muted)">${h.mediaDifBruto>0?'+':''}${h.mediaDifBruto.toFixed(2)} vs par</div>
+      </div>`).join('')}
+    </div>`;
+}
+
+// ─── JUGADOR PERFIL ───────────────────────────────────────
+let allJugadores = [];
+async function initJugador() {
+  const jug = await loadJSON('jugadores.json');
+  if (!jug) return;
+  allJugadores = jug;
+}
+
+function filterJugadores() {
+  const q = document.getElementById('jugador-search').value.toLowerCase().trim();
+  const sugg = document.getElementById('jugador-suggestions');
+  if (q.length < 2) { sugg.innerHTML=''; return; }
+  const matches = allJugadores.filter(j=>
+    (j.nombre||'').toLowerCase().includes(q) ||
+    (j.mote||'').toLowerCase().includes(q) ||
+    (j.nombreCompleto||'').toLowerCase().includes(q)
+  );
+  const unique = [...new Map(matches.map(j=>[j.nombre,j])).values()].slice(0,8);
+  sugg.innerHTML = unique.map(j=>`
+    <button class="btn" onclick="loadJugadorPerfil('${j.nombre.replace(/'/g,"\\'")}')"
+      style="font-size:12px;padding:6px 14px;background:var(--navy)">
+      ${j.icono||''} ${j.mote||j.nombre}
+    </button>`).join('');
+}
+
+async function loadJugadorPerfil(nombre) {
+  document.getElementById('jugador-suggestions').innerHTML = '';
+  document.getElementById('jugador-search').value = '';
+  const [clas, hdcp] = await Promise.all([
+    loadJSON('clasificacion.json'),
+    loadJSON('handicaps.json')
+  ]);
+  const jug = allJugadores.find(j=>j.nombre===nombre);
+  if (!jug) return;
+  document.getElementById('jugador-perfil').style.display = 'block';
+  document.getElementById('player-header').innerHTML = `
+    <div style="display:flex;align-items:center;gap:14px">
+      <div style="font-size:40px">${jug.icono||'🏌️'}</div>
+      <div>
+        <div class="player-name">${jug.icono||''} ${jug.mote||jug.nombre}</div>
+        <div class="player-meta">${jug.nombreCompleto||nombre}</div>
+        <div class="player-meta" style="margin-top:4px">
+          <span class="badge badge-navy">${jug.licencia}</span>
+        </div>
+      </div>
+    </div>`;
+
+  // Puntos por temporada
+  const clasJ = clas ? clas.filter(c=>c.idTempJugador&&c.idTempJugador.includes(nombre)) : [];
+  const ptsTemp = {};
+  clasJ.forEach(r=>{
+    if (!ptsTemp[r.temporada]) ptsTemp[r.temporada]={pts:0,vueltas:0};
+    ptsTemp[r.temporada].pts += (r.puntos||0);
+    ptsTemp[r.temporada].vueltas++;
+  });
+  document.getElementById('player-season-table').innerHTML = `
+    <table><thead><tr><th>Temporada</th><th>Puntos</th><th>Vueltas</th></tr></thead>
+    <tbody>${Object.entries(ptsTemp).sort((a,b)=>b[0]-a[0]).map(([s,d])=>`
+      <tr><td style="font-weight:700">${s}</td><td>${pts(d.pts)}</td><td>${d.vueltas}</td></tr>`).join('')}
+    </tbody></table>`;
+
+  // Últimas vueltas
+  const ultimas = clasJ.sort((a,b)=>new Date(b.fecha)-new Date(a.fecha)).slice(0,10);
+  document.getElementById('player-vueltas-table').innerHTML = `
+    <table><thead><tr><th>Fecha</th><th>Campo</th><th>Pos</th><th>Neto</th><th>Pts</th></tr></thead>
+    <tbody>${ultimas.map(r=>`
+      <tr>
+        <td style="font-size:12px">${fmtDate(r.fecha)}</td>
+        <td>${r.campo||'—'}</td>
+        <td class="pos-cell" style="font-size:16px">${r.posicionTorneo||'—'}</td>
+        <td>${r.neto!=null?r.neto:'—'}</td>
+        <td>${pts(r.puntos)}</td>
+      </tr>`).join('')}
+    </tbody></table>`;
+
+  // Handicap histórico
+  const hdcpJ = hdcp ? hdcp.filter(h=>h.nombre===nombre).sort((a,b)=>new Date(b.fecha)-new Date(a.fecha)).slice(0,15) : [];
+  document.getElementById('player-hdcp-table').innerHTML = `
+    <table><thead><tr><th>Fecha</th><th>Handicap</th><th>Categoría</th><th>Tipo</th></tr></thead>
+    <tbody>${hdcpJ.map(h=>`
+      <tr>
+        <td>${fmtDate(h.fecha)}</td>
+        <td style="font-weight:700;font-size:16px">${h.handicap}</td>
+        <td>${h.cat||'—'}</td>
+        <td><span class="badge badge-navy" style="font-size:10px">${h.tipo||'—'}</span></td>
+      </tr>`).join('')}
+    </tbody></table>`;
+}
+
+// ─── INIT ─────────────────────────────────────────────────
+showSection('inicio');
+</script>
+
+</body>
+</html>
