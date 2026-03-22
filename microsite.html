@@ -346,16 +346,104 @@ async function renderPortada() {
   el('psl').textContent = 'Temporada ' + s;
   var cal = await load('calendario.json');
   var mx = await load('clas_matrix.json');
+  var ceq = await load('equipos_clasificacion.json');
   var torn = cal ? cal.filter(function(t) { return t.temporada === s; }) : [];
+  var jugados = torn.filter(function(t){return t.jugado===1;}).length;
+  var proximos = torn.filter(function(t){return t.jugado!==1;});
+  var proximo = proximos.length ? proximos[0] : null;
   var jug = mx ? mx.filter(function(m) { return m.temp === s; }) : [];
   var top = jug[0] || null;
   var top2 = jug[1] || null;
-  el('port-kpis').innerHTML =
-    '<div class="kr">' +
-    '<div class="kpi"><div class="kl">Torneos jugados</div><div class="kv">' + torn.filter(function(t){return t.jugado===1;}).length + '</div><div class="ks">de ' + torn.length + '</div></div>' +
-    '<div class="kpi r"><div class="kl">Jugadores</div><div class="kv">' + jug.length + '</div><div class="ks">temporada ' + s + '</div></div>' +
-    '<div class="kpi g"><div class="kl">Líder</div><div class="kv" style="font-size:18px">' + (top ? top.jugador : '—') + '</div><div class="ks">' + (top ? top.total.toLocaleString('es') + ' pts' : '') + '</div></div>' +
-    '<div class="kpi gr"><div class="kl">2º Clasificado</div><div class="kv" style="font-size:18px">' + (top2 ? top2.jugador : '—') + '</div><div class="ks">' + (top2 ? top2.total.toLocaleString('es') + ' pts' : '') + '</div></div>' +
+  var top3 = jug[2] || null;
+
+  // KPIs
+  var kpis = '<div class="kr">' +
+    '<div class="kpi"><div class="kl">Torneos jugados</div><div class="kv">' + jugados + '</div><div class="ks">de ' + torn.length + ' en la liga</div></div>' +
+    '<div class="kpi r"><div class="kl">Jugadores</div><div class="kv">' + jug.length + '</div><div class="ks">participantes ' + s + '</div></div>' +
+    '<div class="kpi g"><div class="kl">🥇 Líder</div><div class="kv" style="font-size:16px">' + (top ? top.jugador : '—') + '</div><div class="ks">' + (top ? top.total.toLocaleString('es') + ' pts' : '') + '</div></div>' +
+    '<div class="kpi gr"><div class="kl">🥈 2º Clasificado</div><div class="kv" style="font-size:16px">' + (top2 ? top2.jugador : '—') + '</div><div class="ks">' + (top2 ? top2.total.toLocaleString('es') + ' pts' : '') + '</div></div>' +
+    '</div>';
+
+  // Next tournament highlight
+  var nextHtml = '';
+  if (proximo) {
+    var dt = new Date(proximo.fecha);
+    var dias = Math.round((dt - new Date()) / (1000*60*60*24));
+    var diasTxt = dias <= 0 ? '¡HOY!' : dias === 1 ? 'mañana' : 'en ' + dias + ' días';
+    nextHtml = '<div style="background:linear-gradient(135deg,var(--navy),#2a4f9f);border-radius:8px;padding:16px 20px;margin-bottom:14px;display:flex;align-items:center;gap:16px;box-shadow:0 4px 16px rgba(27,58,114,.2)">' +
+      '<div style="background:var(--gold);border-radius:6px;padding:10px 14px;text-align:center;flex-shrink:0">' +
+        '<div style="font-family:Bebas Neue,sans-serif;font-size:28px;color:var(--navy);line-height:1">' + dt.getDate() + '</div>' +
+        '<div style="font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--navy);font-weight:700">' + MES[dt.getMonth()] + '</div>' +
+      '</div>' +
+      '<div style="flex:1">' +
+        '<div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:2px">Próximo torneo — ' + diasTxt + '</div>' +
+        '<div style="font-family:Bebas Neue,sans-serif;font-size:22px;color:#fff;letter-spacing:1px">' + proximo.campo + '</div>' +
+        '<div style="font-size:12px;color:rgba(255,255,255,.7)">Torneo nº' + proximo.nTorneo + ' · ' + (proximo.tipoNombre||'Liga') + (proximo.precio ? ' · ' + proximo.precio + '€' : '') + '</div>' +
+      '</div>' +
+      '<div style="font-family:Bebas Neue,sans-serif;font-size:40px;color:rgba(255,255,255,.15)">' + proximo.nTorneo + '</div>' +
+    '</div>';
+  }
+
+  // Top 5 individual
+  var top5html = '<table><thead><tr><th>#</th><th>Jugador</th><th>Puntos</th><th>T jugados</th></tr></thead><tbody>' +
+    jug.slice(0,8).map(function(r,i){
+      return '<tr><td class="rk">'+(i+1)+'</td>' +
+        '<td style="font-weight:600">'+r.jugador+'</td>' +
+        '<td><span class="chip '+(i===0?'g':'')+'">'+(r.total||0).toLocaleString('es')+'</span></td>' +
+        '<td style="color:var(--muted);text-align:center">'+Object.keys(r.torneos||{}).length+'</td></tr>';
+    }).join('') + '</tbody></table>';
+
+  // Top equipos
+  var eqPts = {};
+  var eqN = {};
+  if (ceq) {
+    ceq.equipos.filter(function(e){return e.temporada===s;}).forEach(function(e){eqN[e.idTempEquipo]=e.nombre;});
+    ceq.clasificacion.filter(function(c){return c.temporada===s;}).forEach(function(r){
+      var eq=r.idTempEquipo;
+      if(!eqPts[eq]) eqPts[eq]=0;
+      eqPts[eq]+=(r.puntosTotales||0);
+    });
+  }
+  var eqRanked = Object.entries(eqPts).sort(function(a,b){return b[1]-a[1];});
+  var eqLogosLocal = {
+    'CERDOS ARQUEROS': IMG+'eq_3_cerdos_arqueros.png',
+    'LA ORDEN DEL SWING SAGRADO': IMG+'eq_4_orden_swing.png',
+    'LOS GUARDIANES DEL DAT\u00c1FONO': IMG+'eq_5_guardianes_datafono.png',
+    'ME ALIVIO GOLF CLUB': IMG+'eq_6_me_alivio.png',
+    'NO TE LA LLEVES MAMADO': IMG+'eq_1_no_te_la_lleves.png',
+    'LA AMENAZA FANTASMA': IMG+'eq_7_amenaza_fantasma.png',
+    'GIMBROS': IMG+'eq_2_gimbros.png'
+  };
+  var eqTop = '<table><thead><tr><th>#</th><th>Equipo</th><th>Puntos</th></tr></thead><tbody>' +
+    eqRanked.slice(0,7).map(function(entry,i){
+      var en = eqN[entry[0]]||entry[0].replace('2026:','').replace('2025:','').replace('2024:','');
+      var logo = eqLogosLocal[en] ? '<img src="'+eqLogosLocal[en]+'" style="height:22px;width:22px;border-radius:50%;margin-right:6px;vertical-align:middle">' : '';
+      return '<tr><td class="rk">'+(i+1)+'</td>' +
+        '<td style="font-weight:700">'+logo+en+'</td>' +
+        '<td><span class="chip '+(i===0?'g':'')+'">'+(entry[1]||0).toLocaleString('es')+'</span></td></tr>';
+    }).join('') + '</tbody></table>';
+
+  // Calendar summary
+  var calHtml = torn.map(function(t){
+    var dt2 = new Date(t.fecha); var j2 = t.jugado===1;
+    var isNext = proximo && t.id === proximo.id;
+    return '<div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--gray2);'+(isNext?'background:#fffbea;margin:0 -14px;padding:7px 14px;border-radius:4px':'') +'">' +
+      '<div style="font-weight:700;color:var(--muted);font-size:11px;width:28px;text-align:center">T'+t.nTorneo+'</div>' +
+      '<div style="font-size:11px;color:var(--muted);width:70px">'+dt2.getDate()+' '+MES[dt2.getMonth()]+'</div>' +
+      '<div style="font-weight:'+(isNext?'700':'600')+';flex:1;font-size:13px;color:'+(isNext?'var(--navy)':'inherit')+'">'+t.campo+'</div>' +
+      (isNext ? '<span style="font-size:9px;background:var(--gold);color:var(--navy);font-weight:700;padding:2px 6px;border-radius:10px">PRÓXIMO</span>' :
+       j2 ? '<span style="font-size:9px;background:#d1fae5;color:#065f46;font-weight:700;padding:2px 6px;border-radius:10px">✓</span>' :
+       '<span style="font-size:9px;background:var(--gray2);color:var(--muted);padding:2px 6px;border-radius:10px">Pte</span>') +
+    '</div>';
+  }).join('');
+
+  el('port-kpis').innerHTML = kpis + nextHtml +
+    '<div class="g2" style="margin-top:14px">' +
+      '<div>' +
+        '<div class="card" style="margin-bottom:14px"><div class="ct">🏆 Clasificación Individual</div><div class="tw">'+top5html+'</div></div>' +
+        '<div class="card"><div class="ct">🤝 Clasificación Equipos</div><div class="tw">'+eqTop+'</div></div>' +
+      '</div>' +
+      '<div class="card"><div class="ct">📅 Calendario ' + s + '</div><div style="padding:0 14px 14px">'+calHtml+'</div></div>' +
     '</div>';
 }
 
