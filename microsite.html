@@ -170,9 +170,7 @@ tr:nth-child(3) .rk{color:#cd7f32}
 
 <section id="sec-clasificacion">
   <div class="sh"><h2>Clasificación Individual</h2><div class="ac"></div>
-    <select class="gsel" id="cS" onchange="renderClas()" style="background:var(--navy)">
-      <option value="2025">2025</option><option value="2024">2024</option>
-    </select>
+    
   </div>
   <div id="podio-w" style="margin-bottom:14px"></div>
   <div class="card">
@@ -183,9 +181,7 @@ tr:nth-child(3) .rk{color:#cd7f32}
 
 <section id="sec-equipos">
   <div class="sh"><h2>Clasificación Equipos</h2><div class="ac"></div>
-    <select class="gsel" id="eS" onchange="renderEq()" style="background:var(--navy)">
-      <option value="2025">2025</option><option value="2024">2024</option>
-    </select>
+    
   </div>
   <div class="card"><div class="ct">Puntos por torneo</div><div class="tw" id="eq-pts"></div></div>
   <div class="card"><div class="ct">Neto promedio por equipo y torneo</div><div class="tw" id="eq-neto"></div></div>
@@ -381,7 +377,7 @@ async function renderCal() {
 
 // CLASIFICACIÓN
 async function renderClas() {
-  var s = parseInt(el('cS').value);
+  var s = getSeason();
   var mx = await load('clas_matrix.json');
   var cal = await load('calendario.json');
   if (!mx) { el('clas-m').innerHTML = '<div class="err">No se pudieron cargar los datos</div>'; return; }
@@ -415,7 +411,7 @@ async function renderClas() {
 
 // EQUIPOS
 async function renderEq() {
-  var s = parseInt(el('eS').value);
+  var s = getSeason();
   var ceq = await load('equipos_clasificacion.json');
   var cal = await load('calendario.json');
   if (!ceq) { el('eq-pts').innerHTML = '<div class="err">No se pudieron cargar los datos</div>'; return; }
