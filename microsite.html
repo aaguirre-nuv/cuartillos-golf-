@@ -564,7 +564,7 @@ function loadTorn(btn){
   document.querySelectorAll('.ttab').forEach(function(b){b.classList.remove('active');});
   btn.classList.add('active');
   el('torn-w').style.display='block';
-  el('torn-ttl').textContent=btn.dataset.campo+' &mdash; '+fmtD(btn.dataset.fecha);
+  el('torn-ttl').textContent=btn.dataset.campo+' — '+fmtD(btn.dataset.fecha);
   load('tarjetas.json').then(function(tarj){
     if(!tarj)return;
     var s=parseInt(btn.dataset.id.split(':')[0]),n=parseInt(btn.dataset.ntorn);
@@ -591,6 +591,7 @@ function buildRes(rows){
       '<td>'+dIcon(useN?r.difNetoIda:r.difIda)+' ('+(useN?(r.netoIda||r.ida||'?'):(r.ida||'?'))+')</td>'+
       '<td>'+dIcon(useN?r.difNetoVta:r.difVta)+' ('+(useN?(r.netoVta||r.vta||'?'):(r.vta||'?'))+')</td>'+
       '<td style="color:'+((dif||0)<=0?'#16a34a':'#dc2626')+';font-weight:700">'+(dif!=null?(dif>0?'+':'')+dif:'&mdash;')+'</td>'+
+      '<td style="color:'+((r.difPar||0)<=0?'#16a34a':'#dc2626')+'">'+(r.difPar!=null?(r.difPar>0?'+':'')+r.difPar:'&mdash;')+'</td>'+
       '<td>'+(r.difIda!=null?(r.difIda>0?'+':'')+r.difIda:'&mdash;')+'</td>'+
       '<td>'+(r.difVta!=null?(r.difVta>0?'+':'')+r.difVta:'&mdash;')+'</td>'+
       '<td>'+(r.p3!=null?(r.p3>0?'+':'')+r.p3:'&mdash;')+'</td><td>'+(r.p4!=null?(r.p4>0?'+':'')+r.p4:'&mdash;')+'</td><td>'+(r.p5!=null?(r.p5>0?'+':'')+r.p5:'&mdash;')+'</td>'+
