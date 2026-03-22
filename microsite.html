@@ -397,7 +397,7 @@ return`<span style="color:#dc2626">◆</span> +${d}`;
 async function renderPortada(){
 const s=getSeason();
 document.getElementById(‘psl’).textContent=‘Temporada ‘+s;
-const [cal,mx]=await Promise.all([load(‘calendario.json’),load(‘clas_matrix.json’)]);
+const [cal,mx]=await Promise.all([load(‘calendario.json’),load(‘clas%20matrix.json’)]);
 const torn=cal?cal.filter(t=>t.temporada===s):[];
 const jug=mx?mx.filter(m=>m.temp===s):[];
 const top=jug[0];
@@ -425,7 +425,7 @@ return`<div class="ci"> <div class="cid"><div class="cdday">${dt.getDate()}</div
 // CLASIFICACIÓN MATRIX
 async function renderClas(){
 const s=parseInt(document.getElementById(‘cS’).value);
-const [mx,cal]=await Promise.all([load(‘clas_matrix.json’),load(‘calendario.json’)]);
+const [mx,cal]=await Promise.all([load(‘clas%20matrix.json’),load(‘calendario.json’)]);
 if(!mx)return;
 const rows=mx.filter(m=>m.temp===s);
 const torn=cal?cal.filter(t=>t.temporada===s&&t.jugado===1).sort((a,b)=>a.nTorneo-b.nTorneo):[];
