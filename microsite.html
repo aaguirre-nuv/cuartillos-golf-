@@ -121,9 +121,12 @@ tr:nth-child(3) .rk{color:#cd7f32}
 <body>
 <header>
   <div class="hdr">
-    <div class="logo">
-      <div class="lt1">Cuartillos</div>
-      <div class="lt2">Club de Golf</div>
+    <div class="logo" style="display:flex;align-items:center;gap:8px">
+      <img src="./img/logo_cuartillos.jpeg" alt="Cuartillos" style="height:44px;width:auto" onerror="this.style.display="none"">
+      <div>
+        <div class="lt1">Cuartillos</div>
+        <div class="lt2">Club de Golf</div>
+      </div>
     </div>
     <nav id="nav">
       <button onclick="show('portada')" class="active">Inicio</button>
@@ -253,7 +256,8 @@ tr:nth-child(3) .rk{color:#cd7f32}
 </main>
 <script>
 'use strict';
-const BASE = './';
+const BASE = './datos/';
+const IMG = './img/';;
 const MES = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
 const TIPOS = {1:'The Final', 2:'Normal', 3:'Major'};
 const TC = {1:'t1', 2:'t2', 3:'t3'};
@@ -427,11 +431,23 @@ async function renderEq() {
     if ((r.puntosTotales||0) > eqPts[r.idTempEquipo].total) eqPts[r.idTempEquipo].total = r.puntosTotales||0;
   });
   var ranked = Object.entries(eqPts).sort(function(a,b){ return b[1].total-a[1].total; });
+  // Build team logo map
+  var eqLogos = {
+    'CERDOS ARQUEROS': IMG + 'eq_3_cerdos_arqueros.png',
+    'LA ORDEN DEL SWING SAGRADO': IMG + 'eq_4_orden_swing.png',
+    'LOS GUARDIANES DEL DAT\u00c1FONO': IMG + 'eq_5_guardianes_datafono.png',
+    'ME ALIVIO GOLF CLUB': IMG + 'eq_6_me_alivio.png',
+    'NO TE LA LLEVES MAMADO': IMG + 'eq_1_no_te_la_lleves.png',
+    'LA AMENAZA FANTASMA': IMG + 'eq_7_amenaza_fantasma.png',
+    'GIMBROS': IMG + 'eq_2_gimbros.png'
+  };
   var h1 = '<table><thead><tr><th style="width:28px">#</th><th style="text-align:left;padding-left:8px">Equipo</th>' +
     torn.map(function(t){ return '<th>T'+t.nTorneo+'</th>'; }).join('') + '<th>Total</th></tr></thead><tbody>';
   ranked.forEach(function(entry, i) {
     var id=entry[0], d=entry[1];
-    h1 += '<tr><td class="rk">'+(i+1)+'</td><td style="font-weight:700;padding-left:8px">'+(eqN[id]||nb(id))+'</td>' +
+    var eqNombre = eqN[id]||nb(id);
+    var eqLogo = eqLogos[eqNombre] ? '<img src="'+eqLogos[eqNombre]+'" style="height:24px;width:24px;border-radius:50%;margin-right:6px;vertical-align:middle">' : '';
+    h1 += '<tr><td class="rk">'+(i+1)+'</td><td style="font-weight:700;padding-left:8px">'+eqLogo+eqNombre+'</td>' +
       tids.map(function(tid){ var p=d[tid]||0; return p?'<td class="'+ptsC(p)+'">'+p+'</td>':'<td style="color:#cbd5e1">—</td>'; }).join('') +
       '<td style="font-weight:700">'+(d.total||0).toLocaleString('es')+'</td></tr>';
   });
