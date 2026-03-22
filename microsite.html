@@ -53,14 +53,14 @@ tr:nth-child(3) .rk{color:#cd7f32}
 .p400{background:#93c5fd;color:#1e3a8a;font-weight:700;border-radius:3px;padding:1px 3px}
 .p330{background:#bfdbfe;color:#1e3a8a;border-radius:3px;padding:1px 3px}
 .p100{background:#dbeafe;color:#1e3a8a;border-radius:3px;padding:1px 3px}
-.nocp{color:#cbd5e1!important;font-style:italic;font-size:11px}
+.nocp{color:#e8ecf2!important;font-size:11px}
 .sc{border-collapse:collapse;font-size:12px}
 .sc thead{position:sticky;top:0;z-index:10}
 .sc th{background:var(--navy);color:#fff;padding:4px 5px;font-size:10px;font-family:"Barlow Condensed",sans-serif;font-weight:700;text-align:center;min-width:26px}
 .sc th.scol{z-index:20}
 .sc td{border:1px solid var(--gray2);padding:3px 4px;text-align:center}
 .sc .jc{text-align:left;font-weight:600;padding-left:8px;min-width:100px}
-.sc .st{background:#f1f5f9;font-weight:700}
+.sc .st{background:#e8ecf2;font-weight:700;color:#1a2235}
 .par-row td{background:#f0f4ff;font-size:10px;color:var(--muted);font-weight:600}
 .he{background:#1d4ed8;color:#fff;font-weight:700;border-radius:50%;display:inline-block;width:20px;height:20px;line-height:20px;font-size:11px}
 .hb{background:#bfdbfe;color:#1e3a8a;font-weight:700;border-radius:50%;display:inline-block;width:20px;height:20px;line-height:20px;font-size:11px}
@@ -430,26 +430,40 @@ function renderClas(){
         torn=cal?cal.filter(function(t){return t.temporada===s&&t.jugado===1;}).sort(function(a,b){return a.nTorneo-b.nTorneo;}):[],
         tids=torn.map(function(t){return t.id;}),
         nP=rows.length&&rows[0].nPunt?rows[0].nPunt:0;
-    el('clas-sub').textContent='Puntos &mdash; computan los mejores '+nP+' de '+torn.length+' jugados';
+    el('clas-sub').textContent='Puntos — computan los mejores '+nP+' de '+torn.length+' jugados';
     var t3=rows.slice(0,3),icons=['&#127941;','&#129352;','&#129353;'];
     el('podio-w').innerHTML='<div class="podio">'+[1,0,2].map(function(i){return t3[i]?'<div class="pod '+(i===0?'pod1':i===1?'pod2':'pod3')+'"><div style="font-size:22px">'+icons[i]+'</div><div class="pn">'+t3[i].jugador+'</div><div class="pp">'+(t3[i].total||0).toLocaleString('es')+'</div></div>':'';}).join('')+'</div>';
     var cset={};rows.forEach(function(r){if(r.computan)r.computan.forEach(function(t){cset[r.jugador+':'+t]=1;});});
+    // Build top3 per torneo
+    var top3PerTorn={};
+    tids.forEach(function(tid){
+      var pts_in_torn=[];
+      rows.forEach(function(r){var p=r.torneos&&r.torneos[tid]?r.torneos[tid]:0;if(p)pts_in_torn.push({j:r.jugador,p:p});});
+      pts_in_torn.sort(function(a,b){return b.p-a.p;});
+      pts_in_torn.slice(0,3).forEach(function(d,i){if(!top3PerTorn[tid])top3PerTorn[tid]={};top3PerTorn[tid][d.j]=i+1;});
+    });
+    var top3Styles=['background:#FFD700;color:#1B3A72;font-weight:800;border-radius:3px;padding:1px 4px',
+                    'background:#C0C0C0;color:#1B3A72;font-weight:700;border-radius:3px;padding:1px 4px',
+                    'background:#CD7F32;color:#fff;font-weight:700;border-radius:3px;padding:1px 4px'];
     var h='<table><thead><tr>'+
       '<th class="scol" style="width:28px;left:0">#</th>'+
       '<th class="scol" style="left:30px;min-width:130px">Jugador</th>'+
       torn.map(function(t){return '<th title="'+t.campo+'">T'+t.nTorneo+'</th>';}).join('')+
-      '<th>Total</th><th style="color:rgba(255,255,255,.7)">Cptn</th></tr></thead><tbody>';
+      '<th>Total</th></tr></thead><tbody>';
     rows.forEach(function(r){
       h+='<tr>'+
         '<td class="rk scol" style="left:0">'+r.rk+'</td>'+
         '<td class="scol" style="left:30px">'+r.jugador+'</td>'+
         tids.map(function(tid){
           var p=r.torneos&&r.torneos[tid]?r.torneos[tid]:0;
-          if(!p)return '<td style="color:#cbd5e1">&mdash;</td>';
-          return '<td class="'+(cset[r.jugador+':'+tid]?ptsC(p):'nocp')+'">'+p+'</td>';
+          if(!p)return '<td style="color:#f0f2f5">&mdash;</td>';
+          var computa=cset[r.jugador+':'+tid];
+          var t3pos=top3PerTorn[tid]&&top3PerTorn[tid][r.jugador];
+          var style=t3pos?top3Styles[t3pos-1]:'';
+          if(!computa)return '<td class="nocp">'+p+'</td>';
+          return '<td class="'+(style?'':ptsC(p))+'" style="'+style+'">'+p+'</td>';
         }).join('')+
-        '<td style="font-weight:700">'+(r.total||0).toLocaleString('es')+'</td>'+
-        '<td style="color:var(--muted);font-size:11px">'+(r.nPunt&&r.nJugados?r.nPunt+'/'+r.nJugados:'')+'</td></tr>';
+        '<td style="font-weight:700">'+(r.total||0).toLocaleString('es')+'</td></tr>';
     });
     el('clas-m').innerHTML=h+'</tbody></table>';
   });
@@ -464,7 +478,7 @@ function renderEq(){
         tids=torn.map(function(t){return t.id;}),eqN={},eqD={};
     ceq.equipos.filter(function(e){return e.temporada===s;}).forEach(function(e){eqN[e.idTempEquipo]=e.nombre;eqD[e.nombre]=e;});
     var nP=0;ceq.equipos.filter(function(e){return e.temporada===s&&e.nPunt;}).forEach(function(e){nP=e.nPunt;});
-    if(nP)el('eq-sub').textContent='Puntos &mdash; computan los mejores '+nP;
+    if(nP)el('eq-sub').textContent='Puntos — computan los mejores '+nP;
     var eTornPts={};
     ceq.clasificacion.filter(function(c){return c.temporada===s;}).forEach(function(r){
       var en=eqN[r.idTempEquipo]||nb(r.idTempEquipo);
@@ -476,7 +490,7 @@ function renderEq(){
       '<th class="scol" style="width:24px;left:0">#</th>'+
       '<th class="scol" style="left:24px;min-width:140px">Equipo</th>'+
       torn.map(function(t){return '<th>T'+t.nTorneo+'</th>';}).join('')+
-      '<th>Total</th><th style="color:rgba(255,255,255,.7)">Cptn</th></tr></thead><tbody>';
+      '<th>Total</th></tr></thead><tbody>';
     eqR.forEach(function(en,i){
       var d=eqD[en]||{},cset={};
       if(d.computan)d.computan.forEach(function(t){cset[t]=1;});
@@ -488,8 +502,7 @@ function renderEq(){
           var p=(r.puntosEquipos||0)+(r.puntosAsistencia||0);
           return '<td class="'+(cset[tid]?ptsC(p):'nocp')+'" title="Pos:'+(r.puntosEquipos||0)+' Asist:'+(r.puntosAsistencia||0)+'">'+p+'</td>';
         }).join('')+
-        '<td style="font-weight:700">'+(d.total||0).toLocaleString('es')+'</td>'+
-        '<td style="color:var(--muted);font-size:11px">'+(d.nPunt&&d.nJugados?d.nPunt+'/'+d.nJugados:'')+'</td></tr>';
+        '<td style="font-weight:700">'+(d.total||0).toLocaleString('es')+'</td></tr>';
     });
     el('eq-pts').innerHTML=h1+'</tbody></table>';
     var h2='<table><thead><tr>'+
@@ -562,16 +575,20 @@ function setC(m){cMode=m;el('tn').classList.toggle('active',m==='neto');el('tb2'
 
 function buildRes(rows){
   var useN=cMode==='neto';
-  var sorted=rows.slice().sort(function(a,b){return(a.total||99)-(b.total||99);});
+  var sorted=rows.slice().sort(function(a,b){
+    var va=useN?(a.netoTotal||a.total||99):(a.total||99);
+    var vb=useN?(b.netoTotal||b.total||99):(b.total||99);
+    return va-vb;
+  });
   sorted.forEach(function(r,i){r._rk=i+1;});
   var h='<table><thead><tr><th>#</th><th class="scol" style="left:30px">Jugador</th><th>Pts</th><th>Golpes</th><th>Ida</th><th>Vta</th><th>&Delta;Par</th><th>&Delta;Ida</th><th>&Delta;Vta</th><th>P3</th><th>P4</th><th>P5</th><th>&#127945;</th><th>&#127894;</th><th>Par</th><th>Bog</th><th>2B</th><th>3B+</th></tr></thead><tbody>';
   sorted.forEach(function(r){
     var dif=r.difPar;
     h+='<tr><td class="rk">'+r._rk+'</td><td class="scol" style="left:30px">'+r.nombre+'</td>'+
       '<td>'+(r.pts?'<span class="chip '+(r._rk===1?'g':'')+'">'+r.pts+'</span>':'&mdash;')+'</td>'+
-      '<td style="font-weight:700">'+(r.total||'&mdash;')+'</td>'+
-      '<td>'+dIcon(r.difIda)+' ('+(r.ida||'?')+')</td>'+
-      '<td>'+dIcon(r.difVta)+' ('+(r.vta||'?')+')</td>'+
+      '<td style="font-weight:700">'+(useN?(r.netoTotal||r.total||'&mdash;'):(r.total||'&mdash;'))+'</td>'+
+      '<td>'+dIcon(useN?r.difNetoIda:r.difIda)+' ('+(useN?(r.netoIda||r.ida||'?'):(r.ida||'?'))+')</td>'+
+      '<td>'+dIcon(useN?r.difNetoVta:r.difVta)+' ('+(useN?(r.netoVta||r.vta||'?'):(r.vta||'?'))+')</td>'+
       '<td style="color:'+((dif||0)<=0?'#16a34a':'#dc2626')+';font-weight:700">'+(dif!=null?(dif>0?'+':'')+dif:'&mdash;')+'</td>'+
       '<td>'+(r.difIda!=null?(r.difIda>0?'+':'')+r.difIda:'&mdash;')+'</td>'+
       '<td>'+(r.difVta!=null?(r.difVta>0?'+':'')+r.difVta:'&mdash;')+'</td>'+
@@ -584,7 +601,11 @@ function buildRes(rows){
 }
 function buildSC(rows,elId,forceN){
   var useN=forceN!=null?forceN:(cMode==='neto');
-  var sorted=rows.slice().sort(function(a,b){return(a.total||99)-(b.total||99);});
+  var sorted=rows.slice().sort(function(a,b){
+    var va=useN?(a.netoTotal||a.total||99):(a.total||99);
+    var vb=useN?(b.netoTotal||b.total||99):(b.total||99);
+    return va-vb;
+  });
   var hs=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18];
   var parH={};
   if(sorted.length&&sorted[0].hoyos){hs.forEach(function(i){var hh=sorted[0].hoyos[i];if(hh&&hh.p)parH[i]=hh.p;});}
@@ -595,9 +616,9 @@ function buildSC(rows,elId,forceN){
   var h='<table class="sc"><thead>'+
     '<tr><th class="jc scol" style="left:0">Jugador</th>'+
     hs.slice(0,9).map(function(i){return '<th>'+i+'</th>';}).join('')+
-    '<th class="st">IDA</th>'+
+    '<th class="st" style="color:#fff">IDA</th>'+
     hs.slice(9).map(function(i){return '<th>'+i+'</th>';}).join('')+
-    '<th class="st">VTA</th><th class="st">TOT</th></tr>'+
+    '<th class="st" style="color:#fff">VTA</th><th class="st" style="color:#fff">TOT</th></tr>'+
     '<tr class="par-row"><td class="jc scol" style="left:0;background:#f0f4ff">Par</td>'+
     hs.slice(0,9).map(function(i){return '<td>'+(parH[i]||'')+'</td>';}).join('')+
     '<td class="st">'+(parIda||'')+'</td>'+
