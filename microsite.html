@@ -341,9 +341,21 @@ let cMode='neto', jMode='neto';
 
 async function load(f){
 if(cache[f]!==undefined) return cache[f];
-try{ const r=await fetch(BASE+f); cache[f]=r.ok?await r.json():null; }
-catch(e){ cache[f]=null; }
+try{
+const r=await fetch(BASE+f);
+if(!r.ok){ cache[f]=null; console.error(’ERROR ‘+r.status+’ cargando ’+f); return null; }
+cache[f]=await r.json();
+} catch(e){ cache[f]=null; console.error(’FETCH FAIL ‘+f+’: ’+e.message); }
 return cache[f];
+}
+
+async function checkFiles(){
+const files=[‘calendario.json’,‘clas%20matrix.json’,‘tarjetas.json’,‘equipos%20clasificacion.json’,‘estadisticas.json’,‘campos.json’,‘jugadores.json’,‘handicaps.json’];
+const results = await Promise.all(files.map(async f=>{
+try{ const r=await fetch(BASE+f); return f+’: ’+(r.ok?‘✅ OK’:’❌ ‘+r.status); }
+catch(e){ return f+’: ❌ ’+e.message; }
+}));
+document.getElementById(‘port-kpis’).innerHTML=` <div style="background:#1e293b;color:#e2e8f0;padding:16px;border-radius:8px;font-family:monospace;font-size:12px"> <div style="color:#fbbf24;font-weight:700;margin-bottom:8px">🔍 Estado de ficheros JSON:</div> ${results.map(r=>`<div>${r}</div>`).join('')} <div style="margin-top:8px;color:#94a3b8">BASE_URL: ${BASE}</div> </div>`;
 }
 
 const SECS=[‘portada’,‘calendario’,‘clasificacion’,‘equipos’,‘tarjetas’,‘jugador’,‘estadisticas’];
@@ -648,7 +660,7 @@ const bar=(h,m)=>`<div class="sbr">
     <td style="color:${h.mediaDifBruto>0?'#dc2626':'#16a34a'};font-weight:700">${(h.mediaDifBruto>0?'+':'')+h.mediaDifBruto.toFixed(2)}</td>
   </tr>`).join('')}</tbody></table>`;
 }
-renderPortada();
-</script>
+checkFiles();
+// renderPortada();
 </body>
 </html>
