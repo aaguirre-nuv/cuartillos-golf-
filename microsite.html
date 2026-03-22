@@ -429,7 +429,7 @@ function renderClas(){
     if(!mx)return;
     var rows=mx.filter(function(m){return m.temp===s;}),
         torn=cal?cal.filter(function(t){return t.temporada===s&&t.jugado===1;}).sort(function(a,b){return a.nTorneo-b.nTorneo;}):[],
-        tids=torn.map(function(t){return t.id;}),
+        tids=torn.map(function(t){return t.id||t.temporada+':'+t.nTorneo;}),
         nP=rows.length&&rows[0].nPunt?rows[0].nPunt:0;
     el('clas-sub').textContent='Puntos — computan los mejores '+nP+' de '+torn.length+' jugados';
     var t3=rows.slice(0,3),icons=['&#127941;','&#129352;','&#129353;'];
@@ -476,15 +476,27 @@ function renderEq(){
     var ceq=res[0],cal=res[1];
     if(!ceq)return;
     var torn=cal?cal.filter(function(t){return t.temporada===s&&t.jugado===1;}).sort(function(a,b){return a.nTorneo-b.nTorneo;}):[],
-        tids=torn.map(function(t){return t.id;}),eqN={},eqD={};
+        tids=torn.map(function(t){return t.id||t.temporada+':'+t.nTorneo;}),eqN={},eqD={};
     ceq.equipos.filter(function(e){return e.temporada===s;}).forEach(function(e){eqN[e.idTempEquipo]=e.nombre;eqD[e.nombre]=e;});
     var nP=0;ceq.equipos.filter(function(e){return e.temporada===s&&e.nPunt;}).forEach(function(e){nP=e.nPunt;});
     if(nP)el('eq-sub').textContent='Puntos — computan los mejores '+nP;
     var eTornPts={};
+    // Also build by idTempEquipo directly as fallback key
+    var eTornPtsById={};
     ceq.clasificacion.filter(function(c){return c.temporada===s;}).forEach(function(r){
       var en=eqN[r.idTempEquipo]||nb(r.idTempEquipo);
       if(!eTornPts[en])eTornPts[en]={};
       eTornPts[en][r.idTorneo]=r;
+      // Also index by raw idTempEquipo for safety
+      if(!eTornPtsById[r.idTempEquipo])eTornPtsById[r.idTempEquipo]={};
+      eTornPtsById[r.idTempEquipo][r.idTorneo]=r;
+    });
+    // Merge any missed entries
+    Object.keys(eTornPtsById).forEach(function(eid){
+      var en2=eqN[eid]||nb(eid);
+      if(!eTornPts[en2]||Object.keys(eTornPts[en2]).length===0){
+        eTornPts[en2]=eTornPtsById[eid];
+      }
     });
     var eqR=Object.keys(eTornPts).sort(function(a,b){var ta=eqD[a]?eqD[a].total||0:0,tb=eqD[b]?eqD[b].total||0:0;return tb-ta;});
     var h1='<table><thead><tr>'+
