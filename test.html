@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="r">Cargando...</div>
+<script>
+fetch('./calendario.json')
+  .then(r=>r.json())
+  .then(d=>document.getElementById('r').innerHTML='✅ OK — '+d.length+' torneos')
+  .catch(e=>document.getElementById('r').innerHTML='❌ Error: '+e.message);
+</script>
+</body>
+</html>
