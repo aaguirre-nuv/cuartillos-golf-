@@ -452,7 +452,7 @@ document.getElementById(‘clas-m’).innerHTML=html;
 // EQUIPOS
 async function renderEq(){
 const s=parseInt(document.getElementById(‘eS’).value);
-const [ceq,cal]=await Promise.all([load(‘equipos_clasificacion.json’),load(‘calendario.json’)]);
+const [ceq,cal]=await Promise.all([load(‘equipos%20clasificacion.json’),load(‘calendario.json’)]);
 if(!ceq)return;
 const torn=cal?cal.filter(t=>t.temporada===s&&t.jugado===1).sort((a,b)=>a.nTorneo-b.nTorneo):[];
 const tids=torn.map(t=>t.id);
