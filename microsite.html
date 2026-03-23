@@ -456,6 +456,10 @@ function renderClas(){
       '<th class="scol" style="left:30px;min-width:130px">Jugador</th>'+
       torn.map(function(t){return '<th title="'+t.campo+'">T'+t.nTorneo+'</th>';}).join('')+
       '<th>Total</th></tr></thead><tbody>';
+    // Build jugador->equipo from cached tarjetas (no extra fetch)
+    var jugEq={};
+    var tarjC=cache['tarjetas.json'];
+    if(tarjC){tarjC.filter(function(t){return t.temp===s&&t.nombreEq;}).forEach(function(t){jugEq[t.nombre]=t.nombreEq;});}
     rows.forEach(function(r){
       var eqLogo=jugEq[r.jugador]?logoH(jugEq[r.jugador]):'';
       var sinEq=r.sinEquipo===true;
