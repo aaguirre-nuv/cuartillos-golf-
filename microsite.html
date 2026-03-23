@@ -513,8 +513,10 @@ function renderEq(){
         tids.map(function(tid){
           var r=eTornPts[en]&&eTornPts[en][tid];
           if(!r)return '<td style="color:#cbd5e1">&mdash;</td>';
-          var p=(r.puntosEquipos||0)+(r.puntosAsistencia||0);
-          return '<td class="'+(cset[tid]?ptsC(p):'nocp')+'" title="Pos:'+(r.puntosEquipos||0)+' Asist:'+(r.puntosAsistencia||0)+'">'+p+'</td>';
+          var pp=r.puntosEquipos||0, pa=r.puntosAsistencia||0, p=pp+pa;
+          var computa=cset[tid];
+          var breakdown=pa>0?'<br><span style="font-size:9px;font-weight:400;opacity:0.75">'+pp+'+'+pa+'</span>':'';
+          return '<td class="'+(computa?ptsC(p):'nocp')+'" style="line-height:1.2">'+p+breakdown+'</td>';
         }).join('')+
         '<td style="font-weight:700">'+(d.total||0).toLocaleString('es')+'</td></tr>';
     });
