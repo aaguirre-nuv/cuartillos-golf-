@@ -146,6 +146,7 @@ tr:nth-child(3) .rk{color:#cd7f32}
       <button onclick="show('tarjetas')">Tarjetas</button>
       <button onclick="show('jugador')">Mi Perfil</button>
       <button onclick="show('estadisticas')">Estadísticas</button>
+      <button onclick="show('csc')">CSC</button>
     </nav>
     <select class="gsel" id="gS" onchange="onSeason()">
       <option value="2026">2026</option>
@@ -255,6 +256,14 @@ tr:nth-child(3) .rk{color:#cd7f32}
     <div class="card"><div class="ct">Promedio por hoyo</div><div class="tw" id="h-table"></div></div>
   </div>
 </section>
+<section id="sec-csc">
+  <div class="sh"><h2>Liga CSC &mdash; Federación de Madrid</h2><div class="ac"></div></div>
+  <div class="ttabs" id="csc-tabs">
+    <button class="ttab active" onclick="showCSC('ES',this)">Entre Semana</button>
+    <button class="ttab" onclick="showCSC('FS',this)">Fin de Semana</button>
+  </div>
+  <div id="csc-content"></div>
+</section>
 </main>
 <script>
 
@@ -263,9 +272,101 @@ var IMG='./img/';
 var MES=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
 var TIPOS={1:'The Final',2:'Normal',3:'Major'};
 var TC={1:'t1',2:'t2',3:'t3'};
-var SECS=['portada','calendario','clasificacion','equipos','tarjetas','jugador','estadisticas'];
+var SECS=['portada','calendario','clasificacion','equipos','tarjetas','jugador','estadisticas','csc'];
 var cache={};
 var done={};
+var cscData=null;
+var cscMode='ES';
+
+function renderCSC(){
+  load('csc.json').then(function(data){
+    cscData=data;
+    showCSC(cscMode,null);
+  });
+}
+function showCSC(mode,btn){
+  cscMode=mode;
+  document.querySelectorAll('#csc-tabs .ttab').forEach(function(b){b.classList.remove('active');});
+  if(btn)btn.classList.add('active');
+  else{var tabs=document.querySelectorAll('#csc-tabs .ttab');if(mode==='ES')tabs[0].classList.add('active');else tabs[1].classList.add('active');}
+  if(!cscData)return;
+  var mod=cscData.modalidades.filter(function(m){return m.id===mode;})[0];
+  if(!mod)return;
+  var today=new Date();
+
+  // Find next match
+  var proxPartido=null;
+  for(var i=0;i<mod.partidos.length;i++){
+    if(!mod.partidos[i].resultado){proxPartido=mod.partidos[i];break;}
+  }
+
+  // Clasificatorio banner
+  var clsBanner='<div style="background:linear-gradient(135deg,var(--navy),#2a4f9f);border-radius:8px;padding:14px 18px;margin-bottom:14px;display:flex;align-items:center;gap:16px;color:#fff">'+
+    '<div style="background:var(--gold);border-radius:6px;padding:8px 14px;text-align:center;flex-shrink:0">'+
+      '<div style="font-family:Bebas Neue,sans-serif;font-size:28px;color:var(--navy);line-height:1">'+mod.posClasificatorio+'&#186;</div>'+
+      '<div style="font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--navy);font-weight:700">Clasif.</div>'+
+    '</div>'+
+    '<div style="flex:1">'+
+      '<div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6)">Clasificatorio &mdash; '+fmtD(mod.fechaClasificatorio)+'</div>'+
+      '<div style="font-family:Bebas Neue,sans-serif;font-size:20px;letter-spacing:1px">'+mod.campoClasificatorio+'</div>'+
+      '<div style="font-size:12px;color:rgba(255,255,255,.7);margin-top:2px">'+
+        mod.jugadoresClasificatorio.join(' &middot; ')+
+      '</div>'+
+    '</div>'+
+    '<div style="text-align:center">'+
+      '<div style="font-family:Bebas Neue,sans-serif;font-size:40px;color:var(--gold);line-height:1">'+mod.ptosClasificatorio+'</div>'+
+      '<div style="font-size:10px;color:rgba(255,255,255,.6)">puntos</div>'+
+    '</div>'+
+    '<div style="text-align:right;min-width:80px">'+
+      '<div style="font-size:10px;color:rgba(255,255,255,.6)">'+mod.grupo+'</div>'+
+      '<div style="font-size:11px;font-weight:700;margin-top:2px">Clasificados &#10003;</div>'+
+    '</div>'+
+  '</div>';
+
+  // Matches calendar
+  var matchesH='<div class="card" style="margin-bottom:14px"><div class="ct">Calendario Match Play &mdash; '+mod.nombre+'</div>';
+  mod.partidos.forEach(function(p){
+    var dt=new Date(p.fecha);
+    var isNext=proxPartido&&p.id===proxPartido.id;
+    var done=p.resultado!==null;
+    var resColor=p.resultado==='G'?'#16a34a':p.resultado==='P'?'#dc2626':p.resultado==='E'?'#d97706':'var(--muted)';
+    var resLabel=p.resultado==='G'?'GANADO':p.resultado==='P'?'PERDIDO':p.resultado==='E'?'EMPATE':'Pendiente';
+    matchesH+='<div style="display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--gray2);'+(isNext?'background:#fffbea':'')+'">'+
+      '<div style="background:'+(isNext?'var(--gold)':'var(--navy)')+';color:'+(isNext?'var(--navy)':'#fff')+';border-radius:5px;padding:6px 10px;text-align:center;min-width:48px;flex-shrink:0">'+
+        '<div style="font-family:Bebas Neue,sans-serif;font-size:20px;line-height:1">'+dt.getDate()+'</div>'+
+        '<div style="font-size:8px;letter-spacing:1px;text-transform:uppercase">'+MES[dt.getMonth()]+'</div>'+
+      '</div>'+
+      '<div style="flex:1">'+
+        '<div style="font-weight:700;font-size:13px">'+
+          (p.local?'<span style="background:#dbeafe;color:#1e40af;font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-right:5px">LOCAL</span>':'<span style="background:#f3f4f6;color:#6b7280;font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-right:5px">VISITA</span>')+
+          'vs '+p.rival+
+        '</div>'+
+        '<div style="font-size:11px;color:var(--muted);margin-top:2px">'+p.campo+' &middot; '+p.formato+'</div>'+
+        (p.jugadores&&p.jugadores.length?'<div style="font-size:11px;color:var(--navy);margin-top:2px">&#9968; '+p.jugadores.join(', ')+'</div>':'')+
+      '</div>'+
+      '<div style="text-align:right;flex-shrink:0">'+
+        (isNext?'<span class="tb tnext">PR&Oacute;XIMO</span>':
+         done?'<span style="font-weight:700;color:'+resColor+'">'+resLabel+'</span>':
+         '<span style="color:var(--muted);font-size:11px">Pendiente</span>')+
+      '</div>'+
+    '</div>';
+  });
+  matchesH+='</div>';
+
+  // Eligible players
+  var eligH='<div class="card"><div class="ct">Jugadores elegibles &mdash; '+mod.elegibles.length+' miembros</div>'+
+    '<div style="display:flex;flex-wrap:wrap;gap:6px;padding:12px 14px">';
+  mod.elegibles.forEach(function(j){
+    var jugado=mod.partidos.some(function(p){return p.jugadores&&p.jugadores.indexOf(j.nombre)>=0;});
+    var jugadoClasif=mod.jugadoresClasificatorio.indexOf(j.nombre)>=0;
+    eligH+='<div style="background:'+(jugado?'#dbeafe':jugadoClasif?'#d1fae5':'var(--gray2)')+';border-radius:20px;padding:4px 12px;font-size:12px;font-weight:'+(jugado||jugadoClasif?'700':'400')+'">'+j.nombre+'</div>';
+  });
+  eligH+='</div></div>';
+
+  el('csc-content').innerHTML=clsBanner+matchesH+eligH;
+}
+
+
 var cMode='neto';
 var jMode='neto';
 
@@ -329,6 +430,7 @@ function render(name){
   else if(name==='tarjetas')renderTabs();
   else if(name==='jugador')initJSel();
   else if(name==='estadisticas')renderStats();
+  else if(name==='csc')renderCSC();
 }
 
 function renderPortada(){
