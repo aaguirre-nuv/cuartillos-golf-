@@ -384,7 +384,10 @@ function renderPortada(){
       return '<div style="display:flex;align-items:center;gap:10px;padding:7px '+(isN?'14px':'0')+';border-bottom:1px solid var(--gray2);'+(isN?'background:#fffbea;margin:0 -14px;border-radius:4px':'')+'">'+
         '<div style="font-weight:700;color:var(--muted);font-size:11px;width:28px;text-align:center">T'+t.nTorneo+'</div>'+
         '<div style="font-size:11px;color:var(--muted);width:70px">'+dt2.getDate()+' '+MES[dt2.getMonth()]+'</div>'+
-        '<div style="font-weight:'+(isN?'700':'600')+';flex:1;font-size:13px;color:'+(isN?'var(--navy)':'inherit')+'">'+t.campo+'</div>'+
+        '<div style="flex:1">'+
+        '<div style="font-weight:'+(isN?'700':'600')+';font-size:13px;color:'+(isN?'var(--navy)':'inherit')+'">'+t.campo+'</div>'+
+        (t.nTornPunt?'<div style="font-size:9px;color:#1565c0;margin-top:1px">Computan '+t.nTornPunt+' mejores</div>':'')+
+      '</div>'+
         (isN?'<span class="tb tnext">PR&Oacute;XIMO</span>':j2?'<span class="tb ts">&#10003;</span>':'<span class="tb" style="background:var(--gray2);color:var(--muted)">Pte</span>')+
       '</div>';
     }).join('');
@@ -414,6 +417,7 @@ function renderCal(){
         '<div class="cii"><div class="cic">'+t.campo+'</div>'+
           '<div class="cim">Torneo n&ordm;'+t.nTorneo+' &middot; Barras '+(t.barras||'&mdash;')+' &middot; Par '+(t.parTotal||72)+(t.precio?' &middot; '+t.precio+'&euro;':'')+'</div>'+
           (t.observaciones?'<div class="cim" style="font-style:italic">'+t.observaciones+'</div>':'')+
+          (t.nTornPunt?'<div class="cim" style="margin-top:3px"><span style="background:#e8f4fd;color:#1565c0;font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px;letter-spacing:.3px">Computan: mejores '+t.nTornPunt+' de la temporada</span></div>':'')+
         '</div>'+
         '<div class="cir">'+
           '<span class="tb '+(TC[t.tipoTorneo]||'t2')+'">'+(TIPOS[t.tipoTorneo]||'Liga')+'</span>'+
