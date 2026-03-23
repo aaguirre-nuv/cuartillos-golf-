@@ -453,10 +453,14 @@ function renderClas(){
       torn.map(function(t){return '<th title="'+t.campo+'">T'+t.nTorneo+'</th>';}).join('')+
       '<th>Total</th></tr></thead><tbody>';
     rows.forEach(function(r){
-      h+='<tr>'+
-        '<td class="rk scol" style="left:0">'+r.rk+'</td>'+
-        '<td class="scol" style="left:30px">'+r.jugador+'</td>'+
+      var eqLogo=jugEq[r.jugador]?logoH(jugEq[r.jugador]):'';
+      var sinEq=r.sinEquipo===true;
+      var rowStyle=sinEq?'color:#94a3b8;font-style:italic':'';
+      h+='<tr style="'+rowStyle+'">'+
+        '<td class="rk scol" style="left:0;'+(sinEq?'color:#cbd5e1':'')+'">'+(!sinEq&&r.rk?r.rk:'&mdash;')+'</td>'+
+        '<td class="scol" style="left:30px">'+eqLogo+r.jugador+(sinEq?' <span style="font-size:10px;background:#f1f5f9;color:#94a3b8;padding:1px 5px;border-radius:3px">sin equipo</span>':'')+'</td>'+
         tids.map(function(tid){
+          if(sinEq)return '<td style="color:#e2e8f0">&mdash;</td>';
           var p=r.torneos&&r.torneos[tid]?r.torneos[tid]:0;
           if(!p)return '<td style="color:#f0f2f5">&mdash;</td>';
           var computa=cset[r.jugador+':'+tid];
@@ -465,7 +469,7 @@ function renderClas(){
           if(!computa)return '<td class="nocp">'+p+'</td>';
           return '<td class="'+(style?'':ptsC(p))+'" style="'+style+'">'+p+'</td>';
         }).join('')+
-        '<td style="font-weight:700">'+(r.total||0).toLocaleString('es')+'</td></tr>';
+        '<td style="font-weight:700">'+(sinEq?'&mdash;':(r.total||0).toLocaleString('es'))+'</td></tr>';
     });
     el('clas-m').innerHTML=h+'</tbody></table>';
   });
@@ -666,7 +670,7 @@ function buildSC(rows,elId,forceN){
     var ida=0,vta=0;
     hs.slice(0,9).forEach(function(i){var v=useN?(hh[i]&&hh[i].n!=null?hh[i].n:0):(hh[i]&&hh[i].b!=null?hh[i].b:0);ida+=v;});
     hs.slice(9).forEach(function(i){var v=useN?(hh[i]&&hh[i].n!=null?hh[i].n:0):(hh[i]&&hh[i].b!=null?hh[i].b:0);vta+=v;});
-    h+='<tr><td class="jc scol" style="left:0">'+r.nombre+'</td>'+
+    h+='<tr><td class="jc scol" style="left:0;font-size:11px">'+r.temp+' · T'+r.ntorn+' · '+r.campo+'</td>'+
       hs.slice(0,9).map(function(i){return hcell(hh[i],useN);}).join('')+
       '<td class="st">'+ida+'</td>'+
       hs.slice(9).map(function(i){return hcell(hh[i],useN);}).join('')+
