@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cuartillos Club de Golf</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
@@ -284,8 +286,8 @@ tr:nth-child(3) .rk{color:#cd7f32}
     <button class="ins-btn red" onclick="exitAdmin()" style="font-size:11px;padding:4px 10px">Salir</button>
   </div>
   <div class="ttabs" id="csc-tabs">
-    <button class="ttab active" id="csc-tab-ES" onclick="showCSC('ES',this)" style="--tab-color:#7c3aed">&#128337; Entre Semana</button>
-    <button class="ttab" id="csc-tab-FS" onclick="showCSC('FS',this)" style="--tab-color:#0369a1">&#128198; Fin de Semana</button>
+    <button class="ttab active" id="csc-tab-ES" onclick="showCSC('ES',this)" style="--tab-color:#C8102E">&#128337; Entre Semana</button>
+    <button class="ttab" id="csc-tab-FS" onclick="showCSC('FS',this)" style="--tab-color:#b8860b">&#128198; Fin de Semana</button>
   </div>
   <div id="csc-content"></div>
 </section>
@@ -315,8 +317,8 @@ function portCSCNav(btn) {
     showCSC(modId, null);
   } else {
     Promise.all([
-      fetch('./datos/csc.json?v=20260322b').then(function(r){return r.ok?r.json():null;}),
-      fetch('./datos/tarjetas.json?v=20260322b').then(function(r){return r.ok?r.json():null;})
+      fetch('./datos/csc.json?v=20260324c').then(function(r){return r.ok?r.json():null;}),
+      fetch('./datos/tarjetas.json?v=20260324c').then(function(r){return r.ok?r.json():null;})
     ]).then(function(res){
       cscData = res[0];
       window._cscTarjetas = res[1];
@@ -709,7 +711,7 @@ function showCSC(mode, btn) {
 var cMode='neto';
 var jMode='neto';
 
-var CV='?v=20260322b';
+var CV='?v=20260324c';
 function load(f){
   if(cache.hasOwnProperty(f)) return Promise.resolve(cache[f]);
   return fetch(BASE+f+CV).then(function(r){return r.ok?r.json():null;}).then(function(d){cache[f]=d;return d;}).catch(function(){cache[f]=null;return null;});
@@ -847,8 +849,8 @@ function renderPortada(){
       });
     }
     eventos.sort(function(a,b){return a.fecha-b.fecha;});
-    var CSC_ES={bg:'#7c3aed',light:'#ede9fe',text:'#4c1d95'};
-    var CSC_FS={bg:'#0369a1',light:'#e0f2fe',text:'#0c4a6e'};
+    var CSC_ES={bg:'#C8102E',light:'#fde8eb',text:'#7f1d1d'};
+    var CSC_FS={bg:'#b8860b',light:'#fef9c3',text:'#713f12'};
     var evH='';
     if(eventos.length){
       evH='<div class="card" style="margin-bottom:14px"><div class="ct">&#128197; Pr&oacute;ximos eventos</div>';
