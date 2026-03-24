@@ -805,45 +805,60 @@ function renderPortada(){
         (isN?'<span class="tb tnext">PR&Oacute;XIMO</span>':j2?'<span class="tb ts">&#10003;</span>':'<span class="tb" style="background:var(--gray2);color:var(--muted)">Pte</span>')+
       '</div>';
     }).join('');
-    // Load CSC next matches
+    // Merge liga + CSC events by date
   load('csc.json').then(function(csc){
-    var cscH='';
+    var eventos=[];
+    if(proximo) eventos.push({fecha:new Date(proximo.fecha),tipo:'liga',data:proximo});
     if(csc){
-      var proxCSC=[];
       csc.modalidades.forEach(function(mod){
         for(var i=0;i<mod.partidos.length;i++){
-          var p=mod.partidos[i];
-          if(!p.resultado){
-            proxCSC.push({mod:mod,p:p});
+          if(!mod.partidos[i].resultado){
+            eventos.push({fecha:new Date(mod.partidos[i].fecha),tipo:'csc',mod:mod,data:mod.partidos[i]});
             break;
           }
         }
       });
-      if(proxCSC.length){
-        cscH='<div class="card" style="margin-top:14px"><div class="ct">&#127954; Pr&oacute;ximos partidos CSC</div>'+
-          proxCSC.map(function(item){
-            var mod=item.mod,p=item.p;
-            var dt=new Date(p.fecha);
-            var dias=Math.round((dt-today)/86400000);
-            var dTxt=dias<=0?'&#161;HOY!':dias===1?'ma&ntilde;ana':'en '+dias+' d&iacute;as';
-
-            return '<div style="display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--gray2)">'+
-              '<div style="background:var(--navy);color:#fff;border-radius:5px;padding:6px 10px;text-align:center;min-width:44px;flex-shrink:0">'+
-                '<div style="font-family:Bebas Neue,sans-serif;font-size:18px;line-height:1">'+dt.getDate()+'</div>'+
-                '<div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--gold)">'+MES[dt.getMonth()]+'</div>'+
-              '</div>'+
-              '<div style="flex:1">'+
-                '<div style="font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)">CSC '+mod.nombre+'</div>'+
-                '<div style="font-weight:700;font-size:13px">vs '+p.rival+'</div>'+
-                '<div style="font-size:11px;color:var(--muted)">'+p.campo+' &middot; '+p.formato+' &middot; '+dTxt+'</div>'+
-              '</div>'+
-              '<button data-mod="'+mod.id+'" onclick="portCSCNav(this)" style="background:var(--gold);color:var(--navy);font-family:Barlow Condensed,sans-serif;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:8px 14px;border-radius:6px;border:none;cursor:pointer;flex-shrink:0">Apuntarme &#8594;</button>'+
-            '</div>';
-          }).join('')+
-        '</div>';
-      }
     }
-    el('port-kpis').innerHTML=kpis+nextH+cscH+
+    eventos.sort(function(a,b){return a.fecha-b.fecha;});
+    var CSC_ES={bg:'#7c3aed',light:'#ede9fe',text:'#4c1d95'};
+    var CSC_FS={bg:'#0369a1',light:'#e0f2fe',text:'#0c4a6e'};
+    var evH='';
+    if(eventos.length){
+      evH='<div class="card" style="margin-bottom:14px"><div class="ct">&#128197; Pr&oacute;ximos eventos</div>';
+      eventos.forEach(function(ev){
+        var dt=ev.fecha,dias=Math.round((dt-today)/86400000);
+        var dTxt=dias<=0?'&#161;HOY!':dias===1?'ma&ntilde;ana':'en '+dias+' d&iacute;as';
+        if(ev.tipo==='liga'){
+          var p=ev.data;
+          evH+='<div style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--gray2)">';
+          evH+='<div style="background:var(--navy);color:#fff;border-radius:6px;padding:8px 10px;text-align:center;min-width:48px;flex-shrink:0">';
+          evH+='<div style="font-family:Bebas Neue,sans-serif;font-size:22px;line-height:1">'+dt.getDate()+'</div>';
+          evH+='<div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--gold)">'+MES[dt.getMonth()]+'</div></div>';
+          evH+='<div style="flex:1"><div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">';
+          evH+='<span style="background:#dbeafe;color:#1e40af;font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px">&#9968; Liga Cuartillos</span>';
+          evH+='<span style="font-size:10px;color:var(--muted)">&mdash; '+dTxt+'</span></div>';
+          evH+='<div style="font-weight:700;font-size:14px">'+p.campo+'</div>';
+          evH+='<div style="font-size:11px;color:var(--muted)">T'+p.nTorneo+' &middot; '+(p.tipoNombre||'Liga')+(p.precio?' &middot; '+p.precio+'&euro;':'')+'</div></div>';
+          evH+='<span class="tb tnext">PR&Oacute;XIMO</span></div>';
+        } else {
+          var mod=ev.mod,p=ev.data;
+          var cc=mod.id==='ES'?CSC_ES:CSC_FS;
+          var lbl=mod.id==='ES'?'Entre Semana':'Fin de Semana';
+          evH+='<div style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--gray2)">';
+          evH+='<div style="background:'+cc.bg+';color:#fff;border-radius:6px;padding:8px 10px;text-align:center;min-width:48px;flex-shrink:0">';
+          evH+='<div style="font-family:Bebas Neue,sans-serif;font-size:22px;line-height:1">'+dt.getDate()+'</div>';
+          evH+='<div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;opacity:.85">'+MES[dt.getMonth()]+'</div></div>';
+          evH+='<div style="flex:1"><div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">';
+          evH+='<span style="background:'+cc.light+';color:'+cc.text+';font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px">&#127954; CSC '+lbl+'</span>';
+          evH+='<span style="font-size:10px;color:var(--muted)">&mdash; '+dTxt+'</span></div>';
+          evH+='<div style="font-weight:700;font-size:14px">vs '+p.rival+'</div>';
+          evH+='<div style="font-size:11px;color:var(--muted)">'+p.campo+' &middot; '+p.formato+'</div></div>';
+          evH+='<button data-mod="'+mod.id+'" onclick="portCSCNav(this)" style="background:'+cc.bg+';color:#fff;font-family:Barlow Condensed,sans-serif;font-size:11px;font-weight:700;padding:8px 14px;border-radius:6px;border:none;cursor:pointer;flex-shrink:0">Apuntarme &#8594;</button></div>';
+        }
+      });
+      evH+='</div>';
+    }
+    el('port-kpis').innerHTML=kpis+evH+
       '<div class="g2" style="margin-top:14px">'+
         '<div>'+
           '<div class="card" style="margin-bottom:14px"><div class="ct">&#127942; Clasificaci&oacute;n Individual</div><div class="tw">'+top8H+'</div></div>'+
