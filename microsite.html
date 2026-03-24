@@ -300,6 +300,33 @@ var TC={1:'t1',2:'t2',3:'t3'};
 var SECS=['portada','calendario','clasificacion','equipos','tarjetas','jugador','estadisticas','csc'];
 var cache={};
 var done={};
+// Called from portada buttons
+function portCSCNav(btn) {
+  var modId = btn ? (btn.getAttribute('data-mod') || btn.dataset.mod) : 'ES';
+  // Navigate to CSC section
+  document.querySelectorAll('main section').forEach(function(s){s.classList.remove('active');});
+  document.getElementById('sec-csc').classList.add('active');
+  document.querySelectorAll('nav button').forEach(function(b,i){
+    b.classList.toggle('active', ['portada','calendario','clasificacion','equipos','tarjetas','jugador','estadisticas','csc'][i]==='csc');
+  });
+  // Load and show CSC in correct mode - bypass done cache
+  if(cscData) {
+    loadIns();
+    showCSC(modId, null);
+  } else {
+    Promise.all([
+      fetch('./datos/csc.json?v=20260322b').then(function(r){return r.ok?r.json():null;}),
+      fetch('./datos/tarjetas.json?v=20260322b').then(function(r){return r.ok?r.json():null;})
+    ]).then(function(res){
+      cscData = res[0];
+      window._cscTarjetas = res[1];
+      loadIns();
+      populateJugSel();
+      showCSC(modId, null);
+    });
+  }
+}
+
 // ── CSC INSCRIPTION SYSTEM ──────────────────────────────
 var cscData = null;
 var cscMode = 'ES';
@@ -505,29 +532,14 @@ function buildCSCRanking(mod, tarjetas, mode) {
 
 function showCSC(mode, btn) {
   cscMode = mode;
-  var modeColor = mode === 'ES' ? '#7c3aed' : '#0369a1';
-  var modeBg = mode === 'ES' ? '#ede9fe' : '#e0f2fe';
-  document.querySelectorAll('#csc-tabs .ttab').forEach(function(b) { 
-    b.classList.remove('active');
-    b.style.background = '';
-    b.style.borderColor = '';
-    b.style.color = '';
-  });
-  var activeTab = btn;
-  if (!activeTab) {
-    activeTab = document.getElementById('csc-tab-' + mode);
+  document.querySelectorAll('#csc-tabs .ttab').forEach(function(b) { b.classList.remove('active'); });
+  if (btn) {
+    btn.classList.add('active');
+  } else {
+    var tabs = document.querySelectorAll('#csc-tabs .ttab');
+    if (mode === 'ES' && tabs[0]) tabs[0].classList.add('active');
+    if (mode === 'FS' && tabs[1]) tabs[1].classList.add('active');
   }
-  if (activeTab) {
-    activeTab.classList.add('active');
-    activeTab.style.background = modeColor;
-    activeTab.style.borderColor = modeColor;
-    activeTab.style.color = '#fff';
-  }
-  // Color the section header
-  var sh = document.querySelector('#sec-csc .sh h2');
-  if (sh) sh.style.color = modeColor;
-  var ac = document.querySelector('#sec-csc .sh .ac');
-  if (ac) ac.style.background = 'linear-gradient(90deg,' + modeColor + ',transparent)';
   if (!cscData) return;
   var mod = null;
   for (var mi = 0; mi < cscData.modalidades.length; mi++) {
@@ -546,7 +558,7 @@ function showCSC(mode, btn) {
   var o = '';
 
   // Banner clasificatorio
-  o += '<div style="background:linear-gradient(135deg,' + modeColor + ',' + modeColor + 'cc);border-radius:8px;padding:14px 18px;margin-bottom:14px;display:flex;align-items:center;gap:16px;color:#fff;flex-wrap:wrap">';
+  o += '<div style="background:linear-gradient(135deg,#1B3A72,#2a4f9f);border-radius:8px;padding:14px 18px;margin-bottom:14px;display:flex;align-items:center;gap:16px;color:#fff;flex-wrap:wrap">';
   o += '<div style="background:#F5B900;border-radius:6px;padding:8px 14px;text-align:center;flex-shrink:0">';
   o += '<div style="font-family:Bebas Neue,sans-serif;font-size:28px;color:#1B3A72;line-height:1">' + mod.posClasificatorio + '\u00ba</div>';
   o += '<div style="font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#1B3A72;font-weight:700">Clasif.</div></div>';
@@ -567,7 +579,7 @@ function showCSC(mode, btn) {
     var isNext = proxP && cp.id === proxP.id;
     o += '<div style="border-bottom:1px solid #e2e8f0;padding:10px 14px;' + (isNext ? 'background:#fffbea' : '') + '">';
     o += '<div style="display:flex;align-items:center;gap:10px">';
-    o += '<div style="background:' + (isNext ? '#F5B900' : modeColor) + ';color:' + (isNext ? '#1B3A72' : '#fff') + ';border-radius:5px;padding:5px 8px;text-align:center;min-width:40px">';
+    o += '<div style="background:' + (isNext ? '#F5B900' : '#1B3A72') + ';color:' + (isNext ? '#1B3A72' : '#fff') + ';border-radius:5px;padding:5px 8px;text-align:center;min-width:40px">';
     o += '<div style="font-family:Bebas Neue,sans-serif;font-size:18px;line-height:1">' + dt.getDate() + '</div>';
     o += '<div style="font-size:8px;text-transform:uppercase">' + MES[dt.getMonth()] + '</div></div>';
     o += '<div style="flex:1"><div style="font-weight:700;font-size:13px">';
