@@ -313,8 +313,7 @@ function portCSCNav(btn) {
   });
   // Load and show CSC in correct mode - bypass done cache
   if(cscData) {
-    loadIns();
-    showCSC(modId, null);
+    loadIns().then(function(){ showCSC(modId, null); });
   } else {
     Promise.all([
       fetch('./datos/csc.json?v=20260322b').then(function(r){return r.ok?r.json():null;}),
@@ -342,18 +341,38 @@ function renderCSC() {
   Promise.all([load('csc.json'), load('tarjetas.json')]).then(function(res) {
     cscData = res[0];
     window._cscTarjetas = res[1];
-    loadIns();
-    populateJugSel();
-    showCSC(cscMode, null);
+    loadIns().then(function() {
+      populateJugSel();
+      showCSC(cscMode, null);
+    });
   });
 }
 
+var JBIN_ID = '69d3c0aaaaba882197ccddef';
+var JBIN_KEY = '$2a$10$2Y9gS7sOIARKbtHusrv.B.gSVjDbAB.ggWQ4GqafsJc24MRrjodrG';
+var JBIN_URL = 'https://api.jsonbin.io/v3/b/' + JBIN_ID;
+
 function loadIns() {
-  try { var s = localStorage.getItem('csc_ins'); if (s) insData = JSON.parse(s); } catch(e) {}
+  return fetch(JBIN_URL + '/latest', {
+    headers: {'X-Master-Key': JBIN_KEY, 'X-Bin-Meta': 'false'}
+  })
+  .then(function(r) { return r.ok ? r.json() : null; })
+  .then(function(d) {
+    if (d && typeof d === 'object') insData = d;
+    try { localStorage.setItem('csc_ins', JSON.stringify(insData)); } catch(e) {}
+  })
+  .catch(function() {
+    try { var s = localStorage.getItem('csc_ins'); if (s) insData = JSON.parse(s); } catch(e) {}
+  });
 }
 
 function saveIns() {
   try { localStorage.setItem('csc_ins', JSON.stringify(insData)); } catch(e) {}
+  return fetch(JBIN_URL, {
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json', 'X-Master-Key': JBIN_KEY},
+    body: JSON.stringify(insData)
+  }).catch(function() {});
 }
 
 function populateJugSel() {
@@ -722,6 +741,7 @@ function showCSC(mode, btn) {
 
   el('csc-content').innerHTML = o;
 }
+
 
 var cMode='neto';
 var jMode='neto';
