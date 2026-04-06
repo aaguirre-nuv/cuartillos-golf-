@@ -302,6 +302,20 @@ var TC={1:'t1',2:'t2',3:'t3'};
 var SECS=['portada','calendario','clasificacion','equipos','tarjetas','jugador','estadisticas','csc'];
 var cache={};
 var done={};
+function calcNecesarios(formato) {
+  // "3 fourball" = 6, "2 fourball + 1 ind" = 5, "5 individuales" = 5
+  var total = 0;
+  var parts = formato.split('+');
+  parts.forEach(function(part) {
+    part = part.trim();
+    var n = parseInt(part);
+    if (isNaN(n)) return;
+    if (part.indexOf('fourball') >= 0) total += n * 2;
+    else total += n;
+  });
+  return total || parseInt(formato) || 0;
+}
+
 // Called from portada buttons
 function portCSCNav(btn) {
   var modId = btn ? (btn.getAttribute('data-mod') || btn.dataset.mod) : 'ES';
@@ -352,13 +366,33 @@ var JBIN_ID = '69d3c0aaaaba882197ccddef';
 var JBIN_KEY = '$2a$10$2Y9gS7sOIARKbtHusrv.B.gSVjDbAB.ggWQ4GqafsJc24MRrjodrG';
 var JBIN_URL = 'https://api.jsonbin.io/v3/b/' + JBIN_ID;
 
+function purgePastIns(data) {
+  var today = new Date();
+  today.setHours(0,0,0,0);
+  if (!cscData) return data;
+  var changed = false;
+  cscData.modalidades.forEach(function(mod) {
+    mod.partidos.forEach(function(p) {
+      var dt = new Date(p.fecha);
+      dt.setHours(0,0,0,0);
+      // Purge 2 days after the match date
+      var purgeDate = new Date(dt.getTime() + 2*86400000);
+      if (today > purgeDate && data[mod.id]) {
+        if (data[mod.id][p.id]) { delete data[mod.id][p.id]; changed = true; }
+        if (data[mod.id][p.id+'_parejas']) { delete data[mod.id][p.id+'_parejas']; changed = true; }
+      }
+    });
+  });
+  return changed ? data : data;
+}
+
 function loadIns() {
   return fetch(JBIN_URL + '/latest', {
     headers: {'X-Master-Key': JBIN_KEY, 'X-Bin-Meta': 'false'}
   })
   .then(function(r) { return r.ok ? r.json() : null; })
   .then(function(d) {
-    if (d && typeof d === 'object') insData = d;
+    if (d && typeof d === 'object') insData = purgePastIns(d);
     try { localStorage.setItem('csc_ins', JSON.stringify(insData)); } catch(e) {}
   })
   .catch(function() {
@@ -639,7 +673,7 @@ function showCSC(mode, btn) {
     var parejas2 = (insData[mode] && insData[mode][pid2 + '_parejas']) || [];
     var esFB2 = proxP.formato.indexOf('fourball') >= 0;
     var nF2 = parseInt(proxP.formato.split(' ')[0]);
-    var nNec = esFB2 ? nF2 * 2 : nF2;
+    var nNec = calcNecesarios(proxP.formato);
     var yoApuntado = cscJugador && apuntados2.indexOf(cscJugador) >= 0;
     var esEleg = mod.elegibles.some(function(e) { return e.nombre === cscJugador; });
 
