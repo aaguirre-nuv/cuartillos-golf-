@@ -316,6 +316,20 @@ function calcNecesarios(formato) {
   return total || parseInt(formato) || 0;
 }
 
+function calcNecesarios(formato) {
+  // "3 fourball" = 6, "2 fourball + 1 ind" = 5, "5 individuales" = 5
+  var total = 0;
+  var parts = formato.split('+');
+  parts.forEach(function(part) {
+    part = part.trim();
+    var n = parseInt(part);
+    if (isNaN(n)) return;
+    if (part.indexOf('fourball') >= 0) total += n * 2;
+    else total += n;
+  });
+  return total || parseInt(formato) || 0;
+}
+
 // Called from portada buttons
 function portCSCNav(btn) {
   var modId = btn ? (btn.getAttribute('data-mod') || btn.dataset.mod) : 'ES';
@@ -574,8 +588,11 @@ function buildCSCRanking(mod, tarjetas, mode) {
     });
   });
 
-  // Sort: players with results first (by total asc), then no results
+  // Sort: 2+ torneos first, then 1 torneo, then 0 — within each group by total asc
   ranking.sort(function(a,b) {
+    var ga = a.tornJugados >= 2 ? 0 : a.tornJugados === 1 ? 1 : 2;
+    var gb = b.tornJugados >= 2 ? 0 : b.tornJugados === 1 ? 1 : 2;
+    if (ga !== gb) return ga - gb;
     if (a.total === null && b.total === null) return 0;
     if (a.total === null) return 1;
     if (b.total === null) return -1;
