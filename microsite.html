@@ -358,6 +358,20 @@ function calcNecesarios(formato) {
   return total || parseInt(formato) || 0;
 }
 
+function calcNecesarios(formato) {
+  // "3 fourball" = 6, "2 fourball + 1 ind" = 5, "5 individuales" = 5
+  var total = 0;
+  var parts = formato.split('+');
+  parts.forEach(function(part) {
+    part = part.trim();
+    var n = parseInt(part);
+    if (isNaN(n)) return;
+    if (part.indexOf('fourball') >= 0) total += n * 2;
+    else total += n;
+  });
+  return total || parseInt(formato) || 0;
+}
+
 // Called from portada buttons
 function portCSCNav(btn) {
   var modId = btn ? (btn.getAttribute('data-mod') || btn.dataset.mod) : 'ES';
@@ -408,6 +422,20 @@ var JBIN_ID = '69d3c0aaaaba882197ccddef';
 var INS_YEAR = 2026; // Change each season
 var JBIN_KEY = '$2a$10$2Y9gS7sOIARKbtHusrv.B.gSVjDbAB.ggWQ4GqafsJc24MRrjodrG';
 var JBIN_URL = 'https://api.jsonbin.io/v3/b/' + JBIN_ID;
+
+// Load inscriptions immediately at startup from localStorage (instant)
+// then refresh from JSONBin in background
+(function initIns() {
+  try { var s = localStorage.getItem('csc_ins'); if (s) insData = JSON.parse(s); } catch(e) {}
+  fetch(JBIN_URL + '/latest', {headers:{'X-Master-Key':JBIN_KEY,'X-Bin-Meta':'false'}})
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(d){
+      if(d && typeof d==='object'){
+        insData = d;
+        try{localStorage.setItem('csc_ins',JSON.stringify(insData));}catch(e){}
+      }
+    }).catch(function(){});
+})();
 
 function purgePastIns(data) {
   var today = new Date();
@@ -974,11 +1002,7 @@ function renderPortada(){
     }).join('');
     // Merge liga + CSC events by date
   load('csc.json').then(function(csc){
-    // Refresh insData from JSONBin if available
-    if(typeof loadIns==='function' && !window._insLoaded){
-      window._insLoaded=true;
-      loadIns();
-    }
+
     var eventos=[];
     if(proximo) eventos.push({fecha:new Date(proximo.fecha),tipo:'liga',data:proximo});
     if(csc){
