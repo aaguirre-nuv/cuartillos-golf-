@@ -941,6 +941,11 @@ function renderPortada(){
     }).join('');
     // Merge liga + CSC events by date
   load('csc.json').then(function(csc){
+    // Refresh insData from JSONBin if available
+    if(typeof loadIns==='function' && !window._insLoaded){
+      window._insLoaded=true;
+      loadIns();
+    }
     var eventos=[];
     if(proximo) eventos.push({fecha:new Date(proximo.fecha),tipo:'liga',data:proximo});
     if(csc){
@@ -978,7 +983,9 @@ function renderPortada(){
           var mod=ev.mod,p=ev.data;
           var cc=mod.id==='ES'?CSC_ES:CSC_FS;
           var lbl=mod.id==='ES'?'Entre Semana':'Fin de Semana';
-          evH+='<div style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--gray2)">';
+          var inscritos=(insData[mod.id]&&insData[mod.id][p.id+'_2026'])||[];
+          evH+='<div style="border-bottom:1px solid var(--gray2);padding:12px 14px">';
+          evH+='<div style="display:flex;align-items:center;gap:12px">';
           evH+='<div style="background:'+cc.bg+';color:#fff;border-radius:6px;padding:8px 10px;text-align:center;min-width:48px;flex-shrink:0">';
           evH+='<div style="font-family:Bebas Neue,sans-serif;font-size:22px;line-height:1">'+dt.getDate()+'</div>';
           evH+='<div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;opacity:.85">'+MES[dt.getMonth()]+'</div></div>';
@@ -988,6 +995,15 @@ function renderPortada(){
           evH+='<div style="font-weight:700;font-size:14px">vs '+p.rival+'</div>';
           evH+='<div style="font-size:11px;color:var(--muted)">'+p.campo+' &middot; '+p.formato+'</div></div>';
           evH+='<button data-mod="'+mod.id+'" onclick="portCSCNav(this)" style="background:'+cc.bg+';color:#fff;font-family:Barlow Condensed,sans-serif;font-size:11px;font-weight:700;padding:8px 14px;border-radius:6px;border:none;cursor:pointer;flex-shrink:0">Apuntarme &#8594;</button></div>';
+          if(inscritos.length){
+            evH+='<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">';
+            evH+='<span style="font-size:10px;font-weight:700;color:var(--muted);margin-right:2px">Inscritos:</span>';
+            inscritos.forEach(function(n){
+              evH+='<span style="background:'+cc.light+';color:'+cc.text+';font-size:11px;font-weight:600;padding:2px 9px;border-radius:12px">'+n+'</span>';
+            });
+            evH+='</div>';
+          }
+          evH+='</div>';
         }
       });
       evH+='</div>';
