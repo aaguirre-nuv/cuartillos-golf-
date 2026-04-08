@@ -435,6 +435,19 @@ var JBIN_URL = 'https://api.jsonbin.io/v3/b/' + JBIN_ID;
         try{localStorage.setItem('csc_ins',JSON.stringify(insData));}catch(e){}
       }
     }).catch(function(){});
+  // Also preload tarjetas and csc data for ranking in portada
+  if(!window._cscTarjetas){
+    fetch('./datos/tarjetas.json?v=20260324c')
+      .then(function(r){return r.ok?r.json():null;})
+      .then(function(d){if(d)window._cscTarjetas=d;})
+      .catch(function(){});
+  }
+  if(!cscData){
+    fetch('./datos/csc.json?v=20260324c')
+      .then(function(r){return r.ok?r.json():null;})
+      .then(function(d){if(d)cscData=d;})
+      .catch(function(){});
+  }
 })();
 
 function purgePastIns(data) {
