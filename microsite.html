@@ -996,16 +996,20 @@ function renderPortada(){
           evH+='<div style="font-size:11px;color:var(--muted)">'+p.campo+' &middot; '+p.formato+'</div></div>';
           evH+='<button data-mod="'+mod.id+'" onclick="portCSCNav(this)" style="background:'+cc.bg+';color:#fff;font-family:Barlow Condensed,sans-serif;font-size:11px;font-weight:700;padding:8px 14px;border-radius:6px;border:none;cursor:pointer;flex-shrink:0">Apuntarme &#8594;</button></div>';
           if(inscritos.length){
-            // Build ranking for this modalidad to know who has a spot
+            // Of the inscritos, mark the best N by ranking as having a spot
             var rankData=window._cscTarjetas?buildCSCRanking(mod,window._cscTarjetas,mod.id):null;
             var nNecPort=calcNecesarios(p.formato);
-            // Top N by ranking get a spot
             var topNames=[];
             if(rankData){
-              var ranked=rankData.ranking.filter(function(r){return r.total!==null;});
-              ranked.slice(0,nNecPort).forEach(function(r){
-                if(inscritos.indexOf(r.nombre)>=0) topNames.push(r.nombre);
+              // Sort inscritos by their ranking position
+              var rankOrder=rankData.ranking.map(function(r){return r.nombre;});
+              var inscritosOrdenados=inscritos.slice().sort(function(a,b){
+                var ia=rankOrder.indexOf(a); var ib=rankOrder.indexOf(b);
+                if(ia===-1) ia=999; if(ib===-1) ib=999;
+                return ia-ib;
               });
+              // First nNecPort get a spot
+              topNames=inscritosOrdenados.slice(0,nNecPort);
             }
             evH+='<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">';
             evH+='<span style="font-size:10px;font-weight:700;color:var(--muted);margin-right:2px">Inscritos:</span>';
