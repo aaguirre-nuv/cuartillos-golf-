@@ -996,12 +996,31 @@ function renderPortada(){
           evH+='<div style="font-size:11px;color:var(--muted)">'+p.campo+' &middot; '+p.formato+'</div></div>';
           evH+='<button data-mod="'+mod.id+'" onclick="portCSCNav(this)" style="background:'+cc.bg+';color:#fff;font-family:Barlow Condensed,sans-serif;font-size:11px;font-weight:700;padding:8px 14px;border-radius:6px;border:none;cursor:pointer;flex-shrink:0">Apuntarme &#8594;</button></div>';
           if(inscritos.length){
+            // Build ranking for this modalidad to know who has a spot
+            var rankData=window._cscTarjetas?buildCSCRanking(mod,window._cscTarjetas,mod.id):null;
+            var nNecPort=calcNecesarios(p.formato);
+            // Top N by ranking get a spot
+            var topNames=[];
+            if(rankData){
+              var ranked=rankData.ranking.filter(function(r){return r.total!==null;});
+              ranked.slice(0,nNecPort).forEach(function(r){
+                if(inscritos.indexOf(r.nombre)>=0) topNames.push(r.nombre);
+              });
+            }
             evH+='<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">';
             evH+='<span style="font-size:10px;font-weight:700;color:var(--muted);margin-right:2px">Inscritos:</span>';
             inscritos.forEach(function(n){
-              evH+='<span style="background:'+cc.light+';color:'+cc.text+';font-size:11px;font-weight:600;padding:2px 9px;border-radius:12px">'+n+'</span>';
+              var hasSpot=topNames.indexOf(n)>=0;
+              if(hasSpot){
+                evH+='<span style="background:'+cc.bg+';color:#fff;font-size:11px;font-weight:700;padding:2px 9px;border-radius:12px" title="Plaza confirmada por ranking">'+n+' &#10003;</span>';
+              } else {
+                evH+='<span style="background:'+cc.light+';color:'+cc.text+';font-size:11px;font-weight:400;padding:2px 9px;border-radius:12px;opacity:0.75">'+n+'</span>';
+              }
             });
             evH+='</div>';
+            if(topNames.length>0){
+              evH+='<div style="font-size:10px;color:var(--muted);margin-top:4px">&#10003; plaza por ranking &nbsp; sin fondo = lista de espera</div>';
+            }
           }
           evH+='</div>';
         }
