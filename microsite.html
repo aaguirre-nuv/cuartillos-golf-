@@ -330,6 +330,20 @@ function calcNecesarios(formato) {
   return total || parseInt(formato) || 0;
 }
 
+function calcNecesarios(formato) {
+  // "3 fourball" = 6, "2 fourball + 1 ind" = 5, "5 individuales" = 5
+  var total = 0;
+  var parts = formato.split('+');
+  parts.forEach(function(part) {
+    part = part.trim();
+    var n = parseInt(part);
+    if (isNaN(n)) return;
+    if (part.indexOf('fourball') >= 0) total += n * 2;
+    else total += n;
+  });
+  return total || parseInt(formato) || 0;
+}
+
 // Called from portada buttons
 function portCSCNav(btn) {
   var modId = btn ? (btn.getAttribute('data-mod') || btn.dataset.mod) : 'ES';
@@ -377,6 +391,7 @@ function renderCSC() {
 }
 
 var JBIN_ID = '69d3c0aaaaba882197ccddef';
+var INS_YEAR = 2026; // Change each season
 var JBIN_KEY = '$2a$10$2Y9gS7sOIARKbtHusrv.B.gSVjDbAB.ggWQ4GqafsJc24MRrjodrG';
 var JBIN_URL = 'https://api.jsonbin.io/v3/b/' + JBIN_ID;
 
@@ -406,7 +421,7 @@ function loadIns() {
   })
   .then(function(r) { return r.ok ? r.json() : null; })
   .then(function(d) {
-    if (d && typeof d === 'object') insData = purgePastIns(d);
+    if (d && typeof d === 'object') insData = d;
     try { localStorage.setItem('csc_ins', JSON.stringify(insData)); } catch(e) {}
   })
   .catch(function() {
@@ -462,20 +477,24 @@ function exitAdmin() {
   showCSC(cscMode, null);
 }
 
+function pkey(partidoId) {
+  return partidoId + '_' + INS_YEAR;
+}
+
 function cscApuntarse(modId, partidoId) {
   if (!cscJugador) { alert('Selecciona tu nombre arriba (Soy...)'); return; }
   if (!insData[modId]) insData[modId] = {};
-  if (!insData[modId][partidoId]) insData[modId][partidoId] = [];
-  if (insData[modId][partidoId].indexOf(cscJugador) >= 0) { alert('Ya estas apuntado'); return; }
-  insData[modId][partidoId].push(cscJugador);
+  if (!insData[modId][pkey(partidoId)]) insData[modId][pkey(partidoId)] = [];
+  if (insData[modId][pkey(partidoId)].indexOf(cscJugador) >= 0) { alert('Ya estas apuntado'); return; }
+  insData[modId][pkey(partidoId)].push(cscJugador);
   saveIns();
   showCSC(modId, null);
 }
 
 function cscDesapuntar(modId, partidoId) {
   if (!confirm('Quitar tu inscripcion?')) return;
-  if (insData[modId] && insData[modId][partidoId]) {
-    insData[modId][partidoId] = insData[modId][partidoId].filter(function(n) { return n !== cscJugador; });
+  if (insData[modId] && insData[modId][pkey(partidoId)]) {
+    insData[modId][pkey(partidoId)] = insData[modId][pkey(partidoId)].filter(function(n) { return n !== cscJugador; });
     saveIns();
     showCSC(modId, null);
   }
@@ -483,8 +502,8 @@ function cscDesapuntar(modId, partidoId) {
 
 function cscBorrar(modId, partidoId, nombre) {
   if (!confirm('Eliminar a ' + nombre + '?')) return;
-  if (insData[modId] && insData[modId][partidoId]) {
-    insData[modId][partidoId] = insData[modId][partidoId].filter(function(n) { return n !== nombre; });
+  if (insData[modId] && insData[modId][pkey(partidoId)]) {
+    insData[modId][pkey(partidoId)] = insData[modId][pkey(partidoId)].filter(function(n) { return n !== nombre; });
     saveIns();
     showCSC(modId, null);
   }
@@ -496,14 +515,14 @@ function cscResultado(modId, partidoId) {
   res = res.toUpperCase();
   if (['G','P','E'].indexOf(res) < 0) { alert('Introduce G, P o E'); return; }
   if (!insData[modId]) insData[modId] = {};
-  insData[modId][partidoId + '_res'] = res;
+  insData[modId][pkey(partidoId) + '_res'] = res;
   saveIns();
   showCSC(modId, null);
 }
 
 function cscParejas(modId, partidoId, formato, nF) {
   _pairCtx = {modId:modId, partidoId:partidoId, formato:formato, nF:nF};
-  var apuntados = (insData[modId] && insData[modId][partidoId]) || [];
+  var apuntados = (insData[modId] && insData[modId][pkey(partidoId)]) || [];
   if (apuntados.length < 2) { alert('Necesitas al menos 2 inscritos'); return; }
   var esFB = formato.indexOf('fourball') >= 0;
   var rows = '';
@@ -551,7 +570,7 @@ function cscGuardar() {
   }
   var modId = _pairCtx.modId, pid = _pairCtx.partidoId;
   if (!insData[modId]) insData[modId] = {};
-  insData[modId][pid + '_parejas'] = parejas;
+  insData[modId][pkey(pid) + '_parejas'] = parejas;
   saveIns();
   var modal = document.getElementById('csc-modal');
   if (modal) modal.remove();
@@ -637,7 +656,7 @@ function showCSC(mode, btn) {
   var proxP = null;
   for (var pi = 0; pi < mod.partidos.length; pi++) {
     var p = mod.partidos[pi];
-    var res0 = (insData[mode] && insData[mode][p.id + '_res']) || p.resultado;
+    var res0 = (insData[mode] && insData[mode][pkey(p.id) + '_res']) || p.resultado;
     if (!res0) { proxP = p; break; }
   }
 
@@ -662,7 +681,7 @@ function showCSC(mode, btn) {
   for (var ci = 0; ci < mod.partidos.length; ci++) {
     var cp = mod.partidos[ci];
     var dt = new Date(cp.fecha);
-    var res1 = (insData[mode] && insData[mode][cp.id + '_res']) || cp.resultado;
+    var res1 = (insData[mode] && insData[mode][pkey(cp.id) + '_res']) || cp.resultado;
     var isNext = proxP && cp.id === proxP.id;
     o += '<div style="border-bottom:1px solid #e2e8f0;padding:10px 14px;' + (isNext ? 'background:#fffbea' : '') + '">';
     o += '<div style="display:flex;align-items:center;gap:10px">';
@@ -686,8 +705,8 @@ function showCSC(mode, btn) {
   // Inscription
   if (proxP) {
     var pid2 = proxP.id;
-    var apuntados2 = (insData[mode] && insData[mode][pid2]) || [];
-    var parejas2 = (insData[mode] && insData[mode][pid2 + '_parejas']) || [];
+    var apuntados2 = (insData[mode] && insData[mode][pkey(pid2)]) || [];
+    var parejas2 = (insData[mode] && insData[mode][pkey(pid2) + '_parejas']) || [];
     var esFB2 = proxP.formato.indexOf('fourball') >= 0;
     var nF2 = parseInt(proxP.formato.split(' ')[0]);
     var nNec = calcNecesarios(proxP.formato);
@@ -784,7 +803,7 @@ function showCSC(mode, btn) {
   o += '<div class="card"><div class="ct">Elegibles &mdash; ' + mod.elegibles.length + ' miembros</div><div style="display:flex;flex-wrap:wrap;gap:6px;padding:12px 14px">';
   mod.elegibles.forEach(function(j) {
     var clasif = mod.jugadoresClasificatorio.indexOf(j.nombre) >= 0;
-    var mp = mod.partidos.some(function(p) { return ((insData[mode] && insData[mode][p.id]) || []).indexOf(j.nombre) >= 0; });
+    var mp = mod.partidos.some(function(p) { return ((insData[mode] && insData[mode][pkey(p.id)]) || []).indexOf(j.nombre) >= 0; });
     var yo = j.nombre === cscJugador;
     o += '<div style="background:' + (yo ? '#fef9c3' : mp ? '#dbeafe' : clasif ? '#d1fae5' : '#f4f6f9') + ';border-radius:20px;padding:4px 12px;font-size:12px;font-weight:' + (yo||mp||clasif ? '700' : '400') + ';border:' + (yo ? '1px solid #F5B900' : '1px solid transparent') + '">' + j.nombre + '</div>';
   });
