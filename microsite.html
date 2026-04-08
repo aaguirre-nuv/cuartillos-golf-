@@ -344,6 +344,20 @@ function calcNecesarios(formato) {
   return total || parseInt(formato) || 0;
 }
 
+function calcNecesarios(formato) {
+  // "3 fourball" = 6, "2 fourball + 1 ind" = 5, "5 individuales" = 5
+  var total = 0;
+  var parts = formato.split('+');
+  parts.forEach(function(part) {
+    part = part.trim();
+    var n = parseInt(part);
+    if (isNaN(n)) return;
+    if (part.indexOf('fourball') >= 0) total += n * 2;
+    else total += n;
+  });
+  return total || parseInt(formato) || 0;
+}
+
 // Called from portada buttons
 function portCSCNav(btn) {
   var modId = btn ? (btn.getAttribute('data-mod') || btn.dataset.mod) : 'ES';
@@ -718,17 +732,36 @@ function showCSC(mode, btn) {
     o += '<strong>' + proxP.campo + '</strong> \u00b7 ' + fmtD(proxP.fecha);
     o += '<div style="font-size:11px;color:#6b7a9a;margin-top:2px">' + proxP.formato + ' \u00b7 Necesarios: ' + nNec + '</div></div>';
 
+    // Rank inscritos by selection ranking to show who has a spot
+    var rankData2 = window._cscTarjetas ? buildCSCRanking(mod, window._cscTarjetas, mode) : null;
+    var topInscritos = [];
+    if (rankData2 && apuntados2.length) {
+      var rankOrder2 = rankData2.ranking.map(function(r){ return r.nombre; });
+      var sorted2 = apuntados2.slice().sort(function(a,b){
+        var ia=rankOrder2.indexOf(a); var ib=rankOrder2.indexOf(b);
+        if(ia===-1)ia=999; if(ib===-1)ib=999; return ia-ib;
+      });
+      topInscritos = sorted2.slice(0, nNec);
+    }
     o += '<div style="margin-bottom:12px"><div style="font-size:11px;font-weight:700;color:#6b7a9a;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px">Inscritos (' + apuntados2.length + '/' + nNec + ')</div>';
     if (!apuntados2.length) {
       o += '<div style="font-size:12px;color:#6b7a9a">Nadie se ha apuntado a\u00fan</div>';
     } else {
       apuntados2.forEach(function(n) {
         var esYo = n === cscJugador;
-        o += '<span class="player-tag' + (esYo ? ' me' : '') + '">' + n;
-        if (cscAdmin) o += ' <span onclick="cscBorrar(\'' + mode + '\',\'' + pid2 + '\',\'' + n + '\')" style="cursor:pointer;color:#dc2626;font-weight:700">x</span>';
-        else if (esYo) o += ' <span onclick="cscDesapuntar(\'' + mode + '\',\'' + pid2 + '\')" style="cursor:pointer;opacity:.6">x</span>';
+        var hasSpot = topInscritos.indexOf(n) >= 0;
+        var bg = hasSpot ? modeColor : '#f1f5f9';
+        var col = hasSpot ? '#fff' : '#6b7a9a';
+        var fw = hasSpot ? '700' : '400';
+        o += '<span style="display:inline-flex;align-items:center;gap:4px;background:' + bg + ';color:' + col + ';font-size:12px;font-weight:' + fw + ';padding:3px 10px;border-radius:12px;margin:2px">';
+        o += n + (hasSpot ? ' ✓' : '');
+        if (cscAdmin) o += ' <span onclick="cscBorrar(\'' + mode + '\',\'' + pid2 + '\',\'' + n + '\')" style="cursor:pointer;font-weight:700;margin-left:2px">x</span>';
+        else if (esYo) o += ' <span onclick="cscDesapuntar(\'' + mode + '\',\'' + pid2 + '\')" style="cursor:pointer;opacity:.6;margin-left:2px">x</span>';
         o += '</span>';
       });
+      if (topInscritos.length > 0) {
+        o += '<div style="font-size:10px;color:#6b7a9a;margin-top:6px">✓ plaza por ranking &nbsp; gris = lista de espera</div>';
+      }
     }
     o += '</div>';
 
