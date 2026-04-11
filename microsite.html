@@ -372,6 +372,21 @@ function calcNecesarios(formato) {
   return total || parseInt(formato) || 0;
 }
 
+function calcNecesarios(formato) {
+  // "3 fourball" = 6, "2 fourball + 1 ind" = 5, "5 individuales" = 5
+  var total = 0;
+  var parts = formato.split('+');
+  parts.forEach(function(part) {
+    part = part.trim();
+    var n = parseInt(part);
+    if (isNaN(n)) return;
+    if (part.indexOf('fourball') >= 0) total += n * 2;
+    else total += n;
+  });
+  return total || parseInt(formato) || 0;
+}
+
+function parseDate(s){if(!s)return new Date();var p=s.substring(0,10).split('-');return new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]),12,0,0);}
 // Called from portada buttons
 function portCSCNav(btn) {
   var modId = btn ? (btn.getAttribute('data-mod') || btn.dataset.mod) : 'ES';
@@ -435,17 +450,11 @@ var JBIN_URL = 'https://api.jsonbin.io/v3/b/' + JBIN_ID;
         try{localStorage.setItem('csc_ins',JSON.stringify(insData));}catch(e){}
       }
     }).catch(function(){});
-  // Also preload tarjetas and csc data for ranking in portada
+  // Also preload tarjetas for ranking in portada
   if(!window._cscTarjetas){
     fetch('./datos/tarjetas.json?v=20260324c')
       .then(function(r){return r.ok?r.json():null;})
       .then(function(d){if(d)window._cscTarjetas=d;})
-      .catch(function(){});
-  }
-  if(!cscData){
-    fetch('./datos/csc.json?v=20260324c')
-      .then(function(r){return r.ok?r.json():null;})
-      .then(function(d){if(d)cscData=d;})
       .catch(function(){});
   }
 })();
@@ -457,7 +466,7 @@ function purgePastIns(data) {
   var changed = false;
   cscData.modalidades.forEach(function(mod) {
     mod.partidos.forEach(function(p) {
-      var dt = new Date(p.fecha);
+      var dt = parseDate(p.fecha);
       dt.setHours(0,0,0,0);
       // Purge 2 days after the match date
       var purgeDate = new Date(dt.getTime() + 2*86400000);
@@ -735,7 +744,7 @@ function showCSC(mode, btn) {
   o += '<div class="card"><div class="ct">Calendario &mdash; ' + mod.nombre + '</div>';
   for (var ci = 0; ci < mod.partidos.length; ci++) {
     var cp = mod.partidos[ci];
-    var dt = new Date(cp.fecha);
+    var dt = parseDate(cp.fecha);
     var res1 = (insData[mode] && insData[mode][pkey(cp.id) + '_res']) || cp.resultado;
     var isNext = proxP && cp.id === proxP.id;
     o += '<div style="border-bottom:1px solid #e2e8f0;padding:10px 14px;' + (isNext ? 'background:#fffbea' : '') + '">';
@@ -897,7 +906,8 @@ function load(f){
 }
 function el(id){return document.getElementById(id);}
 function gs(){return parseInt(el('gS').value);}
-function fmtD(d){if(!d)return'';var dt=new Date(d);return dt.getDate()+' '+MES[dt.getMonth()]+' '+dt.getFullYear();}
+function parseDate(s){if(!s)return new Date();var p=s.substring(0,10).split('-');return new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]),12,0,0);}
+function fmtD(d){if(!d)return'';var dt=parseDate(d);return dt.getDate()+' '+MES[dt.getMonth()]+' '+dt.getFullYear();}
 function nb(id){return id?String(id).replace(/^\d{4}:/,''):'?';}
 function ptsC(p){if(!p)return'';if(p>=600)return'p600';if(p>=500)return'p500';if(p>=400)return'p400';if(p>=330)return'p330';if(p>=100)return'p100';return'';}
 function logoH(n){
@@ -972,7 +982,7 @@ function renderPortada(){
     '</div>';
     var nextH='';
     if(proximo){
-      var dt=new Date(proximo.fecha),dias=Math.round((dt-today)/86400000);
+      var dt=parseDate(proximo.fecha),dias=Math.round((dt-today)/86400000);
       var dTxt=dias<=0?'&#161;HOY!':dias===1?'ma&ntilde;ana':'en '+dias+' d&iacute;as';
       nextH='<div style="background:linear-gradient(135deg,var(--navy),#2a4f9f);border-radius:8px;padding:16px 20px;margin-bottom:14px;display:flex;align-items:center;gap:16px;box-shadow:0 4px 16px rgba(27,58,114,.2)">'+
         '<div style="background:var(--gold);border-radius:6px;padding:10px 14px;text-align:center;flex-shrink:0">'+
@@ -1002,7 +1012,7 @@ function renderPortada(){
     var eqH='<table><thead><tr><th>#</th><th>Equipo</th><th>Puntos</th></tr></thead><tbody>'+
       eqR.slice(0,7).map(function(e,i){var n=eqN[e[0]]||nb(e[0]);return '<tr><td class="rk">'+(i+1)+'</td><td style="font-weight:700">'+logoH(n)+n+'</td><td><span class="chip '+(i===0?'g':'')+'">'+(e[1]||0).toLocaleString('es')+'</span></td></tr>';}).join('')+'</tbody></table>';
     var calH=torn.map(function(t,idx){
-      var dt2=new Date(t.fecha),j2=t.jugado===1,isN=proximo&&t.id===proximo.id;
+      var dt2=parseDate(t.fecha),j2=t.jugado===1,isN=proximo&&t.id===proximo.id;
       return '<div style="display:flex;align-items:center;gap:10px;padding:7px '+(isN?'14px':'0')+';border-bottom:1px solid var(--gray2);'+(isN?'background:#fffbea;margin:0 -14px;border-radius:4px':'')+'">'+
         '<div style="font-weight:700;color:var(--muted);font-size:11px;width:28px;text-align:center">T'+t.nTorneo+'</div>'+
         '<div style="font-size:11px;color:var(--muted);width:70px">'+dt2.getDate()+' '+MES[dt2.getMonth()]+'</div>'+
@@ -1017,12 +1027,12 @@ function renderPortada(){
   load('csc.json').then(function(csc){
 
     var eventos=[];
-    if(proximo) eventos.push({fecha:new Date(proximo.fecha),tipo:'liga',data:proximo});
+    if(proximo) eventos.push({fecha:parseDate(proximo.fecha),tipo:'liga',data:proximo});
     if(csc){
       csc.modalidades.forEach(function(mod){
         for(var i=0;i<mod.partidos.length;i++){
           if(!mod.partidos[i].resultado){
-            eventos.push({fecha:new Date(mod.partidos[i].fecha),tipo:'csc',mod:mod,data:mod.partidos[i]});
+            eventos.push({fecha:parseDate(mod.partidos[i].fecha),tipo:'csc',mod:mod,data:mod.partidos[i]});
             break;
           }
         }
@@ -1122,7 +1132,7 @@ function renderCal(){
     var isCur=(s===today.getFullYear()),proxIdx=-1;
     if(isCur){for(var i=0;i<torn.length;i++){if(!torn[i].jugado){proxIdx=i;break;}}}
     el('cal-list').innerHTML=torn.map(function(t,idx){
-      var dt=new Date(t.fecha),j=t.jugado===1,isN=idx===proxIdx;
+      var dt=parseDate(t.fecha),j=t.jugado===1,isN=idx===proxIdx;
       return '<div class="ci'+(isN?' prox':'')+'">'+
         '<div class="cid"><div class="cdday">'+dt.getDate()+'</div><div class="cdmon">'+MES[dt.getMonth()]+'</div></div>'+
         '<div class="cii"><div class="cic">'+t.campo+'</div>'+
