@@ -466,7 +466,7 @@ var JBIN_URL = 'https://api.jsonbin.io/v3/b/' + JBIN_ID;
     }).catch(function(){});
   // Also preload tarjetas for ranking in portada
   if(!window._cscTarjetas){
-    fetch('./datos/tarjetas.json?v=20260324c')
+    fetch('./datos/tarjetas.json?v=20260417a')
       .then(function(r){return r.ok?r.json():null;})
       .then(function(d){if(d)window._cscTarjetas=d;})
       .catch(function(){});
@@ -937,7 +937,7 @@ function showCSC(mode, btn) {
 var cMode='neto';
 var jMode='neto';
 
-var CV='?v=20260324c';
+var CV='?v=20260417a';
 function load(f){
   if(cache.hasOwnProperty(f)) return Promise.resolve(cache[f]);
   return fetch(BASE+f+CV).then(function(r){return r.ok?r.json():null;}).then(function(d){cache[f]=d;return d;}).catch(function(){cache[f]=null;return null;});
