@@ -1,0 +1,83 @@
+{
+  "modalidades": [
+    {
+      "id": "ES",
+      "nombre": "Entre Semana",
+      "grupo": "Grupo 3",
+      "posClasificatorio": 10,
+      "ptosClasificatorio": 125,
+      "campoClasificatorio": "El Encín Golf",
+      "fechaClasificatorio": "2026-03-11",
+      "jugadoresClasificatorio": ["Eduardo Buendía","Javier Chiralt","Jesus Touceda","GLEZ JUAN JOSÉ","Antonio Carmona"],
+      "elegibles": [
+        {"nombre":"David Sequera","licencia":"CME6308858"},
+        {"nombre":"Antonio Carmona","licencia":"CM00157281"},
+        {"nombre":"Juan Sanz","licencia":"CM00509304"},
+        {"nombre":"Eduardo Buendía","licencia":"CM00192650"},
+        {"nombre":"Nacho Gonzalez","licencia":"CME6076737"},
+        {"nombre":"Alfonso Hidalgo","licencia":"CME6255829"},
+        {"nombre":"Jesus Touceda","licencia":"CME6296994"},
+        {"nombre":"Alvaro Aguirre","licencia":"CME6628917"},
+        {"nombre":"Javier Chiralt","licencia":"CM52419365"},
+        {"nombre":"GLEZ JUAN JOSÉ","licencia":"CME6296171"},
+        {"nombre":"Alvaro Montoya","licencia":"AM62044928"}
+      ],
+      "partidos": [
+        {"id":"ES1","fecha":"2026-04-16","campo":"B.A. de Torrejón","rival":"Foro 2000","formato":"3 fourball","local":false,"resultado":"G","jugadores":["Alvaro Montoya","Alfonso Hidalgo","Javier Chiralt","Alvaro Aguirre","GLEZ JUAN JOSÉ","Jesus Touceda"],"detalle":"2-1 (A/S, 7&5, A/S)"},
+        {"id":"ES2","fecha":"2026-04-30","campo":"La Faisanera","rival":"Grow Golf","formato":"3 fourball","local":false,"resultado":null,"jugadores":[]},
+        {"id":"ES3","fecha":"2026-05-14","campo":"El Robledal Golf","rival":"Club El Estudiante","formato":"3 fourball","local":true,"resultado":null,"jugadores":[]},
+        {"id":"ES4","fecha":"2026-06-04","campo":"Air Golf Club","rival":"Foro 2000","formato":"6 individuales","local":false,"resultado":null,"jugadores":[]},
+        {"id":"ES5","fecha":"2026-09-10","campo":"Montealvar","rival":"Grow Golf","formato":"6 individuales","local":false,"resultado":null,"jugadores":[]},
+        {"id":"ES6","fecha":"2026-10-01","campo":"El Fresnillo","rival":"Club El Estudiante","formato":"6 individuales","local":true,"resultado":null,"jugadores":[]}
+      ]
+    },
+    {
+      "id": "FS",
+      "nombre": "Fin de Semana",
+      "grupo": "Grupo 5",
+      "posClasificatorio": 6,
+      "ptosClasificatorio": 130,
+      "campoClasificatorio": "Los Ángeles de San Rafael",
+      "fechaClasificatorio": "2026-03-08",
+      "jugadoresClasificatorio": ["Angel Hernandez","Francisco Alvarez","Javier Arcos","Javier Cervera","Santi Diaz"],
+      "elegibles": [
+        {"nombre":"Alejandro Arcos","licencia":"CM00358747"},
+        {"nombre":"Alvaro Nieto","licencia":"CM02386035"},
+        {"nombre":"Angel Hernandez","licencia":"CME6169895"},
+        {"nombre":"Angel Santana","licencia":"CMC8780682"},
+        {"nombre":"Carlos Maestro","licencia":"4401188458"},
+        {"nombre":"Francisco Alvarez","licencia":"CME6389026"},
+        {"nombre":"Francisco Hidalgo","licencia":"CME6632866"},
+        {"nombre":"Javier Gonzalez Salvador","licencia":"CME6296170"},
+        {"nombre":"Javier Lopez Gullón","licencia":"CME6765008"},
+        {"nombre":"Franck Benouniche","licencia":"CM15259757"},
+        {"nombre":"Ignacio Cadarso","licencia":"CME6501940"},
+        {"nombre":"Nacho Casas","licencia":"CM15620350"},
+        {"nombre":"Javier Arcos","licencia":"CM00065999"},
+        {"nombre":"Javier Cervera","licencia":"CME6259082"},
+        {"nombre":"Joaquín Sánchez","licencia":"CM15305932"},
+        {"nombre":"Jorge Alberto Martínez Sánchez","licencia":"AM12098542"},
+        {"nombre":"Jose Antonio Santana","licencia":"CM33885568"},
+        {"nombre":"José Pablo Guil","licencia":"CME6089043"},
+        {"nombre":"Juan Jose Aguado","licencia":"CM15989410"},
+        {"nombre":"J. Enrique Gonzalez","licencia":"CME6392431"},
+        {"nombre":"Luis Fernandez","licencia":"CM56622888"},
+        {"nombre":"Enrique Gonzalez R","licencia":"CM87625434"},
+        {"nombre":"Ruslan Kochman","licencia":"CM15639290"},
+        {"nombre":"Santi Diaz","licencia":"CM05807868"},
+        {"nombre":"Thomas Dauterman","licencia":"CM15386122"},
+        {"nombre":"Miche Lopez","licencia":"CMA8937096"},
+        {"nombre":"Victor Morillo","licencia":"CM15969376"},
+        {"nombre":"Ignacio Ibor","licencia":"LV00379658"}
+      ],
+      "partidos": [
+        {"id":"FS1","fecha":"2026-04-18","campo":"Montealvar","rival":"Approach y Putt","formato":"2 fourball + 1 ind","local":true,"resultado":null,"jugadores":[]},
+        {"id":"FS2","fecha":"2026-05-09","campo":"El Robledal Golf","rival":"Putt & Drive","formato":"2 fourball + 1 ind","local":true,"resultado":null,"jugadores":[]},
+        {"id":"FS3","fecha":"2026-05-23","campo":"Palomarejos","rival":"Foro 2000","formato":"2 fourball + 1 ind","local":false,"resultado":null,"jugadores":[]},
+        {"id":"FS4","fecha":"2026-06-13","campo":"Layos","rival":"Approach y Putt","formato":"5 individuales","local":true,"resultado":null,"jugadores":[]},
+        {"id":"FS5","fecha":"2026-09-27","campo":"Cabanillas","rival":"Putt & Drive","formato":"5 individuales","local":true,"resultado":null,"jugadores":[]},
+        {"id":"FS6","fecha":"2026-10-04","campo":"La Faisanera","rival":"Foro 2000","formato":"5 individuales","local":false,"resultado":null,"jugadores":[]}
+      ]
+    }
+  ]
+}
