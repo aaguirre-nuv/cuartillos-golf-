@@ -23,7 +23,7 @@
         {"nombre":"Alvaro Montoya","licencia":"AM62044928"}
       ],
       "partidos": [
-        {"id":"ES1","fecha":"2026-04-16","campo":"B.A. de Torrejón","rival":"Foro 2000","formato":"3 fourball","local":false,"resultado":null,"jugadores":[]},
+        {"id":"ES1","fecha":"2026-04-16","campo":"B.A. de Torrejón","rival":"Foro 2000","formato":"3 fourball","local":false,"resultado":"G","jugadores":["Alvaro Montoya","Alfonso Hidalgo","Javier Chiralt","Alvaro Aguirre","GLEZ JUAN JOSÉ","Jesus Touceda"],"detalle":"2-1 (A/S, 7&5, A/S)"},
         {"id":"ES2","fecha":"2026-04-30","campo":"La Faisanera","rival":"Grow Golf","formato":"3 fourball","local":false,"resultado":null,"jugadores":[]},
         {"id":"ES3","fecha":"2026-05-14","campo":"El Robledal Golf","rival":"Club El Estudiante","formato":"3 fourball","local":true,"resultado":null,"jugadores":[]},
         {"id":"ES4","fecha":"2026-06-04","campo":"Air Golf Club","rival":"Foro 2000","formato":"6 individuales","local":false,"resultado":null,"jugadores":[]},
