@@ -400,6 +400,20 @@ function calcNecesarios(formato) {
   return total || parseInt(formato) || 0;
 }
 
+function calcNecesarios(formato) {
+  // "3 fourball" = 6, "2 fourball + 1 ind" = 5, "5 individuales" = 5
+  var total = 0;
+  var parts = formato.split('+');
+  parts.forEach(function(part) {
+    part = part.trim();
+    var n = parseInt(part);
+    if (isNaN(n)) return;
+    if (part.indexOf('fourball') >= 0) total += n * 2;
+    else total += n;
+  });
+  return total || parseInt(formato) || 0;
+}
+
 function parseDate(s){if(!s)return new Date();var p=s.substring(0,10).split('-');return new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]),12,0,0);}
 // Called from portada buttons
 function portCSCNav(btn) {
@@ -415,8 +429,8 @@ function portCSCNav(btn) {
     loadIns().then(function(){ showCSC(modId, null); });
   } else {
     Promise.all([
-      fetch('./datos/csc.json?v=20260322b').then(function(r){return r.ok?r.json():null;}),
-      fetch('./datos/tarjetas.json?v=20260322b').then(function(r){return r.ok?r.json():null;})
+      fetch('./datos/csc.json?v=20260425a').then(function(r){return r.ok?r.json():null;}),
+      fetch('./datos/tarjetas.json?v=20260425a').then(function(r){return r.ok?r.json():null;})
     ]).then(function(res){
       cscData = res[0];
       window._cscTarjetas = res[1];
@@ -466,7 +480,7 @@ var JBIN_URL = 'https://api.jsonbin.io/v3/b/' + JBIN_ID;
     }).catch(function(){});
   // Also preload tarjetas for ranking in portada
   if(!window._cscTarjetas){
-    fetch('./datos/tarjetas.json?v=20260417a')
+    fetch('./datos/tarjetas.json?v=20260425a')
       .then(function(r){return r.ok?r.json():null;})
       .then(function(d){if(d)window._cscTarjetas=d;})
       .catch(function(){});
@@ -787,11 +801,24 @@ function showCSC(mode, btn) {
     o += '<div style="flex:1"><div style="font-weight:700;font-size:13px">';
     o += (cp.local ? '<span style="background:#dbeafe;color:#1e40af;font-size:9px;font-weight:700;padding:1px 4px;border-radius:3px;margin-right:4px">LOCAL</span>' : '<span style="background:#f3f4f6;color:#6b7280;font-size:9px;padding:1px 4px;border-radius:3px;margin-right:4px">VISITA</span>');
     o += 'vs ' + cp.rival + '</div>';
-    o += '<div style="font-size:11px;color:#6b7a9a">' + cp.campo + ' \u00b7 ' + cp.formato + '</div></div>';
-    if (res1 === 'G') o += '<span style="font-size:11px;font-weight:700;color:#16a34a">GANADO \u2713</span>';
-    else if (res1 === 'P') o += '<span style="font-size:11px;font-weight:700;color:#dc2626">PERDIDO</span>';
-    else if (res1 === 'E') o += '<span style="font-size:11px;font-weight:700;color:#d97706">EMPATE</span>';
-    else if (isNext) o += '<span class="tb tnext">PR\u00d3XIMO</span>';
+    o += '<div style="font-size:11px;color:#6b7a9a">' + cp.campo + ' \u00b7 ' + cp.formato + '</div>';
+    if (res1 && cp.jugadores && cp.jugadores.length) {
+      o += '<div style="font-size:10px;color:#6b7a9a;margin-top:1px">' + cp.jugadores.join(' \u00b7 ') + '</div>';
+    }
+    o += '</div>';
+    if (res1 === 'G') {
+      o += '<div style="text-align:right;flex-shrink:0"><span style="font-size:11px;font-weight:700;color:#16a34a">GANADO \u2713</span>';
+      if (cp.detalle) o += '<div style="font-size:10px;color:#6b7a9a;margin-top:2px;white-space:nowrap">' + cp.detalle + '</div>';
+      o += '</div>';
+    } else if (res1 === 'P') {
+      o += '<div style="text-align:right;flex-shrink:0"><span style="font-size:11px;font-weight:700;color:#dc2626">PERDIDO</span>';
+      if (cp.detalle) o += '<div style="font-size:10px;color:#6b7a9a;margin-top:2px;white-space:nowrap">' + cp.detalle + '</div>';
+      o += '</div>';
+    } else if (res1 === 'E') {
+      o += '<div style="text-align:right;flex-shrink:0"><span style="font-size:11px;font-weight:700;color:#d97706">EMPATE</span>';
+      if (cp.detalle) o += '<div style="font-size:10px;color:#6b7a9a;margin-top:2px;white-space:nowrap">' + cp.detalle + '</div>';
+      o += '</div>';
+    } else if (isNext) o += '<span class="tb tnext">PR\u00d3XIMO</span>';
     else o += '<span style="font-size:10px;color:#6b7a9a">Pendiente</span>';
     if (cscAdmin && !res1) o += '<button class="ins-btn" style="font-size:10px;padding:3px 8px;margin-left:6px" onclick="cscResultado(\'' + mode + '\',\'' + cp.id + '\')">Resultado</button>';
     o += '</div></div>';
@@ -937,7 +964,7 @@ function showCSC(mode, btn) {
 var cMode='neto';
 var jMode='neto';
 
-var CV='?v=20260417a';
+var CV='?v=20260425a';
 function load(f){
   if(cache.hasOwnProperty(f)) return Promise.resolve(cache[f]);
   return fetch(BASE+f+CV).then(function(r){return r.ok?r.json():null;}).then(function(d){cache[f]=d;return d;}).catch(function(){cache[f]=null;return null;});
@@ -1164,7 +1191,8 @@ function renderPortada(){
 function renderCal(){
   var s=gs(),today=new Date();
   el('cal-t').textContent=s;
-  load('calendario.json').then(function(cal){
+  Promise.all([load('calendario.json'), load('csc.json')]).then(function(res){
+    var cal=res[0], csc=res[1];
     if(!cal){el('cal-list').innerHTML='<div style="padding:20px;color:var(--muted)">Sin datos</div>';return;}
     var torn=cal.filter(function(t){return t.temporada===s;});
     var isCur=(s===today.getFullYear()),proxIdx=-1;
@@ -1183,6 +1211,105 @@ function renderCal(){
           (isN?'<span class="tb tnext">PR&Oacute;XIMO</span>':j?'<span class="tb ts">&#10003; Jugado</span>':'<span class="tb tn">Pendiente</span>')+
         '</div></div>';
     }).join('');
+
+    // Add CSC rows
+    if(csc && s === today.getFullYear()){
+      var CSC_COLORS_CAL = {ES:{bg:'#C8102E',light:'#fde8eb',text:'#7f1d1d',label:'CSC Entre Semana'},
+                            FS:{bg:'#b8860b',light:'#fef9c3',text:'#713f12',label:'CSC Fin de Semana'}};
+      var cscRows = '';
+      csc.modalidades.forEach(function(mod){
+        var cc = CSC_COLORS_CAL[mod.id] || {bg:'#374151',light:'#f3f4f6',text:'#111827',label:'CSC '+mod.nombre};
+        mod.partidos.forEach(function(p){
+          var dt = parseDate(p.fecha);
+          var res1 = (insData[mod.id] && insData[mod.id][p.id+'_res']) || p.resultado;
+          var proxP = null;
+          for(var pi=0;pi<mod.partidos.length;pi++){
+            var pp=mod.partidos[pi];
+            var r0=(insData[mod.id]&&insData[mod.id][pp.id+'_res'])||pp.resultado;
+            if(!r0){proxP=pp;break;}
+          }
+          var isNext = proxP && p.id === proxP.id;
+          cscRows += '<div class="ci' + (isNext?' prox':'') + '" style="border-left:3px solid '+cc.bg+'">' +
+            '<div class="cid" style="background:'+cc.bg+'">' +
+              '<div class="cdday">'+dt.getDate()+'</div>' +
+              '<div class="cdmon">'+MES[dt.getMonth()]+'</div>' +
+            '</div>' +
+            '<div class="cii">' +
+              '<div class="cic">'+p.campo+'</div>' +
+              '<div class="cim">vs '+p.rival+' &middot; '+p.formato+'</div>' +
+              (p.jugadores&&p.jugadores.length&&res1?'<div class="cim" style="font-style:italic">'+p.jugadores.join(' · ')+'</div>':'') +
+            '</div>' +
+            '<div class="cir">' +
+              '<span style="background:'+cc.light+';color:'+cc.text+';font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px;letter-spacing:.5px">'+cc.label+'</span>' +
+              (isNext?'<span class="tb tnext">PRÓXIMO</span>':
+               res1==='G'?'<span style="font-size:11px;font-weight:700;color:#16a34a">GANADO ✓</span>'+(p.detalle?'<div style="font-size:10px;color:var(--muted)">'+p.detalle+'</div>':''):
+               res1==='P'?'<span style="font-size:11px;font-weight:700;color:#dc2626">PERDIDO</span>'+(p.detalle?'<div style="font-size:10px;color:var(--muted)">'+p.detalle+'</div>':''):
+               res1==='E'?'<span style="font-size:11px;font-weight:700;color:#d97706">EMPATE</span>':
+               '<span style="font-size:10px;color:var(--muted)">Pendiente</span>') +
+            '</div>' +
+          '</div>';
+        });
+      });
+
+      // Merge liga + CSC by date
+      var allItems = [];
+      var ligaItems = el('cal-list').innerHTML;
+      // Parse existing liga items dates + CSC dates, sort all together
+      // Simpler: just append CSC sorted chronologically after each month
+      // Actually: rebuild with sort
+      var ligaTorn = cal.filter(function(t){return t.temporada===s;});
+      var allEvents = [];
+      ligaTorn.forEach(function(t){ allEvents.push({fecha:parseDate(t.fecha), tipo:'liga', data:t}); });
+      if(csc){ csc.modalidades.forEach(function(mod){
+        mod.partidos.forEach(function(p){ allEvents.push({fecha:parseDate(p.fecha), tipo:'csc', mod:mod, data:p}); });
+      });}
+      allEvents.sort(function(a,b){return a.fecha-b.fecha;});
+      var cc2 = {ES:{bg:'#C8102E',light:'#fde8eb',text:'#7f1d1d',label:'CSC Entre Semana'},
+                 FS:{bg:'#b8860b',light:'#fef9c3',text:'#713f12',label:'CSC Fin de Semana'}};
+      var proxLiga = -1;
+      if(s===today.getFullYear()){for(var li=0;li<ligaTorn.length;li++){if(!ligaTorn[li].jugado){proxLiga=li;break;}}}
+      
+      el('cal-list').innerHTML = allEvents.map(function(ev){
+        var dt = ev.fecha;
+        if(ev.tipo==='liga'){
+          var t=ev.data, j=t.jugado===1;
+          var isNL = ligaTorn.indexOf(t)===proxLiga;
+          return '<div class="ci'+(isNL?' prox':'')+'">'+
+            '<div class="cid"><div class="cdday">'+dt.getDate()+'</div><div class="cdmon">'+MES[dt.getMonth()]+'</div></div>'+
+            '<div class="cii">'+
+              '<div class="cic">'+t.campo+'</div>'+
+              '<div class="cim">Torneo nº'+t.nTorneo+' &middot; Barras '+(t.barras||'&mdash;')+' &middot; Par '+(t.par||72)+'</div>'+
+              (t.nTornPunt?'<div class="cim" style="margin-top:3px"><span style="background:#e8f4fd;color:#1B3A72;font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px">Computan: mejores '+t.nTornPunt+' de la temporada</span></div>':'')+
+            '</div>'+
+            '<div class="cir">'+
+              '<span class="tb '+(TC[t.tipoTorneo]||'t2')+'">'+(TIPOS[t.tipoTorneo]||'Liga')+'</span>'+
+              (isNL?'<span class="tb tnext">PRÓXIMO</span>':j?'<span class="tb ts">&#10003; Jugado</span>':'<span style="font-size:10px;color:var(--muted)">Pendiente</span>')+
+            '</div></div>';
+        } else {
+          var mod=ev.mod, p=ev.data;
+          var cc3=cc2[mod.id]||{bg:'#374151',light:'#f3f4f6',text:'#111827',label:'CSC '+mod.nombre};
+          var res1=(insData[mod.id]&&insData[mod.id][p.id+'_res'])||p.resultado;
+          var proxMod=null;
+          for(var pm=0;pm<mod.partidos.length;pm++){var r0=(insData[mod.id]&&insData[mod.id][mod.partidos[pm].id+'_res'])||mod.partidos[pm].resultado;if(!r0){proxMod=mod.partidos[pm];break;}}
+          var isNM=proxMod&&p.id===proxMod.id;
+          return '<div class="ci'+(isNM?' prox':'')+'" style="border-left:3px solid '+cc3.bg+'">'+
+            '<div class="cid" style="background:'+cc3.bg+'"><div class="cdday">'+dt.getDate()+'</div><div class="cdmon">'+MES[dt.getMonth()]+'</div></div>'+
+            '<div class="cii">'+
+              '<div class="cic">'+p.campo+'</div>'+
+              '<div class="cim">vs '+p.rival+' &middot; '+p.formato+'</div>'+
+              (p.jugadores&&p.jugadores.length&&res1?'<div class="cim" style="font-style:italic">'+p.jugadores.join(' · ')+'</div>':'')+
+            '</div>'+
+            '<div class="cir">'+
+              '<span style="background:'+cc3.light+';color:'+cc3.text+';font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px;letter-spacing:.5px;display:block;margin-bottom:3px">'+cc3.label+'</span>'+
+              (isNM?'<span class="tb tnext">PRÓXIMO</span>':
+               res1==='G'?'<div><span style="font-size:11px;font-weight:700;color:#16a34a">GANADO ✓</span>'+(p.detalle?'<div style="font-size:10px;color:var(--muted)">'+p.detalle+'</div>':'')+'</div>':
+               res1==='P'?'<span style="font-size:11px;font-weight:700;color:#dc2626">PERDIDO</span>':
+               res1==='E'?'<span style="font-size:11px;font-weight:700;color:#d97706">EMPATE</span>':
+               '<span style="font-size:10px;color:var(--muted)">Pendiente</span>')+
+            '</div></div>';
+        }
+      }).join('');
+    }
   });
 }
 
