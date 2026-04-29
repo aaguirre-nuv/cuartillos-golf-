@@ -430,7 +430,7 @@ function portCSCNav(btn) {
   } else {
     Promise.all([
       fetch('./datos/csc.json?v=20260425a').then(function(r){return r.ok?r.json():null;}),
-      fetch('./datos/tarjetas.json?v=20260425a').then(function(r){return r.ok?r.json():null;})
+      fetch('./datos/tarjetas_2026.json?v=20260427a').then(function(r){return r.ok?r.json():null;})
     ]).then(function(res){
       cscData = res[0];
       window._cscTarjetas = res[1];
@@ -451,7 +451,7 @@ var insData = {ES:{}, FS:{}};
 var _pairCtx = null;
 
 function renderCSC() {
-  Promise.all([load('csc.json'), load('tarjetas.json')]).then(function(res) {
+  Promise.all([load('csc.json'), load('tarjetas_2026.json')]).then(function(res) {
     cscData = res[0];
     window._cscTarjetas = res[1];
     loadIns().then(function() {
@@ -480,7 +480,7 @@ var JBIN_URL = 'https://api.jsonbin.io/v3/b/' + JBIN_ID;
     }).catch(function(){});
   // Also preload tarjetas for ranking in portada
   if(!window._cscTarjetas){
-    fetch('./datos/tarjetas.json?v=20260425a')
+    fetch('./datos/tarjetas_2026.json?v=20260427a')
       .then(function(r){return r.ok?r.json():null;})
       .then(function(d){if(d)window._cscTarjetas=d;})
       .catch(function(){});
@@ -964,10 +964,16 @@ function showCSC(mode, btn) {
 var cMode='neto';
 var jMode='neto';
 
-var CV='?v=20260425a';
+var CV='?v=20260427a';
 function load(f){
   if(cache.hasOwnProperty(f)) return Promise.resolve(cache[f]);
   return fetch(BASE+f+CV).then(function(r){return r.ok?r.json():null;}).then(function(d){cache[f]=d;return d;}).catch(function(){cache[f]=null;return null;});
+}
+function loadAllTarjetas(){
+  var k='tarjetas_all.json';
+  if(cache.hasOwnProperty(k))return Promise.resolve(cache[k]);
+  return Promise.all([load('tarjetas_2024.json'),load('tarjetas_2025.json'),load('tarjetas_2026.json')])
+  .then(function(r){var all=[].concat(r[0]||[],r[1]||[],r[2]||[]);cache[k]=all;return all;});
 }
 function el(id){return document.getElementById(id);}
 function gs(){return parseInt(el('gS').value);}
@@ -1344,7 +1350,7 @@ function renderClas(){
       '<th>Total</th></tr></thead><tbody>';
     // Build jugador->equipo from cached tarjetas (no extra fetch)
     var jugEq={};
-    var tarjC=cache['tarjetas.json'];
+    var tarjC=cache['tarjetas_'+s+'.json']||cache['tarjetas_all.json']||null;
     if(tarjC){tarjC.filter(function(t){return t.temp===s&&t.nombreEq;}).forEach(function(t){jugEq[t.nombre]=t.nombreEq;});}
     rows.forEach(function(r){
       var eqLogo=jugEq[r.jugador]?logoH(jugEq[r.jugador]):'';
@@ -1497,7 +1503,7 @@ function loadTorn(btn){
   btn.classList.add('active');
   el('torn-w').style.display='block';
   el('torn-ttl').textContent=btn.dataset.campo+' — '+fmtD(btn.dataset.fecha);
-  load('tarjetas.json').then(function(tarj){
+  load('tarjetas_'+gs()+'.json').then(function(tarj){
     if(!tarj)return;
     var s=parseInt(btn.dataset.id.split(':')[0]),n=parseInt(btn.dataset.ntorn);
     var rows=tarj.filter(function(t){return t.temp===s&&t.ntorn===n;});
@@ -1574,7 +1580,7 @@ function buildSC(rows,elId,forceN){
 }
 
 function initJSel(){
-  load('tarjetas.json').then(function(tarj){
+  loadAllTarjetas().then(function(tarj){
     if(!tarj)return;
     var seen={},jugs=[],campos=[],cseen={};
     tarj.forEach(function(t){
@@ -1592,7 +1598,7 @@ function renderJug(){
   if(!nom)return;
   el('jug-w').style.display='block';
   el('jug-campo').value='';
-  load('tarjetas.json').then(function(tarj){
+  loadAllTarjetas().then(function(tarj){
     if(!tarj)return;
     var all=tarj.filter(function(t){return t.nombre===nom;});
     var rows=sf==='all'?all:all.filter(function(t){return t.temp===parseInt(sf);});
@@ -1634,7 +1640,7 @@ function renderJug(){
 function renderJugCampo(){
   var nom=el('jug-sel').value,campo=el('jug-campo').value;
   if(!nom||!campo)return;
-  load('tarjetas.json').then(function(tarj){
+  loadAllTarjetas().then(function(tarj){
     if(!tarj)return;
     var rows=tarj.filter(function(t){return t.nombre===nom&&t.campo===campo;}).sort(function(a,b){return b.temp-a.temp||a.ntorn-b.ntorn;});
     el('jug-w').style.display='block';
@@ -1653,7 +1659,7 @@ function renderJugCampo(){
 }
 
 function renderStats(){
-  Promise.all([load('tarjetas.json'),load('estadisticas.json')]).then(function(res){
+  Promise.all([loadAllTarjetas(),load('estadisticas.json')]).then(function(res){
     var tarj=res[0],stats=res[1];
     if(!tarj)return;
     var byTemp={};
@@ -1768,7 +1774,7 @@ function renderCampo(){
   el('h-hard').innerHTML=srt.slice().reverse().slice(0,5).map(function(h){return bar(h,'h');}).join('');
   el('h-table').innerHTML='<table><thead><tr><th>Hoyo</th><th>Par</th><th>Partidas</th><th>Media</th><th>Vs Par</th></tr></thead><tbody>'+
     hh.map(function(h){return '<tr><td style="font-weight:700">H'+h.hoyo+'</td><td>'+h.par+'</td><td>'+h.partidas+'</td><td style="font-weight:700">'+h.mediaBruto.toFixed(1)+'</td><td style="color:'+(h.mediaDifBruto>0?'#dc2626':'#16a34a')+';font-weight:700">'+(h.mediaDifBruto>0?'+':'')+h.mediaDifBruto.toFixed(2)+'</td></tr>';}).join('')+'</tbody></table>';
-  var tarjC=cache['tarjetas.json']?cache['tarjetas.json'].filter(function(t){return t.campo===campo&&t.difPar!=null;}).sort(function(a,b){return a.difPar-b.difPar;}).slice(0,5):[];
+  var tarjC=cache['tarjetas_all.json']?cache['tarjetas_all.json'].filter(function(t){return t.campo===campo&&t.difPar!=null;}).sort(function(a,b){return a.difPar-b.difPar;}).slice(0,5):[];
   el('campo-rec').innerHTML=tarjC.length?'<table><thead><tr><th>#</th><th>Jugador</th><th>A&ntilde;o</th><th>Total</th><th>&Delta;Par</th></tr></thead><tbody>'+
     tarjC.map(function(r,i){return '<tr><td class="rk">'+(i+1)+'</td><td style="font-weight:600">'+r.nombre+'</td><td style="color:var(--muted)">'+r.temp+'</td><td style="font-weight:700">'+r.total+'</td><td style="color:#16a34a;font-weight:700;font-family:Bebas Neue,sans-serif;font-size:20px">'+(r.difPar>0?'+':'')+r.difPar+'</td></tr>';}).join('')+'</tbody></table>':
     '<div style="padding:20px;color:var(--muted);text-align:center">Sin datos</div>';
