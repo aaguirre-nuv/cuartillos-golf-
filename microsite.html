@@ -1038,7 +1038,7 @@ function renderPortada(){
   var s=gs();
   el('psl').textContent='Temporada '+s;
   var today=new Date();
-  Promise.all([load('calendario.json'),load('clas_matrix.json'),load('equipos_clasificacion.json')]).then(function(results){
+  Promise.all([load('calendario.json'),load('clas_matrix_'+gs()+'.json'),load('equipos_clasificacion_'+gs()+'.json')]).then(function(results){
     var cal=results[0],mx=results[1],ceq=results[2];
     var torn=cal?cal.filter(function(t){return t.temporada===s;}):[],
         jugados=torn.filter(function(t){return t.jugado===1;}).length,
@@ -1321,7 +1321,7 @@ function renderCal(){
 
 function renderClas(){
   var s=gs();
-  Promise.all([load('clas_matrix.json'),load('calendario.json')]).then(function(res){
+  Promise.all([load('clas_matrix_'+gs()+'.json'),load('calendario.json')]).then(function(res){
     var mx=res[0],cal=res[1];
     if(!mx)return;
     var rows=mx.filter(function(m){return m.temp===s;}),
@@ -1377,7 +1377,7 @@ function renderClas(){
 
 function renderEq(){
   var s=gs();
-  Promise.all([load('equipos_clasificacion.json'),load('calendario.json')]).then(function(res){
+  Promise.all([load('equipos_clasificacion_'+gs()+'.json'),load('calendario.json')]).then(function(res){
     var ceq=res[0],cal=res[1];
     if(!ceq)return;
     var torn=cal?cal.filter(function(t){return t.temporada===s&&t.jugado===1;}).sort(function(a,b){return a.nTorneo-b.nTorneo;}):[],
