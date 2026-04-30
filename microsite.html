@@ -1043,7 +1043,21 @@ function renderPortada(){
     var torn=cal?cal.filter(function(t){return t.temporada===s;}):[],
         jugados=torn.filter(function(t){return t.jugado===1;}).length,
         proximo=null;
-    if(s===new Date().getFullYear()){for(var i=0;i<torn.length;i++){if(!torn[i].jugado){proximo=torn[i];break;}}}
+    var proximo2=null;
+    if(s===new Date().getFullYear()){
+      for(var i=0;i<torn.length;i++){
+        if(!torn[i].jugado){
+          proximo=torn[i];
+          // Check if next tournament is on consecutive day(s)
+          if(i+1<torn.length&&!torn[i+1].jugado){
+            var d1=parseDate(torn[i].fecha),d2=parseDate(torn[i+1].fecha);
+            var diffDays=Math.round((d2-d1)/86400000);
+            if(diffDays<=2){proximo2=torn[i+1];}
+          }
+          break;
+        }
+      }
+    }
     var jug=mx?mx.filter(function(m){return m.temp===s;}):[],top=jug[0],top2=jug[1];
     var kpis='<div class="kr">'+
       '<div class="kpi"><div class="kl">Torneos jugados</div><div class="kv">'+jugados+'</div><div class="ks">de '+torn.length+'</div></div>'+
@@ -1051,22 +1065,31 @@ function renderPortada(){
       '<div class="kpi g"><div class="kl">&#127941; Líder</div><div class="kv" style="font-size:16px">'+(top?top.jugador:'&mdash;')+'</div><div class="ks">'+(top?(top.total||0).toLocaleString('es')+' pts':'')+'</div></div>'+
       '<div class="kpi gr"><div class="kl">&#129352; 2&ordm;</div><div class="kv" style="font-size:16px">'+(top2?top2.jugador:'&mdash;')+'</div><div class="ks">'+(top2?(top2.total||0).toLocaleString('es')+' pts':'')+'</div></div>'+
     '</div>';
-    var nextH='';
-    if(proximo){
-      var dt=parseDate(proximo.fecha),dias=Math.round((dt-today)/86400000);
-      var dTxt=dias<=0?'&#161;HOY!':dias===1?'ma&ntilde;ana':'en '+dias+' d&iacute;as';
-      nextH='<div style="background:linear-gradient(135deg,var(--navy),#2a4f9f);border-radius:8px;padding:16px 20px;margin-bottom:14px;display:flex;align-items:center;gap:16px;box-shadow:0 4px 16px rgba(27,58,114,.2)">'+
+    function mkTornCard(t,label,mb){
+      var dt=parseDate(t.fecha);
+      return '<div style="background:linear-gradient(135deg,var(--navy),#2a4f9f);border-radius:8px;padding:16px 20px;margin-bottom:'+mb+'px;display:flex;align-items:center;gap:16px;box-shadow:0 4px 16px rgba(27,58,114,.2)">'+
         '<div style="background:var(--gold);border-radius:6px;padding:10px 14px;text-align:center;flex-shrink:0">'+
           '<div style="font-family:Bebas Neue,sans-serif;font-size:28px;color:var(--navy);line-height:1">'+dt.getDate()+'</div>'+
           '<div style="font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--navy);font-weight:700">'+MES[dt.getMonth()]+'</div>'+
         '</div>'+
         '<div style="flex:1">'+
-          '<div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:2px">Pr&oacute;ximo torneo &mdash; '+dTxt+'</div>'+
-          '<div style="font-family:Bebas Neue,sans-serif;font-size:22px;color:#fff">'+proximo.campo+'</div>'+
-          '<div style="font-size:12px;color:rgba(255,255,255,.7)">Torneo n&ordm;'+proximo.nTorneo+' &middot; '+(proximo.tipoNombre||'Liga')+(proximo.precio?' &middot; '+proximo.precio+'&euro;':'')+'</div>'+
+          '<div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:2px">'+label+'</div>'+
+          '<div style="font-family:Bebas Neue,sans-serif;font-size:22px;color:#fff">'+t.campo+'</div>'+
+          '<div style="font-size:12px;color:rgba(255,255,255,.7)">Torneo n&ordm;'+t.nTorneo+' &middot; '+(t.tipoNombre||'Liga')+(t.precio?' &middot; '+t.precio+'&euro;':'')+'</div>'+
         '</div>'+
-        '<div style="font-family:Bebas Neue,sans-serif;font-size:40px;color:rgba(255,255,255,.15)">'+proximo.nTorneo+'</div>'+
+        '<div style="font-family:Bebas Neue,sans-serif;font-size:40px;color:rgba(255,255,255,.15)">'+t.nTorneo+'</div>'+
       '</div>';
+    }
+    var nextH='';
+    if(proximo){
+      var dt=parseDate(proximo.fecha),dias=Math.round((dt-today)/86400000);
+      var dTxt=dias<=0?'&#161;HOY!':dias===1?'ma&ntilde;ana':'en '+dias+' d&iacute;as';
+      if(proximo2){
+        nextH=mkTornCard(proximo,'&#127944; Finde doble &mdash; '+dTxt,8)+
+              mkTornCard(proximo2,'2&ordm; torneo del fin de semana',14);
+      } else {
+        nextH=mkTornCard(proximo,'Pr&oacute;ximo torneo &mdash; '+dTxt,14);
+      }
     }
     var top8H='<table><thead><tr><th>#</th><th>Jugador</th><th>Puntos</th><th style="color:rgba(255,255,255,.7)">Cmptn</th></tr></thead><tbody>'+
       jug.slice(0,8).map(function(r,i){
@@ -1091,7 +1114,7 @@ function renderPortada(){
         '<div style="font-weight:'+(isN?'700':'600')+';font-size:13px;color:'+(isN?'var(--navy)':'inherit')+'">'+t.campo+'</div>'+
         (t.nTornPunt?'<div style="font-size:9px;color:#1565c0;margin-top:1px">Computan '+t.nTornPunt+' mejores</div>':'')+
       '</div>'+
-        (isN?'<span class="tb tnext">PR&Oacute;XIMO</span>':j2?'<span class="tb ts">&#10003;</span>':'<span class="tb" style="background:var(--gray2);color:var(--muted)">Pte</span>')+
+        ((isN||(proximo2&&t.id===proximo2.id))?'<span class="tb tnext">PR&Oacute;XIMO</span>':j2?'<span class="tb ts">&#10003;</span>':'<span class="tb" style="background:var(--gray2);color:var(--muted)">Pte</span>')+
       '</div>';
     }).join('');
     // Merge liga + CSC events by date
@@ -1099,6 +1122,7 @@ function renderPortada(){
 
     var eventos=[];
     if(proximo) eventos.push({fecha:parseDate(proximo.fecha),tipo:'liga',data:proximo});
+    if(proximo2) eventos.push({fecha:parseDate(proximo2.fecha),tipo:'liga',data:proximo2});
     if(csc){
       csc.modalidades.forEach(function(mod){
         for(var i=0;i<mod.partidos.length;i++){
@@ -1662,17 +1686,34 @@ function renderStats(){
   Promise.all([loadAllTarjetas(),load('estadisticas.json')]).then(function(res){
     var tarj=res[0],stats=res[1];
     if(!tarj)return;
-    var byTemp={};
+    // Compute torneos played per year
+    var tornByYear={},byTemp={},byTempCmp={};
+    tarj.forEach(function(t){
+      if(!tornByYear[t.temp])tornByYear[t.temp]=new Set();
+      tornByYear[t.temp].add(t.ntorn);
+    });
+    // Current year = last key sorted
+    var years=Object.keys(tornByYear).sort();
+    var curYr=years[years.length-1];
+    var nCur=tornByYear[curYr]?tornByYear[curYr].size:0;
+    // Count all participations per year (total)
     tarj.forEach(function(t){if(!byTemp[t.temp])byTemp[t.temp]=0;byTemp[t.temp]++;});
-    var maxT=Math.max.apply(null,Object.values(byTemp).concat([1]));
+    // Count comparable: only first nCur torneos of each year
+    tarj.forEach(function(t){
+      var nForYear=Array.from(tornByYear[t.temp]||[]).sort(function(a,b){return a-b;});
+      var firstN=nForYear.slice(0,nCur);
+      if(firstN.indexOf(t.ntorn)>=0){if(!byTempCmp[t.temp])byTempCmp[t.temp]=0;byTempCmp[t.temp]++;}
+    });
+    var maxT=Math.max.apply(null,Object.values(byTempCmp).concat([1]));
     var colors={'2024':'#93c5fd','2025':'#3b82f6','2026':'#1d4ed8'};
-    el('asist-kpis').innerHTML='<div class="g4">'+
-      Object.keys(byTemp).sort().map(function(yr){
+    el('asist-kpis').innerHTML='<div style="font-size:10px;color:var(--muted);margin-bottom:8px;text-align:center">Comparativa primeros '+nCur+' torneo'+(nCur!==1?'s':'')+' de cada a&ntilde;o</div>'+
+      '<div class="g4">'+
+      Object.keys(byTempCmp).sort().map(function(yr){
         return '<div class="stat-box">'+
-          '<div class="stat-num" style="color:'+(colors[yr]||'var(--navy)')+'">'+byTemp[yr]+'</div>'+
+          '<div class="stat-num" style="color:'+(colors[yr]||'var(--navy)')+'">'+byTempCmp[yr]+'</div>'+
           '<div class="stat-lbl">participaciones '+yr+'</div>'+
           '<div style="margin-top:8px;height:6px;background:var(--gray2);border-radius:3px">'+
-            '<div style="height:100%;width:'+Math.round(byTemp[yr]/maxT*100)+'%;background:'+(colors[yr]||'var(--navy)')+';border-radius:3px"></div>'+
+            '<div style="height:100%;width:'+Math.round(byTempCmp[yr]/maxT*100)+'%;background:'+(colors[yr]||'var(--navy)')+';border-radius:3px"></div>'+
           '</div></div>';
       }).join('')+'</div>';
     var byTT={};
@@ -1688,15 +1729,23 @@ function renderStats(){
             '<div class="sbv">'+v+'</div></div>';
         }).join('')+'</div>';
     }).join('');
-    var byCampo={};
-    tarj.forEach(function(t){if(!byCampo[t.campo])byCampo[t.campo]=0;byCampo[t.campo]++;});
+    var byCampo={},byCampoTorn={};
+    tarj.forEach(function(t){
+      if(!byCampo[t.campo])byCampo[t.campo]=0;byCampo[t.campo]++;
+      if(!byCampoTorn[t.campo])byCampoTorn[t.campo]=new Set();
+      byCampoTorn[t.campo].add(t.temp+':'+t.ntorn);
+    });
     var campoL=Object.keys(byCampo).sort(function(a,b){return byCampo[b]-byCampo[a];});
-    var mxC=byCampo[campoL[0]]||1;
-    el('asist-camp').innerHTML=campoL.map(function(c){
-      return '<div class="sbr"><div class="sbl">'+c+'</div>'+
-        '<div class="sbw"><div class="sbf" style="width:'+Math.round(byCampo[c]/mxC*100)+'%;background:var(--navy)"></div></div>'+
-        '<div class="sbv">'+byCampo[c]+'</div></div>';
-    }).join('');
+    var campoAvg={};
+    campoL.forEach(function(c){var nT=byCampoTorn[c].size;campoAvg[c]=nT>0?Math.round(byCampo[c]/nT*10)/10:0;});
+    var mxC=Math.max.apply(null,Object.values(campoAvg).concat([1]));
+    el('asist-camp').innerHTML='<div style="font-size:10px;color:var(--muted);margin-bottom:8px">Media de jugadores por visita al campo</div>'+
+      campoL.map(function(c){
+        var nT=byCampoTorn[c].size,avg=campoAvg[c];
+        return '<div class="sbr"><div class="sbl">'+c+'<span style="font-size:9px;color:var(--muted);margin-left:4px">('+nT+' vez'+(nT!==1?'es':'')+')</span></div>'+
+          '<div class="sbw"><div class="sbf" style="width:'+Math.round(avg/mxC*100)+'%;background:var(--navy)"></div></div>'+
+          '<div class="sbv">'+avg+'</div></div>';
+      }).join('');
     var byJug={};
     tarj.forEach(function(t){if(!byJug[t.nombre])byJug[t.nombre]=0;byJug[t.nombre]++;});
     var jR=Object.keys(byJug).sort(function(a,b){return byJug[b]-byJug[a];}).slice(0,15);
