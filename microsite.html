@@ -1248,10 +1248,7 @@ function renderCal(){
       for(var i=0;i<allEv.length;i++){
         var ev=allEv[i];
         if(ev.tipo==='liga'&&!ev.data.jugado){proxEv=ev;break;}
-        if(ev.tipo==='csc'){
-          var r0=(insData[ev.mod.id]&&insData[ev.mod.id][ev.data.id+'_res'])||ev.data.resultado;
-          if(!r0){proxEv=ev;break;}
-        }
+        if(ev.tipo==='csc'&&!ev.data.resultado){proxEv=ev;break;}
       }
     }
     var h='',lastMonth=-1;
@@ -1292,7 +1289,7 @@ function renderCal(){
       } else {
         var mod=ev.mod,p=ev.data;
         var cc=CC[mod.id]||{bg:'#374151',light:'#f3f4f6',text:'#111827',label:'CSC'};
-        var res=(insData[mod.id]&&insData[mod.id][p.id+'_res'])||p.resultado;
+        var res=p.resultado;
         var isDone=res==='G'||res==='P'||res==='E';
         h+='<div class="ci'+(isProx?' prox':'')+'" style="border-left:3px solid '+cc.bg+'">'+
           '<div class="cid" style="background:'+cc.bg+'">'+
