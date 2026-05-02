@@ -748,10 +748,29 @@ function buildGroupTable(mod, mode, modeColor) {
     else if (pg.pts_l<pg.pts_v){stats[v].W++;stats[l].L++;}
     else{stats[l].D++;stats[v].D++;}
   });
+
+  // Head-to-head result between two teams
+  function h2h(a, b) {
+    // Returns 1 if a beat b, -1 if b beat a, 0 if not played or draw
+    for (var i=0; i<mod.partidos_grupo.length; i++) {
+      var pg=mod.partidos_grupo[i];
+      if (pg.pts_l===null||pg.pts_l===undefined) continue;
+      if (pg.local===a && pg.visitante===b) return pg.pts_l>pg.pts_v?1:pg.pts_l<pg.pts_v?-1:0;
+      if (pg.local===b && pg.visitante===a) return pg.pts_v>pg.pts_l?1:pg.pts_v<pg.pts_l?-1:0;
+    }
+    return 0;
+  }
+
   var ranked=teams.slice().sort(function(a,b){
+    // 1st: W
     if(stats[b].W!==stats[a].W) return stats[b].W-stats[a].W;
+    // 2nd: head-to-head (direct confrontation)
+    var hh=h2h(a,b); // 1=a beat b, -1=b beat a
+    if(hh!==0) return -hh; // if a beat b, a ranks higher (lower index)
+    // 3rd: UPS difference
     return (stats[b].ups_f-stats[b].ups_c)-(stats[a].ups_f-stats[a].ups_c);
   });
+
   var fmtD2=function(f){if(!f)return'';var d=parseDate(f);return d.getDate()+' '+MES[d.getMonth()];};
   var fmtRes=function(pg,team){
     if(pg.pts_l===null||pg.pts_l===undefined) return '<span style="font-size:10px;color:#9ca3af">Pendiente</span>';
@@ -840,16 +859,12 @@ function showCSC(mode, btn) {
   // Build output string
   var o = '';
 
-  // Banner clasificatorio
-  o += '<div style="background:linear-gradient(135deg,' + modeColor + ',' + modeColor + 'bb);border-radius:8px;padding:14px 18px;margin-bottom:14px;display:flex;align-items:center;gap:16px;color:#fff;flex-wrap:wrap">';
-  o += '<div style="background:#F5B900;border-radius:6px;padding:8px 14px;text-align:center;flex-shrink:0">';
-  o += '<div style="font-family:Bebas Neue,sans-serif;font-size:28px;color:#1B3A72;line-height:1">' + mod.posClasificatorio + '\u00ba</div>';
-  o += '<div style="font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#1B3A72;font-weight:700">Clasif.</div></div>';
-  o += '<div style="flex:1"><div style="font-size:10px;color:rgba(255,255,255,.6)">Clasificatorio &mdash; ' + fmtD(mod.fechaClasificatorio) + '</div>';
-  o += '<div style="font-family:Bebas Neue,sans-serif;font-size:20px">' + mod.campoClasificatorio + '</div>';
-  o += '<div style="font-size:12px;color:rgba(255,255,255,.7)">' + mod.jugadoresClasificatorio.join(' \u00b7 ') + '</div></div>';
-  o += '<div style="text-align:center"><div style="font-family:Bebas Neue,sans-serif;font-size:36px;color:#F5B900">' + mod.ptosClasificatorio + '</div>';
-  o += '<div style="font-size:10px;color:rgba(255,255,255,.6)">puntos \u00b7 ' + mod.grupo + '</div></div></div>';
+  // Banner clasificatorio (compact)
+  o += '<div style="background:#f8fafc;border:1px solid #e2e8f0;border-left:3px solid '+modeColor+';border-radius:6px;padding:8px 14px;margin-bottom:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">';
+  o += '<span style="background:'+modeColor+';color:#fff;font-family:Bebas Neue,sans-serif;font-size:13px;padding:2px 8px;border-radius:4px">'+mod.grupo+'</span>';
+  o += '<span style="font-size:12px;color:var(--muted)">Clasificatorio '+fmtD(mod.fechaClasificatorio)+' &mdash; '+mod.campoClasificatorio+'</span>';
+  o += '<span style="margin-left:auto;font-size:11px;color:var(--muted)">'+mod.posClasificatorio+'\u00ba clasificados &middot; <strong style="color:var(--navy)">'+mod.ptosClasificatorio+' pts</strong></span>';
+  o += '</div>';
 
   o += buildGroupTable(mod, mode, modeColor);
   o += '<div class="g2" style="margin-bottom:14px">';
@@ -1032,7 +1047,7 @@ function showCSC(mode, btn) {
 var cMode='neto';
 var jMode='neto';
 
-var CV='?v=20260502b';
+var CV='?v=20260502c';
 function load(f){
   if(cache.hasOwnProperty(f)) return Promise.resolve(cache[f]);
   return fetch(BASE+f+CV).then(function(r){return r.ok?r.json():null;}).then(function(d){cache[f]=d;return d;}).catch(function(){cache[f]=null;return null;});
