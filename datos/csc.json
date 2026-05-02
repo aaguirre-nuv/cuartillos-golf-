@@ -4,6 +4,12 @@
       "id": "ES",
       "nombre": "Entre Semana",
       "grupo": "Grupo 3",
+      "equiposGrupo": [
+        "Cuartillos",
+        "Foro 2000",
+        "Grow Golf",
+        "Club El Estudiante"
+      ],
       "posClasificatorio": 10,
       "ptosClasificatorio": 125,
       "campoClasificatorio": "El Encín Golf",
@@ -79,6 +85,8 @@
           "local": false,
           "resultado": "G",
           "detalle": "2-1 (A/S, 7&5, A/S)",
+          "ups_favor": 7,
+          "ups_contra": 0,
           "jugadores": [
             "Alvaro Montoya",
             "Alfonso Hidalgo",
@@ -97,6 +105,8 @@
           "local": false,
           "resultado": "G",
           "detalle": "2-1 (2&1, 5&3, 3&2)",
+          "ups_favor": 7,
+          "ups_contra": 3,
           "jugadores": [
             "Carlos Maestro",
             "David Sequera",
@@ -114,6 +124,9 @@
           "formato": "3 fourball",
           "local": true,
           "resultado": null,
+          "detalle": null,
+          "ups_favor": null,
+          "ups_contra": null,
           "jugadores": []
         },
         {
@@ -124,6 +137,9 @@
           "formato": "6 individuales",
           "local": false,
           "resultado": null,
+          "detalle": null,
+          "ups_favor": null,
+          "ups_contra": null,
           "jugadores": []
         },
         {
@@ -134,6 +150,9 @@
           "formato": "6 individuales",
           "local": false,
           "resultado": null,
+          "detalle": null,
+          "ups_favor": null,
+          "ups_contra": null,
           "jugadores": []
         },
         {
@@ -144,7 +163,144 @@
           "formato": "6 individuales",
           "local": true,
           "resultado": null,
+          "detalle": null,
+          "ups_favor": null,
+          "ups_contra": null,
           "jugadores": []
+        }
+      ],
+      "partidos_grupo": [
+        {
+          "jornada": 1,
+          "fecha": "2026-04-16",
+          "local": "Cuartillos",
+          "visitante": "Foro 2000",
+          "pts_l": 2,
+          "pts_v": 1,
+          "ups_l": 7,
+          "ups_v": 0,
+          "detalle": "2-1 (A/S, 7&5, A/S)"
+        },
+        {
+          "jornada": 1,
+          "fecha": "2026-04-16",
+          "local": "Club El Estudiante",
+          "visitante": "Grow Golf",
+          "pts_l": 2,
+          "pts_v": 1,
+          "ups_l": 8,
+          "ups_v": 4,
+          "detalle": "2-1 (4&3, 4&2, 4&3)"
+        },
+        {
+          "jornada": 2,
+          "fecha": "2026-04-30",
+          "local": "Grow Golf",
+          "visitante": "Cuartillos",
+          "pts_l": 1,
+          "pts_v": 2,
+          "ups_l": 3,
+          "ups_v": 7,
+          "detalle": "2-1 (2&1, 5&3, 3&2)"
+        },
+        {
+          "jornada": 2,
+          "fecha": "2026-04-30",
+          "local": "Foro 2000",
+          "visitante": "Club El Estudiante",
+          "pts_l": 2,
+          "pts_v": 1,
+          "ups_l": 3,
+          "ups_v": 2,
+          "detalle": "2-1 (2UP, 1UP, 2&1)"
+        },
+        {
+          "jornada": 3,
+          "fecha": "2026-05-14",
+          "local": "Cuartillos",
+          "visitante": "Club El Estudiante",
+          "pts_l": null,
+          "pts_v": null,
+          "ups_l": null,
+          "ups_v": null,
+          "detalle": null
+        },
+        {
+          "jornada": 3,
+          "fecha": "2026-05-14",
+          "local": "Foro 2000",
+          "visitante": "Grow Golf",
+          "pts_l": null,
+          "pts_v": null,
+          "ups_l": null,
+          "ups_v": null,
+          "detalle": null
+        },
+        {
+          "jornada": 4,
+          "fecha": "2026-06-04",
+          "local": "Foro 2000",
+          "visitante": "Cuartillos",
+          "pts_l": null,
+          "pts_v": null,
+          "ups_l": null,
+          "ups_v": null,
+          "detalle": null
+        },
+        {
+          "jornada": 4,
+          "fecha": "2026-06-04",
+          "local": "Grow Golf",
+          "visitante": "Club El Estudiante",
+          "pts_l": null,
+          "pts_v": null,
+          "ups_l": null,
+          "ups_v": null,
+          "detalle": null
+        },
+        {
+          "jornada": 5,
+          "fecha": "2026-09-10",
+          "local": "Cuartillos",
+          "visitante": "Grow Golf",
+          "pts_l": null,
+          "pts_v": null,
+          "ups_l": null,
+          "ups_v": null,
+          "detalle": null
+        },
+        {
+          "jornada": 5,
+          "fecha": "2026-09-10",
+          "local": "Club El Estudiante",
+          "visitante": "Foro 2000",
+          "pts_l": null,
+          "pts_v": null,
+          "ups_l": null,
+          "ups_v": null,
+          "detalle": null
+        },
+        {
+          "jornada": 6,
+          "fecha": "2026-10-01",
+          "local": "Club El Estudiante",
+          "visitante": "Cuartillos",
+          "pts_l": null,
+          "pts_v": null,
+          "ups_l": null,
+          "ups_v": null,
+          "detalle": null
+        },
+        {
+          "jornada": 6,
+          "fecha": "2026-10-01",
+          "local": "Grow Golf",
+          "visitante": "Foro 2000",
+          "pts_l": null,
+          "pts_v": null,
+          "ups_l": null,
+          "ups_v": null,
+          "detalle": null
         }
       ]
     },
@@ -152,6 +308,12 @@
       "id": "FS",
       "nombre": "Fin de Semana",
       "grupo": "Grupo 5",
+      "equiposGrupo": [
+        "Cuartillos",
+        "Approach y Putt",
+        "Putt & Drive",
+        "Foro 2000"
+      ],
       "posClasificatorio": 6,
       "ptosClasificatorio": 130,
       "campoClasificatorio": "Los Ángeles de San Rafael",
@@ -279,6 +441,8 @@
           "local": true,
           "resultado": "G",
           "detalle": "2-1 (1UP, 3&1, 3&2)",
+          "ups_favor": 4,
+          "ups_contra": 3,
           "jugadores": [
             "Angel Hernandez",
             "Alejandro Arcos",
@@ -295,6 +459,9 @@
           "formato": "2 fourball + 1 ind",
           "local": true,
           "resultado": null,
+          "detalle": null,
+          "ups_favor": null,
+          "ups_contra": null,
           "jugadores": []
         },
         {
@@ -305,6 +472,9 @@
           "formato": "2 fourball + 1 ind",
           "local": false,
           "resultado": null,
+          "detalle": null,
+          "ups_favor": null,
+          "ups_contra": null,
           "jugadores": []
         },
         {
@@ -315,6 +485,9 @@
           "formato": "5 individuales",
           "local": true,
           "resultado": null,
+          "detalle": null,
+          "ups_favor": null,
+          "ups_contra": null,
           "jugadores": []
         },
         {
@@ -325,6 +498,9 @@
           "formato": "5 individuales",
           "local": true,
           "resultado": null,
+          "detalle": null,
+          "ups_favor": null,
+          "ups_contra": null,
           "jugadores": []
         },
         {
@@ -335,7 +511,144 @@
           "formato": "5 individuales",
           "local": false,
           "resultado": null,
+          "detalle": null,
+          "ups_favor": null,
+          "ups_contra": null,
           "jugadores": []
+        }
+      ],
+      "partidos_grupo": [
+        {
+          "jornada": 1,
+          "fecha": "2026-04-18",
+          "local": "Cuartillos",
+          "visitante": "Approach y Putt",
+          "pts_l": 2,
+          "pts_v": 1,
+          "ups_l": 4,
+          "ups_v": 3,
+          "detalle": "2-1 (1UP, 3&1, 3&2)"
+        },
+        {
+          "jornada": 1,
+          "fecha": "2026-04-18",
+          "local": "Foro 2000",
+          "visitante": "Putt & Drive",
+          "pts_l": 3,
+          "pts_v": 0,
+          "ups_l": 12,
+          "ups_v": 0,
+          "detalle": "3-0"
+        },
+        {
+          "jornada": 2,
+          "fecha": "2026-05-09",
+          "local": "Cuartillos",
+          "visitante": "Putt & Drive",
+          "pts_l": null,
+          "pts_v": null,
+          "ups_l": null,
+          "ups_v": null,
+          "detalle": null
+        },
+        {
+          "jornada": 2,
+          "fecha": "2026-05-09",
+          "local": "Approach y Putt",
+          "visitante": "Foro 2000",
+          "pts_l": null,
+          "pts_v": null,
+          "ups_l": null,
+          "ups_v": null,
+          "detalle": null
+        },
+        {
+          "jornada": 3,
+          "fecha": "2026-05-23",
+          "local": "Foro 2000",
+          "visitante": "Cuartillos",
+          "pts_l": null,
+          "pts_v": null,
+          "ups_l": null,
+          "ups_v": null,
+          "detalle": null
+        },
+        {
+          "jornada": 3,
+          "fecha": "2026-05-23",
+          "local": "Putt & Drive",
+          "visitante": "Approach y Putt",
+          "pts_l": null,
+          "pts_v": null,
+          "ups_l": null,
+          "ups_v": null,
+          "detalle": null
+        },
+        {
+          "jornada": 4,
+          "fecha": "2026-06-13",
+          "local": "Cuartillos",
+          "visitante": "Approach y Putt",
+          "pts_l": null,
+          "pts_v": null,
+          "ups_l": null,
+          "ups_v": null,
+          "detalle": null
+        },
+        {
+          "jornada": 4,
+          "fecha": "2026-06-13",
+          "local": "Putt & Drive",
+          "visitante": "Foro 2000",
+          "pts_l": null,
+          "pts_v": null,
+          "ups_l": null,
+          "ups_v": null,
+          "detalle": null
+        },
+        {
+          "jornada": 5,
+          "fecha": "2026-09-27",
+          "local": "Cuartillos",
+          "visitante": "Putt & Drive",
+          "pts_l": null,
+          "pts_v": null,
+          "ups_l": null,
+          "ups_v": null,
+          "detalle": null
+        },
+        {
+          "jornada": 5,
+          "fecha": "2026-09-27",
+          "local": "Approach y Putt",
+          "visitante": "Foro 2000",
+          "pts_l": null,
+          "pts_v": null,
+          "ups_l": null,
+          "ups_v": null,
+          "detalle": null
+        },
+        {
+          "jornada": 6,
+          "fecha": "2026-10-04",
+          "local": "Foro 2000",
+          "visitante": "Cuartillos",
+          "pts_l": null,
+          "pts_v": null,
+          "ups_l": null,
+          "ups_v": null,
+          "detalle": null
+        },
+        {
+          "jornada": 6,
+          "fecha": "2026-10-04",
+          "local": "Approach y Putt",
+          "visitante": "Putt & Drive",
+          "pts_l": null,
+          "pts_v": null,
+          "ups_l": null,
+          "ups_v": null,
+          "detalle": null
         }
       ]
     }
