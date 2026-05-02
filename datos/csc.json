@@ -78,6 +78,7 @@
           "formato": "3 fourball",
           "local": false,
           "resultado": "G",
+          "detalle": "2-1 (A/S, 7&5, A/S)",
           "jugadores": [
             "Alvaro Montoya",
             "Alfonso Hidalgo",
@@ -85,8 +86,7 @@
             "Alvaro Aguirre",
             "GLEZ JUAN JOSÉ",
             "Jesus Touceda"
-          ],
-          "detalle": "2-1 (A/S, 7&5, A/S)"
+          ]
         },
         {
           "id": "ES2",
@@ -95,8 +95,16 @@
           "rival": "Grow Golf",
           "formato": "3 fourball",
           "local": false,
-          "resultado": null,
-          "jugadores": []
+          "resultado": "G",
+          "detalle": "2-1 (2&1, 5&3, 3&2)",
+          "jugadores": [
+            "Carlos Maestro",
+            "David Sequera",
+            "Alvaro Aguirre",
+            "Javier Chiralt",
+            "Julio Enrique Gonzalez Salvador",
+            "Jesus Touceda"
+          ]
         },
         {
           "id": "ES3",
@@ -270,14 +278,14 @@
           "formato": "2 fourball + 1 ind",
           "local": true,
           "resultado": "G",
+          "detalle": "2-1 (1UP, 3&1, 3&2)",
           "jugadores": [
             "Angel Hernandez",
             "Alejandro Arcos",
             "Javier Arcos",
             "Francisco Hidalgo",
             "Santi Diaz"
-          ],
-          "detalle": "2-1 (1UP, 3&1, 3&2)"
+          ]
         },
         {
           "id": "FS2",
