@@ -965,7 +965,7 @@ function showCSC(mode, btn) {
 var cMode='neto';
 var jMode='neto';
 
-var CV='?v=20260503a';
+var CV='?v=20260503b';
 function load(f){
   if(cache.hasOwnProperty(f)) return Promise.resolve(cache[f]);
   return fetch(BASE+f+CV).then(function(r){return r.ok?r.json():null;}).then(function(d){cache[f]=d;return d;}).catch(function(){cache[f]=null;return null;});
@@ -1166,7 +1166,7 @@ function renderPortada(){
           evH+='<span style="font-size:10px;color:var(--muted)">&mdash; '+dTxt+'</span></div>';
           evH+='<div style="font-weight:700;font-size:14px">'+p.campo+'</div>';
           evH+='<div style="font-size:11px;color:var(--muted)">T'+p.nTorneo+' &middot; '+(p.tipoNombre||'Liga')+(p.precio?' &middot; '+p.precio+'&euro;':'')+'</div></div>';
-          evH+='<span class="tb tnext">PR&Oacute;XIMO</span></div>';
+          evH+=(p.urlGolfDirecto?'<a href="'+p.urlGolfDirecto+'" target="_blank" rel="noopener" style="background:#16a34a;color:#fff;font-family:Barlow Condensed,sans-serif;font-size:11px;font-weight:700;padding:5px 12px;border-radius:5px;text-decoration:none;white-space:nowrap">&#9997; Inscribirse</a>':'<span class="tb tnext">PR&Oacute;XIMO</span>')+'</div>';
         } else {
           var mod=ev.mod,p=ev.data;
           var cc=mod.id==='ES'?CSC_ES:CSC_FS;
