@@ -458,11 +458,17 @@
           "rival": "Putt & Drive",
           "formato": "2 fourball + 1 ind",
           "local": true,
-          "resultado": null,
-          "detalle": null,
-          "ups_favor": null,
-          "ups_contra": null,
-          "jugadores": []
+          "resultado": "G",
+          "detalle": "2-1 (4&2, 4&3, 3&2)",
+          "ups_favor": 8,
+          "ups_contra": 4,
+          "jugadores": [
+            "Jose Pablo Guil",
+            "Angel Santana",
+            "Jose Antonio Santana",
+            "Jorge Alberto Martínez Sánchez",
+            "Javier Gonzalez Salvador"
+          ]
         },
         {
           "id": "FS3",
@@ -545,22 +551,22 @@
           "fecha": "2026-05-09",
           "local": "Cuartillos",
           "visitante": "Putt & Drive",
-          "pts_l": null,
-          "pts_v": null,
-          "ups_l": null,
-          "ups_v": null,
-          "detalle": null
+          "pts_l": 2,
+          "pts_v": 1,
+          "ups_l": 8,
+          "ups_v": 4,
+          "detalle": "2-1 (4&2, 4&3, 3&2)"
         },
         {
           "jornada": 2,
           "fecha": "2026-05-09",
           "local": "Approach y Putt",
           "visitante": "Foro 2000",
-          "pts_l": null,
-          "pts_v": null,
-          "ups_l": null,
-          "ups_v": null,
-          "detalle": null
+          "pts_l": 1,
+          "pts_v": 2,
+          "ups_l": 3,
+          "ups_v": 6,
+          "detalle": "2-1"
         },
         {
           "jornada": 3,
