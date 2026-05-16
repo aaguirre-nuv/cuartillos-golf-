@@ -123,11 +123,18 @@
           "rival": "Club El Estudiante",
           "formato": "3 fourball",
           "local": true,
-          "resultado": null,
-          "detalle": null,
-          "ups_favor": null,
-          "ups_contra": null,
-          "jugadores": []
+          "resultado": "P",
+          "detalle": "1-2 (P 3&1, G 3&1, P 2&1)",
+          "ups_favor": 3,
+          "ups_contra": 5,
+          "jugadores": [
+            "Alfonso Hidalgo",
+            "Javier Chiralt",
+            "Antonio Carmona",
+            "J. Enrique Gonzalez",
+            "GLEZ JUAN JOSÉ",
+            "Jesus Touceda"
+          ]
         },
         {
           "id": "ES4",
@@ -219,22 +226,22 @@
           "fecha": "2026-05-14",
           "local": "Cuartillos",
           "visitante": "Club El Estudiante",
-          "pts_l": null,
-          "pts_v": null,
-          "ups_l": null,
-          "ups_v": null,
-          "detalle": null
+          "pts_l": 1,
+          "pts_v": 2,
+          "ups_l": 3,
+          "ups_v": 5,
+          "detalle": "1-2 (P 3&1, G 3&1, P 2&1)"
         },
         {
           "jornada": 3,
           "fecha": "2026-05-14",
           "local": "Foro 2000",
           "visitante": "Grow Golf",
-          "pts_l": null,
-          "pts_v": null,
-          "ups_l": null,
-          "ups_v": null,
-          "detalle": null
+          "pts_l": 2,
+          "pts_v": 1,
+          "ups_l": 8,
+          "ups_v": 6,
+          "detalle": "2-1"
         },
         {
           "jornada": 4,
