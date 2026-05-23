@@ -484,11 +484,17 @@
           "rival": "Foro 2000",
           "formato": "2 fourball + 1 ind",
           "local": false,
-          "resultado": null,
-          "detalle": null,
-          "ups_favor": null,
-          "ups_contra": null,
-          "jugadores": []
+          "resultado": "G",
+          "detalle": "2-1 (3&1, A/S, A/S)",
+          "ups_favor": 3,
+          "ups_contra": 0,
+          "jugadores": [
+            "José Pablo Guil",
+            "Francisco Alvarez",
+            "Miche Lopez",
+            "Santi Diaz",
+            "Javier Gonzalez Salvador"
+          ]
         },
         {
           "id": "FS4",
@@ -580,22 +586,22 @@
           "fecha": "2026-05-23",
           "local": "Foro 2000",
           "visitante": "Cuartillos",
-          "pts_l": null,
-          "pts_v": null,
-          "ups_l": null,
-          "ups_v": null,
-          "detalle": null
+          "pts_l": 1,
+          "pts_v": 2,
+          "ups_l": 0,
+          "ups_v": 3,
+          "detalle": "2-1 (3&1, A/S, A/S)"
         },
         {
           "jornada": 3,
           "fecha": "2026-05-23",
           "local": "Putt & Drive",
           "visitante": "Approach y Putt",
-          "pts_l": null,
-          "pts_v": null,
-          "ups_l": null,
-          "ups_v": null,
-          "detalle": null
+          "pts_l": 0,
+          "pts_v": 3,
+          "ups_l": 0,
+          "ups_v": 8,
+          "detalle": "3-0 (2&1, 3&2, 3&1)"
         },
         {
           "jornada": 4,
