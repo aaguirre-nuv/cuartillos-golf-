@@ -253,7 +253,7 @@ tr:nth-child(3) .rk{color:#cd7f32}
   </div>
   <div class="g2" style="margin-bottom:14px">
     <div class="card"><div class="ct">&#127941; Jugadores más fieles</div><div class="tw" id="fidelidad"></div></div>
-    <div class="card"><div class="ct">% Participación</div><div style="padding:14px;max-height:340px;overflow-y:auto" id="pct-part"></div></div>
+    <div class="card"><div class="ct">% Participación</div><div style="padding:14px" id="pct-part"></div></div>
   </div>
   <div class="g2" style="margin-bottom:14px">
     <div class="card"><div class="ct">&#127945; Eagles históricos</div><div class="tw" id="top-eagles"></div></div>
@@ -1038,7 +1038,7 @@ function showCSC(mode, btn) {
 var cMode='neto';
 var jMode='neto';
 
-var CV='?v=20260525a';
+var CV='?v=20260525b';
 function load(f){
   if(cache.hasOwnProperty(f)) return Promise.resolve(cache[f]);
   return fetch(BASE+f+CV).then(function(r){return r.ok?r.json():null;}).then(function(d){cache[f]=d;return d;}).catch(function(){cache[f]=null;return null;});
@@ -1805,7 +1805,7 @@ function renderStats(){
     el('asist-camp').innerHTML='<div style="font-size:10px;color:var(--muted);margin-bottom:8px">Media de jugadores por visita al campo</div>'+
       campoL.map(function(c){
         var nT=byCampoTorn[c].size,avg=campoAvg[c];
-        return '<div class="sbr"><div class="sbl">'+c+'<span style="font-size:9px;color:var(--muted);margin-left:4px">('+nT+' vez'+(nT!==1?'es':'')+')</span></div>'+
+        return '<div class="sbr"><div class="sbl">'+c+'<span style="font-size:9px;color:var(--muted);margin-left:4px">('+nT+(nT!==1?' veces':' vez')+')</span></div>'+
           '<div class="sbw"><div class="sbf" style="width:'+Math.round(avg/mxC*100)+'%;background:var(--navy)"></div></div>'+
           '<div class="sbv">'+avg+'</div></div>';
       }).join('');
