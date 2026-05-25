@@ -1047,7 +1047,7 @@ function loadAllTarjetas(){
   var k='tarjetas_all.json';
   if(cache.hasOwnProperty(k))return Promise.resolve(cache[k]);
   return Promise.all([load('tarjetas_2021.json'),load('tarjetas_2022.json'),load('tarjetas_2023.json'),load('tarjetas_2024.json'),load('tarjetas_2025.json'),load('tarjetas_2026.json')])
-  .then(function(r){var all=[].concat(r[0]||[],r[1]||[],r[2]||[]);cache[k]=all;return all;});
+  .then(function(r){var all=[];for(var i=0;i<r.length;i++){if(r[i])all=all.concat(r[i]);}cache[k]=all;return all;});
 }
 function el(id){return document.getElementById(id);}
 function gs(){return parseInt(el('gS').value);}
@@ -1770,7 +1770,7 @@ function renderStats(){
     var maxT=Math.max.apply(null,Object.values(byTempCmp).concat([1]));
     var colors={'2021':'#dbeafe','2022':'#bfdbfe','2023':'#93c5fd','2024':'#60a5fa','2025':'#3b82f6','2026':'#1d4ed8'};
     el('asist-kpis').innerHTML='<div style="font-size:10px;color:var(--muted);margin-bottom:8px;text-align:center">Comparativa primeros '+nCur+' torneo'+(nCur!==1?'s':'')+' de cada a&ntilde;o</div>'+
-      '<div class="g4">'+
+      '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">'+
       Object.keys(byTempCmp).sort().map(function(yr){
         return '<div class="stat-box">'+
           '<div class="stat-num" style="color:'+(colors[yr]||'var(--navy)')+'">'+byTempCmp[yr]+'</div>'+
