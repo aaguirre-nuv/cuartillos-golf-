@@ -167,6 +167,9 @@ tr:nth-child(3) .rk{color:#cd7f32}
       <option value="2026">2026</option>
       <option value="2025">2025</option>
       <option value="2024">2024</option>
+      <option value="2023">2023</option>
+      <option value="2022">2022</option>
+      <option value="2021">2021</option>
     </select>
   </div>
 </header>
@@ -232,7 +235,7 @@ tr:nth-child(3) .rk{color:#cd7f32}
     <select class="bsel" id="jug-sel" onchange="renderJug()"><option value="">Selecciona jugador...</option></select>
     <select class="bsel" id="jug-season" onchange="renderJug()" style="min-width:120px">
       <option value="all">Todas las temporadas</option>
-      <option value="2026">2026</option><option value="2025">2025</option><option value="2024">2024</option>
+      <option value="2026">2026</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option>
     </select>
     <select class="bsel" id="jug-campo" onchange="renderJugCampo()" style="min-width:160px"><option value="">Ver por campo...</option></select>
   </div>
@@ -1035,7 +1038,7 @@ function showCSC(mode, btn) {
 var cMode='neto';
 var jMode='neto';
 
-var CV='?v=20260510a';
+var CV='?v=20260525a';
 function load(f){
   if(cache.hasOwnProperty(f)) return Promise.resolve(cache[f]);
   return fetch(BASE+f+CV).then(function(r){return r.ok?r.json():null;}).then(function(d){cache[f]=d;return d;}).catch(function(){cache[f]=null;return null;});
@@ -1043,7 +1046,7 @@ function load(f){
 function loadAllTarjetas(){
   var k='tarjetas_all.json';
   if(cache.hasOwnProperty(k))return Promise.resolve(cache[k]);
-  return Promise.all([load('tarjetas_2024.json'),load('tarjetas_2025.json'),load('tarjetas_2026.json')])
+  return Promise.all([load('tarjetas_2021.json'),load('tarjetas_2022.json'),load('tarjetas_2023.json'),load('tarjetas_2024.json'),load('tarjetas_2025.json'),load('tarjetas_2026.json')])
   .then(function(r){var all=[].concat(r[0]||[],r[1]||[],r[2]||[]);cache[k]=all;return all;});
 }
 function el(id){return document.getElementById(id);}
@@ -1765,7 +1768,7 @@ function renderStats(){
       if(firstN.indexOf(t.ntorn)>=0){if(!byTempCmp[t.temp])byTempCmp[t.temp]=0;byTempCmp[t.temp]++;}
     });
     var maxT=Math.max.apply(null,Object.values(byTempCmp).concat([1]));
-    var colors={'2024':'#93c5fd','2025':'#3b82f6','2026':'#1d4ed8'};
+    var colors={'2021':'#dbeafe','2022':'#bfdbfe','2023':'#93c5fd','2024':'#60a5fa','2025':'#3b82f6','2026':'#1d4ed8'};
     el('asist-kpis').innerHTML='<div style="font-size:10px;color:var(--muted);margin-bottom:8px;text-align:center">Comparativa primeros '+nCur+' torneo'+(nCur!==1?'s':'')+' de cada a&ntilde;o</div>'+
       '<div class="g4">'+
       Object.keys(byTempCmp).sort().map(function(yr){
