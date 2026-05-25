@@ -1,6 +1,330 @@
 {
   "hoyosPorCampo": [
     {
+      "campo": "Barberan",
+      "hoyo": 1,
+      "par": 4,
+      "partidas": 35,
+      "mediaBruto": 5.26,
+      "mediaNeto": 4.14,
+      "mediaDifBruto": 1.26
+    },
+    {
+      "campo": "Barberan",
+      "hoyo": 2,
+      "par": 5,
+      "partidas": 35,
+      "mediaBruto": 6.46,
+      "mediaNeto": 5.8,
+      "mediaDifBruto": 1.46
+    },
+    {
+      "campo": "Barberan",
+      "hoyo": 3,
+      "par": 4,
+      "partidas": 35,
+      "mediaBruto": 4.89,
+      "mediaNeto": 3.69,
+      "mediaDifBruto": 0.89
+    },
+    {
+      "campo": "Barberan",
+      "hoyo": 4,
+      "par": 3,
+      "partidas": 35,
+      "mediaBruto": 4.23,
+      "mediaNeto": 3.17,
+      "mediaDifBruto": 1.23
+    },
+    {
+      "campo": "Barberan",
+      "hoyo": 5,
+      "par": 4,
+      "partidas": 35,
+      "mediaBruto": 5.2,
+      "mediaNeto": 4.49,
+      "mediaDifBruto": 1.2
+    },
+    {
+      "campo": "Barberan",
+      "hoyo": 6,
+      "par": 4,
+      "partidas": 35,
+      "mediaBruto": 5.31,
+      "mediaNeto": 4.77,
+      "mediaDifBruto": 1.31
+    },
+    {
+      "campo": "Barberan",
+      "hoyo": 7,
+      "par": 5,
+      "partidas": 35,
+      "mediaBruto": 5.51,
+      "mediaNeto": 5.06,
+      "mediaDifBruto": 0.51
+    },
+    {
+      "campo": "Barberan",
+      "hoyo": 8,
+      "par": 3,
+      "partidas": 35,
+      "mediaBruto": 3.94,
+      "mediaNeto": 3.6,
+      "mediaDifBruto": 0.94
+    },
+    {
+      "campo": "Barberan",
+      "hoyo": 9,
+      "par": 4,
+      "partidas": 35,
+      "mediaBruto": 4.71,
+      "mediaNeto": 3.74,
+      "mediaDifBruto": 0.71
+    },
+    {
+      "campo": "Barberan",
+      "hoyo": 10,
+      "par": 4,
+      "partidas": 35,
+      "mediaBruto": 5.29,
+      "mediaNeto": 4.23,
+      "mediaDifBruto": 1.29
+    },
+    {
+      "campo": "Barberan",
+      "hoyo": 11,
+      "par": 5,
+      "partidas": 35,
+      "mediaBruto": 6.09,
+      "mediaNeto": 5.51,
+      "mediaDifBruto": 1.09
+    },
+    {
+      "campo": "Barberan",
+      "hoyo": 12,
+      "par": 4,
+      "partidas": 35,
+      "mediaBruto": 4.94,
+      "mediaNeto": 3.83,
+      "mediaDifBruto": 0.94
+    },
+    {
+      "campo": "Barberan",
+      "hoyo": 13,
+      "par": 3,
+      "partidas": 35,
+      "mediaBruto": 4.2,
+      "mediaNeto": 3.17,
+      "mediaDifBruto": 1.2
+    },
+    {
+      "campo": "Barberan",
+      "hoyo": 14,
+      "par": 4,
+      "partidas": 35,
+      "mediaBruto": 5.34,
+      "mediaNeto": 4.66,
+      "mediaDifBruto": 1.34
+    },
+    {
+      "campo": "Barberan",
+      "hoyo": 15,
+      "par": 4,
+      "partidas": 35,
+      "mediaBruto": 5.06,
+      "mediaNeto": 4.57,
+      "mediaDifBruto": 1.06
+    },
+    {
+      "campo": "Barberan",
+      "hoyo": 16,
+      "par": 5,
+      "partidas": 35,
+      "mediaBruto": 6.03,
+      "mediaNeto": 5.66,
+      "mediaDifBruto": 1.03
+    },
+    {
+      "campo": "Barberan",
+      "hoyo": 17,
+      "par": 3,
+      "partidas": 35,
+      "mediaBruto": 3.74,
+      "mediaNeto": 3.46,
+      "mediaDifBruto": 0.74
+    },
+    {
+      "campo": "Barberan",
+      "hoyo": 18,
+      "par": 4,
+      "partidas": 35,
+      "mediaBruto": 4.54,
+      "mediaNeto": 3.74,
+      "mediaDifBruto": 0.54
+    },
+    {
+      "campo": "C Nacional",
+      "hoyo": 1,
+      "par": 5,
+      "partidas": 37,
+      "mediaBruto": 6.49,
+      "mediaNeto": 5.41,
+      "mediaDifBruto": 1.49
+    },
+    {
+      "campo": "C Nacional",
+      "hoyo": 2,
+      "par": 4,
+      "partidas": 37,
+      "mediaBruto": 5.19,
+      "mediaNeto": 4.41,
+      "mediaDifBruto": 1.19
+    },
+    {
+      "campo": "C Nacional",
+      "hoyo": 3,
+      "par": 3,
+      "partidas": 37,
+      "mediaBruto": 3.89,
+      "mediaNeto": 3.62,
+      "mediaDifBruto": 0.89
+    },
+    {
+      "campo": "C Nacional",
+      "hoyo": 4,
+      "par": 4,
+      "partidas": 37,
+      "mediaBruto": 4.92,
+      "mediaNeto": 3.95,
+      "mediaDifBruto": 0.92
+    },
+    {
+      "campo": "C Nacional",
+      "hoyo": 5,
+      "par": 5,
+      "partidas": 37,
+      "mediaBruto": 5.92,
+      "mediaNeto": 4.7,
+      "mediaDifBruto": 0.92
+    },
+    {
+      "campo": "C Nacional",
+      "hoyo": 6,
+      "par": 4,
+      "partidas": 37,
+      "mediaBruto": 5.19,
+      "mediaNeto": 4.54,
+      "mediaDifBruto": 1.19
+    },
+    {
+      "campo": "C Nacional",
+      "hoyo": 7,
+      "par": 4,
+      "partidas": 37,
+      "mediaBruto": 4.62,
+      "mediaNeto": 4.05,
+      "mediaDifBruto": 0.62
+    },
+    {
+      "campo": "C Nacional",
+      "hoyo": 8,
+      "par": 4,
+      "partidas": 37,
+      "mediaBruto": 4.97,
+      "mediaNeto": 4.14,
+      "mediaDifBruto": 0.97
+    },
+    {
+      "campo": "C Nacional",
+      "hoyo": 9,
+      "par": 3,
+      "partidas": 37,
+      "mediaBruto": 4.0,
+      "mediaNeto": 3.54,
+      "mediaDifBruto": 1.0
+    },
+    {
+      "campo": "C Nacional",
+      "hoyo": 10,
+      "par": 5,
+      "partidas": 37,
+      "mediaBruto": 5.97,
+      "mediaNeto": 4.81,
+      "mediaDifBruto": 0.97
+    },
+    {
+      "campo": "C Nacional",
+      "hoyo": 11,
+      "par": 4,
+      "partidas": 37,
+      "mediaBruto": 5.27,
+      "mediaNeto": 4.46,
+      "mediaDifBruto": 1.27
+    },
+    {
+      "campo": "C Nacional",
+      "hoyo": 12,
+      "par": 4,
+      "partidas": 37,
+      "mediaBruto": 5.38,
+      "mediaNeto": 4.32,
+      "mediaDifBruto": 1.38
+    },
+    {
+      "campo": "C Nacional",
+      "hoyo": 13,
+      "par": 4,
+      "partidas": 37,
+      "mediaBruto": 4.54,
+      "mediaNeto": 3.92,
+      "mediaDifBruto": 0.54
+    },
+    {
+      "campo": "C Nacional",
+      "hoyo": 14,
+      "par": 3,
+      "partidas": 37,
+      "mediaBruto": 4.08,
+      "mediaNeto": 3.76,
+      "mediaDifBruto": 1.08
+    },
+    {
+      "campo": "C Nacional",
+      "hoyo": 15,
+      "par": 4,
+      "partidas": 37,
+      "mediaBruto": 5.49,
+      "mediaNeto": 4.78,
+      "mediaDifBruto": 1.49
+    },
+    {
+      "campo": "C Nacional",
+      "hoyo": 16,
+      "par": 5,
+      "partidas": 37,
+      "mediaBruto": 7.08,
+      "mediaNeto": 5.81,
+      "mediaDifBruto": 2.08
+    },
+    {
+      "campo": "C Nacional",
+      "hoyo": 17,
+      "par": 3,
+      "partidas": 37,
+      "mediaBruto": 4.14,
+      "mediaNeto": 3.68,
+      "mediaDifBruto": 1.14
+    },
+    {
+      "campo": "C Nacional",
+      "hoyo": 18,
+      "par": 4,
+      "partidas": 37,
+      "mediaBruto": 5.3,
+      "mediaNeto": 4.43,
+      "mediaDifBruto": 1.3
+    },
+    {
       "campo": "Cabanillas",
       "hoyo": 1,
       "par": 5,
@@ -166,754 +490,754 @@
       "campo": "Calatayud",
       "hoyo": 1,
       "par": 5,
-      "partidas": 30,
-      "mediaBruto": 6.33,
-      "mediaNeto": 5.6,
-      "mediaDifBruto": 1.33
+      "partidas": 45,
+      "mediaBruto": 6.38,
+      "mediaNeto": 5.62,
+      "mediaDifBruto": 1.38
     },
     {
       "campo": "Calatayud",
       "hoyo": 2,
       "par": 4,
-      "partidas": 30,
-      "mediaBruto": 5.17,
-      "mediaNeto": 4.2,
-      "mediaDifBruto": 1.17
+      "partidas": 45,
+      "mediaBruto": 5.29,
+      "mediaNeto": 4.29,
+      "mediaDifBruto": 1.29
     },
     {
       "campo": "Calatayud",
       "hoyo": 3,
       "par": 4,
-      "partidas": 30,
-      "mediaBruto": 4.2,
-      "mediaNeto": 3.73,
-      "mediaDifBruto": 0.2
+      "partidas": 45,
+      "mediaBruto": 4.33,
+      "mediaNeto": 3.91,
+      "mediaDifBruto": 0.33
     },
     {
       "campo": "Calatayud",
       "hoyo": 4,
       "par": 5,
-      "partidas": 30,
-      "mediaBruto": 6.53,
-      "mediaNeto": 5.3,
-      "mediaDifBruto": 1.53
+      "partidas": 45,
+      "mediaBruto": 6.47,
+      "mediaNeto": 5.27,
+      "mediaDifBruto": 1.47
     },
     {
       "campo": "Calatayud",
       "hoyo": 5,
       "par": 3,
-      "partidas": 30,
-      "mediaBruto": 3.9,
-      "mediaNeto": 3.23,
-      "mediaDifBruto": 0.9
-    },
-    {
-      "campo": "Calatayud",
-      "hoyo": 6,
-      "par": 4,
-      "partidas": 30,
-      "mediaBruto": 5.93,
-      "mediaNeto": 4.5,
-      "mediaDifBruto": 1.93
-    },
-    {
-      "campo": "Calatayud",
-      "hoyo": 7,
-      "par": 4,
-      "partidas": 30,
-      "mediaBruto": 5.13,
-      "mediaNeto": 4.27,
-      "mediaDifBruto": 1.13
-    },
-    {
-      "campo": "Calatayud",
-      "hoyo": 8,
-      "par": 4,
-      "partidas": 30,
-      "mediaBruto": 5.37,
-      "mediaNeto": 4.87,
-      "mediaDifBruto": 1.37
-    },
-    {
-      "campo": "Calatayud",
-      "hoyo": 9,
-      "par": 3,
-      "partidas": 30,
-      "mediaBruto": 3.7,
-      "mediaNeto": 3.0,
-      "mediaDifBruto": 0.7
-    },
-    {
-      "campo": "Calatayud",
-      "hoyo": 10,
-      "par": 5,
-      "partidas": 30,
-      "mediaBruto": 6.07,
-      "mediaNeto": 5.27,
-      "mediaDifBruto": 1.07
-    },
-    {
-      "campo": "Calatayud",
-      "hoyo": 11,
-      "par": 4,
-      "partidas": 30,
-      "mediaBruto": 4.87,
-      "mediaNeto": 4.4,
+      "partidas": 45,
+      "mediaBruto": 3.87,
+      "mediaNeto": 3.27,
       "mediaDifBruto": 0.87
     },
     {
       "campo": "Calatayud",
+      "hoyo": 6,
+      "par": 4,
+      "partidas": 45,
+      "mediaBruto": 6.02,
+      "mediaNeto": 4.64,
+      "mediaDifBruto": 2.02
+    },
+    {
+      "campo": "Calatayud",
+      "hoyo": 7,
+      "par": 4,
+      "partidas": 45,
+      "mediaBruto": 5.16,
+      "mediaNeto": 4.27,
+      "mediaDifBruto": 1.16
+    },
+    {
+      "campo": "Calatayud",
+      "hoyo": 8,
+      "par": 4,
+      "partidas": 45,
+      "mediaBruto": 5.29,
+      "mediaNeto": 4.8,
+      "mediaDifBruto": 1.29
+    },
+    {
+      "campo": "Calatayud",
+      "hoyo": 9,
+      "par": 3,
+      "partidas": 45,
+      "mediaBruto": 3.71,
+      "mediaNeto": 3.04,
+      "mediaDifBruto": 0.71
+    },
+    {
+      "campo": "Calatayud",
+      "hoyo": 10,
+      "par": 5,
+      "partidas": 45,
+      "mediaBruto": 6.18,
+      "mediaNeto": 5.33,
+      "mediaDifBruto": 1.18
+    },
+    {
+      "campo": "Calatayud",
+      "hoyo": 11,
+      "par": 4,
+      "partidas": 45,
+      "mediaBruto": 4.82,
+      "mediaNeto": 4.36,
+      "mediaDifBruto": 0.82
+    },
+    {
+      "campo": "Calatayud",
       "hoyo": 12,
       "par": 3,
-      "partidas": 30,
-      "mediaBruto": 3.63,
-      "mediaNeto": 2.6,
-      "mediaDifBruto": 0.63
+      "partidas": 45,
+      "mediaBruto": 3.8,
+      "mediaNeto": 2.76,
+      "mediaDifBruto": 0.8
     },
     {
       "campo": "Calatayud",
       "hoyo": 13,
       "par": 4,
-      "partidas": 30,
-      "mediaBruto": 5.77,
-      "mediaNeto": 4.43,
-      "mediaDifBruto": 1.77
+      "partidas": 45,
+      "mediaBruto": 5.8,
+      "mediaNeto": 4.51,
+      "mediaDifBruto": 1.8
     },
     {
       "campo": "Calatayud",
       "hoyo": 14,
       "par": 4,
-      "partidas": 30,
-      "mediaBruto": 5.27,
-      "mediaNeto": 4.63,
-      "mediaDifBruto": 1.27
+      "partidas": 45,
+      "mediaBruto": 5.31,
+      "mediaNeto": 4.73,
+      "mediaDifBruto": 1.31
     },
     {
       "campo": "Calatayud",
       "hoyo": 15,
       "par": 3,
-      "partidas": 30,
-      "mediaBruto": 4.1,
-      "mediaNeto": 3.2,
-      "mediaDifBruto": 1.1
+      "partidas": 45,
+      "mediaBruto": 4.04,
+      "mediaNeto": 3.11,
+      "mediaDifBruto": 1.04
     },
     {
       "campo": "Calatayud",
       "hoyo": 16,
       "par": 5,
-      "partidas": 30,
-      "mediaBruto": 6.63,
-      "mediaNeto": 5.53,
-      "mediaDifBruto": 1.63
+      "partidas": 45,
+      "mediaBruto": 6.51,
+      "mediaNeto": 5.4,
+      "mediaDifBruto": 1.51
     },
     {
       "campo": "Calatayud",
       "hoyo": 17,
       "par": 4,
-      "partidas": 30,
-      "mediaBruto": 5.37,
-      "mediaNeto": 4.8,
-      "mediaDifBruto": 1.37
+      "partidas": 45,
+      "mediaBruto": 5.38,
+      "mediaNeto": 4.84,
+      "mediaDifBruto": 1.38
     },
     {
       "campo": "Calatayud",
       "hoyo": 18,
       "par": 4,
-      "partidas": 30,
-      "mediaBruto": 5.0,
-      "mediaNeto": 4.27,
-      "mediaDifBruto": 1.0
+      "partidas": 45,
+      "mediaBruto": 4.89,
+      "mediaNeto": 4.18,
+      "mediaDifBruto": 0.89
     },
     {
       "campo": "El Encin",
       "hoyo": 1,
       "par": 5,
-      "partidas": 34,
-      "mediaBruto": 6.06,
-      "mediaNeto": 5.5,
-      "mediaDifBruto": 1.06
+      "partidas": 94,
+      "mediaBruto": 5.7,
+      "mediaNeto": 5.18,
+      "mediaDifBruto": 0.7
     },
     {
       "campo": "El Encin",
       "hoyo": 2,
       "par": 4,
-      "partidas": 34,
-      "mediaBruto": 5.53,
-      "mediaNeto": 4.41,
-      "mediaDifBruto": 1.53
+      "partidas": 94,
+      "mediaBruto": 5.26,
+      "mediaNeto": 4.15,
+      "mediaDifBruto": 1.26
     },
     {
       "campo": "El Encin",
       "hoyo": 3,
       "par": 3,
-      "partidas": 34,
-      "mediaBruto": 4.18,
-      "mediaNeto": 3.44,
-      "mediaDifBruto": 1.18
+      "partidas": 94,
+      "mediaBruto": 3.84,
+      "mediaNeto": 3.14,
+      "mediaDifBruto": 0.84
     },
     {
       "campo": "El Encin",
       "hoyo": 4,
       "par": 5,
-      "partidas": 34,
-      "mediaBruto": 6.15,
-      "mediaNeto": 5.26,
-      "mediaDifBruto": 1.15
+      "partidas": 94,
+      "mediaBruto": 5.86,
+      "mediaNeto": 5.04,
+      "mediaDifBruto": 0.86
     },
     {
       "campo": "El Encin",
       "hoyo": 5,
       "par": 3,
-      "partidas": 34,
-      "mediaBruto": 3.88,
-      "mediaNeto": 2.88,
-      "mediaDifBruto": 0.88
+      "partidas": 94,
+      "mediaBruto": 4.18,
+      "mediaNeto": 3.17,
+      "mediaDifBruto": 1.18
     },
     {
       "campo": "El Encin",
       "hoyo": 6,
       "par": 4,
-      "partidas": 34,
-      "mediaBruto": 5.38,
-      "mediaNeto": 4.76,
-      "mediaDifBruto": 1.38
+      "partidas": 94,
+      "mediaBruto": 5.32,
+      "mediaNeto": 4.74,
+      "mediaDifBruto": 1.32
     },
     {
       "campo": "El Encin",
       "hoyo": 7,
       "par": 4,
-      "partidas": 34,
-      "mediaBruto": 5.24,
-      "mediaNeto": 3.97,
-      "mediaDifBruto": 1.24
+      "partidas": 94,
+      "mediaBruto": 4.98,
+      "mediaNeto": 3.73,
+      "mediaDifBruto": 0.98
     },
     {
       "campo": "El Encin",
       "hoyo": 8,
       "par": 4,
-      "partidas": 34,
-      "mediaBruto": 4.62,
-      "mediaNeto": 4.21,
-      "mediaDifBruto": 0.62
+      "partidas": 94,
+      "mediaBruto": 4.79,
+      "mediaNeto": 4.36,
+      "mediaDifBruto": 0.79
     },
     {
       "campo": "El Encin",
       "hoyo": 9,
       "par": 4,
-      "partidas": 34,
-      "mediaBruto": 4.97,
-      "mediaNeto": 3.65,
-      "mediaDifBruto": 0.97
+      "partidas": 94,
+      "mediaBruto": 5.23,
+      "mediaNeto": 3.89,
+      "mediaDifBruto": 1.23
     },
     {
       "campo": "El Encin",
       "hoyo": 10,
       "par": 4,
-      "partidas": 34,
-      "mediaBruto": 5.35,
-      "mediaNeto": 4.97,
-      "mediaDifBruto": 1.35
+      "partidas": 94,
+      "mediaBruto": 5.21,
+      "mediaNeto": 4.83,
+      "mediaDifBruto": 1.21
     },
     {
       "campo": "El Encin",
       "hoyo": 11,
       "par": 5,
-      "partidas": 34,
-      "mediaBruto": 5.79,
-      "mediaNeto": 4.91,
-      "mediaDifBruto": 0.79
+      "partidas": 94,
+      "mediaBruto": 5.8,
+      "mediaNeto": 4.9,
+      "mediaDifBruto": 0.8
     },
     {
       "campo": "El Encin",
       "hoyo": 12,
       "par": 3,
-      "partidas": 34,
-      "mediaBruto": 3.94,
-      "mediaNeto": 3.5,
-      "mediaDifBruto": 0.94
+      "partidas": 94,
+      "mediaBruto": 3.99,
+      "mediaNeto": 3.52,
+      "mediaDifBruto": 0.99
     },
     {
       "campo": "El Encin",
       "hoyo": 13,
       "par": 4,
-      "partidas": 34,
-      "mediaBruto": 5.68,
-      "mediaNeto": 4.91,
-      "mediaDifBruto": 1.68
+      "partidas": 94,
+      "mediaBruto": 5.45,
+      "mediaNeto": 4.7,
+      "mediaDifBruto": 1.45
     },
     {
       "campo": "El Encin",
       "hoyo": 14,
       "par": 4,
-      "partidas": 34,
-      "mediaBruto": 4.94,
-      "mediaNeto": 3.79,
-      "mediaDifBruto": 0.94
+      "partidas": 94,
+      "mediaBruto": 5.22,
+      "mediaNeto": 4.07,
+      "mediaDifBruto": 1.22
     },
     {
       "campo": "El Encin",
       "hoyo": 15,
       "par": 4,
-      "partidas": 34,
-      "mediaBruto": 5.47,
-      "mediaNeto": 4.88,
-      "mediaDifBruto": 1.47
+      "partidas": 94,
+      "mediaBruto": 5.11,
+      "mediaNeto": 4.57,
+      "mediaDifBruto": 1.11
     },
     {
       "campo": "El Encin",
       "hoyo": 16,
       "par": 3,
-      "partidas": 34,
-      "mediaBruto": 3.76,
-      "mediaNeto": 3.09,
-      "mediaDifBruto": 0.76
+      "partidas": 94,
+      "mediaBruto": 3.93,
+      "mediaNeto": 3.29,
+      "mediaDifBruto": 0.93
     },
     {
       "campo": "El Encin",
       "hoyo": 17,
       "par": 4,
-      "partidas": 34,
-      "mediaBruto": 5.18,
-      "mediaNeto": 3.88,
-      "mediaDifBruto": 1.18
+      "partidas": 94,
+      "mediaBruto": 5.29,
+      "mediaNeto": 4.01,
+      "mediaDifBruto": 1.29
     },
     {
       "campo": "El Encin",
       "hoyo": 18,
       "par": 5,
-      "partidas": 34,
-      "mediaBruto": 6.5,
-      "mediaNeto": 5.47,
-      "mediaDifBruto": 1.5
+      "partidas": 94,
+      "mediaBruto": 6.73,
+      "mediaNeto": 5.68,
+      "mediaDifBruto": 1.73
     },
     {
       "campo": "La Faisanera",
       "hoyo": 1,
       "par": 5,
-      "partidas": 39,
-      "mediaBruto": 6.44,
-      "mediaNeto": 5.67,
-      "mediaDifBruto": 1.44
+      "partidas": 97,
+      "mediaBruto": 6.2,
+      "mediaNeto": 5.41,
+      "mediaDifBruto": 1.2
     },
     {
       "campo": "La Faisanera",
       "hoyo": 2,
       "par": 3,
-      "partidas": 39,
-      "mediaBruto": 3.44,
-      "mediaNeto": 3.18,
-      "mediaDifBruto": 0.44
+      "partidas": 97,
+      "mediaBruto": 3.61,
+      "mediaNeto": 3.36,
+      "mediaDifBruto": 0.61
     },
     {
       "campo": "La Faisanera",
       "hoyo": 3,
       "par": 4,
-      "partidas": 39,
+      "partidas": 97,
+      "mediaBruto": 5.26,
+      "mediaNeto": 4.19,
+      "mediaDifBruto": 1.26
+    },
+    {
+      "campo": "La Faisanera",
+      "hoyo": 4,
+      "par": 3,
+      "partidas": 97,
+      "mediaBruto": 3.93,
+      "mediaNeto": 3.48,
+      "mediaDifBruto": 0.93
+    },
+    {
+      "campo": "La Faisanera",
+      "hoyo": 5,
+      "par": 4,
+      "partidas": 97,
+      "mediaBruto": 5.15,
+      "mediaNeto": 4.01,
+      "mediaDifBruto": 1.15
+    },
+    {
+      "campo": "La Faisanera",
+      "hoyo": 6,
+      "par": 5,
+      "partidas": 97,
+      "mediaBruto": 5.96,
+      "mediaNeto": 5.28,
+      "mediaDifBruto": 0.96
+    },
+    {
+      "campo": "La Faisanera",
+      "hoyo": 7,
+      "par": 3,
+      "partidas": 97,
+      "mediaBruto": 3.88,
+      "mediaNeto": 3.35,
+      "mediaDifBruto": 0.88
+    },
+    {
+      "campo": "La Faisanera",
+      "hoyo": 8,
+      "par": 4,
+      "partidas": 97,
       "mediaBruto": 5.31,
       "mediaNeto": 4.31,
       "mediaDifBruto": 1.31
     },
     {
       "campo": "La Faisanera",
-      "hoyo": 4,
-      "par": 3,
-      "partidas": 39,
-      "mediaBruto": 3.9,
-      "mediaNeto": 3.44,
-      "mediaDifBruto": 0.9
-    },
-    {
-      "campo": "La Faisanera",
-      "hoyo": 5,
-      "par": 4,
-      "partidas": 39,
-      "mediaBruto": 5.23,
-      "mediaNeto": 4.13,
-      "mediaDifBruto": 1.23
-    },
-    {
-      "campo": "La Faisanera",
-      "hoyo": 6,
-      "par": 5,
-      "partidas": 39,
-      "mediaBruto": 5.77,
-      "mediaNeto": 5.1,
-      "mediaDifBruto": 0.77
-    },
-    {
-      "campo": "La Faisanera",
-      "hoyo": 7,
-      "par": 3,
-      "partidas": 39,
-      "mediaBruto": 3.54,
-      "mediaNeto": 3.03,
-      "mediaDifBruto": 0.54
-    },
-    {
-      "campo": "La Faisanera",
-      "hoyo": 8,
-      "par": 4,
-      "partidas": 39,
-      "mediaBruto": 5.31,
-      "mediaNeto": 4.41,
-      "mediaDifBruto": 1.31
-    },
-    {
-      "campo": "La Faisanera",
       "hoyo": 9,
       "par": 4,
-      "partidas": 39,
-      "mediaBruto": 4.74,
-      "mediaNeto": 4.44,
-      "mediaDifBruto": 0.74
+      "partidas": 97,
+      "mediaBruto": 4.73,
+      "mediaNeto": 4.37,
+      "mediaDifBruto": 0.73
     },
     {
       "campo": "La Faisanera",
       "hoyo": 10,
       "par": 3,
-      "partidas": 39,
-      "mediaBruto": 3.92,
-      "mediaNeto": 3.44,
-      "mediaDifBruto": 0.92
+      "partidas": 97,
+      "mediaBruto": 3.97,
+      "mediaNeto": 3.48,
+      "mediaDifBruto": 0.97
     },
     {
       "campo": "La Faisanera",
       "hoyo": 11,
       "par": 4,
-      "partidas": 39,
-      "mediaBruto": 5.05,
-      "mediaNeto": 3.87,
-      "mediaDifBruto": 1.05
+      "partidas": 97,
+      "mediaBruto": 5.26,
+      "mediaNeto": 4.06,
+      "mediaDifBruto": 1.26
     },
     {
       "campo": "La Faisanera",
       "hoyo": 12,
       "par": 3,
-      "partidas": 39,
-      "mediaBruto": 3.67,
-      "mediaNeto": 3.38,
-      "mediaDifBruto": 0.67
+      "partidas": 97,
+      "mediaBruto": 3.71,
+      "mediaNeto": 3.39,
+      "mediaDifBruto": 0.71
     },
     {
       "campo": "La Faisanera",
       "hoyo": 13,
       "par": 5,
-      "partidas": 39,
-      "mediaBruto": 6.0,
-      "mediaNeto": 5.18,
-      "mediaDifBruto": 1.0
+      "partidas": 97,
+      "mediaBruto": 5.97,
+      "mediaNeto": 5.08,
+      "mediaDifBruto": 0.97
     },
     {
       "campo": "La Faisanera",
       "hoyo": 14,
       "par": 4,
-      "partidas": 39,
-      "mediaBruto": 5.67,
-      "mediaNeto": 4.62,
-      "mediaDifBruto": 1.67
+      "partidas": 97,
+      "mediaBruto": 5.47,
+      "mediaNeto": 4.36,
+      "mediaDifBruto": 1.47
     },
     {
       "campo": "La Faisanera",
       "hoyo": 15,
       "par": 5,
-      "partidas": 39,
-      "mediaBruto": 5.9,
-      "mediaNeto": 5.49,
-      "mediaDifBruto": 0.9
+      "partidas": 97,
+      "mediaBruto": 5.97,
+      "mediaNeto": 5.56,
+      "mediaDifBruto": 0.97
     },
     {
       "campo": "La Faisanera",
       "hoyo": 16,
       "par": 4,
-      "partidas": 39,
-      "mediaBruto": 4.95,
-      "mediaNeto": 4.26,
-      "mediaDifBruto": 0.95
+      "partidas": 97,
+      "mediaBruto": 5.12,
+      "mediaNeto": 4.41,
+      "mediaDifBruto": 1.12
     },
     {
       "campo": "La Faisanera",
       "hoyo": 17,
       "par": 3,
-      "partidas": 39,
-      "mediaBruto": 3.97,
-      "mediaNeto": 3.38,
-      "mediaDifBruto": 0.97
+      "partidas": 97,
+      "mediaBruto": 4.03,
+      "mediaNeto": 3.43,
+      "mediaDifBruto": 1.03
     },
     {
       "campo": "La Faisanera",
       "hoyo": 18,
       "par": 5,
-      "partidas": 39,
-      "mediaBruto": 5.67,
-      "mediaNeto": 4.74,
-      "mediaDifBruto": 0.67
+      "partidas": 97,
+      "mediaBruto": 6.01,
+      "mediaNeto": 4.98,
+      "mediaDifBruto": 1.01
     },
     {
       "campo": "Layos",
       "hoyo": 1,
       "par": 5,
-      "partidas": 73,
-      "mediaBruto": 6.23,
-      "mediaNeto": 5.68,
-      "mediaDifBruto": 1.23
+      "partidas": 103,
+      "mediaBruto": 6.15,
+      "mediaNeto": 5.61,
+      "mediaDifBruto": 1.15
     },
     {
       "campo": "Layos",
       "hoyo": 2,
       "par": 4,
-      "partidas": 73,
+      "partidas": 103,
       "mediaBruto": 4.74,
-      "mediaNeto": 4.27,
+      "mediaNeto": 4.28,
       "mediaDifBruto": 0.74
     },
     {
       "campo": "Layos",
       "hoyo": 3,
       "par": 4,
-      "partidas": 73,
-      "mediaBruto": 5.51,
-      "mediaNeto": 4.27,
-      "mediaDifBruto": 1.51
+      "partidas": 103,
+      "mediaBruto": 5.39,
+      "mediaNeto": 4.18,
+      "mediaDifBruto": 1.39
     },
     {
       "campo": "Layos",
       "hoyo": 4,
       "par": 5,
-      "partidas": 73,
-      "mediaBruto": 5.99,
-      "mediaNeto": 5.16,
-      "mediaDifBruto": 0.99
+      "partidas": 103,
+      "mediaBruto": 5.95,
+      "mediaNeto": 5.13,
+      "mediaDifBruto": 0.95
     },
     {
       "campo": "Layos",
       "hoyo": 5,
       "par": 4,
-      "partidas": 73,
-      "mediaBruto": 5.12,
-      "mediaNeto": 4.48,
-      "mediaDifBruto": 1.12
+      "partidas": 103,
+      "mediaBruto": 5.08,
+      "mediaNeto": 4.43,
+      "mediaDifBruto": 1.08
     },
     {
       "campo": "Layos",
       "hoyo": 6,
       "par": 4,
-      "partidas": 73,
-      "mediaBruto": 5.44,
-      "mediaNeto": 4.7,
-      "mediaDifBruto": 1.44
+      "partidas": 103,
+      "mediaBruto": 5.32,
+      "mediaNeto": 4.59,
+      "mediaDifBruto": 1.32
     },
     {
       "campo": "Layos",
       "hoyo": 7,
       "par": 3,
-      "partidas": 73,
-      "mediaBruto": 4.01,
-      "mediaNeto": 3.66,
-      "mediaDifBruto": 1.01
+      "partidas": 103,
+      "mediaBruto": 3.9,
+      "mediaNeto": 3.53,
+      "mediaDifBruto": 0.9
     },
     {
       "campo": "Layos",
       "hoyo": 8,
       "par": 3,
-      "partidas": 73,
-      "mediaBruto": 4.51,
-      "mediaNeto": 3.45,
-      "mediaDifBruto": 1.51
+      "partidas": 103,
+      "mediaBruto": 4.43,
+      "mediaNeto": 3.39,
+      "mediaDifBruto": 1.43
     },
     {
       "campo": "Layos",
       "hoyo": 9,
       "par": 4,
-      "partidas": 73,
-      "mediaBruto": 5.42,
-      "mediaNeto": 4.47,
-      "mediaDifBruto": 1.42
+      "partidas": 103,
+      "mediaBruto": 5.4,
+      "mediaNeto": 4.44,
+      "mediaDifBruto": 1.4
     },
     {
       "campo": "Layos",
       "hoyo": 10,
       "par": 4,
-      "partidas": 73,
-      "mediaBruto": 5.29,
-      "mediaNeto": 4.7,
-      "mediaDifBruto": 1.29
+      "partidas": 103,
+      "mediaBruto": 5.36,
+      "mediaNeto": 4.77,
+      "mediaDifBruto": 1.36
     },
     {
       "campo": "Layos",
       "hoyo": 11,
       "par": 3,
-      "partidas": 73,
-      "mediaBruto": 3.71,
-      "mediaNeto": 3.3,
-      "mediaDifBruto": 0.71
+      "partidas": 103,
+      "mediaBruto": 3.68,
+      "mediaNeto": 3.26,
+      "mediaDifBruto": 0.68
     },
     {
       "campo": "Layos",
       "hoyo": 12,
       "par": 4,
-      "partidas": 73,
-      "mediaBruto": 5.4,
-      "mediaNeto": 4.63,
-      "mediaDifBruto": 1.4
+      "partidas": 103,
+      "mediaBruto": 5.37,
+      "mediaNeto": 4.59,
+      "mediaDifBruto": 1.37
     },
     {
       "campo": "Layos",
       "hoyo": 13,
       "par": 4,
-      "partidas": 73,
+      "partidas": 103,
       "mediaBruto": 5.75,
-      "mediaNeto": 4.42,
+      "mediaNeto": 4.46,
       "mediaDifBruto": 1.75
     },
     {
       "campo": "Layos",
       "hoyo": 14,
       "par": 5,
-      "partidas": 73,
-      "mediaBruto": 6.25,
-      "mediaNeto": 5.53,
-      "mediaDifBruto": 1.25
+      "partidas": 103,
+      "mediaBruto": 6.16,
+      "mediaNeto": 5.46,
+      "mediaDifBruto": 1.16
     },
     {
       "campo": "Layos",
       "hoyo": 15,
       "par": 3,
-      "partidas": 73,
+      "partidas": 103,
       "mediaBruto": 3.74,
-      "mediaNeto": 3.21,
+      "mediaNeto": 3.23,
       "mediaDifBruto": 0.74
     },
     {
       "campo": "Layos",
       "hoyo": 16,
       "par": 4,
-      "partidas": 73,
-      "mediaBruto": 5.79,
-      "mediaNeto": 4.7,
-      "mediaDifBruto": 1.79
+      "partidas": 103,
+      "mediaBruto": 5.68,
+      "mediaNeto": 4.6,
+      "mediaDifBruto": 1.68
     },
     {
       "campo": "Layos",
       "hoyo": 17,
       "par": 5,
-      "partidas": 73,
-      "mediaBruto": 6.12,
-      "mediaNeto": 5.22,
-      "mediaDifBruto": 1.12
+      "partidas": 103,
+      "mediaBruto": 6.09,
+      "mediaNeto": 5.17,
+      "mediaDifBruto": 1.09
     },
     {
       "campo": "Layos",
       "hoyo": 18,
       "par": 4,
-      "partidas": 73,
-      "mediaBruto": 5.29,
-      "mediaNeto": 4.27,
-      "mediaDifBruto": 1.29
+      "partidas": 103,
+      "mediaBruto": 5.36,
+      "mediaNeto": 4.36,
+      "mediaDifBruto": 1.36
     },
     {
       "campo": "Lerma",
       "hoyo": 1,
       "par": 5,
-      "partidas": 42,
-      "mediaBruto": 6.29,
-      "mediaNeto": 5.07,
-      "mediaDifBruto": 1.29
+      "partidas": 78,
+      "mediaBruto": 6.23,
+      "mediaNeto": 5.06,
+      "mediaDifBruto": 1.23
     },
     {
       "campo": "Lerma",
       "hoyo": 2,
       "par": 4,
-      "partidas": 42,
-      "mediaBruto": 5.4,
-      "mediaNeto": 4.05,
-      "mediaDifBruto": 1.4
+      "partidas": 78,
+      "mediaBruto": 5.12,
+      "mediaNeto": 3.83,
+      "mediaDifBruto": 1.12
     },
     {
       "campo": "Lerma",
       "hoyo": 3,
       "par": 4,
-      "partidas": 42,
-      "mediaBruto": 5.02,
-      "mediaNeto": 4.38,
-      "mediaDifBruto": 1.02
+      "partidas": 78,
+      "mediaBruto": 4.86,
+      "mediaNeto": 4.22,
+      "mediaDifBruto": 0.86
     },
     {
       "campo": "Lerma",
       "hoyo": 4,
       "par": 4,
-      "partidas": 42,
-      "mediaBruto": 5.12,
-      "mediaNeto": 4.07,
-      "mediaDifBruto": 1.12
+      "partidas": 78,
+      "mediaBruto": 5.13,
+      "mediaNeto": 4.08,
+      "mediaDifBruto": 1.13
     },
     {
       "campo": "Lerma",
       "hoyo": 5,
       "par": 3,
-      "partidas": 42,
-      "mediaBruto": 3.95,
-      "mediaNeto": 3.4,
-      "mediaDifBruto": 0.95
+      "partidas": 78,
+      "mediaBruto": 4.03,
+      "mediaNeto": 3.53,
+      "mediaDifBruto": 1.03
     },
     {
       "campo": "Lerma",
       "hoyo": 6,
       "par": 4,
-      "partidas": 42,
-      "mediaBruto": 4.64,
-      "mediaNeto": 4.24,
-      "mediaDifBruto": 0.64
+      "partidas": 78,
+      "mediaBruto": 4.68,
+      "mediaNeto": 4.31,
+      "mediaDifBruto": 0.68
     },
     {
       "campo": "Lerma",
       "hoyo": 7,
       "par": 4,
-      "partidas": 42,
-      "mediaBruto": 4.67,
-      "mediaNeto": 3.95,
-      "mediaDifBruto": 0.67
+      "partidas": 78,
+      "mediaBruto": 4.99,
+      "mediaNeto": 4.24,
+      "mediaDifBruto": 0.99
     },
     {
       "campo": "Lerma",
       "hoyo": 8,
       "par": 5,
-      "partidas": 42,
-      "mediaBruto": 5.71,
-      "mediaNeto": 5.31,
-      "mediaDifBruto": 0.71
+      "partidas": 78,
+      "mediaBruto": 5.77,
+      "mediaNeto": 5.36,
+      "mediaDifBruto": 0.77
     },
     {
       "campo": "Lerma",
       "hoyo": 9,
       "par": 3,
-      "partidas": 42,
-      "mediaBruto": 4.64,
-      "mediaNeto": 3.76,
-      "mediaDifBruto": 1.64
+      "partidas": 78,
+      "mediaBruto": 4.44,
+      "mediaNeto": 3.53,
+      "mediaDifBruto": 1.44
     },
     {
       "campo": "Lerma",
       "hoyo": 10,
       "par": 5,
-      "partidas": 42,
-      "mediaBruto": 6.48,
-      "mediaNeto": 5.33,
-      "mediaDifBruto": 1.48
+      "partidas": 78,
+      "mediaBruto": 6.32,
+      "mediaNeto": 5.21,
+      "mediaDifBruto": 1.32
     },
     {
       "campo": "Lerma",
       "hoyo": 11,
       "par": 4,
-      "partidas": 42,
-      "mediaBruto": 5.05,
-      "mediaNeto": 4.36,
-      "mediaDifBruto": 1.05
+      "partidas": 78,
+      "mediaBruto": 5.15,
+      "mediaNeto": 4.46,
+      "mediaDifBruto": 1.15
     },
     {
       "campo": "Lerma",
       "hoyo": 12,
       "par": 3,
-      "partidas": 42,
+      "partidas": 78,
       "mediaBruto": 4.21,
       "mediaNeto": 3.38,
       "mediaDifBruto": 1.21
@@ -922,868 +1246,1702 @@
       "campo": "Lerma",
       "hoyo": 13,
       "par": 4,
-      "partidas": 42,
-      "mediaBruto": 5.1,
-      "mediaNeto": 4.69,
-      "mediaDifBruto": 1.1
+      "partidas": 78,
+      "mediaBruto": 5.29,
+      "mediaNeto": 4.9,
+      "mediaDifBruto": 1.29
     },
     {
       "campo": "Lerma",
       "hoyo": 14,
       "par": 4,
-      "partidas": 42,
-      "mediaBruto": 5.12,
-      "mediaNeto": 4.17,
-      "mediaDifBruto": 1.12
+      "partidas": 78,
+      "mediaBruto": 5.26,
+      "mediaNeto": 4.26,
+      "mediaDifBruto": 1.26
     },
     {
       "campo": "Lerma",
       "hoyo": 15,
       "par": 3,
-      "partidas": 42,
-      "mediaBruto": 4.02,
-      "mediaNeto": 3.52,
-      "mediaDifBruto": 1.02
+      "partidas": 78,
+      "mediaBruto": 4.09,
+      "mediaNeto": 3.63,
+      "mediaDifBruto": 1.09
     },
     {
       "campo": "Lerma",
       "hoyo": 16,
       "par": 4,
-      "partidas": 42,
-      "mediaBruto": 5.5,
-      "mediaNeto": 4.1,
-      "mediaDifBruto": 1.5
+      "partidas": 78,
+      "mediaBruto": 5.29,
+      "mediaNeto": 3.95,
+      "mediaDifBruto": 1.29
     },
     {
       "campo": "Lerma",
       "hoyo": 17,
       "par": 5,
-      "partidas": 42,
-      "mediaBruto": 5.71,
-      "mediaNeto": 5.07,
-      "mediaDifBruto": 0.71
+      "partidas": 78,
+      "mediaBruto": 5.86,
+      "mediaNeto": 5.26,
+      "mediaDifBruto": 0.86
     },
     {
       "campo": "Lerma",
       "hoyo": 18,
       "par": 4,
-      "partidas": 42,
+      "partidas": 78,
       "mediaBruto": 5.33,
-      "mediaNeto": 4.05,
+      "mediaNeto": 4.13,
       "mediaDifBruto": 1.33
     },
     {
       "campo": "Naturávila",
       "hoyo": 1,
       "par": 5,
-      "partidas": 57,
+      "partidas": 117,
       "mediaBruto": 5.82,
-      "mediaNeto": 5.4,
+      "mediaNeto": 5.38,
       "mediaDifBruto": 0.82
     },
     {
       "campo": "Naturávila",
       "hoyo": 2,
       "par": 4,
-      "partidas": 57,
-      "mediaBruto": 5.3,
-      "mediaNeto": 4.02,
-      "mediaDifBruto": 1.3
+      "partidas": 117,
+      "mediaBruto": 5.26,
+      "mediaNeto": 3.97,
+      "mediaDifBruto": 1.26
     },
     {
       "campo": "Naturávila",
       "hoyo": 3,
       "par": 3,
-      "partidas": 57,
-      "mediaBruto": 3.91,
-      "mediaNeto": 3.09,
-      "mediaDifBruto": 0.91
+      "partidas": 117,
+      "mediaBruto": 3.89,
+      "mediaNeto": 3.0,
+      "mediaDifBruto": 0.89
     },
     {
       "campo": "Naturávila",
       "hoyo": 4,
       "par": 4,
-      "partidas": 57,
-      "mediaBruto": 5.02,
-      "mediaNeto": 4.28,
-      "mediaDifBruto": 1.02
+      "partidas": 117,
+      "mediaBruto": 5.1,
+      "mediaNeto": 4.32,
+      "mediaDifBruto": 1.1
     },
     {
       "campo": "Naturávila",
       "hoyo": 5,
       "par": 5,
-      "partidas": 57,
-      "mediaBruto": 6.23,
-      "mediaNeto": 5.56,
-      "mediaDifBruto": 1.23
+      "partidas": 117,
+      "mediaBruto": 6.17,
+      "mediaNeto": 5.48,
+      "mediaDifBruto": 1.17
     },
     {
       "campo": "Naturávila",
       "hoyo": 6,
       "par": 4,
-      "partidas": 57,
-      "mediaBruto": 4.84,
-      "mediaNeto": 4.3,
-      "mediaDifBruto": 0.84
+      "partidas": 117,
+      "mediaBruto": 4.85,
+      "mediaNeto": 4.32,
+      "mediaDifBruto": 0.85
     },
     {
       "campo": "Naturávila",
       "hoyo": 7,
       "par": 4,
-      "partidas": 57,
-      "mediaBruto": 5.05,
-      "mediaNeto": 4.12,
-      "mediaDifBruto": 1.05
+      "partidas": 117,
+      "mediaBruto": 4.99,
+      "mediaNeto": 3.98,
+      "mediaDifBruto": 0.99
     },
     {
       "campo": "Naturávila",
       "hoyo": 8,
       "par": 4,
-      "partidas": 57,
-      "mediaBruto": 5.39,
-      "mediaNeto": 4.32,
-      "mediaDifBruto": 1.39
+      "partidas": 117,
+      "mediaBruto": 5.27,
+      "mediaNeto": 4.15,
+      "mediaDifBruto": 1.27
     },
     {
       "campo": "Naturávila",
       "hoyo": 9,
       "par": 3,
-      "partidas": 57,
-      "mediaBruto": 4.23,
-      "mediaNeto": 3.6,
-      "mediaDifBruto": 1.23
-    },
-    {
-      "campo": "Naturávila",
-      "hoyo": 10,
-      "par": 4,
-      "partidas": 57,
-      "mediaBruto": 5.35,
-      "mediaNeto": 4.0,
-      "mediaDifBruto": 1.35
-    },
-    {
-      "campo": "Naturávila",
-      "hoyo": 11,
-      "par": 5,
-      "partidas": 57,
-      "mediaBruto": 6.25,
-      "mediaNeto": 5.53,
-      "mediaDifBruto": 1.25
-    },
-    {
-      "campo": "Naturávila",
-      "hoyo": 12,
-      "par": 4,
-      "partidas": 57,
-      "mediaBruto": 5.42,
-      "mediaNeto": 4.63,
-      "mediaDifBruto": 1.42
-    },
-    {
-      "campo": "Naturávila",
-      "hoyo": 13,
-      "par": 3,
-      "partidas": 57,
-      "mediaBruto": 4.3,
-      "mediaNeto": 3.12,
-      "mediaDifBruto": 1.3
-    },
-    {
-      "campo": "Naturávila",
-      "hoyo": 14,
-      "par": 4,
-      "partidas": 57,
-      "mediaBruto": 5.3,
-      "mediaNeto": 4.39,
-      "mediaDifBruto": 1.3
-    },
-    {
-      "campo": "Naturávila",
-      "hoyo": 15,
-      "par": 5,
-      "partidas": 57,
-      "mediaBruto": 6.23,
-      "mediaNeto": 5.58,
-      "mediaDifBruto": 1.23
-    },
-    {
-      "campo": "Naturávila",
-      "hoyo": 16,
-      "par": 3,
-      "partidas": 57,
-      "mediaBruto": 4.19,
-      "mediaNeto": 3.6,
-      "mediaDifBruto": 1.19
-    },
-    {
-      "campo": "Naturávila",
-      "hoyo": 17,
-      "par": 4,
-      "partidas": 57,
-      "mediaBruto": 5.21,
-      "mediaNeto": 4.18,
+      "partidas": 117,
+      "mediaBruto": 4.21,
+      "mediaNeto": 3.59,
       "mediaDifBruto": 1.21
     },
     {
       "campo": "Naturávila",
-      "hoyo": 18,
+      "hoyo": 10,
+      "par": 4,
+      "partidas": 117,
+      "mediaBruto": 5.44,
+      "mediaNeto": 4.08,
+      "mediaDifBruto": 1.44
+    },
+    {
+      "campo": "Naturávila",
+      "hoyo": 11,
       "par": 5,
-      "partidas": 57,
-      "mediaBruto": 6.18,
-      "mediaNeto": 5.75,
+      "partidas": 117,
+      "mediaBruto": 6.38,
+      "mediaNeto": 5.63,
+      "mediaDifBruto": 1.38
+    },
+    {
+      "campo": "Naturávila",
+      "hoyo": 12,
+      "par": 4,
+      "partidas": 117,
+      "mediaBruto": 5.39,
+      "mediaNeto": 4.57,
+      "mediaDifBruto": 1.39
+    },
+    {
+      "campo": "Naturávila",
+      "hoyo": 13,
+      "par": 3,
+      "partidas": 117,
+      "mediaBruto": 4.29,
+      "mediaNeto": 3.07,
+      "mediaDifBruto": 1.29
+    },
+    {
+      "campo": "Naturávila",
+      "hoyo": 14,
+      "par": 4,
+      "partidas": 117,
+      "mediaBruto": 5.56,
+      "mediaNeto": 4.58,
+      "mediaDifBruto": 1.56
+    },
+    {
+      "campo": "Naturávila",
+      "hoyo": 15,
+      "par": 5,
+      "partidas": 117,
+      "mediaBruto": 6.16,
+      "mediaNeto": 5.51,
+      "mediaDifBruto": 1.16
+    },
+    {
+      "campo": "Naturávila",
+      "hoyo": 16,
+      "par": 3,
+      "partidas": 117,
+      "mediaBruto": 4.11,
+      "mediaNeto": 3.55,
+      "mediaDifBruto": 1.11
+    },
+    {
+      "campo": "Naturávila",
+      "hoyo": 17,
+      "par": 5,
+      "partidas": 117,
+      "mediaBruto": 5.21,
+      "mediaNeto": 4.12,
+      "mediaDifBruto": 0.21
+    },
+    {
+      "campo": "Naturávila",
+      "hoyo": 18,
+      "par": 4,
+      "partidas": 117,
+      "mediaBruto": 5.96,
+      "mediaNeto": 5.5,
+      "mediaDifBruto": 1.96
+    },
+    {
+      "campo": "Norba",
+      "hoyo": 1,
+      "par": 5,
+      "partidas": 11,
+      "mediaBruto": 6.73,
+      "mediaNeto": 5.91,
+      "mediaDifBruto": 1.73
+    },
+    {
+      "campo": "Norba",
+      "hoyo": 2,
+      "par": 4,
+      "partidas": 11,
+      "mediaBruto": 4.91,
+      "mediaNeto": 4.36,
+      "mediaDifBruto": 0.91
+    },
+    {
+      "campo": "Norba",
+      "hoyo": 3,
+      "par": 3,
+      "partidas": 11,
+      "mediaBruto": 4.18,
+      "mediaNeto": 3.36,
       "mediaDifBruto": 1.18
+    },
+    {
+      "campo": "Norba",
+      "hoyo": 4,
+      "par": 4,
+      "partidas": 11,
+      "mediaBruto": 4.91,
+      "mediaNeto": 4.18,
+      "mediaDifBruto": 0.91
+    },
+    {
+      "campo": "Norba",
+      "hoyo": 5,
+      "par": 4,
+      "partidas": 11,
+      "mediaBruto": 5.45,
+      "mediaNeto": 4.18,
+      "mediaDifBruto": 1.45
+    },
+    {
+      "campo": "Norba",
+      "hoyo": 6,
+      "par": 3,
+      "partidas": 11,
+      "mediaBruto": 4.0,
+      "mediaNeto": 3.45,
+      "mediaDifBruto": 1.0
+    },
+    {
+      "campo": "Norba",
+      "hoyo": 7,
+      "par": 5,
+      "partidas": 11,
+      "mediaBruto": 6.27,
+      "mediaNeto": 5.18,
+      "mediaDifBruto": 1.27
+    },
+    {
+      "campo": "Norba",
+      "hoyo": 8,
+      "par": 4,
+      "partidas": 11,
+      "mediaBruto": 5.73,
+      "mediaNeto": 4.27,
+      "mediaDifBruto": 1.73
+    },
+    {
+      "campo": "Norba",
+      "hoyo": 9,
+      "par": 4,
+      "partidas": 11,
+      "mediaBruto": 5.91,
+      "mediaNeto": 4.73,
+      "mediaDifBruto": 1.91
+    },
+    {
+      "campo": "Norba",
+      "hoyo": 10,
+      "par": 4,
+      "partidas": 11,
+      "mediaBruto": 6.73,
+      "mediaNeto": 5.45,
+      "mediaDifBruto": 2.73
+    },
+    {
+      "campo": "Norba",
+      "hoyo": 11,
+      "par": 3,
+      "partidas": 11,
+      "mediaBruto": 5.0,
+      "mediaNeto": 4.18,
+      "mediaDifBruto": 2.0
+    },
+    {
+      "campo": "Norba",
+      "hoyo": 12,
+      "par": 4,
+      "partidas": 11,
+      "mediaBruto": 4.64,
+      "mediaNeto": 3.82,
+      "mediaDifBruto": 0.64
+    },
+    {
+      "campo": "Norba",
+      "hoyo": 13,
+      "par": 4,
+      "partidas": 11,
+      "mediaBruto": 6.45,
+      "mediaNeto": 5.82,
+      "mediaDifBruto": 2.45
+    },
+    {
+      "campo": "Norba",
+      "hoyo": 14,
+      "par": 5,
+      "partidas": 11,
+      "mediaBruto": 7.82,
+      "mediaNeto": 6.27,
+      "mediaDifBruto": 2.82
+    },
+    {
+      "campo": "Norba",
+      "hoyo": 15,
+      "par": 4,
+      "partidas": 11,
+      "mediaBruto": 5.45,
+      "mediaNeto": 4.18,
+      "mediaDifBruto": 1.45
+    },
+    {
+      "campo": "Norba",
+      "hoyo": 16,
+      "par": 5,
+      "partidas": 11,
+      "mediaBruto": 6.36,
+      "mediaNeto": 5.27,
+      "mediaDifBruto": 1.36
+    },
+    {
+      "campo": "Norba",
+      "hoyo": 17,
+      "par": 3,
+      "partidas": 11,
+      "mediaBruto": 4.09,
+      "mediaNeto": 3.55,
+      "mediaDifBruto": 1.09
+    },
+    {
+      "campo": "Norba",
+      "hoyo": 18,
+      "par": 4,
+      "partidas": 11,
+      "mediaBruto": 5.09,
+      "mediaNeto": 4.09,
+      "mediaDifBruto": 1.09
+    },
+    {
+      "campo": "Olivar",
+      "hoyo": 1,
+      "par": 4,
+      "partidas": 28,
+      "mediaBruto": 5.04,
+      "mediaNeto": 3.93,
+      "mediaDifBruto": 1.04
+    },
+    {
+      "campo": "Olivar",
+      "hoyo": 2,
+      "par": 5,
+      "partidas": 28,
+      "mediaBruto": 5.93,
+      "mediaNeto": 5.11,
+      "mediaDifBruto": 0.93
+    },
+    {
+      "campo": "Olivar",
+      "hoyo": 3,
+      "par": 4,
+      "partidas": 28,
+      "mediaBruto": 4.71,
+      "mediaNeto": 4.18,
+      "mediaDifBruto": 0.71
+    },
+    {
+      "campo": "Olivar",
+      "hoyo": 4,
+      "par": 4,
+      "partidas": 28,
+      "mediaBruto": 4.5,
+      "mediaNeto": 4.04,
+      "mediaDifBruto": 0.5
+    },
+    {
+      "campo": "Olivar",
+      "hoyo": 5,
+      "par": 3,
+      "partidas": 28,
+      "mediaBruto": 3.79,
+      "mediaNeto": 3.36,
+      "mediaDifBruto": 0.79
+    },
+    {
+      "campo": "Olivar",
+      "hoyo": 6,
+      "par": 4,
+      "partidas": 28,
+      "mediaBruto": 4.89,
+      "mediaNeto": 3.75,
+      "mediaDifBruto": 0.89
+    },
+    {
+      "campo": "Olivar",
+      "hoyo": 7,
+      "par": 5,
+      "partidas": 28,
+      "mediaBruto": 6.04,
+      "mediaNeto": 5.04,
+      "mediaDifBruto": 1.04
+    },
+    {
+      "campo": "Olivar",
+      "hoyo": 8,
+      "par": 3,
+      "partidas": 28,
+      "mediaBruto": 3.93,
+      "mediaNeto": 3.25,
+      "mediaDifBruto": 0.93
+    },
+    {
+      "campo": "Olivar",
+      "hoyo": 9,
+      "par": 4,
+      "partidas": 28,
+      "mediaBruto": 5.07,
+      "mediaNeto": 3.79,
+      "mediaDifBruto": 1.07
+    },
+    {
+      "campo": "Olivar",
+      "hoyo": 10,
+      "par": 4,
+      "partidas": 28,
+      "mediaBruto": 5.5,
+      "mediaNeto": 4.39,
+      "mediaDifBruto": 1.5
+    },
+    {
+      "campo": "Olivar",
+      "hoyo": 11,
+      "par": 3,
+      "partidas": 28,
+      "mediaBruto": 3.54,
+      "mediaNeto": 3.07,
+      "mediaDifBruto": 0.54
+    },
+    {
+      "campo": "Olivar",
+      "hoyo": 12,
+      "par": 5,
+      "partidas": 28,
+      "mediaBruto": 6.18,
+      "mediaNeto": 5.14,
+      "mediaDifBruto": 1.18
+    },
+    {
+      "campo": "Olivar",
+      "hoyo": 13,
+      "par": 3,
+      "partidas": 28,
+      "mediaBruto": 3.36,
+      "mediaNeto": 2.93,
+      "mediaDifBruto": 0.36
+    },
+    {
+      "campo": "Olivar",
+      "hoyo": 14,
+      "par": 4,
+      "partidas": 28,
+      "mediaBruto": 5.36,
+      "mediaNeto": 4.18,
+      "mediaDifBruto": 1.36
+    },
+    {
+      "campo": "Olivar",
+      "hoyo": 15,
+      "par": 4,
+      "partidas": 28,
+      "mediaBruto": 4.68,
+      "mediaNeto": 4.21,
+      "mediaDifBruto": 0.68
+    },
+    {
+      "campo": "Olivar",
+      "hoyo": 16,
+      "par": 4,
+      "partidas": 28,
+      "mediaBruto": 5.64,
+      "mediaNeto": 4.71,
+      "mediaDifBruto": 1.64
+    },
+    {
+      "campo": "Olivar",
+      "hoyo": 17,
+      "par": 5,
+      "partidas": 28,
+      "mediaBruto": 5.89,
+      "mediaNeto": 5.29,
+      "mediaDifBruto": 0.89
+    },
+    {
+      "campo": "Olivar",
+      "hoyo": 18,
+      "par": 4,
+      "partidas": 28,
+      "mediaBruto": 5.11,
+      "mediaNeto": 4.36,
+      "mediaDifBruto": 1.11
     },
     {
       "campo": "Palomarejos",
       "hoyo": 1,
       "par": 4,
-      "partidas": 42,
-      "mediaBruto": 4.98,
-      "mediaNeto": 4.0,
-      "mediaDifBruto": 0.98
+      "partidas": 131,
+      "mediaBruto": 4.91,
+      "mediaNeto": 3.89,
+      "mediaDifBruto": 0.91
     },
     {
       "campo": "Palomarejos",
       "hoyo": 2,
       "par": 3,
-      "partidas": 42,
-      "mediaBruto": 3.81,
-      "mediaNeto": 3.33,
-      "mediaDifBruto": 0.81
+      "partidas": 131,
+      "mediaBruto": 3.96,
+      "mediaNeto": 3.48,
+      "mediaDifBruto": 0.96
     },
     {
       "campo": "Palomarejos",
       "hoyo": 3,
       "par": 4,
-      "partidas": 42,
-      "mediaBruto": 5.26,
-      "mediaNeto": 4.48,
-      "mediaDifBruto": 1.26
+      "partidas": 131,
+      "mediaBruto": 5.18,
+      "mediaNeto": 4.34,
+      "mediaDifBruto": 1.18
     },
     {
       "campo": "Palomarejos",
       "hoyo": 4,
       "par": 3,
-      "partidas": 42,
-      "mediaBruto": 3.64,
-      "mediaNeto": 3.21,
-      "mediaDifBruto": 0.64
+      "partidas": 131,
+      "mediaBruto": 3.83,
+      "mediaNeto": 3.44,
+      "mediaDifBruto": 0.83
     },
     {
       "campo": "Palomarejos",
       "hoyo": 5,
       "par": 5,
-      "partidas": 42,
-      "mediaBruto": 5.64,
-      "mediaNeto": 4.95,
-      "mediaDifBruto": 0.64
+      "partidas": 131,
+      "mediaBruto": 5.89,
+      "mediaNeto": 5.13,
+      "mediaDifBruto": 0.89
     },
     {
       "campo": "Palomarejos",
       "hoyo": 6,
       "par": 4,
-      "partidas": 42,
-      "mediaBruto": 4.64,
-      "mediaNeto": 3.95,
-      "mediaDifBruto": 0.64
+      "partidas": 131,
+      "mediaBruto": 4.98,
+      "mediaNeto": 4.25,
+      "mediaDifBruto": 0.98
     },
     {
       "campo": "Palomarejos",
       "hoyo": 7,
       "par": 5,
-      "partidas": 42,
-      "mediaBruto": 5.9,
-      "mediaNeto": 5.26,
-      "mediaDifBruto": 0.9
+      "partidas": 131,
+      "mediaBruto": 5.69,
+      "mediaNeto": 5.05,
+      "mediaDifBruto": 0.69
     },
     {
       "campo": "Palomarejos",
       "hoyo": 8,
       "par": 4,
-      "partidas": 42,
-      "mediaBruto": 4.48,
-      "mediaNeto": 4.02,
-      "mediaDifBruto": 0.48
+      "partidas": 131,
+      "mediaBruto": 4.76,
+      "mediaNeto": 4.32,
+      "mediaDifBruto": 0.76
     },
     {
       "campo": "Palomarejos",
       "hoyo": 9,
       "par": 5,
-      "partidas": 42,
-      "mediaBruto": 5.88,
-      "mediaNeto": 5.31,
-      "mediaDifBruto": 0.88
+      "partidas": 131,
+      "mediaBruto": 6.07,
+      "mediaNeto": 5.48,
+      "mediaDifBruto": 1.07
     },
     {
       "campo": "Palomarejos",
       "hoyo": 10,
       "par": 4,
-      "partidas": 42,
-      "mediaBruto": 4.86,
-      "mediaNeto": 4.31,
-      "mediaDifBruto": 0.86
+      "partidas": 131,
+      "mediaBruto": 5.02,
+      "mediaNeto": 4.49,
+      "mediaDifBruto": 1.02
     },
     {
       "campo": "Palomarejos",
       "hoyo": 11,
       "par": 4,
-      "partidas": 42,
-      "mediaBruto": 5.05,
-      "mediaNeto": 3.83,
-      "mediaDifBruto": 1.05
+      "partidas": 131,
+      "mediaBruto": 5.06,
+      "mediaNeto": 3.9,
+      "mediaDifBruto": 1.06
     },
     {
       "campo": "Palomarejos",
       "hoyo": 12,
       "par": 4,
-      "partidas": 42,
-      "mediaBruto": 4.17,
-      "mediaNeto": 3.79,
-      "mediaDifBruto": 0.17
+      "partidas": 131,
+      "mediaBruto": 4.67,
+      "mediaNeto": 4.34,
+      "mediaDifBruto": 0.67
     },
     {
       "campo": "Palomarejos",
       "hoyo": 13,
       "par": 3,
-      "partidas": 42,
-      "mediaBruto": 3.81,
-      "mediaNeto": 3.26,
-      "mediaDifBruto": 0.81
+      "partidas": 131,
+      "mediaBruto": 4.0,
+      "mediaNeto": 3.47,
+      "mediaDifBruto": 1.0
     },
     {
       "campo": "Palomarejos",
       "hoyo": 14,
       "par": 5,
-      "partidas": 42,
-      "mediaBruto": 5.81,
-      "mediaNeto": 4.69,
-      "mediaDifBruto": 0.81
+      "partidas": 131,
+      "mediaBruto": 6.12,
+      "mediaNeto": 5.01,
+      "mediaDifBruto": 1.12
     },
     {
       "campo": "Palomarejos",
       "hoyo": 15,
       "par": 4,
-      "partidas": 42,
-      "mediaBruto": 5.71,
-      "mediaNeto": 4.43,
-      "mediaDifBruto": 1.71
+      "partidas": 131,
+      "mediaBruto": 5.47,
+      "mediaNeto": 4.23,
+      "mediaDifBruto": 1.47
     },
     {
       "campo": "Palomarejos",
       "hoyo": 16,
       "par": 3,
-      "partidas": 42,
-      "mediaBruto": 4.0,
-      "mediaNeto": 3.19,
-      "mediaDifBruto": 1.0
+      "partidas": 131,
+      "mediaBruto": 4.08,
+      "mediaNeto": 3.21,
+      "mediaDifBruto": 1.08
     },
     {
       "campo": "Palomarejos",
       "hoyo": 17,
       "par": 4,
-      "partidas": 42,
-      "mediaBruto": 5.17,
-      "mediaNeto": 4.17,
-      "mediaDifBruto": 1.17
+      "partidas": 131,
+      "mediaBruto": 5.19,
+      "mediaNeto": 4.11,
+      "mediaDifBruto": 1.19
     },
     {
       "campo": "Palomarejos",
       "hoyo": 18,
       "par": 4,
-      "partidas": 42,
-      "mediaBruto": 4.43,
-      "mediaNeto": 3.5,
-      "mediaDifBruto": 0.43
+      "partidas": 131,
+      "mediaBruto": 4.92,
+      "mediaNeto": 3.96,
+      "mediaDifBruto": 0.92
     },
     {
       "campo": "Retamares",
       "hoyo": 1,
       "par": 4,
-      "partidas": 22,
-      "mediaBruto": 5.86,
-      "mediaNeto": 4.64,
-      "mediaDifBruto": 1.86
+      "partidas": 52,
+      "mediaBruto": 5.85,
+      "mediaNeto": 4.63,
+      "mediaDifBruto": 1.85
     },
     {
       "campo": "Retamares",
       "hoyo": 2,
       "par": 3,
-      "partidas": 22,
-      "mediaBruto": 3.82,
-      "mediaNeto": 3.5,
-      "mediaDifBruto": 0.82
+      "partidas": 52,
+      "mediaBruto": 3.98,
+      "mediaNeto": 3.63,
+      "mediaDifBruto": 0.98
     },
     {
       "campo": "Retamares",
       "hoyo": 3,
       "par": 5,
-      "partidas": 22,
-      "mediaBruto": 6.95,
-      "mediaNeto": 6.0,
-      "mediaDifBruto": 1.95
+      "partidas": 52,
+      "mediaBruto": 6.71,
+      "mediaNeto": 5.73,
+      "mediaDifBruto": 1.71
     },
     {
       "campo": "Retamares",
       "hoyo": 4,
       "par": 4,
-      "partidas": 22,
-      "mediaBruto": 5.41,
-      "mediaNeto": 4.64,
-      "mediaDifBruto": 1.41
+      "partidas": 52,
+      "mediaBruto": 5.69,
+      "mediaNeto": 4.92,
+      "mediaDifBruto": 1.69
     },
     {
       "campo": "Retamares",
       "hoyo": 5,
       "par": 4,
-      "partidas": 22,
-      "mediaBruto": 4.82,
+      "partidas": 52,
+      "mediaBruto": 4.77,
       "mediaNeto": 4.5,
-      "mediaDifBruto": 0.82
+      "mediaDifBruto": 0.77
     },
     {
       "campo": "Retamares",
       "hoyo": 6,
       "par": 4,
-      "partidas": 22,
-      "mediaBruto": 5.32,
-      "mediaNeto": 4.77,
-      "mediaDifBruto": 1.32
+      "partidas": 52,
+      "mediaBruto": 5.63,
+      "mediaNeto": 5.08,
+      "mediaDifBruto": 1.63
     },
     {
       "campo": "Retamares",
       "hoyo": 7,
       "par": 5,
-      "partidas": 22,
-      "mediaBruto": 6.36,
-      "mediaNeto": 5.86,
-      "mediaDifBruto": 1.36
+      "partidas": 52,
+      "mediaBruto": 6.29,
+      "mediaNeto": 5.81,
+      "mediaDifBruto": 1.29
     },
     {
       "campo": "Retamares",
       "hoyo": 8,
       "par": 4,
-      "partidas": 22,
-      "mediaBruto": 5.09,
-      "mediaNeto": 4.73,
-      "mediaDifBruto": 1.09
+      "partidas": 52,
+      "mediaBruto": 4.94,
+      "mediaNeto": 4.56,
+      "mediaDifBruto": 0.94
     },
     {
       "campo": "Retamares",
       "hoyo": 9,
       "par": 3,
-      "partidas": 22,
-      "mediaBruto": 4.23,
-      "mediaNeto": 3.32,
-      "mediaDifBruto": 1.23
+      "partidas": 52,
+      "mediaBruto": 4.1,
+      "mediaNeto": 3.25,
+      "mediaDifBruto": 1.1
     },
     {
       "campo": "Retamares",
       "hoyo": 10,
       "par": 5,
-      "partidas": 22,
+      "partidas": 52,
       "mediaBruto": 6.27,
-      "mediaNeto": 5.55,
+      "mediaNeto": 5.54,
       "mediaDifBruto": 1.27
     },
     {
       "campo": "Retamares",
       "hoyo": 11,
       "par": 4,
-      "partidas": 22,
-      "mediaBruto": 5.82,
-      "mediaNeto": 4.82,
-      "mediaDifBruto": 1.82
+      "partidas": 52,
+      "mediaBruto": 5.52,
+      "mediaNeto": 4.48,
+      "mediaDifBruto": 1.52
     },
     {
       "campo": "Retamares",
       "hoyo": 12,
       "par": 3,
-      "partidas": 22,
-      "mediaBruto": 4.36,
-      "mediaNeto": 4.0,
-      "mediaDifBruto": 1.36
+      "partidas": 52,
+      "mediaBruto": 4.19,
+      "mediaNeto": 3.83,
+      "mediaDifBruto": 1.19
     },
     {
       "campo": "Retamares",
       "hoyo": 13,
       "par": 5,
-      "partidas": 22,
-      "mediaBruto": 5.82,
-      "mediaNeto": 4.91,
-      "mediaDifBruto": 0.82
+      "partidas": 52,
+      "mediaBruto": 6.25,
+      "mediaNeto": 5.35,
+      "mediaDifBruto": 1.25
     },
     {
       "campo": "Retamares",
       "hoyo": 14,
       "par": 4,
-      "partidas": 22,
-      "mediaBruto": 5.91,
-      "mediaNeto": 4.77,
-      "mediaDifBruto": 1.91
+      "partidas": 52,
+      "mediaBruto": 6.02,
+      "mediaNeto": 4.88,
+      "mediaDifBruto": 2.02
     },
     {
       "campo": "Retamares",
       "hoyo": 15,
       "par": 4,
-      "partidas": 22,
-      "mediaBruto": 5.41,
-      "mediaNeto": 4.73,
-      "mediaDifBruto": 1.41
+      "partidas": 52,
+      "mediaBruto": 5.19,
+      "mediaNeto": 4.54,
+      "mediaDifBruto": 1.19
     },
     {
       "campo": "Retamares",
       "hoyo": 16,
       "par": 4,
-      "partidas": 22,
-      "mediaBruto": 5.32,
-      "mediaNeto": 4.27,
-      "mediaDifBruto": 1.32
+      "partidas": 52,
+      "mediaBruto": 5.25,
+      "mediaNeto": 4.17,
+      "mediaDifBruto": 1.25
     },
     {
       "campo": "Retamares",
       "hoyo": 17,
       "par": 3,
-      "partidas": 22,
-      "mediaBruto": 4.45,
-      "mediaNeto": 4.05,
-      "mediaDifBruto": 1.45
+      "partidas": 52,
+      "mediaBruto": 4.5,
+      "mediaNeto": 4.08,
+      "mediaDifBruto": 1.5
     },
     {
       "campo": "Retamares",
       "hoyo": 18,
       "par": 4,
-      "partidas": 22,
-      "mediaBruto": 5.82,
-      "mediaNeto": 4.68,
-      "mediaDifBruto": 1.82
+      "partidas": 52,
+      "mediaBruto": 5.75,
+      "mediaNeto": 4.62,
+      "mediaDifBruto": 1.75
     },
     {
       "campo": "Saldaña",
       "hoyo": 1,
       "par": 4,
-      "partidas": 44,
-      "mediaBruto": 5.14,
-      "mediaNeto": 4.36,
-      "mediaDifBruto": 1.14
+      "partidas": 70,
+      "mediaBruto": 5.21,
+      "mediaNeto": 4.44,
+      "mediaDifBruto": 1.21
     },
     {
       "campo": "Saldaña",
       "hoyo": 2,
       "par": 4,
-      "partidas": 44,
-      "mediaBruto": 4.84,
-      "mediaNeto": 4.39,
-      "mediaDifBruto": 0.84
+      "partidas": 70,
+      "mediaBruto": 4.74,
+      "mediaNeto": 4.3,
+      "mediaDifBruto": 0.74
     },
     {
       "campo": "Saldaña",
       "hoyo": 3,
       "par": 5,
-      "partidas": 44,
-      "mediaBruto": 6.34,
-      "mediaNeto": 4.98,
-      "mediaDifBruto": 1.34
+      "partidas": 70,
+      "mediaBruto": 6.2,
+      "mediaNeto": 4.84,
+      "mediaDifBruto": 1.2
     },
     {
       "campo": "Saldaña",
       "hoyo": 4,
       "par": 3,
-      "partidas": 44,
-      "mediaBruto": 4.82,
-      "mediaNeto": 4.23,
-      "mediaDifBruto": 1.82
+      "partidas": 70,
+      "mediaBruto": 4.51,
+      "mediaNeto": 3.96,
+      "mediaDifBruto": 1.51
     },
     {
       "campo": "Saldaña",
       "hoyo": 5,
       "par": 5,
-      "partidas": 44,
-      "mediaBruto": 6.41,
-      "mediaNeto": 5.14,
-      "mediaDifBruto": 1.41
+      "partidas": 70,
+      "mediaBruto": 6.21,
+      "mediaNeto": 4.99,
+      "mediaDifBruto": 1.21
     },
     {
       "campo": "Saldaña",
       "hoyo": 6,
       "par": 3,
-      "partidas": 44,
-      "mediaBruto": 4.32,
-      "mediaNeto": 3.41,
-      "mediaDifBruto": 1.32
+      "partidas": 70,
+      "mediaBruto": 4.27,
+      "mediaNeto": 3.33,
+      "mediaDifBruto": 1.27
     },
     {
       "campo": "Saldaña",
       "hoyo": 7,
       "par": 5,
-      "partidas": 44,
-      "mediaBruto": 6.7,
-      "mediaNeto": 5.57,
-      "mediaDifBruto": 1.7
+      "partidas": 70,
+      "mediaBruto": 6.53,
+      "mediaNeto": 5.41,
+      "mediaDifBruto": 1.53
     },
     {
       "campo": "Saldaña",
       "hoyo": 8,
       "par": 4,
-      "partidas": 44,
-      "mediaBruto": 4.93,
-      "mediaNeto": 4.52,
-      "mediaDifBruto": 0.93
+      "partidas": 70,
+      "mediaBruto": 4.9,
+      "mediaNeto": 4.49,
+      "mediaDifBruto": 0.9
     },
     {
       "campo": "Saldaña",
       "hoyo": 9,
       "par": 3,
-      "partidas": 44,
-      "mediaBruto": 3.98,
-      "mediaNeto": 3.3,
-      "mediaDifBruto": 0.98
+      "partidas": 70,
+      "mediaBruto": 4.06,
+      "mediaNeto": 3.41,
+      "mediaDifBruto": 1.06
     },
     {
       "campo": "Saldaña",
       "hoyo": 10,
       "par": 4,
-      "partidas": 44,
-      "mediaBruto": 5.43,
-      "mediaNeto": 4.55,
-      "mediaDifBruto": 1.43
+      "partidas": 70,
+      "mediaBruto": 5.41,
+      "mediaNeto": 4.56,
+      "mediaDifBruto": 1.41
     },
     {
       "campo": "Saldaña",
       "hoyo": 11,
       "par": 5,
-      "partidas": 44,
-      "mediaBruto": 6.59,
-      "mediaNeto": 5.39,
-      "mediaDifBruto": 1.59
+      "partidas": 70,
+      "mediaBruto": 6.34,
+      "mediaNeto": 5.19,
+      "mediaDifBruto": 1.34
     },
     {
       "campo": "Saldaña",
       "hoyo": 12,
       "par": 3,
-      "partidas": 44,
+      "partidas": 70,
       "mediaBruto": 4.39,
-      "mediaNeto": 3.98,
+      "mediaNeto": 3.97,
       "mediaDifBruto": 1.39
     },
     {
       "campo": "Saldaña",
       "hoyo": 13,
       "par": 5,
-      "partidas": 44,
-      "mediaBruto": 5.93,
-      "mediaNeto": 5.36,
-      "mediaDifBruto": 0.93
+      "partidas": 70,
+      "mediaBruto": 5.89,
+      "mediaNeto": 5.37,
+      "mediaDifBruto": 0.89
     },
     {
       "campo": "Saldaña",
       "hoyo": 14,
       "par": 4,
-      "partidas": 44,
-      "mediaBruto": 5.59,
-      "mediaNeto": 4.25,
-      "mediaDifBruto": 1.59
+      "partidas": 70,
+      "mediaBruto": 5.47,
+      "mediaNeto": 4.16,
+      "mediaDifBruto": 1.47
     },
     {
       "campo": "Saldaña",
       "hoyo": 15,
       "par": 4,
-      "partidas": 44,
-      "mediaBruto": 5.55,
-      "mediaNeto": 4.16,
-      "mediaDifBruto": 1.55
+      "partidas": 70,
+      "mediaBruto": 5.31,
+      "mediaNeto": 3.91,
+      "mediaDifBruto": 1.31
     },
     {
       "campo": "Saldaña",
       "hoyo": 16,
       "par": 4,
-      "partidas": 44,
-      "mediaBruto": 5.32,
-      "mediaNeto": 4.68,
-      "mediaDifBruto": 1.32
+      "partidas": 70,
+      "mediaBruto": 5.27,
+      "mediaNeto": 4.66,
+      "mediaDifBruto": 1.27
     },
     {
       "campo": "Saldaña",
       "hoyo": 17,
       "par": 3,
-      "partidas": 44,
-      "mediaBruto": 4.41,
-      "mediaNeto": 3.36,
-      "mediaDifBruto": 1.41
+      "partidas": 70,
+      "mediaBruto": 4.31,
+      "mediaNeto": 3.26,
+      "mediaDifBruto": 1.31
     },
     {
       "campo": "Saldaña",
       "hoyo": 18,
       "par": 4,
-      "partidas": 44,
-      "mediaBruto": 5.68,
-      "mediaNeto": 4.95,
-      "mediaDifBruto": 1.68
+      "partidas": 70,
+      "mediaBruto": 5.6,
+      "mediaNeto": 4.89,
+      "mediaDifBruto": 1.6
     },
     {
       "campo": "Santander",
       "hoyo": 1,
       "par": 5,
-      "partidas": 29,
-      "mediaBruto": 6.76,
-      "mediaNeto": 5.93,
-      "mediaDifBruto": 1.76
+      "partidas": 81,
+      "mediaBruto": 6.53,
+      "mediaNeto": 5.69,
+      "mediaDifBruto": 1.53
     },
     {
       "campo": "Santander",
       "hoyo": 2,
       "par": 4,
-      "partidas": 29,
-      "mediaBruto": 5.93,
-      "mediaNeto": 4.83,
-      "mediaDifBruto": 1.93
+      "partidas": 81,
+      "mediaBruto": 5.91,
+      "mediaNeto": 4.77,
+      "mediaDifBruto": 1.91
     },
     {
       "campo": "Santander",
       "hoyo": 3,
       "par": 3,
-      "partidas": 29,
-      "mediaBruto": 3.62,
-      "mediaNeto": 3.24,
-      "mediaDifBruto": 0.62
+      "partidas": 81,
+      "mediaBruto": 3.93,
+      "mediaNeto": 3.56,
+      "mediaDifBruto": 0.93
     },
     {
       "campo": "Santander",
       "hoyo": 4,
       "par": 4,
-      "partidas": 29,
-      "mediaBruto": 5.83,
-      "mediaNeto": 4.62,
-      "mediaDifBruto": 1.83
+      "partidas": 81,
+      "mediaBruto": 5.59,
+      "mediaNeto": 4.32,
+      "mediaDifBruto": 1.59
     },
     {
       "campo": "Santander",
       "hoyo": 5,
       "par": 5,
-      "partidas": 29,
-      "mediaBruto": 6.41,
-      "mediaNeto": 5.41,
-      "mediaDifBruto": 1.41
+      "partidas": 81,
+      "mediaBruto": 6.38,
+      "mediaNeto": 5.37,
+      "mediaDifBruto": 1.38
     },
     {
       "campo": "Santander",
       "hoyo": 6,
       "par": 4,
-      "partidas": 29,
-      "mediaBruto": 4.83,
-      "mediaNeto": 4.31,
-      "mediaDifBruto": 0.83
+      "partidas": 81,
+      "mediaBruto": 5.06,
+      "mediaNeto": 4.58,
+      "mediaDifBruto": 1.06
     },
     {
       "campo": "Santander",
       "hoyo": 7,
       "par": 3,
-      "partidas": 29,
+      "partidas": 81,
       "mediaBruto": 4.0,
-      "mediaNeto": 3.28,
+      "mediaNeto": 3.3,
       "mediaDifBruto": 1.0
     },
     {
       "campo": "Santander",
       "hoyo": 8,
       "par": 4,
-      "partidas": 29,
-      "mediaBruto": 5.55,
-      "mediaNeto": 4.72,
-      "mediaDifBruto": 1.55
+      "partidas": 81,
+      "mediaBruto": 5.27,
+      "mediaNeto": 4.49,
+      "mediaDifBruto": 1.27
     },
     {
       "campo": "Santander",
       "hoyo": 9,
       "par": 4,
-      "partidas": 29,
-      "mediaBruto": 5.21,
-      "mediaNeto": 4.59,
-      "mediaDifBruto": 1.21
+      "partidas": 81,
+      "mediaBruto": 5.38,
+      "mediaNeto": 4.78,
+      "mediaDifBruto": 1.38
     },
     {
       "campo": "Santander",
       "hoyo": 10,
       "par": 4,
-      "partidas": 29,
-      "mediaBruto": 6.03,
-      "mediaNeto": 4.83,
-      "mediaDifBruto": 2.03
+      "partidas": 81,
+      "mediaBruto": 5.96,
+      "mediaNeto": 4.74,
+      "mediaDifBruto": 1.96
     },
     {
       "campo": "Santander",
       "hoyo": 11,
       "par": 3,
-      "partidas": 29,
-      "mediaBruto": 4.41,
-      "mediaNeto": 3.97,
-      "mediaDifBruto": 1.41
+      "partidas": 81,
+      "mediaBruto": 4.3,
+      "mediaNeto": 3.84,
+      "mediaDifBruto": 1.3
     },
     {
       "campo": "Santander",
       "hoyo": 12,
       "par": 5,
-      "partidas": 29,
-      "mediaBruto": 8.0,
-      "mediaNeto": 6.66,
-      "mediaDifBruto": 3.0
+      "partidas": 81,
+      "mediaBruto": 7.53,
+      "mediaNeto": 6.2,
+      "mediaDifBruto": 2.53
     },
     {
       "campo": "Santander",
       "hoyo": 13,
       "par": 4,
-      "partidas": 29,
-      "mediaBruto": 5.24,
-      "mediaNeto": 4.66,
-      "mediaDifBruto": 1.24
+      "partidas": 81,
+      "mediaBruto": 5.36,
+      "mediaNeto": 4.81,
+      "mediaDifBruto": 1.36
     },
     {
       "campo": "Santander",
       "hoyo": 14,
       "par": 4,
-      "partidas": 29,
-      "mediaBruto": 5.48,
-      "mediaNeto": 4.52,
-      "mediaDifBruto": 1.48
+      "partidas": 81,
+      "mediaBruto": 5.52,
+      "mediaNeto": 4.58,
+      "mediaDifBruto": 1.52
     },
     {
       "campo": "Santander",
       "hoyo": 15,
       "par": 4,
-      "partidas": 29,
-      "mediaBruto": 5.62,
-      "mediaNeto": 4.62,
-      "mediaDifBruto": 1.62
+      "partidas": 81,
+      "mediaBruto": 5.48,
+      "mediaNeto": 4.42,
+      "mediaDifBruto": 1.48
     },
     {
       "campo": "Santander",
       "hoyo": 16,
       "par": 4,
-      "partidas": 29,
-      "mediaBruto": 5.24,
-      "mediaNeto": 4.48,
-      "mediaDifBruto": 1.24
+      "partidas": 81,
+      "mediaBruto": 5.36,
+      "mediaNeto": 4.63,
+      "mediaDifBruto": 1.36
     },
     {
       "campo": "Santander",
       "hoyo": 17,
       "par": 3,
-      "partidas": 29,
-      "mediaBruto": 4.41,
-      "mediaNeto": 3.59,
-      "mediaDifBruto": 1.41
+      "partidas": 81,
+      "mediaBruto": 4.15,
+      "mediaNeto": 3.32,
+      "mediaDifBruto": 1.15
     },
     {
       "campo": "Santander",
       "hoyo": 18,
       "par": 5,
-      "partidas": 29,
-      "mediaBruto": 6.41,
-      "mediaNeto": 5.79,
+      "partidas": 81,
+      "mediaBruto": 6.02,
+      "mediaNeto": 5.36,
+      "mediaDifBruto": 1.02
+    },
+    {
+      "campo": "Valdecañas",
+      "hoyo": 1,
+      "par": 5,
+      "partidas": 37,
+      "mediaBruto": 6.05,
+      "mediaNeto": 5.51,
+      "mediaDifBruto": 1.05
+    },
+    {
+      "campo": "Valdecañas",
+      "hoyo": 2,
+      "par": 3,
+      "partidas": 37,
+      "mediaBruto": 4.43,
+      "mediaNeto": 3.14,
+      "mediaDifBruto": 1.43
+    },
+    {
+      "campo": "Valdecañas",
+      "hoyo": 3,
+      "par": 5,
+      "partidas": 37,
+      "mediaBruto": 5.86,
+      "mediaNeto": 5.05,
+      "mediaDifBruto": 0.86
+    },
+    {
+      "campo": "Valdecañas",
+      "hoyo": 4,
+      "par": 4,
+      "partidas": 37,
+      "mediaBruto": 5.03,
+      "mediaNeto": 3.81,
+      "mediaDifBruto": 1.03
+    },
+    {
+      "campo": "Valdecañas",
+      "hoyo": 5,
+      "par": 4,
+      "partidas": 37,
+      "mediaBruto": 5.51,
+      "mediaNeto": 4.65,
+      "mediaDifBruto": 1.51
+    },
+    {
+      "campo": "Valdecañas",
+      "hoyo": 6,
+      "par": 4,
+      "partidas": 36,
+      "mediaBruto": 5.11,
+      "mediaNeto": 4.56,
+      "mediaDifBruto": 1.11
+    },
+    {
+      "campo": "Valdecañas",
+      "hoyo": 7,
+      "par": 4,
+      "partidas": 37,
+      "mediaBruto": 5.84,
+      "mediaNeto": 5.14,
+      "mediaDifBruto": 1.84
+    },
+    {
+      "campo": "Valdecañas",
+      "hoyo": 8,
+      "par": 3,
+      "partidas": 37,
+      "mediaBruto": 4.16,
+      "mediaNeto": 3.11,
+      "mediaDifBruto": 1.16
+    },
+    {
+      "campo": "Valdecañas",
+      "hoyo": 9,
+      "par": 4,
+      "partidas": 37,
+      "mediaBruto": 5.32,
+      "mediaNeto": 3.86,
+      "mediaDifBruto": 1.32
+    },
+    {
+      "campo": "Valdecañas",
+      "hoyo": 10,
+      "par": 4,
+      "partidas": 37,
+      "mediaBruto": 5.41,
+      "mediaNeto": 4.19,
       "mediaDifBruto": 1.41
+    },
+    {
+      "campo": "Valdecañas",
+      "hoyo": 11,
+      "par": 5,
+      "partidas": 37,
+      "mediaBruto": 6.51,
+      "mediaNeto": 5.7,
+      "mediaDifBruto": 1.51
+    },
+    {
+      "campo": "Valdecañas",
+      "hoyo": 12,
+      "par": 5,
+      "partidas": 37,
+      "mediaBruto": 6.35,
+      "mediaNeto": 4.95,
+      "mediaDifBruto": 1.35
+    },
+    {
+      "campo": "Valdecañas",
+      "hoyo": 13,
+      "par": 4,
+      "partidas": 37,
+      "mediaBruto": 5.41,
+      "mediaNeto": 4.89,
+      "mediaDifBruto": 1.41
+    },
+    {
+      "campo": "Valdecañas",
+      "hoyo": 14,
+      "par": 4,
+      "partidas": 37,
+      "mediaBruto": 4.73,
+      "mediaNeto": 4.08,
+      "mediaDifBruto": 0.73
+    },
+    {
+      "campo": "Valdecañas",
+      "hoyo": 15,
+      "par": 3,
+      "partidas": 37,
+      "mediaBruto": 4.7,
+      "mediaNeto": 3.51,
+      "mediaDifBruto": 1.7
+    },
+    {
+      "campo": "Valdecañas",
+      "hoyo": 16,
+      "par": 4,
+      "partidas": 37,
+      "mediaBruto": 5.14,
+      "mediaNeto": 4.14,
+      "mediaDifBruto": 1.14
+    },
+    {
+      "campo": "Valdecañas",
+      "hoyo": 17,
+      "par": 3,
+      "partidas": 37,
+      "mediaBruto": 3.86,
+      "mediaNeto": 3.3,
+      "mediaDifBruto": 0.86
+    },
+    {
+      "campo": "Valdecañas",
+      "hoyo": 18,
+      "par": 4,
+      "partidas": 37,
+      "mediaBruto": 5.05,
+      "mediaNeto": 4.27,
+      "mediaDifBruto": 1.05
+    },
+    {
+      "campo": "Valdeluz",
+      "hoyo": 1,
+      "par": 5,
+      "partidas": 18,
+      "mediaBruto": 6.11,
+      "mediaNeto": 5.44,
+      "mediaDifBruto": 1.11
+    },
+    {
+      "campo": "Valdeluz",
+      "hoyo": 2,
+      "par": 3,
+      "partidas": 18,
+      "mediaBruto": 3.56,
+      "mediaNeto": 3.44,
+      "mediaDifBruto": 0.56
+    },
+    {
+      "campo": "Valdeluz",
+      "hoyo": 3,
+      "par": 4,
+      "partidas": 18,
+      "mediaBruto": 4.56,
+      "mediaNeto": 4.06,
+      "mediaDifBruto": 0.56
+    },
+    {
+      "campo": "Valdeluz",
+      "hoyo": 4,
+      "par": 5,
+      "partidas": 18,
+      "mediaBruto": 6.0,
+      "mediaNeto": 5.72,
+      "mediaDifBruto": 1.0
+    },
+    {
+      "campo": "Valdeluz",
+      "hoyo": 5,
+      "par": 4,
+      "partidas": 18,
+      "mediaBruto": 5.0,
+      "mediaNeto": 3.89,
+      "mediaDifBruto": 1.0
+    },
+    {
+      "campo": "Valdeluz",
+      "hoyo": 6,
+      "par": 4,
+      "partidas": 18,
+      "mediaBruto": 4.33,
+      "mediaNeto": 3.22,
+      "mediaDifBruto": 0.33
+    },
+    {
+      "campo": "Valdeluz",
+      "hoyo": 7,
+      "par": 4,
+      "partidas": 18,
+      "mediaBruto": 4.61,
+      "mediaNeto": 3.67,
+      "mediaDifBruto": 0.61
+    },
+    {
+      "campo": "Valdeluz",
+      "hoyo": 8,
+      "par": 4,
+      "partidas": 18,
+      "mediaBruto": 4.44,
+      "mediaNeto": 4.0,
+      "mediaDifBruto": 0.44
+    },
+    {
+      "campo": "Valdeluz",
+      "hoyo": 9,
+      "par": 3,
+      "partidas": 18,
+      "mediaBruto": 4.0,
+      "mediaNeto": 3.28,
+      "mediaDifBruto": 1.0
+    },
+    {
+      "campo": "Valdeluz",
+      "hoyo": 10,
+      "par": 4,
+      "partidas": 18,
+      "mediaBruto": 5.0,
+      "mediaNeto": 4.61,
+      "mediaDifBruto": 1.0
+    },
+    {
+      "campo": "Valdeluz",
+      "hoyo": 11,
+      "par": 5,
+      "partidas": 18,
+      "mediaBruto": 5.28,
+      "mediaNeto": 4.78,
+      "mediaDifBruto": 0.28
+    },
+    {
+      "campo": "Valdeluz",
+      "hoyo": 12,
+      "par": 3,
+      "partidas": 18,
+      "mediaBruto": 3.61,
+      "mediaNeto": 2.5,
+      "mediaDifBruto": 0.61
+    },
+    {
+      "campo": "Valdeluz",
+      "hoyo": 13,
+      "par": 4,
+      "partidas": 18,
+      "mediaBruto": 4.61,
+      "mediaNeto": 4.5,
+      "mediaDifBruto": 0.61
+    },
+    {
+      "campo": "Valdeluz",
+      "hoyo": 14,
+      "par": 5,
+      "partidas": 18,
+      "mediaBruto": 5.89,
+      "mediaNeto": 5.72,
+      "mediaDifBruto": 0.89
+    },
+    {
+      "campo": "Valdeluz",
+      "hoyo": 15,
+      "par": 3,
+      "partidas": 18,
+      "mediaBruto": 3.78,
+      "mediaNeto": 3.11,
+      "mediaDifBruto": 0.78
+    },
+    {
+      "campo": "Valdeluz",
+      "hoyo": 16,
+      "par": 4,
+      "partidas": 18,
+      "mediaBruto": 5.0,
+      "mediaNeto": 4.28,
+      "mediaDifBruto": 1.0
+    },
+    {
+      "campo": "Valdeluz",
+      "hoyo": 17,
+      "par": 4,
+      "partidas": 18,
+      "mediaBruto": 4.89,
+      "mediaNeto": 3.78,
+      "mediaDifBruto": 0.89
+    },
+    {
+      "campo": "Valdeluz",
+      "hoyo": 18,
+      "par": 4,
+      "partidas": 18,
+      "mediaBruto": 4.89,
+      "mediaNeto": 4.28,
+      "mediaDifBruto": 0.89
     }
   ],
   "asistencia": [
+    {
+      "temporada": 2021,
+      "nTorneo": 1,
+      "idTorneo": "2021:1",
+      "jugadores": 15
+    },
+    {
+      "temporada": 2021,
+      "nTorneo": 2,
+      "idTorneo": "2021:2",
+      "jugadores": 12
+    },
+    {
+      "temporada": 2021,
+      "nTorneo": 3,
+      "idTorneo": "2021:3",
+      "jugadores": 13
+    },
+    {
+      "temporada": 2021,
+      "nTorneo": 4,
+      "idTorneo": "2021:4",
+      "jugadores": 12
+    },
+    {
+      "temporada": 2021,
+      "nTorneo": 5,
+      "idTorneo": "2021:5",
+      "jugadores": 10
+    },
+    {
+      "temporada": 2021,
+      "nTorneo": 6,
+      "idTorneo": "2021:6",
+      "jugadores": 12
+    },
+    {
+      "temporada": 2021,
+      "nTorneo": 7,
+      "idTorneo": "2021:7",
+      "jugadores": 11
+    },
+    {
+      "temporada": 2021,
+      "nTorneo": 8,
+      "idTorneo": "2021:8",
+      "jugadores": 10
+    },
+    {
+      "temporada": 2021,
+      "nTorneo": 9,
+      "idTorneo": "2021:9",
+      "jugadores": 13
+    },
+    {
+      "temporada": 2022,
+      "nTorneo": 1,
+      "idTorneo": "2022:1",
+      "jugadores": 20
+    },
+    {
+      "temporada": 2022,
+      "nTorneo": 2,
+      "idTorneo": "2022:2",
+      "jugadores": 17
+    },
+    {
+      "temporada": 2022,
+      "nTorneo": 3,
+      "idTorneo": "2022:3",
+      "jugadores": 12
+    },
+    {
+      "temporada": 2022,
+      "nTorneo": 4,
+      "idTorneo": "2022:4",
+      "jugadores": 18
+    },
+    {
+      "temporada": 2022,
+      "nTorneo": 5,
+      "idTorneo": "2022:5",
+      "jugadores": 18
+    },
+    {
+      "temporada": 2022,
+      "nTorneo": 6,
+      "idTorneo": "2022:6",
+      "jugadores": 11
+    },
+    {
+      "temporada": 2022,
+      "nTorneo": 7,
+      "idTorneo": "2022:7",
+      "jugadores": 18
+    },
+    {
+      "temporada": 2022,
+      "nTorneo": 8,
+      "idTorneo": "2022:8",
+      "jugadores": 25
+    },
+    {
+      "temporada": 2022,
+      "nTorneo": 9,
+      "idTorneo": "2022:9",
+      "jugadores": 19
+    },
+    {
+      "temporada": 2022,
+      "nTorneo": 10,
+      "idTorneo": "2022:10",
+      "jugadores": 22
+    },
+    {
+      "temporada": 2022,
+      "nTorneo": 11,
+      "idTorneo": "2022:11",
+      "jugadores": 28
+    },
+    {
+      "temporada": 2023,
+      "nTorneo": 1,
+      "idTorneo": "2023:1",
+      "jugadores": 23
+    },
+    {
+      "temporada": 2023,
+      "nTorneo": 2,
+      "idTorneo": "2023:2",
+      "jugadores": 27
+    },
+    {
+      "temporada": 2023,
+      "nTorneo": 3,
+      "idTorneo": "2023:3",
+      "jugadores": 30
+    },
+    {
+      "temporada": 2023,
+      "nTorneo": 4,
+      "idTorneo": "2023:4",
+      "jugadores": 15
+    },
+    {
+      "temporada": 2023,
+      "nTorneo": 5,
+      "idTorneo": "2023:5",
+      "jugadores": 18
+    },
+    {
+      "temporada": 2023,
+      "nTorneo": 6,
+      "idTorneo": "2023:6",
+      "jugadores": 15
+    },
+    {
+      "temporada": 2023,
+      "nTorneo": 7,
+      "idTorneo": "2023:7",
+      "jugadores": 24
+    },
+    {
+      "temporada": 2023,
+      "nTorneo": 8,
+      "idTorneo": "2023:8",
+      "jugadores": 18
+    },
+    {
+      "temporada": 2023,
+      "nTorneo": 9,
+      "idTorneo": "2023:9",
+      "jugadores": 19
+    },
+    {
+      "temporada": 2023,
+      "nTorneo": 10,
+      "idTorneo": "2023:10",
+      "jugadores": 18
+    },
+    {
+      "temporada": 2023,
+      "nTorneo": 11,
+      "idTorneo": "2023:11",
+      "jugadores": 25
+    },
     {
       "temporada": 2024,
       "nTorneo": 1,
@@ -1794,13 +2952,13 @@
       "temporada": 2024,
       "nTorneo": 2,
       "idTorneo": "2024:2",
-      "jugadores": 16
+      "jugadores": 14
     },
     {
       "temporada": 2024,
       "nTorneo": 3,
       "idTorneo": "2024:3",
-      "jugadores": 18
+      "jugadores": 17
     },
     {
       "temporada": 2024,
@@ -1812,7 +2970,7 @@
       "temporada": 2024,
       "nTorneo": 5,
       "idTorneo": "2024:5",
-      "jugadores": 24
+      "jugadores": 22
     },
     {
       "temporada": 2024,
@@ -1824,7 +2982,7 @@
       "temporada": 2024,
       "nTorneo": 7,
       "idTorneo": "2024:7",
-      "jugadores": 24
+      "jugadores": 23
     },
     {
       "temporada": 2024,
@@ -1848,13 +3006,13 @@
       "temporada": 2024,
       "nTorneo": 11,
       "idTorneo": "2024:11",
-      "jugadores": 28
+      "jugadores": 29
     },
     {
       "temporada": 2025,
       "nTorneo": 1,
       "idTorneo": "2025:1",
-      "jugadores": 32
+      "jugadores": 31
     },
     {
       "temporada": 2025,
@@ -1866,7 +3024,7 @@
       "temporada": 2025,
       "nTorneo": 3,
       "idTorneo": "2025:3",
-      "jugadores": 28
+      "jugadores": 27
     },
     {
       "temporada": 2025,
@@ -1884,7 +3042,7 @@
       "temporada": 2025,
       "nTorneo": 6,
       "idTorneo": "2025:6",
-      "jugadores": 16
+      "jugadores": 15
     },
     {
       "temporada": 2025,
@@ -1896,7 +3054,7 @@
       "temporada": 2025,
       "nTorneo": 8,
       "idTorneo": "2025:8",
-      "jugadores": 17
+      "jugadores": 14
     },
     {
       "temporada": 2025,
@@ -1908,13 +3066,25 @@
       "temporada": 2025,
       "nTorneo": 10,
       "idTorneo": "2025:10",
-      "jugadores": 20
+      "jugadores": 19
     },
     {
-      "temporada": 2025,
-      "nTorneo": 11,
-      "idTorneo": "2025:11",
-      "jugadores": 20
+      "temporada": 2026,
+      "nTorneo": 1,
+      "idTorneo": "2026:1",
+      "jugadores": 27
+    },
+    {
+      "temporada": 2026,
+      "nTorneo": 2,
+      "idTorneo": "2026:2",
+      "jugadores": 22
+    },
+    {
+      "temporada": 2026,
+      "nTorneo": 3,
+      "idTorneo": "2026:3",
+      "jugadores": 25
     }
   ]
 }
