@@ -1038,7 +1038,7 @@ function showCSC(mode, btn) {
 var cMode='neto';
 var jMode='neto';
 
-var CV='?v=20260525b';
+var CV='?v=20260525c';
 function load(f){
   if(cache.hasOwnProperty(f)) return Promise.resolve(cache[f]);
   return fetch(BASE+f+CV).then(function(r){return r.ok?r.json():null;}).then(function(d){cache[f]=d;return d;}).catch(function(){cache[f]=null;return null;});
@@ -1657,7 +1657,7 @@ function buildSC(rows,elId,forceN){
     var ida=0,vta=0;
     hs.slice(0,9).forEach(function(i){var v=useN?(hh[i]&&hh[i].n!=null?hh[i].n:0):(hh[i]&&hh[i].b!=null?hh[i].b:0);ida+=v;});
     hs.slice(9).forEach(function(i){var v=useN?(hh[i]&&hh[i].n!=null?hh[i].n:0):(hh[i]&&hh[i].b!=null?hh[i].b:0);vta+=v;});
-    h+='<tr><td class="jc scol" style="left:0;font-size:11px">'+r.temp+' · T'+r.ntorn+' · '+r.campo+'</td>'+
+    h+='<tr><td class="jc scol" style="left:0;font-size:11px">'+(elId==='torn-sc'?r.nombre:(r.temp+' · T'+r.ntorn+' · '+r.campo))+'</td>'+
       hs.slice(0,9).map(function(i){return hcell(hh[i],useN);}).join('')+
       '<td class="st">'+ida+'</td>'+
       hs.slice(9).map(function(i){return hcell(hh[i],useN);}).join('')+
