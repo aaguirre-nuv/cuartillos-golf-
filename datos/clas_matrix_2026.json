@@ -1,21 +1,62 @@
 [
   {
     "temp": 2026,
+    "jugador": "Eduardo Buendía",
+    "total": 715,
+    "torneos": {
+      "2026:1": 85,
+      "2026:2": 300,
+      "2026:3": 51,
+      "2026:4": 330
+    },
+    "computan": [
+      "2026:4",
+      "2026:2",
+      "2026:1"
+    ],
+    "nPunt": 3,
+    "nJugados": 4,
+    "sinEquipo": false,
+    "rk": 1
+  },
+  {
+    "temp": 2026,
+    "jugador": "José Pablo Guil",
+    "total": 696,
+    "torneos": {
+      "2026:1": 41,
+      "2026:2": 55,
+      "2026:4": 600
+    },
+    "computan": [
+      "2026:4",
+      "2026:2",
+      "2026:1"
+    ],
+    "nPunt": 3,
+    "nJugados": 3,
+    "sinEquipo": false,
+    "rk": 2
+  },
+  {
+    "temp": 2026,
     "jugador": "Alvaro Aguirre",
-    "total": 600,
+    "total": 672,
     "torneos": {
       "2026:1": 100,
       "2026:2": 57,
-      "2026:3": 500
+      "2026:3": 500,
+      "2026:4": 72
     },
     "computan": [
       "2026:3",
-      "2026:1"
+      "2026:1",
+      "2026:4"
     ],
-    "nPunt": 2,
-    "nJugados": 3,
+    "nPunt": 3,
+    "nJugados": 4,
     "sinEquipo": false,
-    "rk": 1
+    "rk": 3
   },
   {
     "temp": 2026,
@@ -27,10 +68,10 @@
     "computan": [
       "2026:1"
     ],
-    "nPunt": 2,
+    "nPunt": 3,
     "nJugados": 1,
     "sinEquipo": false,
-    "rk": 2
+    "rk": 4
   },
   {
     "temp": 2026,
@@ -42,10 +83,10 @@
     "computan": [
       "2026:2"
     ],
-    "nPunt": 2,
+    "nPunt": 3,
     "nJugados": 1,
     "sinEquipo": false,
-    "rk": 3
+    "rk": 5
   },
   {
     "temp": 2026,
@@ -59,28 +100,50 @@
       "2026:3",
       "2026:1"
     ],
-    "nPunt": 2,
+    "nPunt": 3,
     "nJugados": 2,
     "sinEquipo": false,
-    "rk": 4
+    "rk": 6
   },
   {
     "temp": 2026,
-    "jugador": "Eduardo Buendía",
-    "total": 385,
+    "jugador": "Alfonso Hidalgo",
+    "total": 390,
     "torneos": {
-      "2026:1": 85,
-      "2026:2": 300,
-      "2026:3": 51
+      "2026:1": 80,
+      "2026:2": 53,
+      "2026:3": 190,
+      "2026:4": 120
     },
     "computan": [
-      "2026:2",
+      "2026:3",
+      "2026:4",
       "2026:1"
     ],
-    "nPunt": 2,
-    "nJugados": 3,
+    "nPunt": 3,
+    "nJugados": 4,
     "sinEquipo": false,
-    "rk": 5
+    "rk": 7
+  },
+  {
+    "temp": 2026,
+    "jugador": "Miche Lopez",
+    "total": 345,
+    "torneos": {
+      "2026:1": 47,
+      "2026:2": 60,
+      "2026:3": 75,
+      "2026:4": 210
+    },
+    "computan": [
+      "2026:4",
+      "2026:3",
+      "2026:2"
+    ],
+    "nPunt": 3,
+    "nJugados": 4,
+    "sinEquipo": false,
+    "rk": 8
   },
   {
     "temp": 2026,
@@ -94,95 +157,45 @@
       "2026:1",
       "2026:2"
     ],
-    "nPunt": 2,
-    "nJugados": 2,
-    "sinEquipo": false,
-    "rk": 6
-  },
-  {
-    "temp": 2026,
-    "jugador": "Alfonso Hidalgo",
-    "total": 270,
-    "torneos": {
-      "2026:1": 80,
-      "2026:2": 53,
-      "2026:3": 190
-    },
-    "computan": [
-      "2026:3",
-      "2026:1"
-    ],
-    "nPunt": 2,
-    "nJugados": 3,
-    "sinEquipo": false,
-    "rk": 7
-  },
-  {
-    "temp": 2026,
-    "jugador": "Javier Cervera",
-    "total": 241,
-    "torneos": {
-      "2026:1": 190,
-      "2026:2": 51
-    },
-    "computan": [
-      "2026:1",
-      "2026:2"
-    ],
-    "nPunt": 2,
-    "nJugados": 2,
-    "sinEquipo": false,
-    "rk": 8
-  },
-  {
-    "temp": 2026,
-    "jugador": "Javier Chiralt",
-    "total": 235,
-    "torneos": {
-      "2026:2": 190,
-      "2026:3": 45
-    },
-    "computan": [
-      "2026:2",
-      "2026:3"
-    ],
-    "nPunt": 2,
+    "nPunt": 3,
     "nJugados": 2,
     "sinEquipo": false,
     "rk": 9
   },
   {
     "temp": 2026,
-    "jugador": "Francisco Alvarez",
-    "total": 220,
+    "jugador": "Javier Chiralt",
+    "total": 329,
     "torneos": {
-      "2026:1": 135,
-      "2026:2": 85,
-      "2026:3": 53
+      "2026:2": 190,
+      "2026:3": 45,
+      "2026:4": 94
     },
     "computan": [
-      "2026:1",
-      "2026:2"
+      "2026:2",
+      "2026:4",
+      "2026:3"
     ],
-    "nPunt": 2,
+    "nPunt": 3,
     "nJugados": 3,
     "sinEquipo": false,
     "rk": 10
   },
   {
     "temp": 2026,
-    "jugador": "GLEZ JUAN JOSÉ",
-    "total": 195,
+    "jugador": "Javier Cervera",
+    "total": 318,
     "torneos": {
-      "2026:1": 110,
-      "2026:2": 80,
-      "2026:3": 85
+      "2026:1": 190,
+      "2026:2": 51,
+      "2026:4": 77
     },
     "computan": [
       "2026:1",
-      "2026:3"
+      "2026:4",
+      "2026:2"
     ],
-    "nPunt": 2,
+    "nPunt": 3,
     "nJugados": 3,
     "sinEquipo": false,
     "rk": 11
@@ -190,43 +203,107 @@
   {
     "temp": 2026,
     "jugador": "Nacho Casas",
-    "total": 180,
+    "total": 290,
     "torneos": {
       "2026:1": 45,
       "2026:2": 70,
-      "2026:3": 110
+      "2026:3": 110,
+      "2026:4": 110
     },
     "computan": [
       "2026:3",
+      "2026:4",
       "2026:2"
     ],
-    "nPunt": 2,
-    "nJugados": 3,
+    "nPunt": 3,
+    "nJugados": 4,
     "sinEquipo": false,
     "rk": 12
   },
   {
     "temp": 2026,
-    "jugador": "Francisco Hidalgo",
-    "total": 177,
+    "jugador": "Alvaro Montoya",
+    "total": 285,
     "torneos": {
-      "2026:1": 42,
-      "2026:2": 135,
-      "2026:3": 41
+      "2026:1": 49,
+      "2026:2": 75,
+      "2026:3": 60,
+      "2026:4": 150
     },
     "computan": [
+      "2026:4",
       "2026:2",
-      "2026:1"
+      "2026:3"
     ],
-    "nPunt": 2,
-    "nJugados": 3,
+    "nPunt": 3,
+    "nJugados": 4,
     "sinEquipo": false,
     "rk": 13
   },
   {
     "temp": 2026,
+    "jugador": "Francisco Alvarez",
+    "total": 279,
+    "torneos": {
+      "2026:1": 135,
+      "2026:2": 85,
+      "2026:3": 53,
+      "2026:4": 59
+    },
+    "computan": [
+      "2026:1",
+      "2026:2",
+      "2026:4"
+    ],
+    "nPunt": 3,
+    "nJugados": 4,
+    "sinEquipo": false,
+    "rk": 14
+  },
+  {
+    "temp": 2026,
+    "jugador": "GLEZ JUAN JOSÉ",
+    "total": 275,
+    "torneos": {
+      "2026:1": 110,
+      "2026:2": 80,
+      "2026:3": 85,
+      "2026:4": 64
+    },
+    "computan": [
+      "2026:1",
+      "2026:3",
+      "2026:2"
+    ],
+    "nPunt": 3,
+    "nJugados": 4,
+    "sinEquipo": false,
+    "rk": 15
+  },
+  {
+    "temp": 2026,
+    "jugador": "Francisco Hidalgo",
+    "total": 228,
+    "torneos": {
+      "2026:1": 42,
+      "2026:2": 135,
+      "2026:3": 41,
+      "2026:4": 51
+    },
+    "computan": [
+      "2026:2",
+      "2026:4",
+      "2026:1"
+    ],
+    "nPunt": 3,
+    "nJugados": 4,
+    "sinEquipo": false,
+    "rk": 16
+  },
+  {
+    "temp": 2026,
     "jugador": "Jorge Alberto Martínez Sánchez",
-    "total": 175,
+    "total": 224,
     "torneos": {
       "2026:1": 75,
       "2026:2": 49,
@@ -234,30 +311,128 @@
     },
     "computan": [
       "2026:3",
-      "2026:1"
+      "2026:1",
+      "2026:2"
     ],
-    "nPunt": 2,
+    "nPunt": 3,
     "nJugados": 3,
     "sinEquipo": false,
-    "rk": 14
+    "rk": 17
   },
   {
     "temp": 2026,
     "jugador": "David Sequera",
-    "total": 157,
+    "total": 218,
     "torneos": {
       "2026:1": 39,
       "2026:2": 100,
-      "2026:3": 57
+      "2026:3": 57,
+      "2026:4": 61
     },
     "computan": [
       "2026:2",
+      "2026:4",
       "2026:3"
     ],
-    "nPunt": 2,
+    "nPunt": 3,
+    "nJugados": 4,
+    "sinEquipo": false,
+    "rk": 18
+  },
+  {
+    "temp": 2026,
+    "jugador": "Alejandro Arcos",
+    "total": 198,
+    "torneos": {
+      "2026:1": 51,
+      "2026:2": 90,
+      "2026:4": 57
+    },
+    "computan": [
+      "2026:2",
+      "2026:4",
+      "2026:1"
+    ],
+    "nPunt": 3,
     "nJugados": 3,
     "sinEquipo": false,
-    "rk": 15
+    "rk": 19
+  },
+  {
+    "temp": 2026,
+    "jugador": "Ruslan Kochman",
+    "total": 191,
+    "torneos": {
+      "2026:1": 38,
+      "2026:2": 110,
+      "2026:3": 43
+    },
+    "computan": [
+      "2026:2",
+      "2026:3",
+      "2026:1"
+    ],
+    "nPunt": 3,
+    "nJugados": 3,
+    "sinEquipo": false,
+    "rk": 20
+  },
+  {
+    "temp": 2026,
+    "jugador": "Luis Fernandez",
+    "torneos": {
+      "2026:3": 135,
+      "2026:4": 55
+    },
+    "total": 190,
+    "computan": [
+      "2026:3",
+      "2026:4"
+    ],
+    "nPunt": 3,
+    "nJugados": 2,
+    "sinEquipo": false,
+    "rk": 21
+  },
+  {
+    "temp": 2026,
+    "jugador": "Jesus Touceda",
+    "total": 175,
+    "torneos": {
+      "2026:1": 60,
+      "2026:2": 65,
+      "2026:3": 47,
+      "2026:4": 50
+    },
+    "computan": [
+      "2026:2",
+      "2026:1",
+      "2026:4"
+    ],
+    "nPunt": 3,
+    "nJugados": 4,
+    "sinEquipo": false,
+    "rk": 22
+  },
+  {
+    "temp": 2026,
+    "jugador": "Enrique Gonzalez R",
+    "total": 168,
+    "torneos": {
+      "2026:1": 44,
+      "2026:2": 45,
+      "2026:3": 55,
+      "2026:4": 68
+    },
+    "computan": [
+      "2026:4",
+      "2026:3",
+      "2026:2"
+    ],
+    "nPunt": 3,
+    "nJugados": 4,
+    "sinEquipo": false,
+    "rk": 23
   },
   {
     "temp": 2026,
@@ -271,45 +446,27 @@
       "2026:3",
       "2026:1"
     ],
-    "nPunt": 2,
+    "nPunt": 3,
     "nJugados": 2,
     "sinEquipo": false,
-    "rk": 16
+    "rk": 24
   },
   {
     "temp": 2026,
-    "jugador": "Ruslan Kochman",
-    "total": 153,
+    "jugador": "Angel Hernandez",
+    "total": 155,
     "torneos": {
-      "2026:1": 38,
-      "2026:2": 110,
-      "2026:3": 43
+      "2026:1": 55,
+      "2026:4": 100
     },
     "computan": [
-      "2026:2",
-      "2026:3"
-    ],
-    "nPunt": 2,
-    "nJugados": 3,
-    "sinEquipo": false,
-    "rk": 17
-  },
-  {
-    "temp": 2026,
-    "jugador": "Alejandro Arcos",
-    "total": 141,
-    "torneos": {
-      "2026:1": 51,
-      "2026:2": 90
-    },
-    "computan": [
-      "2026:2",
+      "2026:4",
       "2026:1"
     ],
-    "nPunt": 2,
+    "nPunt": 3,
     "nJugados": 2,
     "sinEquipo": false,
-    "rk": 18
+    "rk": 25
   },
   {
     "temp": 2026,
@@ -323,79 +480,44 @@
       "2026:1",
       "2026:3"
     ],
-    "nPunt": 2,
+    "nPunt": 3,
     "nJugados": 2,
     "sinEquipo": false,
-    "rk": 19
+    "rk": 26
   },
   {
     "temp": 2026,
-    "jugador": "Alvaro Montoya",
-    "total": 135,
+    "jugador": "Javier Gonzalez Salvador",
     "torneos": {
-      "2026:1": 49,
-      "2026:2": 75,
-      "2026:3": 60
+      "2026:3": 80,
+      "2026:4": 53
     },
-    "computan": [
-      "2026:2",
-      "2026:3"
-    ],
-    "nPunt": 2,
-    "nJugados": 3,
-    "sinEquipo": false,
-    "rk": 20
-  },
-  {
-    "temp": 2026,
-    "jugador": "Miche Lopez",
-    "total": 135,
-    "torneos": {
-      "2026:1": 47,
-      "2026:2": 60,
-      "2026:3": 75
-    },
+    "total": 133,
     "computan": [
       "2026:3",
-      "2026:2"
+      "2026:4"
     ],
-    "nPunt": 2,
-    "nJugados": 3,
+    "nPunt": 3,
+    "nJugados": 2,
     "sinEquipo": false,
-    "rk": 21
+    "rk": 27
   },
   {
     "temp": 2026,
-    "jugador": "Luis Fernandez",
+    "jugador": "Javier Arcos",
     "torneos": {
-      "2026:3": 135
+      "2026:3": 42,
+      "2026:4": 82
     },
-    "total": 135,
+    "total": 124,
     "computan": [
+      "2026:4",
       "2026:3"
     ],
-    "nPunt": 2,
-    "nJugados": 1,
+    "nPunt": 3,
+    "nJugados": 2,
     "sinEquipo": false,
-    "rk": 22
-  },
-  {
-    "temp": 2026,
-    "jugador": "Jesus Touceda",
-    "total": 125,
-    "torneos": {
-      "2026:1": 60,
-      "2026:2": 65,
-      "2026:3": 47
-    },
-    "computan": [
-      "2026:2",
-      "2026:1"
-    ],
-    "nPunt": 2,
-    "nJugados": 3,
-    "sinEquipo": false,
-    "rk": 23
+    "rk": 28
   },
   {
     "temp": 2026,
@@ -409,45 +531,10 @@
       "2026:3",
       "2026:1"
     ],
-    "nPunt": 2,
+    "nPunt": 3,
     "nJugados": 2,
     "sinEquipo": false,
-    "rk": 24
-  },
-  {
-    "temp": 2026,
-    "jugador": "Enrique Gonzalez R",
-    "total": 100,
-    "torneos": {
-      "2026:1": 44,
-      "2026:2": 45,
-      "2026:3": 55
-    },
-    "computan": [
-      "2026:3",
-      "2026:2"
-    ],
-    "nPunt": 2,
-    "nJugados": 3,
-    "sinEquipo": false,
-    "rk": 25
-  },
-  {
-    "temp": 2026,
-    "jugador": "José Pablo Guil",
-    "total": 96,
-    "torneos": {
-      "2026:1": 41,
-      "2026:2": 55
-    },
-    "computan": [
-      "2026:2",
-      "2026:1"
-    ],
-    "nPunt": 2,
-    "nJugados": 2,
-    "sinEquipo": false,
-    "rk": 26
+    "rk": 29
   },
   {
     "temp": 2026,
@@ -461,10 +548,10 @@
       "2026:3",
       "2026:1"
     ],
-    "nPunt": 2,
+    "nPunt": 3,
     "nJugados": 2,
     "sinEquipo": false,
-    "rk": 27
+    "rk": 30
   },
   {
     "temp": 2026,
@@ -478,25 +565,25 @@
       "2026:2",
       "2026:3"
     ],
-    "nPunt": 2,
+    "nPunt": 3,
     "nJugados": 2,
     "sinEquipo": false,
-    "rk": 28
+    "rk": 31
   },
   {
     "temp": 2026,
-    "jugador": "Javier Gonzalez Salvador",
+    "jugador": "Ignacio Cadarso",
+    "total": 88,
     "torneos": {
-      "2026:3": 80
+      "2026:4": 88
     },
-    "total": 80,
     "computan": [
-      "2026:3"
+      "2026:4"
     ],
-    "nPunt": 2,
+    "nPunt": 3,
     "nJugados": 1,
     "sinEquipo": false,
-    "rk": 29
+    "rk": 32
   },
   {
     "temp": 2026,
@@ -508,25 +595,10 @@
     "computan": [
       "2026:1"
     ],
-    "nPunt": 2,
+    "nPunt": 3,
     "nJugados": 1,
     "sinEquipo": false,
-    "rk": 30
-  },
-  {
-    "temp": 2026,
-    "jugador": "Angel Hernandez",
-    "total": 55,
-    "torneos": {
-      "2026:1": 55
-    },
-    "computan": [
-      "2026:1"
-    ],
-    "nPunt": 2,
-    "nJugados": 1,
-    "sinEquipo": false,
-    "rk": 31
+    "rk": 33
   },
   {
     "temp": 2026,
@@ -538,25 +610,10 @@
     "computan": [
       "2026:1"
     ],
-    "nPunt": 2,
+    "nPunt": 3,
     "nJugados": 1,
     "sinEquipo": false,
-    "rk": 32
-  },
-  {
-    "temp": 2026,
-    "jugador": "Javier Arcos",
-    "torneos": {
-      "2026:3": 42
-    },
-    "total": 42,
-    "computan": [
-      "2026:3"
-    ],
-    "nPunt": 2,
-    "nJugados": 1,
-    "sinEquipo": false,
-    "rk": 33
+    "rk": 34
   },
   {
     "temp": 2026,
@@ -568,7 +625,7 @@
     "computan": [
       "2026:2"
     ],
-    "nPunt": 2,
+    "nPunt": 3,
     "nJugados": 1,
     "sinEquipo": true,
     "rk": 0
@@ -579,7 +636,20 @@
     "total": 0,
     "torneos": {},
     "computan": [],
-    "nPunt": 2,
+    "nPunt": 3,
+    "nJugados": 1,
+    "sinEquipo": true,
+    "rk": 0
+  },
+  {
+    "temp": 2026,
+    "jugador": "Juan Luis Sanz",
+    "total": 0,
+    "torneos": {
+      "2026:4": 0
+    },
+    "computan": [],
+    "nPunt": 3,
     "nJugados": 1,
     "sinEquipo": true,
     "rk": 0
