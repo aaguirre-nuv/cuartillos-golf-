@@ -6,19 +6,21 @@
       "nEquipo": 2,
       "nombre": "LA ORDEN DEL SWING SAGRADO",
       "logo": null,
-      "total": 1620,
+      "total": 2010,
       "computan": [
         "2026:2",
         "2026:3",
+        "2026:5",
         "2026:4"
       ],
-      "nPunt": 3,
-      "nJugados": 4,
+      "nPunt": 4,
+      "nJugados": 5,
       "torneos": {
         "2026:1": 250,
         "2026:2": 650,
         "2026:3": 650,
-        "2026:4": 320
+        "2026:4": 320,
+        "2026:5": 390
       }
     },
     {
@@ -27,103 +29,21 @@
       "nEquipo": 4,
       "nombre": "ME ALIVIO GOLF CLUB",
       "logo": null,
-      "total": 1430,
+      "total": 1950,
       "computan": [
         "2026:4",
+        "2026:5",
         "2026:3",
         "2026:1"
       ],
-      "nPunt": 3,
-      "nJugados": 4,
+      "nPunt": 4,
+      "nJugados": 5,
       "torneos": {
         "2026:1": 350,
         "2026:2": 260,
         "2026:3": 460,
-        "2026:4": 620
-      }
-    },
-    {
-      "idTempEquipo": "2026:LA AMENAZA FANTASMA",
-      "temporada": 2026,
-      "nEquipo": 6,
-      "nombre": "LA AMENAZA FANTASMA",
-      "logo": null,
-      "total": 1225,
-      "computan": [
-        "2026:2",
-        "2026:1",
-        "2026:4"
-      ],
-      "nPunt": 3,
-      "nJugados": 4,
-      "torneos": {
-        "2026:1": 460,
-        "2026:2": 500,
-        "2026:3": 210,
-        "2026:4": 265
-      }
-    },
-    {
-      "idTempEquipo": "2026:GIMBROS",
-      "temporada": 2026,
-      "nEquipo": 7,
-      "nombre": "GIMBROS",
-      "logo": null,
-      "total": 1185,
-      "computan": [
-        "2026:1",
-        "2026:3",
-        "2026:2"
-      ],
-      "nPunt": 3,
-      "nJugados": 4,
-      "torneos": {
-        "2026:1": 650,
-        "2026:2": 135,
-        "2026:3": 400,
-        "2026:4": 125
-      }
-    },
-    {
-      "idTempEquipo": "2026:CERDOS ARQUEROS",
-      "temporada": 2026,
-      "nEquipo": 1,
-      "nombre": "CERDOS ARQUEROS",
-      "logo": null,
-      "total": 1065,
-      "computan": [
-        "2026:4",
-        "2026:2",
-        "2026:1"
-      ],
-      "nPunt": 3,
-      "nJugados": 4,
-      "torneos": {
-        "2026:1": 185,
-        "2026:2": 360,
-        "2026:3": 185,
-        "2026:4": 520
-      }
-    },
-    {
-      "idTempEquipo": "2026:NO TE LA LLEVES MAMADO",
-      "temporada": 2026,
-      "nEquipo": 5,
-      "nombre": "NO TE LA LLEVES MAMADO",
-      "logo": null,
-      "total": 920,
-      "computan": [
-        "2026:4",
-        "2026:1",
-        "2026:2"
-      ],
-      "nPunt": 3,
-      "nJugados": 4,
-      "torneos": {
-        "2026:1": 235,
-        "2026:2": 235,
-        "2026:3": 235,
-        "2026:4": 450
+        "2026:4": 620,
+        "2026:5": 520
       }
     },
     {
@@ -132,19 +52,113 @@
       "nEquipo": 3,
       "nombre": "LOS GUARDIANES DEL DATÁFONO",
       "logo": null,
-      "total": 840,
+      "total": 1460,
       "computan": [
+        "2026:5",
         "2026:1",
         "2026:3",
         "2026:2"
       ],
-      "nPunt": 3,
-      "nJugados": 4,
+      "nPunt": 4,
+      "nJugados": 5,
       "torneos": {
         "2026:1": 400,
         "2026:2": 180,
         "2026:3": 260,
-        "2026:4": 180
+        "2026:4": 180,
+        "2026:5": 620
+      }
+    },
+    {
+      "idTempEquipo": "2026:LA AMENAZA FANTASMA",
+      "temporada": 2026,
+      "nEquipo": 6,
+      "nombre": "LA AMENAZA FANTASMA",
+      "logo": null,
+      "total": 1440,
+      "computan": [
+        "2026:2",
+        "2026:1",
+        "2026:4",
+        "2026:5"
+      ],
+      "nPunt": 4,
+      "nJugados": 5,
+      "torneos": {
+        "2026:1": 460,
+        "2026:2": 500,
+        "2026:3": 210,
+        "2026:4": 265,
+        "2026:5": 215
+      }
+    },
+    {
+      "idTempEquipo": "2026:GIMBROS",
+      "temporada": 2026,
+      "nEquipo": 7,
+      "nombre": "GIMBROS",
+      "logo": null,
+      "total": 1395,
+      "computan": [
+        "2026:1",
+        "2026:3",
+        "2026:5",
+        "2026:2"
+      ],
+      "nPunt": 4,
+      "nJugados": 5,
+      "torneos": {
+        "2026:1": 650,
+        "2026:2": 135,
+        "2026:3": 400,
+        "2026:4": 125,
+        "2026:5": 210
+      }
+    },
+    {
+      "idTempEquipo": "2026:CERDOS ARQUEROS",
+      "temporada": 2026,
+      "nEquipo": 1,
+      "nombre": "CERDOS ARQUEROS",
+      "logo": null,
+      "total": 1385,
+      "computan": [
+        "2026:4",
+        "2026:2",
+        "2026:5",
+        "2026:1"
+      ],
+      "nPunt": 4,
+      "nJugados": 5,
+      "torneos": {
+        "2026:1": 185,
+        "2026:2": 360,
+        "2026:3": 185,
+        "2026:4": 520,
+        "2026:5": 320
+      }
+    },
+    {
+      "idTempEquipo": "2026:NO TE LA LLEVES MAMADO",
+      "temporada": 2026,
+      "nEquipo": 5,
+      "nombre": "NO TE LA LLEVES MAMADO",
+      "logo": null,
+      "total": 1215,
+      "computan": [
+        "2026:4",
+        "2026:5",
+        "2026:1",
+        "2026:2"
+      ],
+      "nPunt": 4,
+      "nJugados": 5,
+      "torneos": {
+        "2026:1": 235,
+        "2026:2": 235,
+        "2026:3": 235,
+        "2026:4": 450,
+        "2026:5": 295
       }
     }
   ],
@@ -1125,6 +1139,255 @@
       "puntosAsistencia": 0,
       "puntosTotales": 125,
       "jugadores": []
+    },
+    {
+      "idTempEquipo": "2026:LOS GUARDIANES DEL DATÁFONO",
+      "temporada": 2026,
+      "idTorneo": "2026:5",
+      "teamScore": -7,
+      "teamScoreStr": "-7",
+      "valid": true,
+      "ranking": 1,
+      "nJugadores": 4,
+      "puntosEquipos": 500,
+      "puntosAsistencia": 120,
+      "puntosTotales": 620,
+      "jugadores": [
+        {
+          "nombre": "Jorge Alberto Martínez Sánchez",
+          "difNeto": -4,
+          "neto": 68,
+          "computa": true
+        },
+        {
+          "nombre": "Antonio Carmona",
+          "difNeto": -3,
+          "neto": 69,
+          "computa": true
+        },
+        {
+          "nombre": "Jose Antonio Santana",
+          "difNeto": -2,
+          "neto": 70,
+          "computa": false
+        },
+        {
+          "nombre": "GLEZ JUAN JOSÉ",
+          "difNeto": 1,
+          "neto": 73,
+          "computa": false
+        }
+      ]
+    },
+    {
+      "idTempEquipo": "2026:ME ALIVIO GOLF CLUB",
+      "temporada": 2026,
+      "idTorneo": "2026:5",
+      "teamScore": -3,
+      "teamScoreStr": "-3",
+      "valid": true,
+      "ranking": 2,
+      "nJugadores": 4,
+      "puntosEquipos": 400,
+      "puntosAsistencia": 120,
+      "puntosTotales": 520,
+      "jugadores": [
+        {
+          "nombre": "José Pablo Guil",
+          "difNeto": -5,
+          "neto": 67,
+          "computa": true
+        },
+        {
+          "nombre": "Alfonso Hidalgo",
+          "difNeto": 2,
+          "neto": 74,
+          "computa": true
+        },
+        {
+          "nombre": "Angel Hernandez",
+          "difNeto": 5,
+          "neto": 77,
+          "computa": false
+        },
+        {
+          "nombre": "Francisco Hidalgo",
+          "difNeto": 9,
+          "neto": 81,
+          "computa": false
+        }
+      ]
+    },
+    {
+      "idTempEquipo": "2026:LA ORDEN DEL SWING SAGRADO",
+      "temporada": 2026,
+      "idTorneo": "2026:5",
+      "teamScore": 1,
+      "teamScoreStr": "+1",
+      "valid": true,
+      "ranking": 3,
+      "nJugadores": 3,
+      "puntosEquipos": 300,
+      "puntosAsistencia": 90,
+      "puntosTotales": 390,
+      "jugadores": [
+        {
+          "nombre": "Javier Chiralt",
+          "difNeto": -2,
+          "neto": 70,
+          "computa": true
+        },
+        {
+          "nombre": "Alvaro Montoya",
+          "difNeto": 3,
+          "neto": 75,
+          "computa": true
+        },
+        {
+          "nombre": "Nacho Casas",
+          "difNeto": 5,
+          "neto": 77,
+          "computa": false
+        }
+      ]
+    },
+    {
+      "idTempEquipo": "2026:CERDOS ARQUEROS",
+      "temporada": 2026,
+      "idTorneo": "2026:5",
+      "teamScore": 2,
+      "teamScoreStr": "+2",
+      "valid": true,
+      "ranking": 4,
+      "nJugadores": 4,
+      "puntosEquipos": 200,
+      "puntosAsistencia": 120,
+      "puntosTotales": 320,
+      "jugadores": [
+        {
+          "nombre": "Alejandro Arcos",
+          "difNeto": -1,
+          "neto": 71,
+          "computa": true
+        },
+        {
+          "nombre": "Eduardo Buendía",
+          "difNeto": 3,
+          "neto": 75,
+          "computa": true
+        },
+        {
+          "nombre": "Javier Arcos",
+          "difNeto": 4,
+          "neto": 76,
+          "computa": false
+        },
+        {
+          "nombre": "David Sequera",
+          "difNeto": 9,
+          "neto": 81,
+          "computa": false
+        }
+      ]
+    },
+    {
+      "idTempEquipo": "2026:NO TE LA LLEVES MAMADO",
+      "temporada": 2026,
+      "idTorneo": "2026:5",
+      "teamScore": 4,
+      "teamScoreStr": "+4",
+      "valid": true,
+      "ranking": 5,
+      "nJugadores": 4,
+      "puntosEquipos": 175,
+      "puntosAsistencia": 120,
+      "puntosTotales": 295,
+      "jugadores": [
+        {
+          "nombre": "Miche Lopez",
+          "difNeto": -2,
+          "neto": 70,
+          "computa": true
+        },
+        {
+          "nombre": "Ignacio Cadarso",
+          "difNeto": 6,
+          "neto": 78,
+          "computa": true
+        },
+        {
+          "nombre": "Enrique Gonzalez R",
+          "difNeto": 15,
+          "neto": 87,
+          "computa": false
+        },
+        {
+          "nombre": "Javier Cervera",
+          "difNeto": 16,
+          "neto": 88,
+          "computa": false
+        }
+      ]
+    },
+    {
+      "idTempEquipo": "2026:GIMBROS",
+      "temporada": 2026,
+      "idTorneo": "2026:5",
+      "teamScore": 11,
+      "teamScoreStr": "+11",
+      "valid": true,
+      "ranking": 6,
+      "nJugadores": 2,
+      "puntosEquipos": 150,
+      "puntosAsistencia": 60,
+      "puntosTotales": 210,
+      "jugadores": [
+        {
+          "nombre": "Jaime Villanueva",
+          "difNeto": 1,
+          "neto": 73,
+          "computa": true
+        },
+        {
+          "nombre": "Carlos Maestro",
+          "difNeto": 10,
+          "neto": 82,
+          "computa": true
+        }
+      ]
+    },
+    {
+      "idTempEquipo": "2026:LA AMENAZA FANTASMA",
+      "temporada": 2026,
+      "idTorneo": "2026:5",
+      "teamScore": 16,
+      "teamScoreStr": "+16",
+      "valid": true,
+      "ranking": 7,
+      "nJugadores": 3,
+      "puntosEquipos": 125,
+      "puntosAsistencia": 90,
+      "puntosTotales": 215,
+      "jugadores": [
+        {
+          "nombre": "Francisco Alvarez",
+          "difNeto": 6,
+          "neto": 78,
+          "computa": true
+        },
+        {
+          "nombre": "Jesus Touceda",
+          "difNeto": 10,
+          "neto": 82,
+          "computa": true
+        },
+        {
+          "nombre": "Javier Gonzalez Salvador",
+          "difNeto": 15,
+          "neto": 87,
+          "computa": false
+        }
+      ]
     }
   ]
 }
