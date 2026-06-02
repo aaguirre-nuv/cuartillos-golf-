@@ -1038,7 +1038,7 @@ function showCSC(mode, btn) {
 var cMode='neto';
 var jMode='neto';
 
-var CV='?v=20260527a';
+var CV='?v=20260602a';
 function load(f){
   if(cache.hasOwnProperty(f)) return Promise.resolve(cache[f]);
   return fetch(BASE+f+CV).then(function(r){return r.ok?r.json():null;}).then(function(d){cache[f]=d;return d;}).catch(function(){cache[f]=null;return null;});
@@ -1177,11 +1177,15 @@ function renderPortada(){
         nextH=mkTornCard(proximo,'Pr&oacute;ximo torneo &mdash; '+dTxt,14);
       }
     }
-    var top8H='<table><thead><tr><th>#</th><th>Jugador</th><th>Puntos</th><th style="color:rgba(255,255,255,.7)">Cmptn</th></tr></thead><tbody>'+
+    var top8H='<table><thead><tr><th>#</th><th>Jugador</th><th>Puntos</th><th style="color:rgba(255,255,255,.7)">Cmptn</th><th title="Golpes de ventaja para el Torneo Final" style="color:var(--gold)">&#9971; Final</th></tr></thead><tbody>'+
       jug.slice(0,8).map(function(r,i){
+        var golpes=r.sinEquipo?null:Math.round((r.total||0)/100);
         return '<tr><td class="rk">'+(i+1)+'</td><td style="font-weight:600">'+r.jugador+'</td>'+
           '<td><span class="chip '+(i===0?'g':'')+'">'+(r.total||0).toLocaleString('es')+'</span></td>'+
-          '<td style="color:var(--muted);font-size:11px">'+(r.nPunt&&r.nJugados?r.nPunt+'/'+r.nJugados:'')+'</td></tr>';
+          '<td style="color:var(--muted);font-size:11px">'+(r.nPunt&&r.nJugados?r.nPunt+'/'+r.nJugados:'')+'</td>'+
+          '<td style="text-align:center;font-weight:700;color:'+(golpes?'var(--navy)':'var(--muted)')+'">'+
+            (r.sinEquipo?'&mdash;':golpes?'<span style="background:var(--gold);color:var(--navy);border-radius:12px;padding:2px 10px;font-family:Bebas Neue,sans-serif;font-size:15px">+'+golpes+'</span>':'&mdash;')+
+          '</td></tr>';
       }).join('')+'</tbody></table>';
     var eqPts={},eqN={};
     if(ceq){
@@ -1434,7 +1438,9 @@ function renderClas(){
       '<th class="scol" style="width:28px;left:0">#</th>'+
       '<th class="scol" style="left:30px;min-width:130px">Jugador</th>'+
       torn.map(function(t){return '<th title="'+t.campo+'">T'+t.nTorneo+'</th>';}).join('')+
-      '<th>Total</th></tr></thead><tbody>';
+      '<th>Total</th>'+
+      '<th title="Golpes de ventaja para el Torneo Final (1 golpe por cada 100 puntos)" style="color:var(--gold);white-space:nowrap">&#9971; Final</th>'+
+      '</tr></thead><tbody>';
     // Build jugador->equipo from cached tarjetas (no extra fetch)
     var jugEq={};
     var tarjC=cache['tarjetas_'+s+'.json']||cache['tarjetas_all.json']||null;
@@ -1456,7 +1462,14 @@ function renderClas(){
           if(!computa)return '<td class="nocp">'+p+'</td>';
           return '<td class="'+(style?'':ptsC(p))+'" style="'+style+'">'+p+'</td>';
         }).join('')+
-        '<td style="font-weight:700">'+(sinEq?'&mdash;':(r.total||0).toLocaleString('es'))+'</td></tr>';
+        '<td style="font-weight:700">'+(sinEq?'&mdash;':(r.total||0).toLocaleString('es'))+'</td>'+
+        (function(){
+          if(sinEq)return '<td style="text-align:center;color:#cbd5e1">&mdash;</td>';
+          var g=Math.round((r.total||0)/100);
+          if(!g)return '<td style="text-align:center;color:var(--muted)">0</td>';
+          return '<td style="text-align:center"><span style="background:var(--gold);color:var(--navy);border-radius:12px;padding:2px 10px;font-family:Bebas Neue,sans-serif;font-size:15px;font-weight:800">+'+g+'</span></td>';
+        })()+
+        '</tr>';
     });
     el('clas-m').innerHTML=h+'</tbody></table>';
   });
