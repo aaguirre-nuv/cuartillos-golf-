@@ -143,11 +143,18 @@
           "rival": "Foro 2000",
           "formato": "6 individuales",
           "local": false,
-          "resultado": null,
-          "detalle": null,
-          "ups_favor": null,
-          "ups_contra": null,
-          "jugadores": []
+          "resultado": "P",
+          "detalle": "2-4 (G 1UP, G 3UP, P 7&6, P 3&2, P 4&3, P 4&2)",
+          "ups_favor": 8,
+          "ups_contra": 14,
+          "jugadores": [
+            "Alvaro Lopez Montaña",
+            "Jose Lillo Rayero",
+            "Alejandro Lopez Montaña",
+            "Felix Garrido Morcillo",
+            "David Lopez Gallardo",
+            "Fco. Javier Garcia-Quijada"
+          ]
         },
         {
           "id": "ES5",
@@ -248,22 +255,22 @@
           "fecha": "2026-06-04",
           "local": "Foro 2000",
           "visitante": "Cuartillos",
-          "pts_l": null,
-          "pts_v": null,
-          "ups_l": null,
-          "ups_v": null,
-          "detalle": null
+          "pts_l": 4,
+          "pts_v": 2,
+          "ups_l": 14,
+          "ups_v": 8,
+          "detalle": "4-2 (G 1UP, G 3UP, P 7&6, P 3&2, P 4&3, P 4&2)"
         },
         {
           "jornada": 4,
           "fecha": "2026-06-04",
           "local": "Grow Golf",
           "visitante": "Club El Estudiante",
-          "pts_l": null,
-          "pts_v": null,
-          "ups_l": null,
-          "ups_v": null,
-          "detalle": null
+          "pts_l": 2,
+          "pts_v": 4,
+          "ups_l": 2,
+          "ups_v": 10,
+          "detalle": "2-4 (P 1UP, P 4&2, G 1UP, P 3&2, P 1UP, G 4&2)"
         },
         {
           "jornada": 5,
