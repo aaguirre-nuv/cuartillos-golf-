@@ -510,11 +510,17 @@
           "rival": "Approach y Putt",
           "formato": "5 individuales",
           "local": true,
-          "resultado": null,
-          "detalle": null,
-          "ups_favor": null,
-          "ups_contra": null,
-          "jugadores": []
+          "resultado": "E",
+          "detalle": "2.5-2.5 (5&3, 3UP, 1UP, A/S, 3&2)",
+          "ups_favor": 6,
+          "ups_contra": 6,
+          "jugadores": [
+            "Angel Hernandez Rilova",
+            "Jaime Villanueva Ghisleri",
+            "Jorge Alberto Martinez",
+            "Alvaro Nieto Esteban",
+            "Santiago Diaz"
+          ]
         },
         {
           "id": "FS5",
@@ -615,22 +621,22 @@
           "fecha": "2026-06-13",
           "local": "Cuartillos",
           "visitante": "Approach y Putt",
-          "pts_l": null,
-          "pts_v": null,
-          "ups_l": null,
-          "ups_v": null,
-          "detalle": null
+          "pts_l": 2.5,
+          "pts_v": 2.5,
+          "ups_l": 6,
+          "ups_v": 6,
+          "detalle": "2.5-2.5 (5&3 A, 3UP C, 1UP A, A/S, 3&2 C)"
         },
         {
           "jornada": 4,
           "fecha": "2026-06-13",
           "local": "Putt & Drive",
           "visitante": "Foro 2000",
-          "pts_l": null,
-          "pts_v": null,
-          "ups_l": null,
-          "ups_v": null,
-          "detalle": null
+          "pts_l": 0.5,
+          "pts_v": 4.5,
+          "ups_l": 0,
+          "ups_v": 7,
+          "detalle": "0.5-4.5 (Foro 2000 gana)"
         },
         {
           "jornada": 5,
@@ -675,6 +681,36 @@
           "ups_l": null,
           "ups_v": null,
           "detalle": null
+        }
+      ],
+      "clasificacion": [
+        {
+          "equipo": "Foro 2000",
+          "ptos": 1,
+          "enfrentamientos_ganados": 1,
+          "ups_favor": 25,
+          "ups_contra": 6
+        },
+        {
+          "equipo": "Cuartillos",
+          "ptos": 1,
+          "enfrentamientos_ganados": 1,
+          "ups_favor": 21,
+          "ups_contra": 13
+        },
+        {
+          "equipo": "Approach y Putt",
+          "ptos": 0,
+          "enfrentamientos_ganados": 0,
+          "ups_favor": 20,
+          "ups_contra": 16
+        },
+        {
+          "equipo": "Putt & Drive",
+          "ptos": 0,
+          "enfrentamientos_ganados": 0,
+          "ups_favor": 4,
+          "ups_contra": 35
         }
       ]
     }
