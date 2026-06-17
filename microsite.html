@@ -1419,7 +1419,7 @@ function renderCal(){
       if(ev.tipo==='liga'){
         var t=ev.data,j=t.jugado===1;
         h+='<div class="ci'+(isProx?' prox':'')+'" style="border-left:3px solid '+(isProx?'var(--gold)':j?'#22c55e':'#cbd5e1')+'">'+
-          '<div class="cid" style="background:'+LIGA_COLOR+'">'+
+          '<div class="cid"'+(isProx?'':' style="background:'+LIGA_COLOR+'"')+'>'+
             '<div class="cdday">'+dt.getDate()+'</div>'+
             '<div class="cdmon">'+MES[mo]+'</div>'+
           '</div>'+
