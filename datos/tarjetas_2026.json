@@ -17573,153 +17573,6 @@
   {
     "temp": 2026,
     "ntorn": 6,
-    "nombre": "Luis Fernandez",
-    "licencia": "CM56622888",
-    "campo": "Layos",
-    "fecha": "2026-06-27",
-    "hcp": 13,
-    "hcpJ": 14,
-    "parTotal": 72,
-    "ida": 44,
-    "vta": 43,
-    "total": 87,
-    "netoIda": 37,
-    "netoVta": 36,
-    "netoTotal": 73,
-    "parIda": 36,
-    "parVta": 36,
-    "difPar": 15,
-    "difIda": 8,
-    "difVta": 7,
-    "eagle": 0,
-    "birdie": 3,
-    "par": 3,
-    "bogey": 7,
-    "dbogey": 4,
-    "tbogey": 1,
-    "p3": 4,
-    "p4": 10,
-    "p5": 4,
-    "rk": 1,
-    "pts": 500,
-    "equipo": 5,
-    "nombreEq": "NO TE LA LLEVES MAMADO",
-    "hoyos": {
-      "1": {
-        "b": 6,
-        "n": 5,
-        "p": 5,
-        "c": "bogey"
-      },
-      "2": {
-        "b": 3,
-        "n": 3,
-        "p": 4,
-        "c": "birdie"
-      },
-      "3": {
-        "b": 6,
-        "n": 5,
-        "p": 4,
-        "c": "dbogey"
-      },
-      "4": {
-        "b": 6,
-        "n": 5,
-        "p": 5,
-        "c": "bogey"
-      },
-      "5": {
-        "b": 5,
-        "n": 4,
-        "p": 4,
-        "c": "bogey"
-      },
-      "6": {
-        "b": 3,
-        "n": 2,
-        "p": 4,
-        "c": "birdie"
-      },
-      "7": {
-        "b": 3,
-        "n": 3,
-        "p": 3,
-        "c": "par"
-      },
-      "8": {
-        "b": 5,
-        "n": 4,
-        "p": 3,
-        "c": "dbogey"
-      },
-      "9": {
-        "b": 7,
-        "n": 6,
-        "p": 4,
-        "c": "tbogey"
-      },
-      "10": {
-        "b": 5,
-        "n": 4,
-        "p": 4,
-        "c": "bogey"
-      },
-      "11": {
-        "b": 2,
-        "n": 2,
-        "p": 3,
-        "c": "birdie"
-      },
-      "12": {
-        "b": 6,
-        "n": 5,
-        "p": 4,
-        "c": "dbogey"
-      },
-      "13": {
-        "b": 5,
-        "n": 4,
-        "p": 4,
-        "c": "bogey"
-      },
-      "14": {
-        "b": 7,
-        "n": 6,
-        "p": 5,
-        "c": "dbogey"
-      },
-      "15": {
-        "b": 3,
-        "n": 3,
-        "p": 3,
-        "c": "par"
-      },
-      "16": {
-        "b": 5,
-        "n": 4,
-        "p": 4,
-        "c": "bogey"
-      },
-      "17": {
-        "b": 5,
-        "n": 4,
-        "p": 5,
-        "c": "par"
-      },
-      "18": {
-        "b": 5,
-        "n": 4,
-        "p": 4,
-        "c": "bogey"
-      }
-    },
-    "difNetoIda": 1,
-    "difNetoVta": 0
-  },
-  {
-    "temp": 2026,
-    "ntorn": 6,
     "nombre": "David Sequera",
     "licencia": "CME6308858",
     "campo": "Layos",
@@ -17747,8 +17600,8 @@
     "p3": 4,
     "p4": 10,
     "p5": 4,
-    "rk": 2,
-    "pts": 300,
+    "rk": 1,
+    "pts": 500,
     "equipo": 1,
     "nombreEq": "CERDOS ARQUEROS",
     "hoyos": {
@@ -17859,6 +17712,153 @@
         "n": 7,
         "p": 4,
         "c": "tbogey"
+      }
+    },
+    "difNetoIda": 1,
+    "difNetoVta": 0
+  },
+  {
+    "temp": 2026,
+    "ntorn": 6,
+    "nombre": "Luis Fernandez",
+    "licencia": "CM56622888",
+    "campo": "Layos",
+    "fecha": "2026-06-27",
+    "hcp": 13,
+    "hcpJ": 14,
+    "parTotal": 72,
+    "ida": 44,
+    "vta": 43,
+    "total": 87,
+    "netoIda": 37,
+    "netoVta": 36,
+    "netoTotal": 73,
+    "parIda": 36,
+    "parVta": 36,
+    "difPar": 15,
+    "difIda": 8,
+    "difVta": 7,
+    "eagle": 0,
+    "birdie": 3,
+    "par": 3,
+    "bogey": 7,
+    "dbogey": 4,
+    "tbogey": 1,
+    "p3": 4,
+    "p4": 10,
+    "p5": 4,
+    "rk": 2,
+    "pts": 300,
+    "equipo": 5,
+    "nombreEq": "NO TE LA LLEVES MAMADO",
+    "hoyos": {
+      "1": {
+        "b": 6,
+        "n": 5,
+        "p": 5,
+        "c": "bogey"
+      },
+      "2": {
+        "b": 3,
+        "n": 3,
+        "p": 4,
+        "c": "birdie"
+      },
+      "3": {
+        "b": 6,
+        "n": 5,
+        "p": 4,
+        "c": "dbogey"
+      },
+      "4": {
+        "b": 6,
+        "n": 5,
+        "p": 5,
+        "c": "bogey"
+      },
+      "5": {
+        "b": 5,
+        "n": 4,
+        "p": 4,
+        "c": "bogey"
+      },
+      "6": {
+        "b": 3,
+        "n": 2,
+        "p": 4,
+        "c": "birdie"
+      },
+      "7": {
+        "b": 3,
+        "n": 3,
+        "p": 3,
+        "c": "par"
+      },
+      "8": {
+        "b": 5,
+        "n": 4,
+        "p": 3,
+        "c": "dbogey"
+      },
+      "9": {
+        "b": 7,
+        "n": 6,
+        "p": 4,
+        "c": "tbogey"
+      },
+      "10": {
+        "b": 5,
+        "n": 4,
+        "p": 4,
+        "c": "bogey"
+      },
+      "11": {
+        "b": 2,
+        "n": 2,
+        "p": 3,
+        "c": "birdie"
+      },
+      "12": {
+        "b": 6,
+        "n": 5,
+        "p": 4,
+        "c": "dbogey"
+      },
+      "13": {
+        "b": 5,
+        "n": 4,
+        "p": 4,
+        "c": "bogey"
+      },
+      "14": {
+        "b": 7,
+        "n": 6,
+        "p": 5,
+        "c": "dbogey"
+      },
+      "15": {
+        "b": 3,
+        "n": 3,
+        "p": 3,
+        "c": "par"
+      },
+      "16": {
+        "b": 5,
+        "n": 4,
+        "p": 4,
+        "c": "bogey"
+      },
+      "17": {
+        "b": 5,
+        "n": 4,
+        "p": 5,
+        "c": "par"
+      },
+      "18": {
+        "b": 5,
+        "n": 4,
+        "p": 4,
+        "c": "bogey"
       }
     },
     "difNetoIda": 1,

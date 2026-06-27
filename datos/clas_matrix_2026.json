@@ -67,20 +67,24 @@
   },
   {
     "temp": 2026,
-    "jugador": "Luis Fernandez",
-    "total": 690,
+    "jugador": "David Sequera",
+    "total": 718,
     "torneos": {
-      "2026:3": 135,
-      "2026:4": 55,
+      "2026:1": 39,
+      "2026:2": 100,
+      "2026:3": 57,
+      "2026:4": 61,
+      "2026:5": 49,
       "2026:6": 500
     },
     "computan": [
       "2026:6",
-      "2026:3",
-      "2026:4"
+      "2026:2",
+      "2026:4",
+      "2026:3"
     ],
     "nPunt": 4,
-    "nJugados": 3,
+    "nJugados": 6,
     "sinEquipo": false,
     "rk": 4
   },
@@ -153,29 +157,6 @@
   },
   {
     "temp": 2026,
-    "jugador": "David Sequera",
-    "total": 518,
-    "torneos": {
-      "2026:1": 39,
-      "2026:2": 100,
-      "2026:3": 57,
-      "2026:4": 61,
-      "2026:5": 49,
-      "2026:6": 300
-    },
-    "computan": [
-      "2026:6",
-      "2026:2",
-      "2026:4",
-      "2026:3"
-    ],
-    "nPunt": 4,
-    "nJugados": 6,
-    "sinEquipo": false,
-    "rk": 8
-  },
-  {
-    "temp": 2026,
     "jugador": "Thomas Dauterman",
     "total": 500,
     "torneos": {
@@ -187,7 +168,7 @@
     "nPunt": 4,
     "nJugados": 1,
     "sinEquipo": false,
-    "rk": 9
+    "rk": 8
   },
   {
     "temp": 2026,
@@ -201,6 +182,25 @@
     ],
     "nPunt": 4,
     "nJugados": 1,
+    "sinEquipo": false,
+    "rk": 9
+  },
+  {
+    "temp": 2026,
+    "jugador": "Luis Fernandez",
+    "total": 490,
+    "torneos": {
+      "2026:3": 135,
+      "2026:4": 55,
+      "2026:6": 300
+    },
+    "computan": [
+      "2026:6",
+      "2026:3",
+      "2026:4"
+    ],
+    "nPunt": 4,
+    "nJugados": 3,
     "sinEquipo": false,
     "rk": 10
   },
