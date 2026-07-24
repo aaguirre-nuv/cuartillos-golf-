@@ -220,6 +220,7 @@ tr:nth-child(3) .rk{color:#cd7f32}
   <div class="ttabs" id="t-tabs"></div>
   <div id="torn-w" style="display:none">
     <div class="sh"><h2 id="torn-ttl">&#8212;</h2><div class="ac"></div></div>
+    <div id="torn-rondas" style="display:none;margin:0 0 14px"></div>
     <div class="card" style="margin-bottom:14px"><div class="ct">Resultados</div><div class="tw" id="torn-res"></div></div>
     <div class="card"><div class="ct">Scorecard por hoyo</div><div class="tw" id="torn-sc"></div></div>
   </div>
@@ -1658,23 +1659,47 @@ function renderTabs(){
     var torn=cal.filter(function(t){return t.temporada===s&&t.jugado===1;}).sort(function(a,b){return a.nTorneo-b.nTorneo;});
     el('t-tabs').innerHTML=torn.map(function(t){
       var lbl=String(t.nTorneo).padStart(2,'0')+'-'+(t.campo||'').substring(0,6).toUpperCase();
-      return '<button class="ttab" data-id="'+t.id+'" data-campo="'+t.campo+'" data-ntorn="'+t.nTorneo+'" data-fecha="'+t.fecha+'" onclick="loadTorn(this)">'+lbl+'</button>';
+      return '<button class="ttab" data-id="'+t.id+'" data-campo="'+t.campo+'" data-ntorn="'+t.nTorneo+'" data-fecha="'+t.fecha+'" data-doble="'+(t.dobleVuelta?1:0)+'" onclick="loadTorn(this)">'+lbl+'</button>';
     }).join('');
     var last=el('t-tabs').querySelector('.ttab:last-child');
     if(last)last.click();
   });
 }
+var curTornRows=[],curDoble=false,curRonda=1;
 function loadTorn(btn){
   document.querySelectorAll('.ttab').forEach(function(b){b.classList.remove('active');});
   btn.classList.add('active');
   el('torn-w').style.display='block';
   el('torn-ttl').textContent=btn.dataset.campo+' — '+fmtD(btn.dataset.fecha);
+  curDoble=btn.dataset.doble==='1';
+  curRonda=1;
   load('tarjetas_'+gs()+'.json').then(function(tarj){
     if(!tarj)return;
     var s=parseInt(btn.dataset.id.split(':')[0]),n=parseInt(btn.dataset.ntorn);
-    var rows=tarj.filter(function(t){return t.temp===s&&t.ntorn===n;});
-    buildRes(rows);buildSC(rows,'torn-sc');
+    curTornRows=tarj.filter(function(t){return t.temp===s&&t.ntorn===n;});
+    if(curDoble){
+      var r1=curTornRows.find(function(t){return t.ronda===1;});
+      var r2=curTornRows.find(function(t){return t.ronda===2;});
+      el('torn-rondas').style.display='block';
+      el('torn-rondas').innerHTML=
+        '<button class="ttab active" id="rd1btn" onclick="showRonda(1)">Ronda 1'+(r1?' &middot; '+r1.campo:'')+'</button>'+
+        '<button class="ttab" id="rd2btn" onclick="showRonda(2)">Ronda 2'+(r2?' &middot; '+r2.campo:'')+'</button>';
+    } else {
+      el('torn-rondas').style.display='none';
+      el('torn-rondas').innerHTML='';
+    }
+    showRonda(1);
   });
+}
+function showRonda(ronda){
+  curRonda=ronda;
+  if(curDoble){
+    document.querySelectorAll('#torn-rondas .ttab').forEach(function(b){b.classList.remove('active');});
+    var btnId=ronda===1?'rd1btn':'rd2btn';
+    if(el(btnId))el(btnId).classList.add('active');
+  }
+  var rows=curDoble?curTornRows.filter(function(t){return t.ronda===ronda;}):curTornRows;
+  buildRes(rows);buildSC(rows,'torn-sc');
 }
 function setC(m){cMode=m;el('tn').classList.toggle('active',m==='neto');el('tb2').classList.toggle('active',m==='bruto');var b=el('t-tabs').querySelector('.ttab.active');if(b)b.click();}
 
