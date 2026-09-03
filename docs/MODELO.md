@@ -83,66 +83,75 @@ desviaciones encontradas están listadas en [DIFERENCIAS.md](DIFERENCIAS.md).
 
 ## 4. Desempate de posiciones
 
-Criterio, en este orden, **ganando siempre el menor valor**:
+**Fuente:** criterio **RFEG (Libro Verde)** para prueba hándicap Stroke Play, tal
+como se configuró en los torneos de la liga. Documentado en
+[`reglamento/2026-T6-layos-resolucion-desempate.pdf`](reglamento/2026-T6-layos-resolucion-desempate.pdf),
+resolución del desempate del T6 de 2026 en Layos.
 
-1. **Resultado neto** del torneo (suma de las rondas si es a doble vuelta).
-2. **Handicap de juego**. En torneos a doble vuelta, la **suma** del handicap de
-   juego de todas las rondas.
-3. **Últimos 9 hoyos** (10-18) — *ver nota de orden más abajo*.
-4. **Últimos 6 hoyos** (13-18).
-5. **Últimos 3 hoyos** (16-18).
+Orden de aplicación, **ganando siempre el menor número de golpes**:
 
-En torneos a doble vuelta el countback se toma de la **última ronda jugada**.
+1. **Resultado neto** del torneo. Suma de las rondas si es a doble vuelta.
+2. **Hándicap de juego más bajo**. Es el hándicap de juego, **no** el hándicap
+   exacto: en el T6 de 2026 los exactos eran 13,0 y 13,1 y los de juego 14 y 14,
+   así que la diferencia de exacto no intervino.
+3. **Golpes netos en los últimos 9, 12, 15, 16 y 17 hoyos**, en ese orden
+   (*match of cards*).
+4. Si el empate persiste, **sorteo**.
 
-### Evidencia
+Dos precisiones del reglamento, ambas con consecuencias prácticas:
 
-Contraste de reglas candidatas contra las 1.097 posiciones de socio registradas
-entre 2021 y 2026:
+- **Los "últimos hoyos" son siempre los últimos hoyos del campo**, no los últimos
+  que haya jugado cada participante. Con salida a tiro por hoyos distintos el
+  cálculo no cambia: últimos 9 = hoyos 10 a 18, últimos 12 = hoyos 7 a 18,
+  últimos 15 = hoyos 4 a 18, últimos 16 = hoyos 3 a 18, últimos 17 = hoyos 2 a 18.
+- Se comparan **golpes netos**, no brutos.
 
-| Regla | Puestos reproducidos |
+En torneos a doble vuelta, el hándicap de juego es la **suma** de las rondas y el
+*match of cards* se toma de la **última ronda jugada**.
+
+### Verificación contra el histórico
+
+La regla reproduce **1.083 de los 1.097** puestos de socio registrados entre 2021
+y 2026 (98,7 %).
+
+Comprobación directa contra el documento: los datos del repositorio reproducen
+exactamente el cálculo del T6 de 2026. Luis Fernández y David Sequera empatan a
++1 neto con hándicap de juego 14 los dos; en los hoyos 10 a 18 ambos suman 0, y
+en los hoyos 7 a 18 David suma −1 frente a +3 de Luis. De ahí que David sea el
+ganador del torneo, que es lo que está en el dato.
+
+Contraste con otras variantes de la regla, sobre esos mismos 1.097 puestos:
+
+| Variante | Puestos reproducidos |
 |---|---|
-| neto → hcp de juego → u3 → u6 → u9, menor gana | 1083 / 1097 |
-| neto → hcp de juego → u9 → u6 → u3, menor gana | 1079 / 1097 |
-| neto → hcp de juego → countback, **mayor** gana | 1047-1051 / 1097 |
-| neto → u9 → u6 → u3 (**sin** handicap de juego) | 378 / 1097 |
-| neto → bruto | 559 / 577 (2024-2026) |
+| **RFEG: neto → hcp de juego → 9, 12, 15, 16, 17, menos gana** | **1083** |
+| neto → hcp de juego → 3, 6, 9 | 1083 |
+| neto → hcp de juego → 9, 6, 3 | 1079 |
+| RFEG con el countback invertido (más golpes gana) | 1047-1051 |
+| neto → 9, 12, 15, 16, 17, **sin** hándicap de juego | 378 |
+| neto → bruto | 559 de 577 (2024-2026) |
 
-Conclusiones respaldadas por esos números:
+Lo que sostienen esos números:
 
-- **El handicap de juego es el segundo criterio, sin duda.** Quitarlo hunde la
-  regla de 1.079 a 378 aciertos.
-- **Gana el que menos golpes hace** en los segmentos. La variante "mayor gana"
-  pierde unos 30 puestos.
-- **Da igual usar bruto o neto en el countback.** Se examinaron los 31 grupos de
-  empate (mismo neto y mismo handicap de juego) de las seis temporadas y el
-  orden resultante es **idéntico** en los 31 con las dos variantes. Es esperable:
-  con el mismo handicap de juego en el mismo campo, los golpes de ventaja por
-  hoyo son los mismos, así que bruto y neto se diferencian en una constante.
-
-### Nota sobre el orden del countback `[NO VERIFICADO]`
-
-El dato histórico **no es consistente** en el orden de los tres segmentos, y
-ningún orden único explica las seis temporadas:
-
-- Con 9 → 6 → 3 quedan **18** puestos sin explicar de 1.097.
-- Con 3 → 6 → 9 quedan **14**.
-- 3 torneos sólo cuadran con 9 → 6 → 3 y 4 torneos sólo cuadran con 3 → 6 → 9.
-- 3 torneos no cuadran con ninguno de los dos.
-
-El desglose torneo a torneo está en
-[DIFERENCIAS.md](DIFERENCIAS.md#5-desempates-que-no-cuadran-con-ningún-orden-único--inconsistencia).
-
-La decisión adoptada es **9 → 6 → 3**, que es el countback estándar de golf, y
-está registrada en [DECISIONES.md](DECISIONES.md). **No se ha confirmado contra
-el reglamento escrito de la liga**, que es la única fuente que zanjaría la
-cuestión: el dato, por sí solo, no puede hacerlo.
+- **El hándicap de juego es imprescindible.** Quitarlo hunde la regla a 378
+  aciertos. El reglamento y el dato coinciden.
+- **Gana el que menos golpes hace.** La variante inversa pierde unos 30 puestos.
+- **Bruto o neto en el *match of cards* es indiferente en la práctica.** Se
+  examinaron los 31 grupos de empate de las seis temporadas y el orden resultante
+  es idéntico con las dos variantes: con el mismo hándicap de juego en el mismo
+  campo, los golpes de ventaja por hoyo son los mismos, así que bruto y neto se
+  diferencian en una constante. El reglamento dice neto, y es lo que se usa.
+- El orden 3 → 6 → 9 empata en aciertos con el oficial (1083), pero **explica
+  torneos distintos**: no reproduce el T6 de 2026, que el reglamento sí explica.
+  Ver [DIFERENCIAS.md](DIFERENCIAS.md#5-siete-parejas-con-el-desempate-al-revés--inconsistencia).
 
 ### El modelo actual no puede reproducir el desempate
 
 Ninguna columna de `clasificacion_YYYY.json` permite recalcular la posición:
 
-- Los segmentos de 9, 6 y 3 hoyos no existen como campo. Hay que calcularlos
-  desde el objeto `hoyos` de `tarjetas_YYYY.json`.
+- Los tramos de 9, 12, 15, 16 y 17 hoyos no existen como campo. Hay que
+  calcularlos desde el objeto `hoyos` de `tarjetas_YYYY.json`, que por eso es
+  imprescindible que esté completo.
 - En torneos a doble vuelta, `handicapJuego` guarda **sólo el de la última
   ronda**. Ejemplo comprobado: Alvaro Nieto en el T7 de 2026 tiene
   `handicapJuego: 12`, cuando el desempate usa 29 (17 en Desert Springs + 12 en
@@ -193,7 +202,7 @@ filas de 2024, 2025 y 2026 sin excepción.
 7.º 125, 8.º 100, 9.º 75. Verificado en las 228 filas.
 
 `puntosAsistencia` **no sigue una fórmula única**. Ver
-[DIFERENCIAS.md](DIFERENCIAS.md#3-tres-fórmulas-distintas-de-puntos-de-asistencia).
+[DIFERENCIAS.md](DIFERENCIAS.md#3-tres-fórmulas-distintas-de-puntos-de-asistencia--inconsistencia).
 
 ### Equipos sin jugadores suficientes
 

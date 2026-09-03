@@ -45,34 +45,47 @@ quedar coherentes entre sí y no se ven a simple vista.
 
 ## D-003 · Criterio de desempate de posiciones
 
-**Estado:** decidida en cuanto al criterio · **pendiente de confirmar el orden
-del countback**
+**Estado:** decidida · 2026-09-03 · **con fuente documental**
 
-Orden acordado, ganando siempre el **menor** número de golpes:
+Se aplica el criterio **RFEG (Libro Verde)** para prueba hándicap Stroke Play,
+ganando siempre el **menor** número de golpes:
 
-1. Resultado neto del torneo.
-2. Handicap de juego (la **suma** de las rondas si es a doble vuelta).
-3. Últimos 9 hoyos.
-4. Últimos 6 hoyos.
-5. Últimos 3 hoyos.
+1. Resultado neto del torneo (suma de las rondas si es a doble vuelta).
+2. **Hándicap de juego más bajo**. El de juego, no el exacto.
+3. Golpes **netos** en los últimos **9, 12, 15, 16 y 17** hoyos, en ese orden.
+4. Si persiste el empate, **sorteo**.
 
-**Evidencia del dato** (1.097 puestos de socio, 2021-2026):
+Los "últimos hoyos" son los últimos **del campo**, no los últimos que jugó cada
+participante: con salida a tiro el cálculo no cambia.
 
-- El handicap de juego como segundo criterio: sin él la regla acierta 378
-  puestos; con él, 1.079. No hay duda.
+**Fuente:** [`reglamento/2026-T6-layos-resolucion-desempate.pdf`](reglamento/2026-T6-layos-resolucion-desempate.pdf),
+resolución del desempate del T6 de 2026 (Layos, 27 de junio de 2026).
+
+**Verificación:** la regla reproduce 1.083 de los 1.097 puestos de socio de
+2021-2026. Los datos del repositorio reproducen el cálculo del documento hoyo
+por hoyo: Luis Fernández y David Sequera, empatados a +1 neto con hándicap de
+juego 14 los dos, suman 0 y 0 en los hoyos 10-18, y +3 contra −1 en los hoyos
+7-18.
+
+**Evidencia adicional del dato:**
+
+- Sin el hándicap de juego la regla acierta 378 puestos en vez de 1.079. El
+  reglamento y el dato coinciden en que es el primer desempate.
 - "Menos golpes gana": la variante inversa pierde unos 30 puestos.
-- Bruto o neto en los segmentos es **indiferente**: se examinaron los 31 grupos
-  de empate de las seis temporadas y el orden resultante es idéntico con las dos
-  variantes.
+- Bruto o neto en el *match of cards* da el mismo orden en los 31 grupos de
+  empate de las seis temporadas, porque con el mismo hándicap de juego en el
+  mismo campo se diferencian en una constante. El reglamento dice neto y es lo
+  que se usa.
 
-**Lo que queda abierto:** el orden 9 → 6 → 3 deja 18 puestos sin explicar y el
-orden 3 → 6 → 9 deja 14. Ningún orden explica el histórico completo. Se adopta
-**9 → 6 → 3** porque es el countback estándar de golf, pero **el dato no lo
-confirma** y la única fuente que zanjaría la cuestión es el reglamento escrito
-de la liga. Hasta tenerlo, la regla se aplica a torneos nuevos y **no** se
-recalculan los históricos.
+**Corrección de una decisión anterior:** durante el análisis se adoptaron
+sucesivamente los órdenes 3 → 6 → 9 y 9 → 6 → 3, ninguno de los dos correcto.
+Los tramos del reglamento son 9, 12, 15, 16 y 17, y el orden supuesto era la
+causa de que el T6 de 2026 pareciera un error del dato cuando el dato era
+correcto. De ahí la norma de estos documentos: ninguna regla se da por buena sin
+fuente documental.
 
----
+**Consecuencia:** los históricos **no se recalculan**. La regla se aplica a
+torneos nuevos.
 
 ## D-004 · Incorporación de un invitado como socio: cómo se le otorgan puntos
 
@@ -121,10 +134,14 @@ puntuar en 2025.
 
 ## Pendientes
 
-### P-001 · Confirmar el orden del countback contra el reglamento
+### P-001 · Confirmar el orden del *match of cards* — **CERRADO** 2026-09-03
 
-Ver D-003. Mientras no se cierre, cualquier torneo nuevo con un empate que llegue
-al countback debe anotarse en la bitácora indicando qué orden se aplicó.
+Resuelto con la resolución del T6 de 2026. Ver D-003. Los tramos son 9, 12, 15,
+16 y 17 hoyos, no 9-6-3 ni 3-6-9.
+
+Queda como derivada, de menor alcance: verificar con qué criterio estaban
+configurados en la plataforma los 6 torneos con desempates invertidos que lista
+[DIFERENCIAS.md](DIFERENCIAS.md), punto 5.
 
 ### P-002 · Nicolás Sequera y Marcos Ruiz: temporada de alta
 

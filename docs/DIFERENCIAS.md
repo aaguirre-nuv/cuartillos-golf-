@@ -100,48 +100,67 @@ al puesto 36) confirma 44, 43, 42, 41 para esos puestos.
 
 ---
 
-## 5. Desempates que no cuadran con ningún orden único — **Inconsistencia**
+## 5. Siete parejas con el desempate al revés — **Inconsistencia**
 
-El histórico **no aplica un orden único** para los tres segmentos del countback.
-De los 1.097 puestos de socio de 2021-2026, el orden 9 → 6 → 3 deja 18 sin
-explicar y el orden 3 → 6 → 9 deja 14. Desglose exacto por torneo, contando
-puestos mal colocados:
+Aplicando el criterio RFEG documentado en
+[MODELO.md](MODELO.md#4-desempate-de-posiciones), **1.083 de los 1.097** puestos
+de socio de 2021-2026 se reproducen. Los 14 restantes son **7 parejas de
+jugadores adyacentes intercambiados** dentro de un empate:
 
-| Torneo | Fallos con 9 → 6 → 3 | Fallos con 3 → 6 → 9 | Veredicto |
-|---|---|---|---|
-| 2022 T2 Naturávila | 2 | 2 | ningún orden lo explica |
-| 2022 T4 El Encín | **0** | 2 | sólo 9 → 6 → 3 |
-| 2022 T9 La Faisanera | 4 | 2 | 3 → 6 → 9 explica una de las dos parejas |
-| 2022 T10 Palomarejos | 2 | **0** | sólo 3 → 6 → 9 |
-| 2023 T7 Valdecañas | 2 | **0** | sólo 3 → 6 → 9 |
-| 2023 T11 Santander | 2 | **0** | sólo 3 → 6 → 9 |
-| 2024 T11 Santander | 2 | **0** | sólo 3 → 6 → 9 |
-| 2026 T1 Santander | 2 | 2 | ningún orden lo explica |
-| 2026 T2 Palomarejos | **0** | 2 | sólo 9 → 6 → 3 |
-| 2026 T3 Naturávila | **0** | 2 | sólo 9 → 6 → 3 |
-| 2026 T6 Layos | 2 | 2 | ningún orden lo explica |
-| **Total** | **18** | **14** | |
+| Torneo | Delante según el reglamento | Delante en el dato | Puntos | Criterio que los separa |
+|---|---|---|---|---|
+| 2022 T2 Naturávila | José Pablo Guil | Nacho González | 80 vs 85 | últimos 9: 35 contra 42 |
+| 2022 T9 La Faisanera | Angel Hernández | Alvaro Aguirre | 100 vs 110 | últimos 12: 49 contra 50 |
+| 2022 T9 La Faisanera | Ignacio Cadarso | Alvaro Montoya | 85 vs 90 | últimos 9: 40 contra 41 |
+| 2023 T7 Valdecañas | Alfonso Hidalgo | Enrique González R | 88 vs 94 | últimos 9: 35 contra 37 |
+| 2023 T11 Santander | José Pablo Guil | Ignacio Cadarso | 231 vs 246 | últimos 9: 40 contra 41 |
+| 2024 T11 Santander | Antonio Carmona | Javier González | 0 vs 0 | últimos 9: 44 contra 47 |
+| **2026 T1 Santander** | **Angel Santana** | **Enrique González R** | 43 vs 44 | **hándicap de juego: 2 contra 14** |
 
-O sea: 4 torneos y media pareja sólo cuadran con 3 → 6 → 9, 3 torneos sólo
-cuadran con 9 → 6 → 3, y 3 torneos y media pareja no cuadran de ninguna manera.
-Ningún orden puede explicar el histórico completo, así que **al menos uno de
-esos torneos se calculó de forma distinta al resto**.
+En los 7 casos el jugador que el reglamento pone delante figura justo detrás. El
+más llamativo es **2026 T1**, donde no es una cuestión de tramos de hoyos: Angel
+Santana juega de 2 y Enrique González de 14, y el reglamento es explícito en que
+gana el hándicap de juego más bajo.
 
-### Los tres casos que ningún orden explica
+### Lo que no se puede concluir
 
-| Torneo | Pareja | Puntos | Detalle |
-|---|---|---|---|
-| **2026 T6 Layos** | Luis Fernández 2.º oficial / David Sequera 1.º | **300 vs 500** | empatan a neto (73), hcp de juego (14) y u9 (36). Luis gana u6 (25 vs 26) y u3 (12 vs 14), o sea que gana el countback con los dos órdenes, y figura segundo |
-| **2026 T1 Santander** | Angel Santana 22.º / Enrique González R 21.º | 43 vs 44 | Angel juega de 2 y Enrique de 14: por handicap de juego iría delante Angel. Enrique gana los tres segmentos. Aquí el countback se aplicó **por delante** del handicap de juego |
-| **2022 T2 Naturávila** | José Pablo Guil 9.º / Nacho González 8.º | 80 vs 85 | empatan a neto (75) y hcp de juego (7). José Pablo gana los tres segmentos (35/22/11 contra 42/27/12) y figura por detrás |
+Cada discrepancia es una pareja de dos jugadores. En un grupo de dos, invertir el
+orden es la **única** alternativa posible, así que "se explican aplicando el
+criterio al revés" es una afirmación vacía: no distingue entre un criterio
+aplicado invertido, un desempate resuelto a mano, o un sorteo. **`[NO VERIFICADO]`**
 
-El de **Layos es el de mayor peso: 200 puntos** entre el primero y el segundo, y
-afecta al 5.º y al 12.º de la general de 2026. Puede tratarse de un desempate
-resuelto en el campo o de un play-off que el dato no refleja
-**`[NO VERIFICADO]`**.
+Lo que sí se puede afirmar con el dato:
 
-El de **2024 T11** no tiene efecto práctico: la Final de 2024 no repartió puntos
-(ver punto 6).
+- Son 7 casos aislados en 5 temporadas, no un patrón sistemático. 2021 y 2025 no
+  tienen ninguno.
+- Todas son inversiones de dos posiciones adyacentes, nunca permutaciones
+  mayores.
+- En cada una, el criterio que debería separarlos es **inequívoco**, no un
+  empate ajustado.
+
+Una hipótesis compatible con el propio documento del T6: la resolución dice que
+"el torneo **estaba configurado** con criterio de desempate RFEG", lo que indica
+que el criterio es un ajuste **por torneo** en la plataforma que produce los
+resultados. Torneos configurados de otra forma explicarían discrepancias
+aisladas. Es una hipótesis, no una conclusión: haría falta ver la configuración
+de esos 6 torneos. **`[NO VERIFICADO]`**
+
+### Resuelto: 2026 T6 Layos
+
+En una versión anterior de este documento, el T6 de 2026 (Layos) figuraba como la
+diferencia de mayor peso: 500 puntos contra 300 entre dos jugadores empatados,
+sin regla que lo explicase. **Ya está explicado y el dato es correcto.**
+
+La resolución oficial
+([`reglamento/2026-T6-layos-resolucion-desempate.pdf`](reglamento/2026-T6-layos-resolucion-desempate.pdf))
+documenta el cálculo: Luis Fernández y David Sequera empataron a +1 neto con
+hándicap de juego 14 los dos; en los últimos 9 hoyos ambos sumaron 0, y en los
+últimos 12 David sumó −1 frente a +3 de Luis. Los datos del repositorio
+reproducen esas cifras exactamente, hoyo por hoyo.
+
+El error estaba en la regla que se había supuesto (últimos 9, 6 y 3), no en el
+dato. Es la razón por la que este documento no da por buena ninguna regla que no
+tenga una fuente documental detrás.
 
 ## 6. La Final de 2024 no otorgó puntos — **Pendiente de confirmar**
 

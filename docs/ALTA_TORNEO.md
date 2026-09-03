@@ -31,15 +31,23 @@ verificadas contra el histórico en [MODELO.md](MODELO.md).
 
 ## 3. Posiciones y desempate
 
-- [ ] El ranking de socios se ordena por: neto, handicap de juego, últimos 9,
-      últimos 6, últimos 3. **Menor gana en todos los pasos.**
+- [ ] El ranking de socios se ordena con el criterio **RFEG (Libro Verde)**:
+      neto, hándicap de juego más bajo, y *match of cards* sobre golpes netos en
+      los últimos **9, 12, 15, 16 y 17** hoyos. **Menor gana en todos los pasos.**
+- [ ] Los "últimos hoyos" son los últimos **del campo** (últimos 9 = hoyos 10-18,
+      últimos 12 = hoyos 7-18, y así). Con salida a tiro **no** son los últimos
+      que jugó cada uno.
 - [ ] A doble vuelta: el neto es la suma de las rondas, el handicap de juego es
       la **suma** de las rondas y el countback se toma de la **última ronda**.
-- [ ] Si algún empate llega al countback, anotarlo en la
-      [bitácora](BITACORA.md) con el orden aplicado, mientras P-001 siga abierto.
-- [ ] Si un empate no se resuelve ni con el countback (pasa: 2026 T6 Layos),
-      registrar en la bitácora **cómo** se resolvió. El dato no lo refleja por sí
-      solo.
+- [ ] Comprobar que el torneo estaba **configurado con criterio RFEG** en la
+      plataforma de resultados. Es un ajuste por torneo, y hay 7 parejas del
+      histórico donde el desempate salió al revés (ver
+      [DIFERENCIAS.md](DIFERENCIAS.md), punto 5).
+- [ ] Si un empate llega al *match of cards*, dejar constancia del cálculo. El
+      dato guardado no permite reconstruirlo por sí solo, y una resolución
+      escrita como la del T6 de 2026 es lo que zanja las dudas después.
+- [ ] Si el empate persiste tras los cinco tramos, se resuelve por **sorteo**, y
+      hay que registrarlo: el dato no puede reflejarlo de otra forma.
 
 ## 4. Puntos individuales
 
