@@ -251,12 +251,12 @@ debajo de 30, así que **ambas se pueden ampliar durante la temporada**.
 da 1 punto a Cuartillos, y sale de sumar la ida contra Approach y Putt (2-1) y la vuelta (2,5-2,5) =
 **4,5-3,5**. Los otros dos enfrentamientos aún no han cerrado su vuelta, y ninguno puntúa. Coherente.
 
-**El campo `clasificacion` de `FS` es un derivado que nadie lee.** El microsite calcula la
-clasificación del grupo en tiempo de render a partir de `partidos_grupo`, agrupando por pareja de
-equipos y dando el punto solo cuando ida y vuelta están cerradas. Se ha comprobado reproduciendo ese
-cálculo sobre `FS`: sale **exactamente** lo que hay grabado, equipo a equipo, en puntos y en ups. Por
-eso no se ha añadido el campo equivalente a `ES` — sería estado duplicado que puede desincronizarse
-del dato del que procede.
+**El campo `clasificacion` de `FS` era un derivado que nadie leía, y se ha eliminado** (decisión de
+Álvaro del 2026-09-11). El microsite calcula la clasificación del grupo en tiempo de render a partir de
+`partidos_grupo`, agrupando por pareja de equipos y dando el punto solo cuando ida y vuelta están
+cerradas. Se comprobó reproduciendo ese cálculo sobre `FS` antes de borrarlo: salía **exactamente** lo
+que había grabado, equipo a equipo, en puntos y en ups. Por la misma razón no se añadió el campo
+equivalente a `ES`. **La clasificación de un grupo se calcula, no se guarda.**
 
 ### 13.1 Los dos PDF de resultados de la RFGM
 
@@ -277,13 +277,15 @@ Con el maquetado bueno, **fechas, campos, rivales y jornadas coinciden al cien p
 2026-10-04). Los puntos de liga también coinciden. **Lo que no coincide son tres cifras**, todas en
 jornadas de vuelta.
 
-### 13.2 Tres discrepancias con los PDF federativos, abiertas
+### 13.2 Tres discrepancias con los PDF federativos, resueltas a favor de la federación
 
-**No se ha tocado ninguna de las tres.** Las tres están en jornadas de vuelta, y dos de ellas en el
-mismo día de la liga de fin de semana, lo que apunta a que ese día el dato del repo se cargó de una
-fuente distinta de la federativa.
+**Decisión de Álvaro del 2026-09-11: manda la cifra de la federación, que es la que cuenta para la
+competición y para los desempates.** Las tres se han corregido en `datos/csc.json`; queda aquí lo que
+decía cada fuente. Las tres estaban en jornadas de vuelta, y dos de ellas en el mismo día de la liga
+de fin de semana, lo que apunta a que ese día el dato del repo se cargó de una fuente distinta de la
+federativa.
 
-| # | Liga y jornada | Qué dice `datos/csc.json` | Qué dice el PDF de la RFGM |
+| # | Liga y jornada | Decía `datos/csc.json` | Dice el PDF, y es lo que ahora hay grabado |
 |---|---|---|---|
 | 1 | Entre semana, vuelta del 2026-06-04 en Air Golf Club | Foro 2000 hizo **14 ups** | **15 ups** |
 | 2 | Fin de semana, vuelta del 2026-06-13 en Layos, Cuartillos–Approach y Putt | Cuartillos hizo **6 ups** | **5 ups** |
@@ -291,24 +293,38 @@ fuente distinta de la federativa.
 
 Sobre cada una:
 
-1. Los 14 del repo **cuadran con el detalle grabado del partido**: Foro 2000 ganó 1UP, 3UP, 7&6 y 3&2,
-   que suman 14. De dónde sale el 15 no se ha podido determinar desde aquí.
-2. Es un partido **nuestro**, así que nuestra anotación es de primera mano; la de la federación es la
-   que cuenta para la competición. El resultado en puntos (2,5-2,5) coincide en las dos fuentes.
-3. Es un partido **entre otros dos equipos**, o sea que el dato del repo es de oídas. Los dos
-   resultados suman 5 puntos, que son los que se juegan en la vuelta de esta liga, así que ninguno es
-   imposible por sí solo. El punto de liga es de Foro 2000 con las dos versiones.
+1. Los 14 del repo **cuadraban con el detalle grabado del partido**: Foro 2000 ganó 1UP, 3UP, 7&6 y
+   3&2, que suman 14. De dónde sale el 15 no se ha podido determinar. Era inocua de todas formas: en
+   entre semana los empates se deshacen por enfrentamiento directo (§7), no por ups totales.
+2. Es un partido **nuestro**, así que nuestra anotación era de primera mano, y su detalle
+   (`3UP C, A/S, 3&2 C` frente a `5&3 A, 1UP A`) sumaba 6-6. Es la que más importaba: la liga de fin
+   de semana va por el escenario de 20 equipos, donde a cuartos se entra también como **mejor
+   segundo**, y ese criterio se resuelve por puntos → partidos ganados → **ups** (§8). Cuartillos pasa
+   de 21 a **20 ups a favor** en esa liga. El resultado en puntos (2,5-2,5) coincidía en las dos
+   fuentes.
+3. Es un partido **entre otros dos equipos**, o sea que el dato del repo era de oídas. No cambia
+   ninguna clasificación: Foro 2000 se lleva el punto con las dos versiones.
 
-**Qué consecuencias tiene cada una, que no son iguales:**
+**Ojo: los campos `detalle` de esos dos partidos no se han tocado**, porque son el registro de lo que
+se jugó hoyo a hoyo. Después de la corrección **ya no suman lo que dice el campo de ups**, a propósito:
+el `detalle` dice lo que anotamos y el ups dice lo que dice el acta. Si alguna vez hay que reconciliar,
+la diferencia está aquí explicada.
 
-- La **1** es inocua hoy. En entre semana los empates se deshacen por enfrentamiento directo (§7), no
-  por ups totales, y no afecta a ningún enfrentamiento de Cuartillos.
-- La **2 sí importa**, y es la que hay que cerrar. La liga de fin de semana va por el escenario de 20
-  equipos, donde a cuartos se entra también como **mejor segundo**, y ese criterio se resuelve por
-  puntos → partidos ganados → **ups** (§8). Un up nuestro de más o de menos puede decidir una plaza.
-  Con el dato del repo llevamos **21 ups a favor**; con el de la federación, **20**.
-- La **3** no cambia ninguna clasificación: Foro 2000 se lleva el punto igual. Afecta a los ups de
-  otros dos equipos, no a los nuestros.
+### 13.3 El PDF de fin de semana se contradice a sí mismo en una celda
+
+Encontrado al verificar la corrección anterior. En la fila **Foro 2000 – Putt & Drive**, el PDF da ida
+`12-0` y vuelta `5-1` en ups, pero su propia columna de total pone **`17-2`**. Doce más cinco son
+diecisiete, pero cero más uno son **uno**, no dos. Una de las dos celdas está mal en el original.
+
+Comprobadas automáticamente las 9 filas completas del PDF de fin de semana: **es la única que no cuadra
+consigo misma**. En el de entre semana se han contrastado a mano las 6 filas del Grupo 3, y todas
+cuadran con el repo tras la corrección.
+
+Se ha grabado **la cifra de la jornada (`1`)**, no la del total, porque es la que está al mismo nivel
+de detalle que el resto del fichero. No se puede saber cuál de las dos quiso decir la federación: con
+un 3-2 en puntos, Putt & Drive pudo ganar dos partidos —y entonces el mínimo son 2 ups— o ganar uno y
+empatar dos —y entonces 1 es posible—. **No afecta a Cuartillos en nada**: son ups de otro equipo, y
+el punto de ese enfrentamiento es de Foro 2000 igual.
 
 ## 14. Qué implica para Cuartillos (cálculo propio a partir de §5 a §8)
 
@@ -381,9 +397,15 @@ nadie**, porque si Cuartillos gana su enfrentamiento directo, Foro 2000 se queda
 
 Y ahí está lo que diferencia esta liga de la otra: **quedar segundo no clasifica por sí solo**. En el
 escenario de 20 equipos solo pasan los tres mejores segundos de los cinco grupos, y ese criterio se
-resuelve por puntos → partidos ganados en los tres enfrentamientos → **ups** (§8). Por eso la
-discrepancia 2 de §13.2 —un up nuestro— no es cosmética aquí, y por eso conviene anotar los ups de
-cada partido tal y como se está haciendo.
+resuelve por puntos → partidos ganados en los tres enfrentamientos → **ups** (§8). Cuartillos lleva
+**20 ups a favor y 13 en contra** en esta liga, ya con la cifra federativa. Por eso un solo up cuenta
+aquí —fue el motivo de la corrección 2 de §13.2— y por eso conviene anotarlos partido a partido, como
+se está haciendo.
+
+Todavía no se puede calcular la carrera de los mejores segundos: en los cinco grupos hay **como mucho
+dos enfrentamientos cerrados de seis** —en el Grupo 1 la vuelta Golf de Golfos–Grow Golf del
+2026-06-13 figura sin jugar— y **ningún equipo de la liga pasa de 1 punto**. Habrá algo que comparar
+después del 2026-09-27.
 
 **Cosas del reglamento que conviene tener a mano el día de la prueba:**
 
