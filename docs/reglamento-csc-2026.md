@@ -258,31 +258,62 @@ cálculo sobre `FS`: sale **exactamente** lo que hay grabado, equipo a equipo, e
 eso no se ha añadido el campo equivalente a `ES` — sería estado duplicado que puede desincronizarse
 del dato del que procede.
 
-### 13.1 Discrepancia de ups con el PDF federativo, abierta
+### 13.1 Los dos PDF de resultados de la RFGM
 
-El PDF de resultados acumulados de la RFGM (`fuentes/resultados-liga-csc-entre-semana-2026.pdf`,
-descargado el 2026-09-11) coincide con `datos/csc.json` en **todas** las jornadas del Grupo 3 menos en
-una cifra:
+Descargados el **2026-09-11** y guardados en `fuentes/`:
 
-| | Ups de Foro 2000 en la vuelta del 2026-06-04 (Air Golf Club) |
-|---|---|
-| `datos/csc.json` | **14** |
-| PDF de la RFGM | **15** |
+- `resultados-liga-csc-entre-semana-2026.pdf` — acumulado de la fase match play de la liga de entre
+  semana, los 4 grupos.
+- `resultados-liga-csc-fin-de-semana-2026.pdf` — lo mismo para la de fin de semana, los 5 grupos.
 
-Los 14 del repo cuadran con el detalle grabado del propio partido: Foro 2000 ganó 1UP, 3UP, 7&6 y 3&2,
-que suman 14. De dónde sale el 15 del PDF no se ha podido determinar desde aquí. **No se ha tocado el
-dato**: la cifra de la federación es la que vale para la competición, pero la nuestra es la que
-cuadra con los partidos anotados, y no hay forma de saber cuál de las dos tiene el error sin
-preguntar.
+**Aviso de método:** el texto de estos PDF **sale desordenado** con una extracción normal —las
+columnas se entrelazan y los pares de cifras se pegan unos a otros—, hasta el punto de que una lectura
+así puede atribuir el resultado de un partido a otro. Hay que extraerlos **preservando el maquetado**
+(`extract_text(extraction_mode="layout")` de `pypdf`) o leerlos a ojo. Medido con los dos.
 
-Consecuencia hoy: **ninguna**. En la liga de entre semana los empates se deshacen por enfrentamiento
-directo (§7), no por ups totales, y la diferencia no afecta a ningún enfrentamiento de Cuartillos. Si
-alguna vez hubiera que comparar segundos entre grupos —que en esta liga no ocurre— sí importaría.
+Con el maquetado bueno, **fechas, campos, rivales y jornadas coinciden al cien por cien** con
+`datos/csc.json` en los dos grupos de Cuartillos, incluidas las jornadas que faltan por jugar
+(entre semana: El Fresnillo el 2026-10-01; fin de semana: Cabanillas el 2026-09-27 y La Faisanera el
+2026-10-04). Los puntos de liga también coinciden. **Lo que no coincide son tres cifras**, todas en
+jornadas de vuelta.
+
+### 13.2 Tres discrepancias con los PDF federativos, abiertas
+
+**No se ha tocado ninguna de las tres.** Las tres están en jornadas de vuelta, y dos de ellas en el
+mismo día de la liga de fin de semana, lo que apunta a que ese día el dato del repo se cargó de una
+fuente distinta de la federativa.
+
+| # | Liga y jornada | Qué dice `datos/csc.json` | Qué dice el PDF de la RFGM |
+|---|---|---|---|
+| 1 | Entre semana, vuelta del 2026-06-04 en Air Golf Club | Foro 2000 hizo **14 ups** | **15 ups** |
+| 2 | Fin de semana, vuelta del 2026-06-13 en Layos, Cuartillos–Approach y Putt | Cuartillos hizo **6 ups** | **5 ups** |
+| 3 | Fin de semana, vuelta del 2026-06-13 en Layos, Putt & Drive–Foro 2000 | **0,5-4,5** para Foro 2000, con **0-7** en ups | **2-3** para Foro 2000, con **1-5** en ups |
+
+Sobre cada una:
+
+1. Los 14 del repo **cuadran con el detalle grabado del partido**: Foro 2000 ganó 1UP, 3UP, 7&6 y 3&2,
+   que suman 14. De dónde sale el 15 no se ha podido determinar desde aquí.
+2. Es un partido **nuestro**, así que nuestra anotación es de primera mano; la de la federación es la
+   que cuenta para la competición. El resultado en puntos (2,5-2,5) coincide en las dos fuentes.
+3. Es un partido **entre otros dos equipos**, o sea que el dato del repo es de oídas. Los dos
+   resultados suman 5 puntos, que son los que se juegan en la vuelta de esta liga, así que ninguno es
+   imposible por sí solo. El punto de liga es de Foro 2000 con las dos versiones.
+
+**Qué consecuencias tiene cada una, que no son iguales:**
+
+- La **1** es inocua hoy. En entre semana los empates se deshacen por enfrentamiento directo (§7), no
+  por ups totales, y no afecta a ningún enfrentamiento de Cuartillos.
+- La **2 sí importa**, y es la que hay que cerrar. La liga de fin de semana va por el escenario de 20
+  equipos, donde a cuartos se entra también como **mejor segundo**, y ese criterio se resuelve por
+  puntos → partidos ganados → **ups** (§8). Un up nuestro de más o de menos puede decidir una plaza.
+  Con el dato del repo llevamos **21 ups a favor**; con el de la federación, **20**.
+- La **3** no cambia ninguna clasificación: Foro 2000 se lleva el punto igual. Afecta a los ups de
+  otros dos equipos, no a los nuestros.
 
 ## 14. Qué implica para Cuartillos (cálculo propio a partir de §5 a §8)
 
-Esto **no** está en el reglamento: es lo que sale de aplicarlo a la situación actual. Si `ES5` ya se
-jugó, la parte de entre semana hay que rehacerla con su resultado.
+Esto **no** está en el reglamento: es lo que sale de aplicarlo a la situación actual, con los datos
+cerrados hasta la jornada del 2026-09-10 incluida.
 
 **Cómo se clasifica cada liga a cuartos, que no es lo mismo:**
 
@@ -332,6 +363,27 @@ individuales, con la ida perdida 1-2:
   Desempata el enfrentamiento directo, que está empatado, y después los **ups de ese enfrentamiento
   directo**: la ida se perdió 3-5 en ups, así que haría falta ganar la vuelta **por 3 ups o más**.
 - **Ganar 3 o menos:** Club El Estudiante 2 puntos y Cuartillos 1. **Fuera.**
+
+### 14.3 Grupo 5 de fin de semana: la primera plaza vale mucho más que la segunda
+
+El PDF federativo de fin de semana no añade ninguna jornada nueva —la última jugada sigue siendo la
+del 2026-06-13 en Layos— y confirma la clasificación del grupo: **Foro 2000 y Cuartillos con 1 punto,
+Approach y Putt y Putt & Drive con 0**. Quedan dos enfrentamientos por cerrar, los dos con **la ida
+ganada 2-1**:
+
+| Enfrentamiento | Vuelta | Campo | Hace falta |
+|---|---|---|---|
+| vs Putt & Drive | 2026-09-27 | Cabanillas | 2,5 de los 5 individuales |
+| vs Foro 2000 | 2026-10-04 | La Faisanera | 2,5 de los 5 individuales |
+
+**Ganando los dos se termina primero de grupo con 3 puntos y se entra en cuartos sin depender de
+nadie**, porque si Cuartillos gana su enfrentamiento directo, Foro 2000 se queda como mucho en 2.
+
+Y ahí está lo que diferencia esta liga de la otra: **quedar segundo no clasifica por sí solo**. En el
+escenario de 20 equipos solo pasan los tres mejores segundos de los cinco grupos, y ese criterio se
+resuelve por puntos → partidos ganados en los tres enfrentamientos → **ups** (§8). Por eso la
+discrepancia 2 de §13.2 —un up nuestro— no es cosmética aquí, y por eso conviene anotar los ups de
+cada partido tal y como se está haciendo.
 
 **Cosas del reglamento que conviene tener a mano el día de la prueba:**
 
