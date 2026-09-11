@@ -251,10 +251,33 @@ debajo de 30, así que **ambas se pueden ampliar durante la temporada**.
 da 1 punto a Cuartillos, y sale de sumar la ida contra Approach y Putt (2-1) y la vuelta (2,5-2,5) =
 **4,5-3,5**. Los otros dos enfrentamientos aún no han cerrado su vuelta, y ninguno puntúa. Coherente.
 
-**Dos asimetrías del dato, no del reglamento:**
+**El campo `clasificacion` de `FS` es un derivado que nadie lee.** El microsite calcula la
+clasificación del grupo en tiempo de render a partir de `partidos_grupo`, agrupando por pareja de
+equipos y dando el punto solo cuando ida y vuelta están cerradas. Se ha comprobado reproduciendo ese
+cálculo sobre `FS`: sale **exactamente** lo que hay grabado, equipo a equipo, en puntos y en ups. Por
+eso no se ha añadido el campo equivalente a `ES` — sería estado duplicado que puede desincronizarse
+del dato del que procede.
 
-- `ES` **no tiene campo `clasificacion`** y `FS` sí. La del grupo de entre semana hay que calcularla.
-- El partido `ES5` (Cuartillos–Grow Golf, **2026-09-10**, ayer) sigue **sin resultado** en el JSON.
+### 13.1 Discrepancia de ups con el PDF federativo, abierta
+
+El PDF de resultados acumulados de la RFGM (`fuentes/resultados-liga-csc-entre-semana-2026.pdf`,
+descargado el 2026-09-11) coincide con `datos/csc.json` en **todas** las jornadas del Grupo 3 menos en
+una cifra:
+
+| | Ups de Foro 2000 en la vuelta del 2026-06-04 (Air Golf Club) |
+|---|---|
+| `datos/csc.json` | **14** |
+| PDF de la RFGM | **15** |
+
+Los 14 del repo cuadran con el detalle grabado del propio partido: Foro 2000 ganó 1UP, 3UP, 7&6 y 3&2,
+que suman 14. De dónde sale el 15 del PDF no se ha podido determinar desde aquí. **No se ha tocado el
+dato**: la cifra de la federación es la que vale para la competición, pero la nuestra es la que
+cuadra con los partidos anotados, y no hay forma de saber cuál de las dos tiene el error sin
+preguntar.
+
+Consecuencia hoy: **ninguna**. En la liga de entre semana los empates se deshacen por enfrentamiento
+directo (§7), no por ups totales, y la diferencia no afecta a ningún enfrentamiento de Cuartillos. Si
+alguna vez hubiera que comparar segundos entre grupos —que en esta liga no ocurre— sí importaría.
 
 ## 14. Qué implica para Cuartillos (cálculo propio a partir de §5 a §8)
 
@@ -274,13 +297,41 @@ de ida y vuelta, y de que el empate reparte medio punto):
 
 | Liga | Enfrentamiento | Ida | Puntos en la vuelta | Para llevarse el punto | Empate a medio punto |
 |---|---|---|---|---|---|
-| ES | vs Grow Golf (vuelta 2026-09-10) | 2-1 a favor | 6 | ganar **3 o más** | exactamente 2,5 |
 | ES | vs Club El Estudiante (vuelta 2026-10-01) | 1-2 en contra | 6 | ganar **4 o más** | exactamente 3,5 |
 | FS | vs Putt & Drive (vuelta 2026-09-27) | 2-1 a favor | 5 | ganar **2,5 o más** | exactamente 2 |
 | FS | vs Foro 2000 (vuelta 2026-10-04) | 2-1 a favor | 5 | ganar **2,5 o más** | exactamente 2 |
 
-El enfrentamiento de entre semana contra Foro 2000 ya está cerrado y **perdido**: 2-1 en la ida y 2-4
-en la vuelta, 4-5 en total, punto para Foro 2000.
+Enfrentamientos de entre semana ya cerrados: **Foro 2000 perdido** (2-1 en la ida, 2-4 en la vuelta,
+4-5) y **Grow Golf ganado** (2-1 en la ida, 4-2 en la vuelta del 2026-09-10 en Montealvar, 6-3).
+
+### 14.1 Grupo 3 de entre semana tras la jornada 5 (2026-09-10)
+
+Calculado sobre `partidos_grupo` con la regla del punto por enfrentamiento completo, y contrastado con
+el acumulado del PDF de la RFGM, que da los mismos puntos:
+
+| | Equipo | Puntos | Enfrentamientos cerrados | Pendiente |
+|---|---|---|---|---|
+| 1º | Foro 2000 | 2 | ganados a Cuartillos y a Club El Estudiante | vuelta vs Grow Golf, con la ida ganada 2-1 |
+| 2º | Cuartillos | 1 | ganado a Grow Golf | vuelta vs Club El Estudiante, 2026-10-01 |
+| 3º | Club El Estudiante | 1 | ganado a Grow Golf | vuelta vs Cuartillos, 2026-10-01 |
+| 4º | Grow Golf | 0 | ninguno | vuelta vs Foro 2000 |
+
+El orden entre Cuartillos y Club El Estudiante es **provisional**: están empatados a 1 punto y el
+desempate del reglamento es el enfrentamiento directo (§7), que es justo el que falta por cerrar.
+
+### 14.2 A cuartos se va o no se va el 1 de octubre
+
+En el escenario de 16 equipos pasan **los dos primeros de cada grupo**, y los máximos que puede
+alcanzar cada equipo son: Foro 2000 hasta 3, Cuartillos hasta 2, Club El Estudiante hasta 2, Grow Golf
+hasta 1. Foro 2000 ya no se cae del grupo de cabeza. **La segunda plaza la decide el enfrentamiento
+directo Cuartillos–Club El Estudiante**, cuya vuelta se juega el **2026-10-01 en El Fresnillo**, a 6
+individuales, con la ida perdida 1-2:
+
+- **Ganar 4 o más de los 6 individuales:** Cuartillos 2 puntos, Club El Estudiante 1. **A cuartos.**
+- **Ganar exactamente 3,5:** enfrentamiento empatado 4,5-4,5, medio punto cada uno, y los dos a 1,5.
+  Desempata el enfrentamiento directo, que está empatado, y después los **ups de ese enfrentamiento
+  directo**: la ida se perdió 3-5 en ups, así que haría falta ganar la vuelta **por 3 ups o más**.
+- **Ganar 3 o menos:** Club El Estudiante 2 puntos y Cuartillos 1. **Fuera.**
 
 **Cosas del reglamento que conviene tener a mano el día de la prueba:**
 

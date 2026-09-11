@@ -163,11 +163,18 @@
           "rival": "Grow Golf",
           "formato": "6 individuales",
           "local": false,
-          "resultado": null,
-          "detalle": null,
-          "ups_favor": null,
-          "ups_contra": null,
-          "jugadores": []
+          "resultado": "G",
+          "detalle": "4-2 (G 3&1, P 5&4, G 5&4, G 3&1, G 7&6, P 2&1)",
+          "ups_favor": 18,
+          "ups_contra": 7,
+          "jugadores": [
+            "Carlos Maestro",
+            "Alvaro Montoya",
+            "Alvaro Aguirre",
+            "Alfonso Hidalgo",
+            "Javier Chiralt",
+            "Antonio Carmona"
+          ]
         },
         {
           "id": "ES6",
@@ -277,22 +284,22 @@
           "fecha": "2026-09-10",
           "local": "Cuartillos",
           "visitante": "Grow Golf",
-          "pts_l": null,
-          "pts_v": null,
-          "ups_l": null,
-          "ups_v": null,
-          "detalle": null
+          "pts_l": 4,
+          "pts_v": 2,
+          "ups_l": 18,
+          "ups_v": 7,
+          "detalle": "4-2 (G 3&1, P 5&4, G 5&4, G 3&1, G 7&6, P 2&1)"
         },
         {
           "jornada": 5,
           "fecha": "2026-09-10",
           "local": "Club El Estudiante",
           "visitante": "Foro 2000",
-          "pts_l": null,
-          "pts_v": null,
-          "ups_l": null,
-          "ups_v": null,
-          "detalle": null
+          "pts_l": 0,
+          "pts_v": 6,
+          "ups_l": 0,
+          "ups_v": 31,
+          "detalle": "0-6 (Foro 2000 gana)"
         },
         {
           "jornada": 6,
