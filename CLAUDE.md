@@ -25,6 +25,12 @@ página estática que se sirve tal cual y lee ficheros JSON de la carpeta `datos
    compite contra otros clubes. Reglamento propio, ajeno al club, y con dos ligas independientes.
    Vive en `datos/csc.json` y en la sección CSC del microsite.
 
+## Incorporación de socios y puntos del circuito interno
+
+Cómo se reconocen los puntos de alguien que jugó un torneo sin ser socio y se incorpora después, qué
+hay que tocar para que aparezca en la clasificación, y por qué tener los puntos en el dato **no basta**
+para que se vean: [`docs/incorporacion-de-socios.md`](docs/incorporacion-de-socios.md).
+
 ## Reglamento CSC 2026
 
 Las reglas de la competición federativa —formatos, golpes de ventaja, límites de hándicap, listas de
