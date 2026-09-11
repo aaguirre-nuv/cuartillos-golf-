@@ -115,8 +115,14 @@ fichero bueno, y eliminado el duplicado.
 3. `microsite.html` — subir la variable `CV`, o los navegadores que ya han visitado la página seguirán
    sirviendo los datos viejos.
 
-`datos/jugadores.json` **no** hace falta: ese fichero se dejó de mantener en 2025 y no tiene ninguna
-fila de 2026.
+`datos/jugadores.json` **no** hace falta para que se vean los puntos: ese fichero se dejó de mantener
+en 2025 y no tiene ninguna fila de 2026.
+
+**Pero los tres sitios de arriba son la salida, no el origen.** La fuente de verdad es el Excel
+`datos/TodasDimensiones.xlsx`: la hoja **`Jugadores`** es el maestro de personas y la hoja
+**`Jugadores por EquipoAño`** es la tabla de miembros de cada equipo por temporada. **Un alta que solo
+se hace en los JSON deja el origen mal**, y la próxima regeneración se lleva la corrección por
+delante. Dar de alta a alguien de verdad es meterlo en el Excel y regenerar.
 
 ## Juan Sanz en 2026: se queda como está
 

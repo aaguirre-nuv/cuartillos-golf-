@@ -1,5 +1,7 @@
 # Contexto del repo · Microsite del Club de Golf Cuartillos
 
+**Estado del proyecto y lo que está pendiente: [`docs/ESTADO.md`](docs/ESTADO.md).** Leerlo al empezar.
+
 Repo personal (no es un proyecto de cliente de Nuvirta). Contiene el **microsite del club**, una única
 página estática que se sirve tal cual y lee ficheros JSON de la carpeta `datos/`.
 
