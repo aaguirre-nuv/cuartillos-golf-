@@ -299,6 +299,9 @@ tr:nth-child(3) .rk{color:#cd7f32}
 <script>
 
 var BASE='./datos/';
+// Version de cache de los datos. Subirla en CADA cambio de datos/*.json,
+// o los navegadores que ya han visitado la pagina seguiran sirviendo la copia vieja.
+var CV='?v=20260911a';
 var IMG='./img/';
 var MES=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
 var MESES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
@@ -434,8 +437,8 @@ function portCSCNav(btn) {
     loadIns().then(function(){ showCSC(modId, null); });
   } else {
     Promise.all([
-      fetch('./datos/csc.json?v=20260605').then(function(r){return r.ok?r.json():null;}),
-      fetch('./datos/tarjetas_2026.json?v=20260427a').then(function(r){return r.ok?r.json():null;})
+      fetch(BASE+'csc.json'+CV).then(function(r){return r.ok?r.json():null;}),
+      fetch(BASE+'tarjetas_2026.json'+CV).then(function(r){return r.ok?r.json():null;})
     ]).then(function(res){
       cscData = res[0];
       window._cscTarjetas = res[1];
@@ -485,7 +488,7 @@ var JBIN_URL = 'https://api.jsonbin.io/v3/b/' + JBIN_ID;
     }).catch(function(){});
   // Also preload tarjetas for ranking in portada
   if(!window._cscTarjetas){
-    fetch('./datos/tarjetas_2026.json?v=20260427a')
+    fetch(BASE+'tarjetas_2026.json'+CV)
       .then(function(r){return r.ok?r.json():null;})
       .then(function(d){if(d)window._cscTarjetas=d;})
       .catch(function(){});
@@ -1105,7 +1108,6 @@ function showCSC(mode, btn) {
 var cMode='neto';
 var jMode='neto';
 
-var CV='?v=20260910b';
 function load(f){
   if(cache.hasOwnProperty(f)) return Promise.resolve(cache[f]);
   return fetch(BASE+f+CV).then(function(r){return r.ok?r.json():null;}).then(function(d){cache[f]=d;return d;}).catch(function(){cache[f]=null;return null;});

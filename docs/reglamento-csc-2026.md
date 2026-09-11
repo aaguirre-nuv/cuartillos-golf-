@@ -356,15 +356,17 @@ Enfrentamientos de entre semana ya cerrados: **Foro 2000 perdido** (2-1 en la id
 Calculado sobre `partidos_grupo` con la regla del punto por enfrentamiento completo, y contrastado con
 el acumulado del PDF de la RFGM, que da los mismos puntos:
 
-| | Equipo | Puntos | Enfrentamientos cerrados | Pendiente |
-|---|---|---|---|---|
-| 1º | Foro 2000 | 2 | ganados a Cuartillos y a Club El Estudiante | vuelta vs Grow Golf, con la ida ganada 2-1 |
-| 2º | Cuartillos | 1 | ganado a Grow Golf | vuelta vs Club El Estudiante, 2026-10-01 |
-| 3º | Club El Estudiante | 1 | ganado a Grow Golf | vuelta vs Cuartillos, 2026-10-01 |
-| 4º | Grow Golf | 0 | ninguno | vuelta vs Foro 2000 |
+| | Equipo | Puntos | Ups | Enfrentamientos cerrados | Pendiente |
+|---|---|---|---|---|---|
+| 1º | Foro 2000 | 2 | +34 | ganados a Cuartillos y a Club El Estudiante | vuelta vs Grow Golf, con la ida ganada 2-1 |
+| 2º | Club El Estudiante | 1 | −18 | ganado a Grow Golf | vuelta vs Cuartillos, 2026-10-01 |
+| 3º | Cuartillos | 1 | +13 | ganado a Grow Golf | vuelta vs Club El Estudiante, 2026-10-01 |
+| 4º | Grow Golf | 0 | −29 | ninguno | vuelta vs Foro 2000 |
 
-El orden entre Cuartillos y Club El Estudiante es **provisional**: están empatados a 1 punto y el
-desempate del reglamento es el enfrentamiento directo (§7), que es justo el que falta por cerrar.
+**Club El Estudiante va por delante de Cuartillos pese a tener peores ups**, y no es un error: el
+desempate del reglamento es el **enfrentamiento directo** (§7), no la diferencia de ups, y de ese
+enfrentamiento solo se ha jugado la ida, que Cuartillos perdió 1-2. El PDF federativo los ordena
+igual, y el microsite también. El orden es **provisional** justo por eso: se resuelve el 2026-10-01.
 
 ### 14.2 A cuartos se va o no se va el 1 de octubre
 
