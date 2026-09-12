@@ -33,6 +33,17 @@ Cómo se reconocen los puntos de alguien que jugó un torneo sin ser socio y se 
 hay que tocar para que aparezca en la clasificación, y por qué tener los puntos en el dato **no basta**
 para que se vean: [`docs/incorporacion-de-socios.md`](docs/incorporacion-de-socios.md).
 
+## Reglas del circuito interno
+
+- **Desempates**: [`docs/desempates.md`](docs/desempates.md). Criterio RFEG (Libro Verde): neto,
+  hándicap de juego más bajo, y match of cards sobre los últimos **9, 12, 15, 16 y 17** hoyos. Los
+  «últimos hoyos» son los del campo, no los que jugó cada uno. **No deducir esta regla del dato**: se
+  intentó dos veces y salió mal las dos, y una de esas veces llevó a dar por erróneo un torneo que
+  estaba bien.
+- **Clasificación por equipos**: [`docs/clasificacion-por-equipos.md`](docs/clasificacion-por-equipos.md).
+  El `teamScore` son los 2 mejores `difNeto` de **cada ronda**, los puntos de asistencia son 10 por
+  jugador presentado, y el desempate entre equipos usa el hándicap de juego sumado.
+
 ## Reglamento CSC 2026
 
 Las reglas de la competición federativa —formatos, golpes de ventaja, límites de hándicap, listas de

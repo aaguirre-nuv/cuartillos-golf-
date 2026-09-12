@@ -1,51 +1,90 @@
 # Estado del proyecto
 
-**Al 2026-09-11.** Los estados anteriores están en el historial de git.
+**Al 2026-09-12.** Los estados anteriores están en el historial de git.
 
 ---
 
 ## Lo primero al volver
 
-**Mañana, sábado 2026-09-12, se juega el torneo 8 en La Faisanera**, del circuito interno. Es de
-**tipo 3**, o sea que reparte la escala alta: 600 al ganador, luego 330, 210, 150, 120, 110, 100, 94…
-En el calendario figura con `jugado: 0` y sin hora, tee ni salidas.
+Nada urgente del circuito interno: **el torneo 8 ya está cargado**. Lo siguiente es de la liga
+federativa: **la inscripción para el 27 de septiembre en Cabanillas abre el lunes 2026-09-14 a las
+10:00** y cierra el lunes 21 a la misma hora, por la web de la RFGM, 48 €. Hay un mensaje de WhatsApp
+redactado para animar a apuntarse.
 
-Antes de cargar sus resultados hay **una cosa sin resolver**: ver «Alta de Marcos y Nicolas» abajo.
+## Qué se hizo el 2026-09-12
 
-## Qué se hizo el 2026-09-11
+### Torneo 8 · La Faisanera · Major · par 71
 
-### Ligas de Clubes sin Campo (CSC)
+Cargado entero desde los tres Excel del torneo (`Jugadores`, `HANDICAP` y `SCRATCH`). 21 inscritos y
+20 con tarjeta: **José Antonio Santana fue baja de última hora** y **Gimbros no presentó a nadie**.
 
-- Incorporado el **reglamento 2026** (Circular 26/2026 de la RFGM) al repo, resumido en
-  [`reglamento-csc-2026.md`](reglamento-csc-2026.md) con los PDF originales en `fuentes/`.
-- Cerrada la **jornada 5 de entre semana**: Cuartillos gana 4-2 a Grow Golf en Montealvar, 18 ups a
-  favor y 7 en contra. Con la ida ganada 2-1, el enfrentamiento cae 6-3 y suma 1 punto de liga.
-- Incorporados los dos **PDF de resultados acumulados** de la RFGM (entre semana y fin de semana) y
-  contrastados fila a fila con `datos/csc.json`.
-- **Tres cifras alineadas con el acta federativa** por decisión de Álvaro: ver §13.2 del reglamento.
-  Cuartillos queda en **20 ups a favor y 13 en contra** en fin de semana.
-- **Eliminado el campo `clasificacion` de la modalidad FS**: era un derivado que el microsite ya
-  recalcula desde `partidos_grupo`. La clasificación de un grupo se calcula, no se guarda.
+**Gana Miche López con 69 netos.** Marcos Ruiz empata a 69 y es segundo: el desempate lo resuelve el
+hándicap de juego, 18 contra 25.
 
-### Circuito interno
+- El **par del campo es 71**, no los 72 que decía el calendario. Lo confirman los Excel (el par sale
+  idéntico para los 20 jugadores) y las cinco ediciones anteriores de La Faisanera. Corregido.
+- **Las posiciones del Excel coinciden con el criterio RFEG en los 20 jugadores.** Hubo siete empates
+  y los siete se resolvieron por hándicap de juego, sin llegar al match of cards.
+- Al ser el **sexto torneo puntuable**, la general pasa a contar las **6 mejores** de cada jugador y
+  se recalculó entera. Miche López sube del 10º al 2º con los 600 puntos del Major.
+- Alta de **Nacho González** en la general: era su primer torneo de 2026.
 
-- **Marcos Ruiz y Nicolas Sequera ya se ven en la clasificación**: 34º con 90 puntos y 37º con 55, los
-  dos con +1 golpe de ventaja. El dato estaba bien desde el día 10; lo que fallaba es que el campo
-  `sinEquipo` seguía en `true`, y con eso el microsite oculta puesto, puntos, total y golpes.
-- La corrección del día 10 se había guardado en un fichero llamado **`clas matrix 2026.json`, con
-  espacios**, que el microsite no lee. Aplicada sobre `clas_matrix_2026.json` y borrado el duplicado.
-- Documentada en [`incorporacion-de-socios.md`](incorporacion-de-socios.md) la regla de reconocer
-  puntos a un socio nuevo **sin quitárselos a nadie**, con el precedente de Juan Sanz en 2024
-  confirmado, la escala de puntos por tipo de torneo, y los tres sitios que hay que tocar.
+### Marcos y Nicolás, a Cerdos Arqueros · cerrado el pendiente nº 1
 
-### Microsite
+Álvaro confirmó el equipo de los dos. Con ellos, Cerdos Arqueros pasa de **+27 a +17** en el torneo 7,
+aunque mantiene el cuarto puesto y sus 200 puntos. En el torneo 8 son 5 jugadores y quedan terceros.
 
-- **Subida la versión de caché** (`CV`) y **unificadas las tres URL de datos** que estaban escritas a
-  mano con versiones distintas entre sí. Antes, el mismo fichero se cacheaba por dos URL diferentes
-  según por dónde se entrara a la sección CSC. `CV` se declara ahora junto a `BASE`, arriba del todo,
-  porque una de esas cargas corre en un IIFE que se ejecutaba antes de la declaración anterior.
+Sus puntos individuales del torneo 7 (90 y 55) **no se han tocado**: estaban bien desde el día 10.
+
+### Puntos de asistencia unificados a 10 por jugador
+
+Había **tres fórmulas distintas** conviviendo en 2026, y ninguna era la de 2025 ni la de la hoja
+`Puntos Equipos` del Excel. Por decisión de Álvaro, el criterio es fijo —10 por jugador presentado, sin
+excepción por tipo de torneo— y se ha unificado toda la temporada. Afectó a **45 filas** y cambió la
+clasificación de equipos. El detalle está en
+[`clasificacion-por-equipos.md`](clasificacion-por-equipos.md).
+
+### Documentación
+
+Dos documentos nuevos, con las reglas que estaban en el código y en el dato pero no escritas:
+
+- [`desempates.md`](desempates.md) — el criterio **RFEG (Libro Verde)**: neto, hándicap de juego, y
+  match of cards sobre los últimos **9, 12, 15, 16 y 17** hoyos. Con la resolución oficial del torneo
+  6 en `fuentes/` como fuente.
+- [`clasificacion-por-equipos.md`](clasificacion-por-equipos.md) — cómo se puntúa un equipo, los
+  puntos de asistencia y el desempate entre equipos.
+
+**El criterio de desempate se había supuesto mal dos veces** (últimos 9-6-3, y luego 3-6-9). Los
+tramos del reglamento crecen, y los de 6 y 3 hoyos no existen. Por esa suposición, el torneo 6 de
+Layos llegó a figurar como el error más grave del repositorio cuando el dato era correcto. Está
+contado en `desempates.md` para que no se repita.
 
 ## Estado actual, frente por frente
+
+### Circuito interno · general
+
+Cuentan las 6 mejores de 8 torneos jugados. Quedan el 9 (Naturávila, 18/10), el 10 (Layos, 28/11) y
+la Final (Santander, 19/12).
+
+| | Jugador | Total |
+|---|---|---|
+| 1 | José Pablo Guil | 1363 |
+| 2 | Miche Lopez | 1130 |
+| 3 | Alvaro Nieto | 953 |
+| 4 | Alvaro Aguirre | 911 |
+| 5 | Eduardo Buendía | 895 |
+
+### Circuito interno · equipos
+
+| | Equipo | Total |
+|---|---|---|
+| 1 | Me Alivio Golf Club | 2540 |
+| 2 | La Orden del Swing Sagrado | 2305 |
+| 3 | Cerdos Arqueros | 2120 |
+| 4 | Los Guardianes del Datáfono | 2115 |
+| 5 | No Te La Lleves Mamado | 1855 |
+| 6 | La Amenaza Fantasma | 1805 |
+| 7 | Gimbros | 1445 |
 
 ### CSC · entre semana · Grupo 3
 
@@ -63,61 +102,53 @@ Faisanera contra Foro 2000. **Con 2,5 de 5 en cada uno se termina primero de gru
 entra en cuartos sin depender de nadie.** Aquí ser segundo no clasifica solo: hay que estar entre los
 tres mejores segundos de cinco grupos, y eso se decide por ups.
 
-Redactado un mensaje de WhatsApp para animar a apuntarse al 27. **La inscripción abre el lunes
-2026-09-14 a las 10:00 y cierra el lunes 2026-09-21 a las 10:00**, por la web de la RFGM, 48 €.
-
-### Circuito interno · plantillas de 2026
-
-**La tabla de miembros de cada equipo existe, y está en el Excel `datos/TodasDimensiones.xlsx`, hoja
-«Jugadores por EquipoAño».** El microsite **no la lee**: tira de `datos/jugadores.json`, que se dejó
-de generar en 2025 y **no tiene ni una fila de 2026**. Por eso desde los datos publicados solo se
-puede reconstruir quién ha jugado, que no es lo mismo que quién está fichado.
-
-| Equipo | Fichados | Aún no han jugado en 2026 |
-|---|---|---|
-| Gimbros | 7 | Juan Jose Aguado |
-| No Te La Lleves Mamado | 6 | Javier López Gullón |
-| Cerdos Arqueros | 5 | Nacho González |
-| La Orden del Swing Sagrado | 5 | — |
-| Los Guardianes del Datáfono | 5 | — |
-| Me Alivio Golf Club | 5 | — |
-| La Amenaza Fantasma | 5 | — |
-
-Son **38 en equipo más tres socios sin equipo**: Franck Benouniche, Jaime de la Cal y Juan Sanz.
-
-**Juan Sanz sale en gris con la etiqueta «sin equipo» y eso es correcto**, decisión de Álvaro del
-2026-09-11: «Juan Sanz viene así». No es un fallo pendiente.
-
 ## Pendiente
 
-### 1. Alta de Marcos y Nicolas en el origen · antes del torneo de mañana
+### 1. Regenerar `jugadores.json` para 2026 · lo más importante
 
-**No están en el Excel**, ni en la hoja `Jugadores` ni en `Jugadores por EquipoAño`. Lo hecho los días
-10 y 11 tocó solo los ficheros de salida (`clasificacion_2026.json`, `clas_matrix_2026.json`,
-`tarjetas_2026.json`), no la fuente.
+`jugadores.json` se dejó de generar en 2025 y **no tiene ni una fila de 2026**. El microsite tira de
+ahí para las plantillas, así que desde los datos publicados sólo se puede reconstruir **quién ha
+jugado**, que no es lo mismo que **quién está fichado**. La tabla de miembros sí existe, en la hoja
+«Jugadores por EquipoAño» de `datos/TodasDimensiones.xlsx`.
 
-Hace falta que Álvaro diga **en qué equipo juega cada uno**. Mientras no lo tengan:
+Y hay algo peor desde hoy: **Marcos Ruiz y Nicolas Sequera siguen sin estar en el Excel**, ni en
+`Jugadores` ni en `Jugadores por EquipoAño`. Todo lo hecho con ellos —los días 10, 11 y hoy— toca
+sólo los ficheros de salida. **El Excel es la fuente: la próxima regeneración se llevará por delante
+su alta y su equipo.** Con Cerdos Arqueros ya confirmado, esto se puede cerrar.
 
-- En la clasificación **individual** ya salen bien, con sus puntos y su golpe de ventaja.
-- En la clasificación **por equipos** sus puntos **no suman a nadie**.
+Con ellos, las plantillas quedarían así (fichados, no jugadores de un torneo):
 
-### 2. Regenerar `jugadores.json` para 2026
+| Equipo | Fichados |
+|---|---|
+| Gimbros | 7 |
+| No Te La Lleves Mamado | 6 |
+| **Cerdos Arqueros** | **7** |
+| La Orden del Swing Sagrado | 5 |
+| Los Guardianes del Datáfono | 5 |
+| Me Alivio Golf Club | 5 |
+| La Amenaza Fantasma | 5 |
 
-Desde la hoja «Jugadores por EquipoAño» del Excel, para que el microsite vuelva a conocer las
-plantillas y la pregunta «cuántos jugadores tiene cada equipo» se pueda contestar sin abrir el Excel.
-Propuesto, no aprobado.
+Más tres socios sin equipo: Franck Benouniche, Jaime de la Cal y Juan Sanz. **Juan Sanz sale en gris
+con la etiqueta «sin equipo» y eso es correcto**, decisión de Álvaro del 2026-09-11: «Juan Sanz viene
+así». No es un fallo pendiente.
 
-### 3. Dudas abiertas, sin urgencia
+### 2. Dudas abiertas, sin urgencia
 
+- **Siete parejas de desempate que no cuadran** con el criterio RFEG, repartidas en cinco temporadas.
+  La más clara es 2026 T1, donde el reglamento daría el puesto a Angel Santana por hándicap de juego
+  (2 contra 14) y el dato da el contrario. Detalle y lo que **no** se puede concluir de ellas, en
+  [`desempates.md`](desempates.md).
 - **Dos ajustes de puntos de 2024 sin explicar**, con el mismo mecanismo de la incorporación pero
   sobre socios antiguos: Ruslan Kochman en Cabanillas y Carlos Maestro en Palomarejos. Detalle en
   [`incorporacion-de-socios.md`](incorporacion-de-socios.md).
 - **En el torneo 3 de 2024**, entre tres empatados a `difNeto` 5, el 3º cobra 135 y el 4º cobra 190:
-  los puntos cruzados respecto al puesto.
+  los puntos cruzados respecto al puesto. Las posiciones sí son correctas según el criterio.
+- **El campo `valid` de equipos es inconsistente** con equipos de un solo jugador: en 2026 hay dos
+  marcados `false` y uno `true`. Con dos o más nunca ha habido duda.
 - **El PDF federativo de fin de semana se contradice en una celda** (Foro 2000 – Putt & Drive: da ida
   12-0 y vuelta 5-1 en ups pero totaliza 17-2). No afecta a Cuartillos.
 
-## Tres trampas de este repo, aprendidas hoy a base de tropezar
+## Cuatro trampas de este repo
 
 1. **Cambiar un dato no basta: hay que subir `CV` en `microsite.html`.** Si no, los navegadores que ya
    han visitado la página siguen sirviendo la copia vieja, y el dato parece mal cuando está bien.
@@ -125,3 +156,6 @@ Propuesto, no aprobado.
    golpes de ventaja de esa fila entera.
 3. **El Excel es la fuente; los JSON son la salida.** Corregir solo el JSON deja el origen mal, y la
    próxima regeneración se lleva la corrección por delante.
+4. **Comprobar el remoto antes de afirmar nada sobre el estado del dato.** El 2026-09-12 se trabajó
+   un rato sobre un clon de nueve días atrás y se llegó a sostener, con evidencia y todo, que Marcos
+   y Nicolás no tenían puntos del torneo 7. Los tenían desde el día 10.
