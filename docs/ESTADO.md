@@ -108,15 +108,19 @@ tres mejores segundos de cinco grupos, y eso se decide por ups.
 
 `jugadores.json` se dejó de generar en 2025 y **no tiene ni una fila de 2026**. El microsite tira de
 ahí para las plantillas, así que desde los datos publicados sólo se puede reconstruir **quién ha
-jugado**, que no es lo mismo que **quién está fichado**. La tabla de miembros sí existe, en la hoja
-«Jugadores por EquipoAño» de `datos/TodasDimensiones.xlsx`.
+jugado**, que no es lo mismo que **quién está fichado**. La tabla de miembros sí existe y está al
+día, en la hoja «Jugadores por EquipoAño» de `datos/TodasDimensiones.xlsx`: son **43 filas de 2026**,
+40 con equipo y 3 sin él.
 
-Y hay algo peor desde hoy: **Marcos Ruiz y Nicolas Sequera siguen sin estar en el Excel**, ni en
-`Jugadores` ni en `Jugadores por EquipoAño`. Todo lo hecho con ellos —los días 10, 11 y hoy— toca
-sólo los ficheros de salida. **El Excel es la fuente: la próxima regeneración se llevará por delante
-su alta y su equipo.** Con Cerdos Arqueros ya confirmado, esto se puede cerrar.
+**Marcos Ruiz y Nicolas Sequera ya están en el Excel**, dados de alta el 2026-09-12 en las dos hojas:
+`Jugadores` (tabla `dJugador`, filas 58 y 59, con `Si` en 2026 y `No` en las temporadas anteriores) y
+`Jugadores por EquipoAño` (tabla `dJugadorEquipo`, filas 115 y 116, en Cerdos Arqueros). Ya no hay
+riesgo de que una regeneración se lleve su alta por delante.
 
-Con ellos, las plantillas quedarían así (fichados, no jugadores de un torneo):
+Dos cosas de esas altas que conviene repasar: **el mote de Nicolás quedó como «Nico»** y **Marcos se
+quedó sin email**, porque el que traía el Excel del torneo era el de David Sequera.
+
+Plantillas actuales (fichados, no jugadores de un torneo):
 
 | Equipo | Fichados |
 |---|---|
