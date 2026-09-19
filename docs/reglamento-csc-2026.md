@@ -422,3 +422,38 @@ después del 2026-09-27.
   sustituido.
 - Cierre de inscripción: para las pruebas de fin de semana, **un lunes antes a las 10:00**; para las de
   entre semana en lunes, martes o miércoles, **un miércoles antes a las 10:00**.
+
+## 15. El ranking de selección del microsite · no es del reglamento
+
+La sección CSC del microsite muestra un **«Ranking de selección — 2 mejores de últimos 3 torneos
+liga»** por cada modalidad. Es un **criterio del club para decidir a quién llevar**, no una norma de
+la RFGM: el reglamento sólo fija quién *puede* jugar (§3), no en qué orden elegirlos.
+
+**Cómo se calcula**, en `buildCSCRanking` de `microsite.html`:
+
+1. Se toman los **tres últimos torneos del circuito interno** con tarjetas en la temporada.
+2. De cada elegible se coge su **`difNeto`** en esos torneos, es decir neto menos par.
+3. Se quedan las **dos mejores** y se **suman**. Menor es mejor.
+4. Ordena primero a quien tiene dos torneos o más, luego a quien tiene uno, y al final a quien no
+   tiene ninguno.
+
+Los torneos **no jugados no computan**: se excluyen, no valen 0.
+
+### Los torneos a doble vuelta cuentan como uno · corregido el 2026-09-19
+
+Hasta el 2026-09-19 la función tomaba **tarjetas**, no torneos. Con el torneo 7 de 2026 —Desert
+Springs y Aguilón, a doble vuelta— eso tenía dos consecuencias:
+
+- Un torneo a doble vuelta **contaba como dos**, así que quien lo jugó tenía dos oportunidades de
+  colocar una buena tarjeta en el mismo torneo, y cinco jugadores aparecían rankeados **sólo con el
+  torneo 7**, usando sus dos rondas.
+- La tabla tiene **una columna por torneo** y pintaba sólo la primera ronda, de modo que **el total
+  no cuadraba con lo que se leía**. El caso que lo destapó: José Antonio Santana mostraba
+  `+12 | +0 | —` y un total de `+4`, porque el `+4` de Aguilón entraba en la cuenta pero no se veía.
+  Desde fuera parecía que el torneo no jugado valía 0.
+
+Ahora **un torneo es un resultado**: en los de doble vuelta se toma la **media de las rondas**, por
+decisión de Álvaro del 2026-09-19. José Antonio Santana pasa a `+12 | +2 | —` con total `+14`, y la
+tabla cuadra con el cálculo.
+
+Los valores pueden salir con medio golpe (`+3,5`) y la celda lo indica con un «media de 2».

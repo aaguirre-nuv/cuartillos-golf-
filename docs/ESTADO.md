@@ -79,6 +79,25 @@ tramos del reglamento crecen, y los de 6 y 3 hoyos no existen. Por esa suposici�
 Layos llegó a figurar como el error más grave del repositorio cuando el dato era correcto. Está
 contado en `desempates.md` para que no se repita.
 
+## Qué se hizo el 2026-09-19
+
+### El ranking de selección CSC contaba dos veces los torneos a doble vuelta
+
+El microsite muestra un «Ranking de selección — 2 mejores de últimos 3 torneos liga» por modalidad,
+que es criterio del club para elegir a quién llevar, no norma de la RFGM. Tomaba **tarjetas** en vez
+de torneos, así que el torneo 7 —a doble vuelta— contaba como dos, y la tabla, que tiene una columna
+por torneo, pintaba sólo una de las dos rondas: **el total no cuadraba con lo que se leía**.
+
+Lo destapó **José Antonio Santana**, que mostraba `+12 | +0 | —` con un total de `+4`. Parecía que el
+torneo 8, que no jugó, valía 0. No era eso: el `+4` era su segunda ronda del torneo 7, en Aguilón,
+que entraba en la cuenta pero no se veía. **Los torneos no jugados no computan, se excluyen.**
+
+Corregido: **un torneo, un resultado**, y en los de doble vuelta la **media de las rondas**, por
+decisión de Álvaro. Detalle en [`reglamento-csc-2026.md`](reglamento-csc-2026.md) §15. Cambia el
+orden de las dos listas: en fin de semana Luis Fernández pasa a primero y Alvaro Nieto a segundo.
+
+Sólo toca `microsite.html`; no cambia ningún dato.
+
 ## Estado actual, frente por frente
 
 ### Circuito interno · general
