@@ -1,15 +1,19 @@
 # Estado del proyecto
 
-**Al 2026-09-12.** Los estados anteriores están en el historial de git.
+**Al 2026-09-12.** Anotado el 2026-09-19 al regenerar `jugadores.json`; lo ocurrido entre
+esas dos fechas no está recogido. Los estados anteriores están en el historial de git.
 
 ---
 
 ## Lo primero al volver
 
-Nada urgente del circuito interno: **el torneo 8 ya está cargado**. Lo siguiente es de la liga
-federativa: **la inscripción para el 27 de septiembre en Cabanillas abre el lunes 2026-09-14 a las
-10:00** y cierra el lunes 21 a la misma hora, por la web de la RFGM, 48 €. Hay un mensaje de WhatsApp
-redactado para animar a apuntarse.
+Nada urgente del circuito interno: **el torneo 8 ya está cargado**.
+
+Lo que sí corre es la liga federativa. **La inscripción para el 27 de septiembre en Cabanillas se
+abrió el lunes 2026-09-14 a las 10:00 y cierra el lunes 21 a la misma hora**, por la web de la RFGM,
+48 €. Había un mensaje de WhatsApp redactado para animar a apuntarse. **Conviene comprobar cuántos
+hay apuntados antes de que cierre**: nada de lo ocurrido entre el 12 y el 19 de septiembre está
+recogido aquí.
 
 ## Qué se hizo el 2026-09-12
 
@@ -43,6 +47,22 @@ Había **tres fórmulas distintas** conviviendo en 2026, y ninguna era la de 202
 excepción por tipo de torneo— y se ha unificado toda la temporada. Afectó a **45 filas** y cambió la
 clasificación de equipos. El detalle está en
 [`clasificacion-por-equipos.md`](clasificacion-por-equipos.md).
+
+### `jugadores.json` regenerado para 2026
+
+Tenía datos hasta 2025 y **ninguna fila de 2026**. Añadidas las **58 filas** de la temporada desde el
+Excel: 43 socios, 11 invitados y 4 que no participan, con su equipo, su mote y su liga CSC. Las 324
+filas anteriores quedan intactas.
+
+La liga CSC no sale del Excel, que sólo llega a 2025: sale de los elegibles de `datos/csc.json`, 13
+de entre semana (`LABOR`) y 26 de fin de semana (`FINDE`), sin ningún jugador en las dos listas.
+
+**Ojo con una idea equivocada que arrastraba este documento**: el microsite **no lee
+`jugadores.json`**. No aparece en ninguna de sus llamadas de carga, ni usa `mote`, `icono` ni
+`nombreEquipo`. Los ficheros que sí lee son `calendario.json`, `csc.json`, `estadisticas.json`,
+`tarjetas_<año>.json`, `clasificacion_<año>.json`, `clas_matrix_<año>.json` y
+`equipos_clasificacion_<año>.json`. Así que tener el maestro al día es lo correcto y sirve para
+cualquier regeneración, pero **no cambia nada de lo que se ve en la web**.
 
 ### Documentación
 
@@ -86,31 +106,7 @@ la Final (Santander, 19/12).
 | 6 | La Amenaza Fantasma | 1805 |
 | 7 | Gimbros | 1445 |
 
-### CSC · entre semana · Grupo 3
-
-Foro 2000 2 puntos, Club El Estudiante 1, Cuartillos 1, Grow Golf 0. **Club El Estudiante va por
-delante pese a peores ups porque el desempate es el enfrentamiento directo**, cuya ida perdimos 1-2.
-
-**La segunda plaza de cuartos se decide entera el 2026-10-01 en El Fresnillo, contra ellos**: hacen
-falta 4 de los 6 individuales, o 3,5 ganando la vuelta por 3 ups o más.
-
-### CSC · fin de semana · Grupo 5
-
-Foro 2000 1 punto, Cuartillos 1, Approach y Putt 0, Putt & Drive 0. Quedan dos enfrentamientos, los
-dos **con la ida ganada 2-1**: el 2026-09-27 en Cabanillas contra Putt & Drive y el 2026-10-04 en La
-Faisanera contra Foro 2000. **Con 2,5 de 5 en cada uno se termina primero de grupo con 3 puntos y se
-entra en cuartos sin depender de nadie.** Aquí ser segundo no clasifica solo: hay que estar entre los
-tres mejores segundos de cinco grupos, y eso se decide por ups.
-
-## Pendiente
-
-### 1. Regenerar `jugadores.json` para 2026 · lo más importante
-
-`jugadores.json` se dejó de generar en 2025 y **no tiene ni una fila de 2026**. El microsite tira de
-ahí para las plantillas, así que desde los datos publicados sólo se puede reconstruir **quién ha
-jugado**, que no es lo mismo que **quién está fichado**. La tabla de miembros sí existe y está al
-día, en la hoja «Jugadores por EquipoAño» de `datos/TodasDimensiones.xlsx`: son **43 filas de 2026**,
-40 con equipo y 3 sin él.
+### Circuito interno · plantillas de 2026
 
 **Marcos Ruiz y Nicolas Sequera ya están en el Excel**, dados de alta el 2026-09-12 en las dos hojas:
 `Jugadores` (tabla `dJugador`, filas 58 y 59, con `Si` en 2026 y `No` en las temporadas anteriores) y
@@ -136,7 +132,52 @@ Más tres socios sin equipo: Franck Benouniche, Jaime de la Cal y Juan Sanz. **J
 con la etiqueta «sin equipo» y eso es correcto**, decisión de Álvaro del 2026-09-11: «Juan Sanz viene
 así». No es un fallo pendiente.
 
-### 2. Dudas abiertas, sin urgencia
+### CSC · entre semana · Grupo 3
+
+Foro 2000 2 puntos, Club El Estudiante 1, Cuartillos 1, Grow Golf 0. **Club El Estudiante va por
+delante pese a peores ups porque el desempate es el enfrentamiento directo**, cuya ida perdimos 1-2.
+
+**La segunda plaza de cuartos se decide entera el 2026-10-01 en El Fresnillo, contra ellos**: hacen
+falta 4 de los 6 individuales, o 3,5 ganando la vuelta por 3 ups o más.
+
+### CSC · fin de semana · Grupo 5
+
+Foro 2000 1 punto, Cuartillos 1, Approach y Putt 0, Putt & Drive 0. Quedan dos enfrentamientos, los
+dos **con la ida ganada 2-1**: el 2026-09-27 en Cabanillas contra Putt & Drive y el 2026-10-04 en La
+Faisanera contra Foro 2000. **Con 2,5 de 5 en cada uno se termina primero de grupo con 3 puntos y se
+entra en cuartos sin depender de nadie.** Aquí ser segundo no clasifica solo: hay que estar entre los
+tres mejores segundos de cinco grupos, y eso se decide por ups.
+
+## Pendiente
+
+### 1. Dos invitados del torneo 7 que no están en el maestro
+
+**Beatriz Álvarez y Lucas Arcos** jugaron el torneo 7 como invitados y **no figuran en `dJugador`**,
+igual que le pasaba a Marcos y Nicolás. Salió al generar `jugadores.json`: son los únicos dos
+jugadores con tarjeta en 2026 que el maestro no conoce. No afecta a puntos —son invitados y no
+puntúan— pero el maestro debería conocerlos.
+
+### 2. Javier Dodero figura como socio en el torneo 2, y es invitado
+
+**El maestro lo confirma**: `dJugador` lo tiene como `Inv` en 2026. Pero el dato publicado dice otra
+cosa, y encima dice dos cosas distintas entre sí:
+
+| | |
+|---|---|
+| `tarjetas_2026.json` | `invitado: false`, `rk: 19`, **`pts: 47`** |
+| `clasificacion_2026.json` | `tipoParticipacion: "Si"`, `rankingSocios: 19`, **`puntos: 0`** |
+
+Es la **única incoherencia entre tarjetas y clasificación de las seis temporadas**. Y al ocupar un
+puesto de socio, los tres que van por debajo cobraron los puntos de un puesto peor del que les tocaba:
+Enrique Gonzalez R 45 en vez de 47, Joaquín Sánchez 44 en vez de 45 y Alvaro Nieto 43 en vez de 44.
+A los tres les computa el torneo 2, así que son +2, +1 y +1 en la general.
+
+La forma correcta si se decide dejarlo en la clasificación es la que ya usa Javier Aguirre en el
+torneo 3: `tipoParticipacion: "Inv"`, `rankingSocios: 0`, `puntos: 0`.
+
+**Pendiente de decisión**: cambia puntos ya publicados de tres socios.
+
+### 3. Dudas abiertas, sin urgencia
 
 - **Siete parejas de desempate que no cuadran** con el criterio RFEG, repartidas en cinco temporadas.
   La más clara es 2026 T1, donde el reglamento daría el puesto a Angel Santana por hándicap de juego
