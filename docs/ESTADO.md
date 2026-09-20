@@ -196,7 +196,14 @@ torneo 3: `tipoParticipacion: "Inv"`, `rankingSocios: 0`, `puntos: 0`.
 
 **Pendiente de decisión**: cambia puntos ya publicados de tres socios.
 
-### 3. Dudas abiertas, sin urgencia
+### 3. Criterio de selección CSC · revisado y aplazado a 2027
+
+Se le dio una vuelta el 2026-09-20 y **se decidió dejarlo como está esta temporada**. Las dos ideas
+que se valoraron, con lo que salió al medirlas, y lo de fondo —separar forma de implicación— están en
+[`reglamento-csc-2026.md`](reglamento-csc-2026.md) §15. **No volver a discutirlo desde cero: leer eso
+primero.**
+
+### 4. Dudas abiertas, sin urgencia
 
 - **Siete parejas de desempate que no cuadran** con el criterio RFEG, repartidas en cinco temporadas.
   La más clara es 2026 T1, donde el reglamento daría el puesto a Angel Santana por hándicap de juego

@@ -457,3 +457,39 @@ decisión de Álvaro del 2026-09-19. José Antonio Santana pasa a `+12 | +2 | �
 tabla cuadra con el cálculo.
 
 Los valores pueden salir con medio golpe (`+3,5`) y la celda lo indica con un «media de 2».
+
+### Revisado el 2026-09-20 · se deja como está hasta 2027
+
+Se le dio una vuelta al criterio con dos objetivos sobre la mesa: **que juegue quien mejor esté de
+forma** y **premiar a quien más se implica con el club**. Se valoraron dos cambios y **se decidió no
+tocar nada esta temporada**. Queda apuntado para rehacerlo en 2027.
+
+**Idea 1, tomar el mejor de los dos días del torneo doble en vez de la media.** Medido sobre el
+torneo 7: el mejor de dos **rebaja el resultado 3,3 golpes de media**, y a 10 de los 24 que jugaron
+les rebaja 3 o más. O sea que no haría pesar menos al torneo doble, sino **más**: pasaría a ser el
+torneo más fácil de la ventana en el que firmar un buen número, y ocuparía casi siempre una de las dos
+plazas que cuentan. El caso extremo es GLEZ JUAN JOSÉ, que con la media hace +11,5 y con el mejor
+haría **−3**, habiendo firmado +26 al día siguiente en ese mismo torneo.
+
+Donde esa idea sí tiene recorrido es **para emparejar fourballs**, no para ordenar la lista: en
+fourball sólo cuenta la mejor bola, así que el jugador irregular vale más de lo que dice su media.
+
+**Idea 2, que un resultado de junio no pese igual que uno de septiembre.** Es la más sólida de las
+dos. Respecto al partido del 27 de septiembre, los tres torneos de la ventana quedaban a **92, 70 y
+15 días**: dos de los tres resultados que deciden la selección eran de junio y julio. Además «los
+últimos 3 torneos» es una ventana que se estira sola con el calendario del circuito.
+
+Alternativas que se apuntaron, sin decidir: el último torneo obligatorio más la mejor de los dos
+anteriores; o una ventana por días en vez de por número de torneos.
+
+**Lo de fondo, para 2027:** forma e implicación son dos cosas distintas y un solo número no ordena
+bien las dos. Hoy están mezcladas de forma implícita, porque quien tiene dos torneos va por delante de
+quien tiene uno pase lo que pase. Lo natural sería **una columna de forma y otra de implicación**, y
+que quien selecciona decida el peso de cada una. El dato de implicación existe y no se ve: Enrique
+Gonzalez R ha jugado los 8 torneos de 2026, mientras **tres elegibles de fin de semana no han jugado
+ninguno** —Juan José Aguado, Javier López Gullón y Franck Benouniche— y en la tabla aparecen
+simplemente con guiones, igual que quien no jugó esa ventana concreta.
+
+**Comprobado de paso, y no hace falta corregirlo:** el tope de hándicap de la CSC es 26,4, distinto
+del 36,4 que da derecho a estar en la lista, y **ningún elegible está por encima**. El `difNeto` del
+circuito interno se traslada limpio a la federativa.
