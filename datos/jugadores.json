@@ -5346,5 +5346,33 @@
     "idTempEquipo": "2026:CERDOS ARQUEROS",
     "nombreEquipo": "CERDOS ARQUEROS",
     "ligaCSC": null
+  },
+  {
+    "nombre": "Beatriz Alvarez",
+    "licencia": "CM00065996",
+    "mote": "Bea",
+    "icono": null,
+    "nombreCompleto": "Beatriz Alvarez",
+    "temporada": 2026,
+    "tipoParticipacion": "Inv",
+    "idTempJugador": "2026:Beatriz Alvarez",
+    "equipo": null,
+    "idTempEquipo": null,
+    "nombreEquipo": null,
+    "ligaCSC": null
+  },
+  {
+    "nombre": "Lucas Arcos",
+    "licencia": "CMA8069482",
+    "mote": "Lucas",
+    "icono": null,
+    "nombreCompleto": "Lucas Arcos",
+    "temporada": 2026,
+    "tipoParticipacion": "Inv",
+    "idTempJugador": "2026:Lucas Arcos",
+    "equipo": null,
+    "idTempEquipo": null,
+    "nombreEquipo": null,
+    "ligaCSC": null
   }
 ]

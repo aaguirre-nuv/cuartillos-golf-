@@ -98,6 +98,22 @@ orden de las dos listas: en fin de semana Luis Fernández pasa a primero y Alvar
 
 Sólo toca `microsite.html`; no cambia ningún dato.
 
+## Qué se hizo el 2026-09-20
+
+### Beatriz Álvarez y Lucas Arcos, de alta como invitados
+
+Jugaron el torneo 7 y no estaban en el maestro. Añadidos a la hoja `Jugadores` (tabla `dJugador`,
+filas 60 y 61) con `Inv` en 2026 y `No` en las temporadas anteriores, y regeneradas las filas de 2026
+de `jugadores.json`, que pasa de 58 a 60. **No entran en `Jugadores por EquipoAño`**: esa hoja lleva
+sólo socios con equipo.
+
+De ellos **sólo consta nombre y licencia**, sacados de sus tarjetas del torneo 7: Beatriz
+`CM00065996` y Lucas `CMA8069482`. **Móvil, email e icono se han dejado vacíos a propósito**, y el
+nombre completo repite el corto porque no hay otro dato. Los motes quedaron «Bea» y «Lucas».
+Completarlo cuando se sepa.
+
+Con esto **el maestro conoce ya a todos los que tienen tarjeta en 2026**.
+
 ## Estado actual, frente por frente
 
 ### Circuito interno · general
@@ -169,14 +185,7 @@ tres mejores segundos de cinco grupos, y eso se decide por ups.
 
 ## Pendiente
 
-### 1. Dos invitados del torneo 7 que no están en el maestro
-
-**Beatriz Álvarez y Lucas Arcos** jugaron el torneo 7 como invitados y **no figuran en `dJugador`**,
-igual que le pasaba a Marcos y Nicolás. Salió al generar `jugadores.json`: son los únicos dos
-jugadores con tarjeta en 2026 que el maestro no conoce. No afecta a puntos —son invitados y no
-puntúan— pero el maestro debería conocerlos.
-
-### 2. Javier Dodero figura como socio en el torneo 2, y es invitado
+### 1. Javier Dodero figura como socio en el torneo 2, y es invitado
 
 **El maestro lo confirma**: `dJugador` lo tiene como `Inv` en 2026. Pero el dato publicado dice otra
 cosa, y encima dice dos cosas distintas entre sí:
@@ -196,14 +205,14 @@ torneo 3: `tipoParticipacion: "Inv"`, `rankingSocios: 0`, `puntos: 0`.
 
 **Pendiente de decisión**: cambia puntos ya publicados de tres socios.
 
-### 3. Criterio de selección CSC · revisado y aplazado a 2027
+### 2. Criterio de selección CSC · revisado y aplazado a 2027
 
 Se le dio una vuelta el 2026-09-20 y **se decidió dejarlo como está esta temporada**. Las dos ideas
 que se valoraron, con lo que salió al medirlas, y lo de fondo —separar forma de implicación— están en
 [`reglamento-csc-2026.md`](reglamento-csc-2026.md) §15. **No volver a discutirlo desde cero: leer eso
 primero.**
 
-### 4. Dudas abiertas, sin urgencia
+### 3. Dudas abiertas, sin urgencia
 
 - **Siete parejas de desempate que no cuadran** con el criterio RFEG, repartidas en cinco temporadas.
   La más clara es 2026 T1, donde el reglamento daría el puesto a Angel Santana por hándicap de juego
