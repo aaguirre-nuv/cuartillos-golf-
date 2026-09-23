@@ -536,6 +536,7 @@
           "rival": "Putt & Drive",
           "formato": "5 individuales",
           "local": true,
+          "inscripcionCerrada": true,
           "resultado": null,
           "detalle": null,
           "ups_favor": null,

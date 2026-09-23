@@ -493,3 +493,35 @@ simplemente con guiones, igual que quien no jugó esa ventana concreta.
 **Comprobado de paso, y no hace falta corregirlo:** el tope de hándicap de la CSC es 26,4, distinto
 del 36,4 que da derecho a estar en la lista, y **ningún elegible está por encima**. El `difNeto` del
 circuito interno se traslada limpio a la federativa.
+
+## 16. Cómo se abre y se cierra una convocatoria en el microsite
+
+El microsite tiene **una sola inscripción abierta por modalidad**: la del partido que muestra como
+«PRÓXIMO». Hasta el 2026-09-23 ese partido era simplemente **el primero sin resultado**, así que la
+inscripción de una jornada no se podía abrir hasta que la anterior tuviera resultado. Con dos
+jornadas seguidas —el 27 de septiembre y el 4 de octubre, con la federativa del 4 abriendo antes de
+jugarse la del 27— eso no daba.
+
+**Ahora un partido de `datos/csc.json` admite `"inscripcionCerrada": true`.** Con esa marca:
+
+- Deja de ser el partido abierto, y el siguiente sin resultado pasa a serlo.
+- Sigue viéndose, en una tarjeta de **solo lectura** con los convocados y, si estaban asignadas, las
+  parejas. Ni se puede apuntar ni desapuntar nadie.
+- En el calendario aparece como **CONVOCADO** en vez de «Pendiente».
+- Cuando se le mete el resultado, la tarjeta desaparece sola y el partido pasa a histórico.
+
+**Para cerrar una jornada:** añadir `"inscripcionCerrada": true` a ese partido en `csc.json` y subir
+`CV` en `microsite.html`. No hay que tocar nada más: los inscritos siguen guardados donde estaban.
+
+### Los plazos federativos, que son los que mandan
+
+Del §11: para las pruebas de **jueves a domingo**, la inscripción en la web de la RFGM **abre dos
+lunes antes a las 10:00 y cierra un lunes antes a las 10:00**; para las de **lunes a miércoles**, dos
+miércoles antes y un miércoles antes. Conviene cerrar la convocatoria interna con margen sobre ese
+cierre, porque es cuando hay que tener los nombres para inscribir y pagar.
+
+| Jornada | Abre en la RFGM | Cierra en la RFGM |
+|---|---|---|
+| Domingo 2026-09-27, fin de semana | lunes 14/09 10:00 | lunes 21/09 10:00 |
+| Jueves 2026-10-01, entre semana | miércoles 16/09 10:00 | miércoles 23/09 10:00 |
+| Domingo 2026-10-04, fin de semana | lunes 21/09 10:00 | lunes 28/09 10:00 |

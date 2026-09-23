@@ -301,7 +301,7 @@ tr:nth-child(3) .rk{color:#cd7f32}
 var BASE='./datos/';
 // Version de cache de los datos. Subirla en CADA cambio de datos/*.json,
 // o los navegadores que ya han visitado la pagina seguiran sirviendo la copia vieja.
-var CV='?v=20260912a';
+var CV='?v=20260923a';
 var IMG='./img/';
 var MES=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
 var MESES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
@@ -696,6 +696,26 @@ function cscGuardar() {
   showCSC(modId, null);
 }
 
+// Bloque de asignacion de parejas, compartido por la inscripcion abierta y por las
+// convocatorias ya cerradas que siguen pendientes de jugarse.
+function bloqueParejas(parejas, esFB) {
+  if (!parejas || !parejas.length) return '';
+  var o = '<div style="border-top:1px solid #e2e8f0;padding-top:12px">';
+  o += '<div style="font-size:11px;font-weight:700;color:#6b7a9a;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Asignación</div>';
+  parejas.forEach(function(p2, idx) {
+    o += '<div style="background:#f4f6f9;border-radius:6px;padding:8px 12px;margin-bottom:6px;font-size:13px;font-weight:600">';
+    // Support both old format (array) and new format (object with tipo)
+    if (p2.tipo) {
+      var label = p2.tipo === 'fourball' ? 'Fourball' : 'Individual';
+      o += label + ' ' + (idx+1) + ': ' + p2.jugadores.join(' & ');
+    } else {
+      o += (esFB ? 'Fourball ' : 'Individual ') + (idx+1) + ': ' + p2.join(' & ');
+    }
+    o += '</div>';
+  });
+  return o + '</div>';
+}
+
 // Un decimal como mucho, y sin decimal si es entero
 function redondea(v) { return Math.round(v * 10) / 10; }
 function fmtDif(v) {
@@ -925,7 +945,9 @@ function showCSC(mode, btn) {
   for (var pi = 0; pi < mod.partidos.length; pi++) {
     var p = mod.partidos[pi];
     var res0 = (insData[mode] && insData[mode][pkey(p.id) + '_res']) || p.resultado;
-    if (!res0) { proxP = p; break; }
+    // Un partido con la convocatoria cerrada ya no admite inscripciones, aunque
+    // todavia no se haya jugado: el siguiente abierto es el de despues.
+    if (!res0 && !p.inscripcionCerrada) { proxP = p; break; }
   }
 
   // Build output string
@@ -974,11 +996,33 @@ function showCSC(mode, btn) {
       if (cp.detalle) o += '<div style="font-size:10px;color:#6b7a9a;margin-top:2px;white-space:nowrap">' + cp.detalle + '</div>';
       o += '</div>';
     } else if (isNext) o += '<span class="tb tnext">PR\u00d3XIMO</span>';
+    else if (cp.inscripcionCerrada) o += '<span style="font-size:10px;font-weight:700;color:#d97706;white-space:nowrap">CONVOCADO</span>';
     else o += '<span style="font-size:10px;color:#6b7a9a">Pendiente</span>';
     if (cscAdmin && !res1) o += '<button class="ins-btn" style="font-size:10px;padding:3px 8px;margin-left:6px" onclick="cscResultado(\'' + mode + '\',\'' + cp.id + '\')">Resultado</button>';
     o += '</div></div>';
   }
   o += '</div>';
+
+  // Convocatorias ya cerradas que siguen pendientes de jugarse: se ven, en solo lectura
+  mod.partidos.forEach(function(cc) {
+    var resC = (insData[mode] && insData[mode][pkey(cc.id) + '_res']) || cc.resultado;
+    if (resC || !cc.inscripcionCerrada) return;
+    var conv = (insData[mode] && insData[mode][pkey(cc.id)]) || [];
+    var parC = (insData[mode] && insData[mode][pkey(cc.id) + '_parejas']) || [];
+    o += '<div class="card"><div class="ct">Convocatoria cerrada &mdash; ' + cc.rival + '</div><div style="padding:14px">';
+    o += '<div style="background:#fffbea;border-radius:6px;padding:10px 12px;margin-bottom:12px">';
+    o += '<strong>' + cc.campo + '</strong> · ' + fmtD(cc.fecha);
+    o += '<div style="font-size:11px;color:#6b7a9a;margin-top:2px">' + cc.formato + ' · ' + conv.length + ' convocados · inscripción cerrada</div></div>';
+    if (conv.length) {
+      conv.forEach(function(n) {
+        o += '<span style="display:inline-block;background:#f1f5f9;color:#334155;font-size:12px;padding:3px 10px;border-radius:12px;margin:2px">' + n + '</span>';
+      });
+    } else {
+      o += '<div style="font-size:12px;color:#6b7a9a">Nadie llego a apuntarse</div>';
+    }
+    o += bloqueParejas(parC, cc.formato.indexOf('fourball') >= 0);
+    o += '</div></div>';
+  });
 
   // Inscription
   if (proxP) {
@@ -1044,22 +1088,7 @@ function showCSC(mode, btn) {
     }
     o += '</div>';
 
-    if (parejas2.length) {
-      o += '<div style="border-top:1px solid #e2e8f0;padding-top:12px">';
-      o += '<div style="font-size:11px;font-weight:700;color:#6b7a9a;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Asignaci\u00f3n</div>';
-      parejas2.forEach(function(p2, idx) {
-        o += '<div style="background:#f4f6f9;border-radius:6px;padding:8px 12px;margin-bottom:6px;font-size:13px;font-weight:600">';
-        // Support both old format (array) and new format (object with tipo)
-        if (p2.tipo) {
-          var label = p2.tipo === 'fourball' ? 'Fourball' : 'Individual';
-          o += label + ' ' + (idx+1) + ': ' + p2.jugadores.join(' & ');
-        } else {
-          o += (esFB2 ? 'Fourball ' : 'Individual ') + (idx+1) + ': ' + p2.join(' & ');
-        }
-        o += '</div>';
-      });
-      o += '</div>';
-    }
+    o += bloqueParejas(parejas2, esFB2);
     o += '</div></div>';
   }
   o += '</div>';

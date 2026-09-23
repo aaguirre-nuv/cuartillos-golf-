@@ -1,7 +1,6 @@
 # Estado del proyecto
 
-**Al 2026-09-12.** Anotado el 2026-09-19 al regenerar `jugadores.json`; lo ocurrido entre
-esas dos fechas no está recogido. Los estados anteriores están en el historial de git.
+**Al 2026-09-23.** Los estados anteriores están en el historial de git.
 
 ---
 
@@ -9,11 +8,10 @@ esas dos fechas no está recogido. Los estados anteriores están en el historial
 
 Nada urgente del circuito interno: **el torneo 8 ya está cargado**.
 
-Lo que sí corre es la liga federativa. **La inscripción para el 27 de septiembre en Cabanillas se
-abrió el lunes 2026-09-14 a las 10:00 y cierra el lunes 21 a la misma hora**, por la web de la RFGM,
-48 €. Había un mensaje de WhatsApp redactado para animar a apuntarse. **Conviene comprobar cuántos
-hay apuntados antes de que cierre**: nada de lo ocurrido entre el 12 y el 19 de septiembre está
-recogido aquí.
+Lo que corre es la liga federativa, con tres jornadas encadenadas: **27/09 fin de semana en
+Cabanillas** (convocatoria ya cerrada), **01/10 entre semana en El Fresnillo** y **04/10 fin de
+semana en La Faisanera**. La inscripción en la RFGM del 4 de octubre **cierra el lunes 28 a las
+10:00**, así que esa semana hay poco margen. Los resultados del 27 llegan el sábado.
 
 ## Qué se hizo el 2026-09-12
 
@@ -113,6 +111,24 @@ nombre completo repite el corto porque no hay otro dato. Los motes quedaron «Be
 Completarlo cuando se sepa.
 
 Con esto **el maestro conoce ya a todos los que tienen tarjeta en 2026**.
+
+## Qué se hizo el 2026-09-23
+
+### Abierta la inscripción del 4 de octubre, con el 27 ya convocado
+
+El microsite sólo permitía **una inscripción abierta por modalidad**, la del primer partido sin
+resultado. Con el 27 de septiembre ya convocado pero sin jugar, no había forma de abrir la del 4 de
+octubre sin inventarle un resultado al 27.
+
+Un partido de `csc.json` admite ahora **`"inscripcionCerrada": true`**: deja de ser el abierto, pero
+se sigue viendo en una tarjeta de sólo lectura con sus convocados y sus parejas, y en el calendario
+figura como **CONVOCADO**. Cuando llegue el resultado del 27, esa tarjeta desaparece sola.
+
+Marcado así el **FS5** (27/09, Cabanillas, Putt & Drive), con lo que **FS6** (04/10, La Faisanera,
+Foro 2000) pasa a ser el abierto. Entre semana no cambia nada: sigue abierto el ES6 del 1 de octubre.
+
+Cómo repetirlo cada jornada, y los plazos federativos, en
+[`reglamento-csc-2026.md`](reglamento-csc-2026.md) §16.
 
 ## Estado actual, frente por frente
 
