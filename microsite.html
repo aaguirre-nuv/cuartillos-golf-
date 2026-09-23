@@ -1013,24 +1013,9 @@ function showCSC(mode, btn) {
   }
   o += '</div>';
 
-  // Convocatorias ya cerradas que siguen pendientes de jugarse: se ven, en solo lectura
-  pend.cerrados.forEach(function(cc) {
-    var conv = (insData[mode] && insData[mode][pkey(cc.id)]) || [];
-    var parC = (insData[mode] && insData[mode][pkey(cc.id) + '_parejas']) || [];
-    o += '<div class="card"><div class="ct">Convocatoria cerrada &mdash; ' + cc.rival + '</div><div style="padding:14px">';
-    o += '<div style="background:#fffbea;border-radius:6px;padding:10px 12px;margin-bottom:12px">';
-    o += '<strong>' + cc.campo + '</strong> · ' + fmtD(cc.fecha);
-    o += '<div style="font-size:11px;color:#6b7a9a;margin-top:2px">' + cc.formato + ' · ' + conv.length + ' convocados · inscripción cerrada</div></div>';
-    if (conv.length) {
-      conv.forEach(function(n) {
-        o += '<span style="display:inline-block;background:#f1f5f9;color:#334155;font-size:12px;padding:3px 10px;border-radius:12px;margin:2px">' + n + '</span>';
-      });
-    } else {
-      o += '<div style="font-size:12px;color:#6b7a9a">Nadie llego a apuntarse</div>';
-    }
-    o += bloqueParejas(parC, cc.formato.indexOf('fourball') >= 0);
-    o += '</div></div>';
-  });
+  // Columna derecha de la rejilla: arriba la jornada abierta a inscripcion y debajo
+  // las convocatorias ya cerradas que siguen pendientes de jugarse.
+  var oIzq = o; o = '';
 
   // Inscription
   if (proxP) {
@@ -1099,6 +1084,27 @@ function showCSC(mode, btn) {
     o += bloqueParejas(parejas2, esFB2);
     o += '</div></div>';
   }
+
+  // Convocatorias ya cerradas que siguen pendientes de jugarse: se ven, en solo lectura
+  pend.cerrados.forEach(function(cc) {
+    var conv = (insData[mode] && insData[mode][pkey(cc.id)]) || [];
+    var parC = (insData[mode] && insData[mode][pkey(cc.id) + '_parejas']) || [];
+    o += '<div class="card"><div class="ct">Convocatoria cerrada &mdash; ' + cc.rival + '</div><div style="padding:14px">';
+    o += '<div style="background:#fffbea;border-radius:6px;padding:10px 12px;margin-bottom:12px">';
+    o += '<strong>' + cc.campo + '</strong> · ' + fmtD(cc.fecha);
+    o += '<div style="font-size:11px;color:#6b7a9a;margin-top:2px">' + cc.formato + ' · ' + conv.length + ' convocados · inscripción cerrada</div></div>';
+    if (conv.length) {
+      conv.forEach(function(n) {
+        o += '<span style="display:inline-block;background:#f1f5f9;color:#334155;font-size:12px;padding:3px 10px;border-radius:12px;margin:2px">' + n + '</span>';
+      });
+    } else {
+      o += '<div style="font-size:12px;color:#6b7a9a">Nadie llego a apuntarse</div>';
+    }
+    o += bloqueParejas(parC, cc.formato.indexOf('fourball') >= 0);
+    o += '</div></div>';
+  });
+
+  o = oIzq + '<div style="display:flex;flex-direction:column;gap:14px">' + o + '</div>';
   o += '</div>';
 
   // Ranking selector

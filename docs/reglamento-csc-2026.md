@@ -506,7 +506,8 @@ jugarse la del 27— eso no daba.
 
 - Deja de ser el partido abierto, y el siguiente sin resultado pasa a serlo.
 - Sigue viéndose, en una tarjeta de **solo lectura** con los convocados y, si estaban asignadas, las
-  parejas. Ni se puede apuntar ni desapuntar nadie.
+  parejas. Ni se puede apuntar ni desapuntar nadie. Va en la columna derecha, **debajo** de la
+  inscripción abierta, que es la que interesa primero.
 - En el calendario aparece como **CONVOCADO** en vez de «Pendiente».
 - Cuando se le mete el resultado, la tarjeta desaparece sola y el partido pasa a histórico.
 
