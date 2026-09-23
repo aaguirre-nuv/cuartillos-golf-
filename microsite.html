@@ -696,6 +696,22 @@ function cscGuardar() {
   showCSC(modId, null);
 }
 
+// Partidos de una modalidad que siguen pendientes de jugarse, en orden de calendario:
+// los que ya tienen la convocatoria cerrada y, detras, el unico que admite inscripciones.
+// Lo usan la portada y la seccion CSC, para que no puedan decir cosas distintas.
+function cscPendientes(mod, mode) {
+  var cerrados = [], abierto = null;
+  for (var i = 0; i < mod.partidos.length; i++) {
+    var p = mod.partidos[i];
+    var res = (insData[mode] && insData[mode][pkey(p.id) + '_res']) || p.resultado;
+    if (res) continue;
+    if (p.inscripcionCerrada) { cerrados.push(p); continue; }
+    abierto = p;
+    break;
+  }
+  return {cerrados: cerrados, abierto: abierto};
+}
+
 // Bloque de asignacion de parejas, compartido por la inscripcion abierta y por las
 // convocatorias ya cerradas que siguen pendientes de jugarse.
 function bloqueParejas(parejas, esFB) {
@@ -941,14 +957,8 @@ function showCSC(mode, btn) {
   }
   if (!mod) return;
 
-  var proxP = null;
-  for (var pi = 0; pi < mod.partidos.length; pi++) {
-    var p = mod.partidos[pi];
-    var res0 = (insData[mode] && insData[mode][pkey(p.id) + '_res']) || p.resultado;
-    // Un partido con la convocatoria cerrada ya no admite inscripciones, aunque
-    // todavia no se haya jugado: el siguiente abierto es el de despues.
-    if (!res0 && !p.inscripcionCerrada) { proxP = p; break; }
-  }
+  var pend = cscPendientes(mod, mode);
+  var proxP = pend.abierto;
 
   // Build output string
   var o = '';
@@ -1004,9 +1014,7 @@ function showCSC(mode, btn) {
   o += '</div>';
 
   // Convocatorias ya cerradas que siguen pendientes de jugarse: se ven, en solo lectura
-  mod.partidos.forEach(function(cc) {
-    var resC = (insData[mode] && insData[mode][pkey(cc.id) + '_res']) || cc.resultado;
-    if (resC || !cc.inscripcionCerrada) return;
+  pend.cerrados.forEach(function(cc) {
     var conv = (insData[mode] && insData[mode][pkey(cc.id)]) || [];
     var parC = (insData[mode] && insData[mode][pkey(cc.id) + '_parejas']) || [];
     o += '<div class="card"><div class="ct">Convocatoria cerrada &mdash; ' + cc.rival + '</div><div style="padding:14px">';
@@ -1326,12 +1334,13 @@ function renderPortada(){
     if(proximo2) eventos.push({fecha:parseDate(proximo2.fecha),tipo:'liga',data:proximo2});
     if(csc){
       csc.modalidades.forEach(function(mod){
-        for(var i=0;i<mod.partidos.length;i++){
-          if(!mod.partidos[i].resultado){
-            eventos.push({fecha:parseDate(mod.partidos[i].fecha),tipo:'csc',mod:mod,data:mod.partidos[i]});
-            break;
-          }
-        }
+        // Se ensena la jornada abierta a inscripcion y tambien la que ya esta
+        // convocada pero sin jugar, que suele ser la mas inmediata.
+        var pend=cscPendientes(mod,mod.id);
+        pend.cerrados.forEach(function(p){
+          eventos.push({fecha:parseDate(p.fecha),tipo:'csc',mod:mod,data:p,cerrado:true});
+        });
+        if(pend.abierto) eventos.push({fecha:parseDate(pend.abierto.fecha),tipo:'csc',mod:mod,data:pend.abierto});
       });
     }
     eventos.sort(function(a,b){return a.fecha-b.fecha;});
@@ -1359,7 +1368,7 @@ function renderPortada(){
           var mod=ev.mod,p=ev.data;
           var cc=mod.id==='ES'?CSC_ES:CSC_FS;
           var lbl=mod.id==='ES'?'Entre Semana':'Fin de Semana';
-          var inscritos=(insData[mod.id]&&insData[mod.id][p.id+'_2026'])||[];
+          var inscritos=(insData[mod.id]&&insData[mod.id][pkey(p.id)])||[];
           evH+='<div style="border-bottom:1px solid var(--gray2);padding:12px 14px">';
           evH+='<div style="display:flex;align-items:center;gap:12px">';
           evH+='<div style="background:'+cc.bg+';color:#fff;border-radius:6px;padding:8px 10px;text-align:center;min-width:48px;flex-shrink:0">';
@@ -1367,10 +1376,12 @@ function renderPortada(){
           evH+='<div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;opacity:.85">'+MES[dt.getMonth()]+'</div></div>';
           evH+='<div style="flex:1"><div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">';
           evH+='<span style="background:'+cc.light+';color:'+cc.text+';font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px">&#127954; CSC '+lbl+'</span>';
-          evH+='<span style="font-size:10px;color:var(--muted)">&mdash; '+dTxt+'</span></div>';
+          evH+='<span style="font-size:10px;color:var(--muted)">&mdash; '+dTxt+'</span>';
+          if(ev.cerrado) evH+='<span style="background:#fef3c7;color:#92400e;font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px">CONVOCATORIA CERRADA</span>';
+          evH+='</div>';
           evH+='<div style="font-weight:700;font-size:14px">vs '+p.rival+'</div>';
           evH+='<div style="font-size:11px;color:var(--muted)">'+p.campo+' &middot; '+p.formato+'</div></div>';
-          evH+='<button data-mod="'+mod.id+'" onclick="portCSCNav(this)" style="background:'+cc.bg+';color:#fff;font-family:Barlow Condensed,sans-serif;font-size:11px;font-weight:700;padding:8px 14px;border-radius:6px;border:none;cursor:pointer;flex-shrink:0">Apuntarme &#8594;</button></div>';
+          evH+='<button data-mod="'+mod.id+'" onclick="portCSCNav(this)" style="background:'+(ev.cerrado?'var(--gray2)':cc.bg)+';color:'+(ev.cerrado?'var(--muted)':'#fff')+';font-family:Barlow Condensed,sans-serif;font-size:11px;font-weight:700;padding:8px 14px;border-radius:6px;border:none;cursor:pointer;flex-shrink:0">'+(ev.cerrado?'Ver convocatoria':'Apuntarme')+' &#8594;</button></div>';
           if(inscritos.length){
             // Of the inscritos, mark the best N by ranking as having a spot
             var rankData=window._cscTarjetas?buildCSCRanking(mod,window._cscTarjetas,mod.id):null;
@@ -1388,7 +1399,7 @@ function renderPortada(){
               topNames=inscritosOrdenados.slice(0,nNecPort);
             }
             evH+='<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">';
-            evH+='<span style="font-size:10px;font-weight:700;color:var(--muted);margin-right:2px">Inscritos:</span>';
+            evH+='<span style="font-size:10px;font-weight:700;color:var(--muted);margin-right:2px">'+(ev.cerrado?'Convocados:':'Inscritos:')+'</span>';
             inscritos.forEach(function(n){
               var hasSpot=topNames.indexOf(n)>=0;
               if(hasSpot){

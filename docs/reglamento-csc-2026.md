@@ -513,6 +513,14 @@ jugarse la del 27— eso no daba.
 **Para cerrar una jornada:** añadir `"inscripcionCerrada": true` a ese partido en `csc.json` y subir
 `CV` en `microsite.html`. No hay que tocar nada más: los inscritos siguen guardados donde estaban.
 
+**La portada enseña lo mismo.** Es donde la gente pulsa para apuntarse, así que en «Próximos eventos»
+aparecen tanto la jornada abierta, con su botón **Apuntarme**, como la ya convocada y sin jugar, con
+la etiqueta **CONVOCATORIA CERRADA**, la lista de convocados y un botón **Ver convocatoria** que
+lleva a la sección CSC. Las dos vistas comparten la misma función, `cscPendientes()`, para que no
+puedan decir cosas distintas: antes la portada tenía su propio bucle, que ni miraba los resultados
+metidos desde el panel ni la marca de convocatoria cerrada, y además tenía la clave de inscritos
+escrita a mano como `_2026` en vez de usar `pkey()`.
+
 ### Los plazos federativos, que son los que mandan
 
 Del §11: para las pruebas de **jueves a domingo**, la inscripción en la web de la RFGM **abre dos

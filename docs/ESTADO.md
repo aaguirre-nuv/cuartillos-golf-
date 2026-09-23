@@ -127,6 +127,11 @@ figura como **CONVOCADO**. Cuando llegue el resultado del 27, esa tarjeta desapa
 Marcado así el **FS5** (27/09, Cabanillas, Putt & Drive), con lo que **FS6** (04/10, La Faisanera,
 Foro 2000) pasa a ser el abierto. Entre semana no cambia nada: sigue abierto el ES6 del 1 de octubre.
 
+**La portada también.** Es donde se pulsa para apuntarse, así que en «Próximos eventos» salen las
+dos: el 27 con la etiqueta CONVOCATORIA CERRADA y sus convocados, y el 4 con el botón de apuntarse.
+Las dos vistas comparten ahora la función `cscPendientes()`; antes la portada tenía su propio bucle,
+que no miraba ni los resultados metidos desde el panel ni la marca de cerrada.
+
 Cómo repetirlo cada jornada, y los plazos federativos, en
 [`reglamento-csc-2026.md`](reglamento-csc-2026.md) §16.
 
