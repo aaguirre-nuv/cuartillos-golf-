@@ -395,32 +395,38 @@ Estudiante (5-4). Dos puntos, definitivos.
 Queda pendiente de cargar la vuelta **Grow Golf – Foro 2000** del mismo día, que decide sólo el orden
 de los dos de arriba, no quién pasa.
 
-### 14.3 Grupo 5 de fin de semana: la primera plaza vale mucho más que la segunda
+### 14.3 Grupo 5 de fin de semana: todo se decide el 4 de octubre · actualizado con el FS5
 
-El PDF federativo de fin de semana no añade ninguna jornada nueva —la última jugada sigue siendo la
-del 2026-06-13 en Layos— y confirma la clasificación del grupo: **Foro 2000 y Cuartillos con 1 punto,
-Approach y Putt y Putt & Drive con 0**. Quedan dos enfrentamientos por cerrar, los dos con **la ida
-ganada 2-1**:
+Tras el **4-1 a Putt & Drive del 2026-09-27 en Cabanillas** (12 ups a 0), el enfrentamiento quedó en
+**6-2** sumando la ida, y Cuartillos pasa a mandar el grupo:
 
-| Enfrentamiento | Vuelta | Campo | Hace falta |
+| Equipo | Puntos | Enfrentamientos cerrados | Pendiente | Máximo al que puede llegar |
+|---|---|---|---|---|
+| **Cuartillos** | **2** | Approach y Putt 4,5-3,5 · Putt & Drive 6-2 | vs Foro 2000 (4 oct) | 3 |
+| Foro 2000 | 1 | Putt & Drive 6-2 | vs Approach y Putt (27 sep, sin acta) · vs Cuartillos (4 oct) | 3 |
+| Approach y Putt | 0 | — | vs Foro 2000 · vs Putt & Drive (4 oct) | 2 |
+| Putt & Drive | 0 | Cuartillos 2-6 · Foro 2000 2-6 | vs Approach y Putt (4 oct) | 1 |
+
+Approach y Putt lleva la ida ganada 3-0 a Putt & Drive, así que a Putt & Drive le harían falta 4,5 de
+5 para empatar el enfrentamiento: de ahí su máximo de 1 punto.
+
+**El domingo 4 de octubre, en La Faisanera contra Foro 2000, con la ida ganada 2-1:**
+
+| En los 5 individuales | Enfrentamiento (8 puntos en juego) | Cuartillos acaba con | Y entonces |
 |---|---|---|---|
-| vs Putt & Drive | 2026-09-27 | Cabanillas | 2,5 de los 5 individuales |
-| vs Foro 2000 | 2026-10-04 | La Faisanera | 2,5 de los 5 individuales |
-
-**Ganando los dos se termina primero de grupo con 3 puntos y se entra en cuartos sin depender de
-nadie**, porque si Cuartillos gana su enfrentamiento directo, Foro 2000 se queda como mucho en 2.
+| **2,5 o más** | ganado, 4,5-3,5 o mejor | **3 puntos** | **primero de grupo, sin depender de nadie**: Foro 2000 se queda en 2 como mucho |
+| 2 | empatado 4-4, medio punto cada uno (§7) | 2,5 puntos | primero salvo que Foro gane también su vuelta pendiente con Approach y Putt; si la gana, empate a 2,5 que se resuelve por el enfrentamiento directo —empatado— y luego por **ups en ese enfrentamiento**, donde Cuartillos llega con +3 de la ida |
+| 1,5 o menos | perdido | 2 puntos | segundo si Foro gana además a Approach y Putt (3 puntos); si no, empate a 2 que pierde Cuartillos por enfrentamiento directo |
 
 Y ahí está lo que diferencia esta liga de la otra: **quedar segundo no clasifica por sí solo**. En el
 escenario de 20 equipos solo pasan los tres mejores segundos de los cinco grupos, y ese criterio se
 resuelve por puntos → partidos ganados en los tres enfrentamientos → **ups** (§8). Cuartillos lleva
-**20 ups a favor y 13 en contra** en esta liga, ya con la cifra federativa. Por eso un solo up cuenta
-aquí —fue el motivo de la corrección 2 de §13.2— y por eso conviene anotarlos partido a partido, como
-se está haciendo.
+**32 ups a favor y 13 en contra** en esta liga, 12 de ellos del 27 de septiembre. Por eso un solo up
+cuenta aquí —fue el motivo de la corrección 2 de §13.2— y por eso conviene anotarlos partido a
+partido, como se está haciendo.
 
-Todavía no se puede calcular la carrera de los mejores segundos: en los cinco grupos hay **como mucho
-dos enfrentamientos cerrados de seis** —en el Grupo 1 la vuelta Golf de Golfos–Grow Golf del
-2026-06-13 figura sin jugar— y **ningún equipo de la liga pasa de 1 punto**. Habrá algo que comparar
-después del 2026-09-27.
+La carrera de los mejores segundos sigue sin poderse calcular: del resto de grupos no hay datos en
+`datos/csc.json`, que solo guarda el Grupo 5. Mientras la primera plaza esté en la mano, da igual.
 
 **Cosas del reglamento que conviene tener a mano el día de la prueba:**
 

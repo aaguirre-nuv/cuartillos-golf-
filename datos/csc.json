@@ -543,12 +543,17 @@
           "rival": "Putt & Drive",
           "formato": "5 individuales",
           "local": true,
-          "inscripcionCerrada": true,
-          "resultado": null,
-          "detalle": null,
-          "ups_favor": null,
-          "ups_contra": null,
-          "jugadores": []
+          "resultado": "G",
+          "detalle": "4-1 (G 2&1, A/S, A/S, G 5&4, G 5&3)",
+          "ups_favor": 12,
+          "ups_contra": 0,
+          "jugadores": [
+            "Angel Santana",
+            "Angel Hernandez",
+            "Santi Diaz",
+            "Francisco Hidalgo",
+            "Miche Lopez"
+          ]
         },
         {
           "id": "FS6",
@@ -658,11 +663,11 @@
           "fecha": "2026-09-27",
           "local": "Cuartillos",
           "visitante": "Putt & Drive",
-          "pts_l": null,
-          "pts_v": null,
-          "ups_l": null,
-          "ups_v": null,
-          "detalle": null
+          "pts_l": 4,
+          "pts_v": 1,
+          "ups_l": 12,
+          "ups_v": 0,
+          "detalle": "4-1 (G 2&1, A/S, A/S, G 5&4, G 5&3)"
         },
         {
           "jornada": 5,
