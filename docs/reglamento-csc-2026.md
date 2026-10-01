@@ -157,10 +157,58 @@ elegibles. Los jugadores participan con el hándicap exacto que tengan en la bas
   capitán.
 
 Se disputan **en una sola jornada**, con **equipos de 6 jugadores**: **2 fourball y 2 individuales**.
-Mismo formato de juego que en el match play; desempates como en la fase final.
+Mismo formato de juego que en el match play; desempates como en la fase final. Ojo con el formato:
+**no es el de las vueltas de liga**, que son 5 o 6 individuales.
 
 **Nota del reglamento:** si en alguna liga no hubiese suficientes equipos participantes, el Comité de
 CSC modificará el formato.
+
+### 8.1 El cuadro match, que en la circular va como imagen
+
+Los dos cuadros están en el PDF de la circular como imágenes, no como texto, así que se extrajeron y
+se guardaron en `docs/fuentes/`:
+[16 equipos](fuentes/cuadro-match-cuartos-16-equipos.png) ·
+[20 equipos](fuentes/cuadro-match-cuartos-20-equipos.png).
+
+**Escenario de 16 — entre semana:**
+
+| Cruce | Local | Visitante |
+|---|---|---|
+| 1 | 1º Grupo 1 | 2º Grupo 4 |
+| 2 | 1º Grupo 4 | 2º Grupo 1 |
+| 3 | 1º Grupo 3 | 2º Grupo 2 |
+| 4 | **1º Grupo 2** | **2º Grupo 3** |
+
+**Cuartillos termina 2º del Grupo 3, así que su cuarto de final es contra el 1º del Grupo 2.** Ese
+dato no está en `datos/csc.json`, que sólo guarda el grupo propio.
+
+**Escenario de 20 — fin de semana:**
+
+| Cruce | Local | Visitante |
+|---|---|---|
+| 1 | 1º Grupo 1 | Tercer 2º mejor clasificado |
+| 2 | **1º Grupo 4** | **1º Grupo 5** |
+| 3 | 1º Grupo 3 | Primer 2º mejor clasificado |
+| 4 | 1º Grupo 2 | Segundo 2º mejor clasificado |
+
+Cuartillos está en el **Grupo 5**, así que:
+
+- **Si gana el grupo el 4 de octubre** → cuartos **contra el 1º del Grupo 4**.
+- **Si entra como mejor segundo** → el rival depende del puesto entre los tres segundos: primero
+  mejor 2º contra el 1º del Grupo 3, segundo mejor 2º contra el 1º del Grupo 2, tercero contra el
+  1º del Grupo 1.
+
+### 8.2 Fechas: no las hay en la circular
+
+**La circular no trae calendario de ninguna fase**, ni siquiera de las jornadas de liga. Las únicas
+fechas del documento son el plazo de inscripción a la liga (10:00 del 16 de febrero) y su propia
+firma (13 de febrero de 2026). Para el resto remite a la web: *«Toda la información relativa a
+clasificaciones, fechas de las fases, anuncios y demás pormenores se podrán comprobar en la página
+web de la RFGM»*. Los dos PDF de resultados de §13.1 tampoco traen fechas futuras: son imágenes de
+una sola página.
+
+Es decir: **la fecha y el campo de los cuartos hay que buscarlos en `fedgolfmadrid.com`**, no en lo
+que hay en el repo.
 
 ## 9. Fase final
 

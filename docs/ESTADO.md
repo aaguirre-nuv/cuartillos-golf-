@@ -270,6 +270,12 @@ escenario de 16 equipos pasan los dos primeros de cada grupo, así que **Cuartil
 como segundo de grupo**. Ups de Cuartillos en la liga: **51 a favor, 35 en contra**; los de Foro,
 76-28.
 
+**El cuarto de final es contra el 1º del Grupo 2**, según el cuadro match de la circular
+([§8.1](reglamento-csc-2026.md#81-el-cuadro-match-que-en-la-circular-va-como-imagen)). Se juega **en
+una sola jornada**, con **6 jugadores: 2 fourball y 2 individuales** —no es el formato de las vueltas
+de liga—. **La fecha y el campo no están en nada de lo que hay en el repo**: la circular no trae
+calendario y remite a la web de la RFGM.
+
 ### CSC · fin de semana · Grupo 5
 
 **Cuartillos 2 puntos, Foro 2000 2, Approach y Putt 0, Putt & Drive 0**, con la jornada 5 cargada
@@ -279,6 +285,10 @@ ida ganada 2-1**. Con **2,5 de los 5 individuales** Cuartillos termina primero c
 segundo no clasifica solo —hay que estar entre los tres mejores segundos de cinco grupos, y eso se
 decide por ups—, por eso la primera plaza vale mucho más. Ups de Cuartillos en la liga: **32 a favor,
 13 en contra**. Escenarios del domingo en [`reglamento-csc-2026.md`](reglamento-csc-2026.md) §14.3.
+
+Y el domingo decide también el rival de cuartos: **ganando el grupo toca el 1º del Grupo 4**; entrando
+como mejor segundo, el rival sale del puesto que se ocupe entre los tres segundos
+([§8.1](reglamento-csc-2026.md#81-el-cuadro-match-que-en-la-circular-va-como-imagen)).
 
 ## Pendiente
 
@@ -324,6 +334,14 @@ primero.**
   marcados `false` y uno `true`. Con dos o más nunca ha habido duda.
 - **El PDF federativo de fin de semana se contradice en una celda** (Foro 2000 – Putt & Drive: da ida
   12-0 y vuelta 5-1 en ups pero totaliza 17-2). No afecta a Cuartillos.
+
+### 4. Falta la fecha de los cuartos de final
+
+**No está en el repo y no se puede deducir.** La circular de la RFGM no trae calendario de ninguna
+fase y remite expresamente a su web; los dos PDF de resultados son imágenes de una página, sin
+fechas futuras. Hay que mirarlo en `fedgolfmadrid.com`. Vale para las dos ligas: entre semana ya está
+clasificado, y fin de semana se decide el 4 de octubre. Contexto en
+[`reglamento-csc-2026.md`](reglamento-csc-2026.md) §8.2.
 
 ## Cuatro trampas de este repo
 
