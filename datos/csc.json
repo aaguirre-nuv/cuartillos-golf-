@@ -182,12 +182,19 @@
           "campo": "El Fresnillo",
           "rival": "Club El Estudiante",
           "formato": "6 individuales",
-          "local": true,
-          "resultado": null,
-          "detalle": null,
-          "ups_favor": null,
-          "ups_contra": null,
-          "jugadores": []
+          "local": false,
+          "resultado": "G",
+          "detalle": "4-2 (A/S, P 5&4, A/S, G 3&2, G 2&1, G 3&2)",
+          "ups_favor": 8,
+          "ups_contra": 5,
+          "jugadores": [
+            "Carlos Maestro",
+            "Nacho Gonzalez",
+            "Alvaro Montoya",
+            "Alvaro Aguirre",
+            "Eduardo Buendía",
+            "Javier Chiralt"
+          ]
         }
       ],
       "partidos_grupo": [
@@ -306,11 +313,11 @@
           "fecha": "2026-10-01",
           "local": "Club El Estudiante",
           "visitante": "Cuartillos",
-          "pts_l": null,
-          "pts_v": null,
-          "ups_l": null,
-          "ups_v": null,
-          "detalle": null
+          "pts_l": 2,
+          "pts_v": 4,
+          "ups_l": 5,
+          "ups_v": 8,
+          "detalle": "2-4 (A/S, P 5&4, A/S, G 3&2, G 2&1, G 3&2)"
         },
         {
           "jornada": 6,

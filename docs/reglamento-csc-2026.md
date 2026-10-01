@@ -368,19 +368,32 @@ desempate del reglamento es el **enfrentamiento directo** (§7), no la diferenci
 enfrentamiento solo se ha jugado la ida, que Cuartillos perdió 1-2. El PDF federativo los ordena
 igual, y el microsite también. El orden es **provisional** justo por eso: se resuelve el 2026-10-01.
 
-### 14.2 A cuartos se va o no se va el 1 de octubre
+### 14.2 A cuartos se va o no se va el 1 de octubre · RESUELTO, y se va
 
-En el escenario de 16 equipos pasan **los dos primeros de cada grupo**, y los máximos que puede
-alcanzar cada equipo son: Foro 2000 hasta 3, Cuartillos hasta 2, Club El Estudiante hasta 2, Grow Golf
-hasta 1. Foro 2000 ya no se cae del grupo de cabeza. **La segunda plaza la decide el enfrentamiento
-directo Cuartillos–Club El Estudiante**, cuya vuelta se juega el **2026-10-01 en El Fresnillo**, a 6
-individuales, con la ida perdida 1-2:
+**Cuartillos ganó 4-2 en El Fresnillo el 2026-10-01** (8 ups a favor, 5 en contra), así que se lleva
+el enfrentamiento directo contra Club El Estudiante por **5-4** y suma su segundo punto de liga.
 
-- **Ganar 4 o más de los 6 individuales:** Cuartillos 2 puntos, Club El Estudiante 1. **A cuartos.**
-- **Ganar exactamente 3,5:** enfrentamiento empatado 4,5-4,5, medio punto cada uno, y los dos a 1,5.
-  Desempata el enfrentamiento directo, que está empatado, y después los **ups de ese enfrentamiento
-  directo**: la ida se perdió 3-5 en ups, así que haría falta ganar la vuelta **por 3 ups o más**.
-- **Ganar 3 o menos:** Club El Estudiante 2 puntos y Cuartillos 1. **Fuera.**
+| | Jugador | Resultado |
+|---|---|---|
+| 1 | Carlos Maestro | A/S |
+| 2 | Nacho González | P 5&4 |
+| 3 | Alvaro Montoya | A/S |
+| 4 | Alvaro Aguirre | **G 3&2** |
+| 5 | Eduardo Buendía | **G 2&1** |
+| 6 | Javier Chiralt | **G 3&2** |
+
+**Cuartillos termina segundo del Grupo 3 y está en cuartos**, y no depende de nada más. Sus tres
+enfrentamientos están cerrados: perdido con Foro 2000 (4-5), ganados a Grow Golf (6-3) y a Club El
+Estudiante (5-4). Dos puntos, definitivos.
+
+- **Club El Estudiante** cierra con **1 punto** y ya no puede alcanzarle.
+- **Grow Golf** llega como mucho a 1, aunque gane su vuelta.
+- **Foro 2000** tiene 2 y puede llegar a 3. Si se queda en 2, empata con Cuartillos, pero el
+  desempate es el **enfrentamiento directo** (§7) y lo ganó 5-4, así que **es primero en cualquier
+  caso**.
+
+Queda pendiente de cargar la vuelta **Grow Golf – Foro 2000** del mismo día, que decide sólo el orden
+de los dos de arriba, no quién pasa.
 
 ### 14.3 Grupo 5 de fin de semana: la primera plaza vale mucho más que la segunda
 

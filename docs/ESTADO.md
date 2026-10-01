@@ -1,17 +1,18 @@
 # Estado del proyecto
 
-**Al 2026-09-23.** Los estados anteriores están en el historial de git.
+**Al 2026-10-01.** Los estados anteriores están en el historial de git.
 
 ---
 
 ## Lo primero al volver
 
-Nada urgente del circuito interno: **el torneo 8 ya está cargado**.
+**Cuartillos está en cuartos de final de entre semana.** Ganó 4-2 en El Fresnillo el 1 de octubre y
+termina segundo del Grupo 3, con sus tres enfrentamientos cerrados. No depende de nadie.
 
-Lo que corre es la liga federativa, con tres jornadas encadenadas: **27/09 fin de semana en
-Cabanillas** (convocatoria ya cerrada), **01/10 entre semana en El Fresnillo** y **04/10 fin de
-semana en La Faisanera**. La inscripción en la RFGM del 4 de octubre **cierra el lunes 28 a las
-10:00**, así que esa semana hay poco margen. Los resultados del 27 llegan el sábado.
+Pendientes de cargar, los tres: **Grow Golf – Foro 2000** del 1 de octubre (sólo decide el orden de
+arriba, no quién pasa), el **FS5 del 27 de septiembre** en Cabanillas contra Putt & Drive, que se
+jugó y nunca llegó el acta, y el **FS6 del 4 de octubre** en La Faisanera contra Foro 2000, que es
+el último de la fase y se juega este domingo.
 
 ## Qué se hizo el 2026-09-12
 
@@ -134,6 +135,25 @@ que no miraba ni los resultados metidos desde el panel ni la marca de cerrada.
 
 Cómo repetirlo cada jornada, y los plazos federativos, en
 [`reglamento-csc-2026.md`](reglamento-csc-2026.md) §16.
+
+## Qué se hizo el 2026-10-01
+
+### Cargado el ES6 y Cuartillos se mete en cuartos
+
+**Cuartillos 4 – Club El Estudiante 2**, en El Fresnillo, 8 ups a favor y 5 en contra. Ganan Aguirre
+(3&2), Buendía (2&1) y Chiralt (3&2); empatan Carlos Maestro y Montoya; pierde Nacho González (5&4).
+Con la ida perdida 1-2, el enfrentamiento cae **5-4** y suma el segundo punto de liga.
+
+El dato salió de tres capturas del acta de nextcaddy. **La suma de los seis individuales cuadra con
+la cabecera oficial del acta**, 4-2 y 8-5 ups, que es lo que da confianza en la lectura.
+
+Detalle de la clasificación y por qué ya no depende de nadie, en
+[`reglamento-csc-2026.md`](reglamento-csc-2026.md) §14.2.
+
+**Encontrado de paso:** el campo `local` de `partidos` se contradice con `partidos_grupo` en **ES1 y
+ES5**, que quedan sin tocar. Las filas de grupo son coherentes entre sí —cada pareja juega una vez de
+local y otra de visitante— así que el que está mal es el `local` del partido. Sólo afecta a la
+etiqueta LOCAL/VISITA del calendario. El del ES6 sí se corrigió al cargarlo.
 
 ## Estado actual, frente por frente
 
