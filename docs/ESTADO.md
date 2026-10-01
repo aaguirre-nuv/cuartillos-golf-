@@ -200,12 +200,15 @@ Con la ida ganada 2-1, Foro cierra el enfrentamiento en 7-2 y llega a **3 puntos
 1, Grow Golf 0. Pasan los dos primeros, así que **Cuartillos va a cuartos como segundo**. Ups de la
 liga: 51 a favor y 35 en contra.
 
-**El detalle del acta se cargó a medias a propósito.** La captura deja ver cinco de los seis
-individuales —1UP, 2UP, 6&5 y 5&4 de Foro, y el 5&4 de Jorge Chamochin por Grow Golf— y el sexto
-queda fuera de pantalla. El marcador sí es seguro, porque la cabecera lo cierra: Foro tiene 5 puntos
-(4 vistos más uno) y 19 ups (14 vistos más cinco), y los 5 ups de Grow Golf son exactamente los del
-partido de Chamochin. Por eso el `detalle` de esa fila va sin desglose: **lo que no se ve no se
-inventa**.
+**El detalle llegó en dos veces, y eso dejó una pequeña lección.** La primera captura cortaba antes
+del sexto individual, así que la fila se cargó con el marcador —seguro, porque lo cierra la cabecera:
+Foro con 5 puntos frente a los 4 vistos y 19 ups frente a los 14— pero **sin desglose**, en vez de
+rellenar el hueco con un 5&4 o un 5&3 a ojo. Con la captura desplazada apareció: **Mayte Castro Celma
+5&3** por Foro 2000, que son exactamente los 5 ups que faltaban. Los seis, en orden del acta: 1UP,
+2UP, 6&5 y 5&4 de Foro, **5&4 de Jorge Chamochin** por Grow Golf, y 5&3 de Foro.
+
+La deducción habría acertado el resultado, pero no el margen, y ese es justo el tipo de dato que
+luego se cita como si fuera del acta. **Lo que no se ve no se inventa, aunque se pueda adivinar.**
 
 ## Estado actual, frente por frente
 

@@ -400,10 +400,9 @@ entre semana queda terminada:**
 **Pasan los dos primeros de cada grupo (§8, escenario de 16), así que Cuartillos está en cuartos como
 segundo del Grupo 3.**
 
-Del acta de Grow Golf – Foro 2000 sólo se ven cinco de los seis individuales: 1UP, 2UP, 6&5 y 5&4 de
-Foro, y un 5&4 de Jorge Chamochin por Grow Golf. El sexto queda fuera de pantalla, pero la cabecera
-lo cierra sin ambigüedad —Foro 5 puntos y 19 ups frente a los 4 y 14 vistos—, así que el marcador
-está cargado y el `detalle` de esa fila va **sin desglose a propósito**.
+Los seis individuales de Grow Golf – Foro 2000, en el orden del acta: **1UP, 2UP, 6&5 y 5&4** de
+Foro 2000, **5&4 de Jorge Chamochin** por Grow Golf, y **5&3 de Mayte Castro Celma** por Foro. Suman
+5-1 y 19 ups a 5, igual que la cabecera.
 
 ### 14.3 Grupo 5 de fin de semana: el 4 de octubre es una final · jornada 5 cargada entera
 
