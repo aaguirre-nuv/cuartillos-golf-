@@ -395,28 +395,30 @@ Estudiante (5-4). Dos puntos, definitivos.
 Queda pendiente de cargar la vuelta **Grow Golf – Foro 2000** del mismo día, que decide sólo el orden
 de los dos de arriba, no quién pasa.
 
-### 14.3 Grupo 5 de fin de semana: todo se decide el 4 de octubre · actualizado con el FS5
+### 14.3 Grupo 5 de fin de semana: el 4 de octubre es una final · jornada 5 cargada entera
 
-Tras el **4-1 a Putt & Drive del 2026-09-27 en Cabanillas** (12 ups a 0), el enfrentamiento quedó en
-**6-2** sumando la ida, y Cuartillos pasa a mandar el grupo:
+Con los dos partidos del 2026-09-27 ya cargados —el **4-1 de Cuartillos a Putt & Drive** en Cabanillas
+y el **3,5-1,5 de Foro 2000 a Approach y Putt**— el grupo se queda en dos:
 
-| Equipo | Puntos | Enfrentamientos cerrados | Pendiente | Máximo al que puede llegar |
+| Equipo | Puntos | Enfrentamientos cerrados | Pendiente | Máximo |
 |---|---|---|---|---|
 | **Cuartillos** | **2** | Approach y Putt 4,5-3,5 · Putt & Drive 6-2 | vs Foro 2000 (4 oct) | 3 |
-| Foro 2000 | 1 | Putt & Drive 6-2 | vs Approach y Putt (27 sep, sin acta) · vs Cuartillos (4 oct) | 3 |
-| Approach y Putt | 0 | — | vs Foro 2000 · vs Putt & Drive (4 oct) | 2 |
+| **Foro 2000** | **2** | Approach y Putt 5,5-2,5 · Putt & Drive 6-2 | vs Cuartillos (4 oct) | 3 |
+| Approach y Putt | 0 | Cuartillos 3,5-4,5 · Foro 2000 2,5-5,5 | vs Putt & Drive (4 oct) | 1 |
 | Putt & Drive | 0 | Cuartillos 2-6 · Foro 2000 2-6 | vs Approach y Putt (4 oct) | 1 |
 
-Approach y Putt lleva la ida ganada 3-0 a Putt & Drive, así que a Putt & Drive le harían falta 4,5 de
-5 para empatar el enfrentamiento: de ahí su máximo de 1 punto.
+Los de abajo ya no pintan: **el único enfrentamiento vivo es Cuartillos – Foro 2000**, y su vuelta es
+justo la del domingo. Approach y Putt lleva la ida ganada 3-0 a Putt & Drive, así que a Putt & Drive
+le harían falta 4,5 de 5 para empatar el enfrentamiento; pase lo que pase ahí, ninguno de los dos
+llega a 2.
 
-**El domingo 4 de octubre, en La Faisanera contra Foro 2000, con la ida ganada 2-1:**
+**El domingo 4 de octubre, en La Faisanera, con la ida ganada 2-1:**
 
-| En los 5 individuales | Enfrentamiento (8 puntos en juego) | Cuartillos acaba con | Y entonces |
+| En los 5 individuales | Enfrentamiento (8 puntos en juego) | Cuartillos / Foro acaban con | Y entonces |
 |---|---|---|---|
-| **2,5 o más** | ganado, 4,5-3,5 o mejor | **3 puntos** | **primero de grupo, sin depender de nadie**: Foro 2000 se queda en 2 como mucho |
-| 2 | empatado 4-4, medio punto cada uno (§7) | 2,5 puntos | primero salvo que Foro gane también su vuelta pendiente con Approach y Putt; si la gana, empate a 2,5 que se resuelve por el enfrentamiento directo —empatado— y luego por **ups en ese enfrentamiento**, donde Cuartillos llega con +3 de la ida |
-| 1,5 o menos | perdido | 2 puntos | segundo si Foro gana además a Approach y Putt (3 puntos); si no, empate a 2 que pierde Cuartillos por enfrentamiento directo |
+| **2,5 o más** | ganado, 4,5-3,5 o mejor | **3 / 2** | **primero de grupo** |
+| 2 | empatado 4-4, medio punto cada uno (§7) | 2,5 / 2,5 | empate que resuelve el enfrentamiento directo, también empatado, y luego los **ups de ese enfrentamiento**: Cuartillos llega con **+3** de la ida, así que es primero salvo que Foro saque 4 ups o más de ventaja el domingo; con exactamente 3, play off a muerte súbita scratch |
+| 1,5 o menos | perdido | 2 / 3 | **segundo**, y entonces hay que estar entre los tres mejores segundos de los cinco grupos |
 
 Y ahí está lo que diferencia esta liga de la otra: **quedar segundo no clasifica por sí solo**. En el
 escenario de 20 equipos solo pasan los tres mejores segundos de los cinco grupos, y ese criterio se
@@ -426,7 +428,14 @@ cuenta aquí —fue el motivo de la corrección 2 de §13.2— y por eso convien
 partido, como se está haciendo.
 
 La carrera de los mejores segundos sigue sin poderse calcular: del resto de grupos no hay datos en
-`datos/csc.json`, que solo guarda el Grupo 5. Mientras la primera plaza esté en la mano, da igual.
+`datos/csc.json`, que solo guarda el Grupo 5.
+
+**Un fallo de datos detectado al cargar el 27 de septiembre, y no corregido:** la fila de la jornada 5
+de `partidos_grupo` pone a **Approach y Putt de local, igual que la de la jornada 2**, de modo que ese
+enfrentamiento figura con el mismo local en la ida y en la vuelta. El acta del 27 («9. FORO 2000 VS
+APPROACH Y PUTT») dice que el local era Foro 2000, así que la fila mal puesta es la de la jornada 5.
+Los puntos y los ups se escribieron con el equipo correcto; lo único afectado es la etiqueta del
+calendario.
 
 **Cosas del reglamento que conviene tener a mano el día de la prueba:**
 

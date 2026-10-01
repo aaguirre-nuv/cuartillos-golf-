@@ -9,15 +9,17 @@
 **Cuartillos está en cuartos de final de entre semana.** Ganó 4-2 en El Fresnillo el 1 de octubre y
 termina segundo del Grupo 3, con sus tres enfrentamientos cerrados. No depende de nadie.
 
-**En fin de semana, Cuartillos manda el Grupo 5 con 2 puntos**, tras ganar 4-1 a Putt & Drive el 27
-de septiembre en Cabanillas. **El domingo 4 de octubre, en La Faisanera contra Foro 2000, hacen falta
-2,5 de los 5 individuales para terminar primero de grupo**, y con eso no se depende de nadie: Foro
-2000 se quedaría entonces en 2 puntos como mucho. El detalle, en
-[`reglamento-csc-2026.md`](reglamento-csc-2026.md) §14.3.
+**En fin de semana, el domingo 4 de octubre en La Faisanera es una final.** Con el 27 de septiembre
+cargado entero, **Cuartillos y Foro 2000 empatan a 2 puntos** y el único enfrentamiento que queda del
+Grupo 5 es el suyo; Approach y Putt y Putt & Drive no pasan de 1 y ya no pintan nada. Con la ida
+ganada 2-1, **hacen falta 2,5 de los 5 individuales para terminar primero de grupo**. Con 2 se empata
+a 2,5 y decide el enfrentamiento directo, donde Cuartillos llega con 3 ups de ventaja. Con 1,5 o
+menos se es segundo, y ahí hay que estar entre los tres mejores segundos de cinco grupos. Los
+escenarios, en [`reglamento-csc-2026.md`](reglamento-csc-2026.md) §14.3.
 
-Pendientes de cargar, tres actas: **Grow Golf – Foro 2000** del 1 de octubre (sólo decide el orden de
-arriba del Grupo 3, no quién pasa), **Approach y Putt – Foro 2000** del 27 de septiembre, y los dos
-partidos de la jornada 6 de fin de semana del 4 de octubre, el nuestro incluido.
+Pendientes de cargar: **Grow Golf – Foro 2000** del 1 de octubre (sólo decide el orden de arriba del
+Grupo 3, no quién pasa) y los dos partidos de la jornada 6 de fin de semana del 4 de octubre, el
+nuestro incluido.
 
 ## Qué se hizo el 2026-09-12
 
@@ -173,6 +175,22 @@ comprobación que en el ES6: **la suma de los cinco individuales cuadra con la c
 Al tener ya resultado, el partido pasa a histórico y se le quitó la marca `inscripcionCerrada`, que
 a partir de ahí no pinta nada.
 
+### Cargado también el otro partido de la jornada 5 de fin de semana
+
+**Foro 2000 3,5 – Approach y Putt 1,5**, 10 ups a 1, del acta de nextcaddy «9. FORO 2000 VS APPROACH
+Y PUTT». Foro gana tres individuales (4&3, 2&1, 4&3), empata uno y pierde el primero por 1UP. Misma
+comprobación de siempre: **3 + 0,5 contra 1 + 0,5 y los ups 4+2+4 contra 1 cuadran con la cabecera**.
+
+No es un partido nuestro, pero **cambia la foto del grupo**: con la ida ya ganada 2-1, Foro cierra el
+enfrentamiento en 5,5-2,5 y **sube a 2 puntos, los mismos que Cuartillos**. El domingo deja de ser
+«ganar para no depender de nadie» y pasa a ser una final por la primera plaza.
+
+**Encontrado de paso, sin tocar:** la fila de la jornada 5 tiene a **Approach y Putt como local, igual
+que la de la jornada 2**, así que ese enfrentamiento figura con el mismo local en la ida y en la
+vuelta. El título del acta dice que el 27 de septiembre el local era Foro 2000, o sea que la de la
+jornada 5 es la que está del revés. Sólo afecta a la etiqueta del calendario: los puntos y los ups
+se han escrito con el equipo correcto. Es el mismo tipo de fallo que el `local` de ES1 y ES5.
+
 ## Estado actual, frente por frente
 
 ### Circuito interno · general
@@ -237,13 +255,13 @@ dos casos. Ups de Cuartillos en la liga: **51 a favor, 35 en contra**.
 
 ### CSC · fin de semana · Grupo 5
 
-**Cuartillos 2 puntos, Foro 2000 1, Approach y Putt 0, Putt & Drive 0.** El 4-1 del 27 de septiembre
-cerró el enfrentamiento con Putt & Drive en 6-2 y puso a Cuartillos primero. Queda un enfrentamiento,
-el 2026-10-04 en La Faisanera contra Foro 2000, **con la ida ganada 2-1**: con **2,5 de los 5
-individuales** se termina primero de grupo con 3 puntos. Aquí ser segundo no clasifica solo —hay que
-estar entre los tres mejores segundos de cinco grupos, y eso se decide por ups—, por eso la primera
-plaza vale mucho más. Ups de Cuartillos en la liga: **32 a favor, 13 en contra**. Escenarios del
-domingo en [`reglamento-csc-2026.md`](reglamento-csc-2026.md) §14.3.
+**Cuartillos 2 puntos, Foro 2000 2, Approach y Putt 0, Putt & Drive 0**, con la jornada 5 cargada
+entera. Approach y Putt y Putt & Drive no pueden pasar de 1, así que **el único enfrentamiento vivo
+del grupo es Cuartillos – Foro 2000**, cuya vuelta se juega el 2026-10-04 en La Faisanera **con la
+ida ganada 2-1**. Con **2,5 de los 5 individuales** Cuartillos termina primero con 3 puntos. Aquí ser
+segundo no clasifica solo —hay que estar entre los tres mejores segundos de cinco grupos, y eso se
+decide por ups—, por eso la primera plaza vale mucho más. Ups de Cuartillos en la liga: **32 a favor,
+13 en contra**. Escenarios del domingo en [`reglamento-csc-2026.md`](reglamento-csc-2026.md) §14.3.
 
 ## Pendiente
 
