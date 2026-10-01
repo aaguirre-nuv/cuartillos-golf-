@@ -6,8 +6,9 @@
 
 ## Lo primero al volver
 
-**Cuartillos está en cuartos de final de entre semana.** Ganó 4-2 en El Fresnillo el 1 de octubre y
-termina segundo del Grupo 3, con sus tres enfrentamientos cerrados. No depende de nadie.
+**Cuartillos está en cuartos de final de entre semana, y el Grupo 3 ya está cerrado del todo.** Ganó
+4-2 en El Fresnillo el 1 de octubre y termina **segundo con 2 puntos**, detrás de Foro 2000 (3) y por
+delante de Club El Estudiante (1) y Grow Golf (0).
 
 **En fin de semana, el domingo 4 de octubre en La Faisanera es una final.** Con el 27 de septiembre
 cargado entero, **Cuartillos y Foro 2000 empatan a 2 puntos** y el único enfrentamiento que queda del
@@ -17,9 +18,8 @@ a 2,5 y decide el enfrentamiento directo, donde Cuartillos llega con 3 ups de ve
 menos se es segundo, y ahí hay que estar entre los tres mejores segundos de cinco grupos. Los
 escenarios, en [`reglamento-csc-2026.md`](reglamento-csc-2026.md) §14.3.
 
-Pendientes de cargar: **Grow Golf – Foro 2000** del 1 de octubre (sólo decide el orden de arriba del
-Grupo 3, no quién pasa) y los dos partidos de la jornada 6 de fin de semana del 4 de octubre, el
-nuestro incluido.
+Pendientes de cargar: los **dos partidos de la jornada 6 de fin de semana** del 4 de octubre, el
+nuestro incluido. Con eso las dos ligas quedan completas.
 
 ## Qué se hizo el 2026-09-12
 
@@ -191,6 +191,22 @@ vuelta. El título del acta dice que el 27 de septiembre el local era Foro 2000,
 jornada 5 es la que está del revés. Sólo afecta a la etiqueta del calendario: los puntos y los ups
 se han escrito con el equipo correcto. Es el mismo tipo de fallo que el `local` de ES1 y ES5.
 
+### Cargado Grow Golf – Foro 2000 y el Grupo 3 queda cerrado
+
+**Foro 2000 5 – Grow Golf 1**, 19 ups a 5, del acta «5. GROW GOLF VS FORO 2000» del 1 de octubre.
+Con la ida ganada 2-1, Foro cierra el enfrentamiento en 7-2 y llega a **3 puntos**.
+
+**Clasificación final del Grupo 3 de entre semana:** Foro 2000 3, **Cuartillos 2**, Club El Estudiante
+1, Grow Golf 0. Pasan los dos primeros, así que **Cuartillos va a cuartos como segundo**. Ups de la
+liga: 51 a favor y 35 en contra.
+
+**El detalle del acta se cargó a medias a propósito.** La captura deja ver cinco de los seis
+individuales —1UP, 2UP, 6&5 y 5&4 de Foro, y el 5&4 de Jorge Chamochin por Grow Golf— y el sexto
+queda fuera de pantalla. El marcador sí es seguro, porque la cabecera lo cierra: Foro tiene 5 puntos
+(4 vistos más uno) y 19 ups (14 vistos más cinco), y los 5 ups de Grow Golf son exactamente los del
+partido de Chamochin. Por eso el `detalle` de esa fila va sin desglose: **lo que no se ve no se
+inventa**.
+
 ## Estado actual, frente por frente
 
 ### Circuito interno · general
@@ -246,12 +262,10 @@ así». No es un fallo pendiente.
 
 ### CSC · entre semana · Grupo 3
 
-Foro 2000 2 puntos, **Cuartillos 2**, Club El Estudiante 1, Grow Golf 0, con los tres
-enfrentamientos de Cuartillos cerrados. **Clasificado para cuartos**: en el escenario de 16 equipos
-pasan los dos primeros de cada grupo y nadie puede ya alcanzar los 2 puntos salvo Foro 2000, que
-los tiene. Si Foro gana su vuelta pendiente contra Grow Golf se va a 3; si la pierde se queda en 2 y
-el desempate es el enfrentamiento directo, que ganó él 5-4. Primero Foro, segundo Cuartillos en los
-dos casos. Ups de Cuartillos en la liga: **51 a favor, 35 en contra**.
+**Liga terminada.** Foro 2000 3 puntos, **Cuartillos 2**, Club El Estudiante 1, Grow Golf 0. En el
+escenario de 16 equipos pasan los dos primeros de cada grupo, así que **Cuartillos está en cuartos
+como segundo de grupo**. Ups de Cuartillos en la liga: **51 a favor, 35 en contra**; los de Foro,
+76-28.
 
 ### CSC · fin de semana · Grupo 5
 

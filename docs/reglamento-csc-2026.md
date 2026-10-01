@@ -368,7 +368,7 @@ desempate del reglamento es el **enfrentamiento directo** (§7), no la diferenci
 enfrentamiento solo se ha jugado la ida, que Cuartillos perdió 1-2. El PDF federativo los ordena
 igual, y el microsite también. El orden es **provisional** justo por eso: se resuelve el 2026-10-01.
 
-### 14.2 A cuartos se va o no se va el 1 de octubre · RESUELTO, y se va
+### 14.2 Grupo 3 de entre semana · TERMINADO: Cuartillos segundo y a cuartos
 
 **Cuartillos ganó 4-2 en El Fresnillo el 2026-10-01** (8 ups a favor, 5 en contra), así que se lleva
 el enfrentamiento directo contra Club El Estudiante por **5-4** y suma su segundo punto de liga.
@@ -386,14 +386,24 @@ el enfrentamiento directo contra Club El Estudiante por **5-4** y suma su segund
 enfrentamientos están cerrados: perdido con Foro 2000 (4-5), ganados a Grow Golf (6-3) y a Club El
 Estudiante (5-4). Dos puntos, definitivos.
 
-- **Club El Estudiante** cierra con **1 punto** y ya no puede alcanzarle.
-- **Grow Golf** llega como mucho a 1, aunque gane su vuelta.
-- **Foro 2000** tiene 2 y puede llegar a 3. Si se queda en 2, empata con Cuartillos, pero el
-  desempate es el **enfrentamiento directo** (§7) y lo ganó 5-4, así que **es primero en cualquier
-  caso**.
+La vuelta **Grow Golf – Foro 2000** del mismo día acabó **1-5 para Foro 2000** (19 ups a 5), que con
+la ida ganada 2-1 cierra ese enfrentamiento en 7-2 y se lleva su tercer punto. **Con eso la liga de
+entre semana queda terminada:**
 
-Queda pendiente de cargar la vuelta **Grow Golf – Foro 2000** del mismo día, que decide sólo el orden
-de los dos de arriba, no quién pasa.
+| Pos | Equipo | Puntos | Enfrentamientos | Ups |
+|---|---|---|---|---|
+| 1 | Foro 2000 | 3 | Cuartillos 5-4 · El Estudiante 8-1 · Grow Golf 7-2 | 76-28 |
+| **2** | **Cuartillos** | **2** | Foro 2000 4-5 · El Estudiante 5-4 · Grow Golf 6-3 | 51-35 |
+| 3 | Club El Estudiante | 1 | Cuartillos 4-5 · Foro 2000 1-8 · Grow Golf 6-3 | 30-51 |
+| 4 | Grow Golf | 0 | Cuartillos 3-6 · Foro 2000 2-7 · El Estudiante 3-6 | 27-70 |
+
+**Pasan los dos primeros de cada grupo (§8, escenario de 16), así que Cuartillos está en cuartos como
+segundo del Grupo 3.**
+
+Del acta de Grow Golf – Foro 2000 sólo se ven cinco de los seis individuales: 1UP, 2UP, 6&5 y 5&4 de
+Foro, y un 5&4 de Jorge Chamochin por Grow Golf. El sexto queda fuera de pantalla, pero la cabecera
+lo cierra sin ambigüedad —Foro 5 puntos y 19 ups frente a los 4 y 14 vistos—, así que el marcador
+está cargado y el `detalle` de esa fila va **sin desglose a propósito**.
 
 ### 14.3 Grupo 5 de fin de semana: el 4 de octubre es una final · jornada 5 cargada entera
 
