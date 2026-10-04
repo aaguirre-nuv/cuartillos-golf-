@@ -195,6 +195,19 @@
             "Eduardo Buendía",
             "Javier Chiralt"
           ]
+        },
+        {
+          "id": "ESQF",
+          "fecha": "2026-10-20",
+          "campo": "El Encín",
+          "rival": "1º del Grupo 2 (cuartos)",
+          "formato": "2 fourball + 2 individuales",
+          "local": null,
+          "resultado": null,
+          "detalle": null,
+          "ups_favor": null,
+          "ups_contra": null,
+          "jugadores": []
         }
       ],
       "partidos_grupo": [

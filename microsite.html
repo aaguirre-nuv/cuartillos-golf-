@@ -301,7 +301,7 @@ tr:nth-child(3) .rk{color:#cd7f32}
 var BASE='./datos/';
 // Version de cache de los datos. Subirla en CADA cambio de datos/*.json,
 // o los navegadores que ya han visitado la pagina seguiran sirviendo la copia vieja.
-var CV='?v=20261001e';
+var CV='?v=20261004a';
 var IMG='./img/';
 var MES=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
 var MESES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
@@ -986,7 +986,10 @@ function showCSC(mode, btn) {
     o += '<div style="font-family:Bebas Neue,sans-serif;font-size:18px;line-height:1">' + dt.getDate() + '</div>';
     o += '<div style="font-size:8px;text-transform:uppercase">' + MES[dt.getMonth()] + '</div></div>';
     o += '<div style="flex:1"><div style="font-weight:700;font-size:13px">';
-    o += (cp.local ? '<span style="background:#dbeafe;color:#1e40af;font-size:9px;font-weight:700;padding:1px 4px;border-radius:3px;margin-right:4px">LOCAL</span>' : '<span style="background:#f3f4f6;color:#6b7280;font-size:9px;padding:1px 4px;border-radius:3px;margin-right:4px">VISITA</span>');
+    // Las eliminatorias se juegan en campo designado por la federacion, sin local ni
+    // visitante: eso se marca con "local": null en csc.json.
+    if (cp.local == null) o += '<span style="background:#f1f5f9;color:#64748b;font-size:9px;font-weight:700;padding:1px 4px;border-radius:3px;margin-right:4px">NEUTRAL</span>';
+    else o += (cp.local ? '<span style="background:#dbeafe;color:#1e40af;font-size:9px;font-weight:700;padding:1px 4px;border-radius:3px;margin-right:4px">LOCAL</span>' : '<span style="background:#f3f4f6;color:#6b7280;font-size:9px;padding:1px 4px;border-radius:3px;margin-right:4px">VISITA</span>');
     o += 'vs ' + cp.rival + '</div>';
     o += '<div style="font-size:11px;color:#6b7a9a">' + cp.campo + ' \u00b7 ' + cp.formato + '</div>';
     if (res1 && cp.jugadores && cp.jugadores.length) {

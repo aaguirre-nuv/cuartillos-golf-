@@ -1,6 +1,6 @@
 # Estado del proyecto
 
-**Al 2026-10-01.** Los estados anteriores están en el historial de git.
+**Al 2026-10-04.** Los estados anteriores están en el historial de git.
 
 ---
 
@@ -17,6 +17,10 @@ ganada 2-1, **hacen falta 2,5 de los 5 individuales para terminar primero de gru
 a 2,5 y decide el enfrentamiento directo, donde Cuartillos llega con 3 ups de ventaja. Con 1,5 o
 menos se es segundo, y ahí hay que estar entre los tres mejores segundos de cinco grupos. Los
 escenarios, en [`reglamento-csc-2026.md`](reglamento-csc-2026.md) §14.3.
+
+**La inscripción de los cuartos de entre semana ya está abierta en el microsite**: martes 20 de
+octubre en El Encín, campo neutral, **2 fourball y 2 individuales**, 6 jugadores. El rival se sabrá
+cuando se cierre el Grupo 2. El plazo federativo **cierra el miércoles 14/10 a las 10:00**.
 
 Pendientes de cargar: los **dos partidos de la jornada 6 de fin de semana** del 4 de octubre, el
 nuestro incluido. Con eso las dos ligas quedan completas.
@@ -142,6 +146,36 @@ que no miraba ni los resultados metidos desde el panel ni la marca de cerrada.
 
 Cómo repetirlo cada jornada, y los plazos federativos, en
 [`reglamento-csc-2026.md`](reglamento-csc-2026.md) §16.
+
+## Qué se hizo el 2026-10-04
+
+### Abierta la inscripción de los cuartos de entre semana
+
+**Martes 20 de octubre, El Encín.** Añadido a `datos/csc.json` como `ESQF`, detrás de las seis
+jornadas de liga, que ya tienen todas resultado: con eso pasa a ser la inscripción abierta de entre
+semana, tanto en la sección CSC como en la portada, con su botón **Apuntarme**.
+
+Tres cosas de este partido no son como las de liga, y están explicadas en
+[`reglamento-csc-2026.md`](reglamento-csc-2026.md) §16:
+
+- **`"formato": "2 fourball + 2 individuales"`**, que el microsite lee como **6 necesarios** y como
+  2 fourballs y 2 individuales en el modal de asignación.
+- **`"local": null`**, porque el campo lo pone la federación. Para esto sí hubo que tocar el HTML:
+  el calendario solo sabía pintar LOCAL o VISITA, y un `false` habría dicho VISITA, que es falso.
+  Ahora pinta **NEUTRAL** cuando `local` viene a `null`.
+- **`"id": "ESQF"`**, fuera de la serie ES1..ES6. Nada interpreta el número del id.
+
+**El rival va como `1º del Grupo 2 (cuartos)`** hasta que se sepa el equipo, que es lo que dice el
+cuadro match de la circular. Esa cadena sale tal cual en el calendario, en la portada y en el título
+de la tarjeta de inscripción.
+
+**Comprobado ejecutando el microsite**, no leyendo el código: `cscPendientes` da `ESQF` como abierto,
+`calcNecesarios` da 6, el calendario pinta la fila con NEUTRAL y la portada saca el botón Apuntarme.
+Y la página de fin de semana sigue igual, con el FS6 de hoy como próximo.
+
+**Corregida de paso una fila de §16:** el plazo federativo del 1 de octubre estaba calculado con la
+regla de los miércoles por ser «entre semana», pero el partido era **jueves** y el plazo lo fija el
+día de la semana, no la liga. Las seis jornadas de entre semana de 2026 se jugaron en jueves.
 
 ## Qué se hizo el 2026-10-01
 
@@ -270,11 +304,15 @@ escenario de 16 equipos pasan los dos primeros de cada grupo, así que **Cuartil
 como segundo de grupo**. Ups de Cuartillos en la liga: **51 a favor, 35 en contra**; los de Foro,
 76-28.
 
-**El cuarto de final es contra el 1º del Grupo 2**, según el cuadro match de la circular
-([§8.1](reglamento-csc-2026.md#81-el-cuadro-match-que-en-la-circular-va-como-imagen)). Se juega **en
+**Cuartos: martes 20 de octubre en El Encín**, dato que trajo Álvaro el 4 de octubre. Se juega **en
 una sola jornada**, con **6 jugadores: 2 fourball y 2 individuales** —no es el formato de las vueltas
-de liga—. **La fecha y el campo no están en nada de lo que hay en el repo**: la circular no trae
-calendario y remite a la web de la RFGM.
+de liga— y en **campo neutral**. El rival es **el 1º del Grupo 2** según el cuadro match
+([§8.1](reglamento-csc-2026.md#81-el-cuadro-match-que-en-la-circular-va-como-imagen)), pero **todavía
+no se sabe qué equipo es**. La inscripción ya está abierta en el microsite.
+
+**Plazo federativo:** al caer en martes va por la regla de los miércoles, no por la de los lunes que
+usaron las seis jornadas de liga (todas en jueves): **abre el miércoles 07/10 a las 10:00 y cierra el
+miércoles 14/10 a las 10:00**. Conviene cerrar la convocatoria interna con margen sobre esa fecha.
 
 ### CSC · fin de semana · Grupo 5
 
@@ -335,13 +373,15 @@ primero.**
 - **El PDF federativo de fin de semana se contradice en una celda** (Foro 2000 – Putt & Drive: da ida
   12-0 y vuelta 5-1 en ups pero totaliza 17-2). No afecta a Cuartillos.
 
-### 4. Falta la fecha de los cuartos de final
+### 4. Falta saber el rival de cuartos de entre semana
 
-**No está en el repo y no se puede deducir.** La circular de la RFGM no trae calendario de ninguna
-fase y remite expresamente a su web; los dos PDF de resultados son imágenes de una página, sin
-fechas futuras. Hay que mirarlo en `fedgolfmadrid.com`. Vale para las dos ligas: entre semana ya está
-clasificado, y fin de semana se decide el 4 de octubre. Contexto en
-[`reglamento-csc-2026.md`](reglamento-csc-2026.md) §8.2.
+La fecha y el campo ya los tenemos: **martes 20 de octubre en El Encín**. Lo que falta es **qué
+equipo gana el Grupo 2**, que es con quien nos toca. Mientras tanto el partido está en `csc.json`
+como `ESQF` con `"rival": "1º del Grupo 2 (cuartos)"`; cuando se sepa, se cambia esa cadena y se
+sube `CV`, nada más.
+
+Sigue valiendo lo de §8.2: **la circular no trae calendario de ninguna fase** y remite a la web de la
+RFGM, así que las fechas de semifinales y final también habrá que buscarlas ahí.
 
 ## Cuatro trampas de este repo
 

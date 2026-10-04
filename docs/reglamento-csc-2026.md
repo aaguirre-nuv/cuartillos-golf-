@@ -614,8 +614,36 @@ lunes antes a las 10:00 y cierra un lunes antes a las 10:00**; para las de **lun
 miércoles antes y un miércoles antes. Conviene cerrar la convocatoria interna con margen sobre ese
 cierre, porque es cuando hay que tener los nombres para inscribir y pagar.
 
+**El plazo lo fija el día de la semana de la prueba, no la liga.** Las seis jornadas de entre semana
+de 2026 se jugaron en **jueves**, así que iban por la regla de los lunes, igual que las de fin de
+semana. El primer partido que va por la regla de los miércoles son los **cuartos del martes 20 de
+octubre**.
+
 | Jornada | Abre en la RFGM | Cierra en la RFGM |
 |---|---|---|
 | Domingo 2026-09-27, fin de semana | lunes 14/09 10:00 | lunes 21/09 10:00 |
-| Jueves 2026-10-01, entre semana | miércoles 16/09 10:00 | miércoles 23/09 10:00 |
+| Jueves 2026-10-01, entre semana | lunes 21/09 10:00 | lunes 28/09 10:00 |
 | Domingo 2026-10-04, fin de semana | lunes 21/09 10:00 | lunes 28/09 10:00 |
+| **Martes 2026-10-20, cuartos entre semana** | **miércoles 07/10 10:00** | **miércoles 14/10 10:00** |
+
+La fila del 1 de octubre estaba mal hasta el 2026-10-04: se le había aplicado la regla de los
+miércoles por ser «entre semana», cuando el partido era jueves. Corregida.
+
+### Abrir una eliminatoria, que no es una jornada de liga
+
+Los cuartos del 20 de octubre se añadieron a `partidos` de la modalidad `ES` el 2026-10-04 y traen
+tres diferencias respecto a una jornada de liga, que conviene repetir cuando toque semifinales:
+
+- **`"formato": "2 fourball + 2 individuales"`.** `calcNecesarios()` lo lee como **6** jugadores y
+  `parseFormato()` saca 2 fourballs y 2 individuales para el modal de asignación. Las dos funciones
+  parten por `+` y buscan la palabra `fourball`, así que la cadena hay que escribirla así.
+- **`"local": null`.** El campo lo designa la federación y no hay local ni visitante. El calendario
+  lo pinta como **NEUTRAL** en vez de LOCAL o VISITA; antes del 2026-10-04 solo sabía pintar esas
+  dos y un `false` habría dicho VISITA, que es falso.
+- **`"id": "ESQF"`**, fuera de la serie `ES1`..`ES6`, porque no es una jornada. Nada del microsite
+  interpreta el número del `id`: solo se usa tal cual como clave de inscritos vía `pkey()`.
+
+Mientras no se sepa el rival, el campo `rival` lleva **`1º del Grupo 2 (cuartos)`**, que es lo que
+dice el cuadro match (§8.1). Se ve tal cual en el calendario, en la portada y en el título de la
+tarjeta de inscripción, así que cuando se conozca el equipo basta con cambiar esa cadena y subir
+`CV`.
