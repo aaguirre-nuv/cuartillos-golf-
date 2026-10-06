@@ -180,7 +180,11 @@ se guardaron en `docs/fuentes/`:
 | 4 | **1º Grupo 2** | **2º Grupo 3** |
 
 **Cuartillos termina 2º del Grupo 3, así que su cuarto de final es contra el 1º del Grupo 2.** Ese
-dato no está en `datos/csc.json`, que sólo guarda el grupo propio.
+dato no está en `datos/csc.json`, que sólo guarda el grupo propio, pero **sí está en el PDF
+federativo de §13.1**, que trae los cuatro grupos: el **Grupo 2 lo forman Golf Sierra Norte,
+Sultanes del Swing, Goldfers y CG Colmenar Viejo**, y al 11 de septiembre lo lideraban Colmenar Viejo
+y Goldfers empatados a 2, con su enfrentamiento directo pendiente de la vuelta del 1 de octubre en El
+Fresnillo. El primero del grupo es el que ganara esa eliminatoria.
 
 **Escenario de 20 — fin de semana:**
 
@@ -191,24 +195,27 @@ dato no está en `datos/csc.json`, que sólo guarda el grupo propio.
 | 3 | 1º Grupo 3 | Primer 2º mejor clasificado |
 | 4 | 1º Grupo 2 | Segundo 2º mejor clasificado |
 
-Cuartillos está en el **Grupo 5**, así que:
+**RESUELTO el 2026-10-04: Cuartillos entra como TERCER MEJOR SEGUNDO, así que juega contra el 1º del
+Grupo 1.** Perdió 1-4 en La Faisanera, terminó segundo del Grupo 5 con 2 puntos y la federación
+resolvió el orden de los segundos por correo (ver §14.3).
 
-- **Si gana el grupo el 4 de octubre** → cuartos **contra el 1º del Grupo 4**.
-- **Si entra como mejor segundo** → el rival depende del puesto entre los tres segundos: primero
-  mejor 2º contra el 1º del Grupo 3, segundo mejor 2º contra el 1º del Grupo 2, tercero contra el
-  1º del Grupo 1.
-
-### 8.2 Fechas: no las hay en la circular
+### 8.2 Fechas y campos de los cuartos
 
 **La circular no trae calendario de ninguna fase**, ni siquiera de las jornadas de liga. Las únicas
 fechas del documento son el plazo de inscripción a la liga (10:00 del 16 de febrero) y su propia
 firma (13 de febrero de 2026). Para el resto remite a la web: *«Toda la información relativa a
 clasificaciones, fechas de las fases, anuncios y demás pormenores se podrán comprobar en la página
-web de la RFGM»*. Los dos PDF de resultados de §13.1 tampoco traen fechas futuras: son imágenes de
-una sola página.
+web de la RFGM»*. Los dos PDF de resultados de §13.1 tampoco traen fechas futuras.
 
-Es decir: **la fecha y el campo de los cuartos hay que buscarlos en `fedgolfmadrid.com`**, no en lo
-que hay en el repo.
+Las dos fechas las trajo Álvaro de la federación, y están grabadas en `datos/csc.json`:
+
+| Liga | Fecha | Campo | Rival |
+|---|---|---|---|
+| Entre semana | **martes 20 de octubre** | El Encín | 1º del Grupo 2 |
+| Fin de semana | **domingo 15 de noviembre** | Los Ángeles de San Rafael | 1º del Grupo 1 |
+
+Las de **semifinales y final** siguen sin aparecer: habrá que buscarlas en `fedgolfmadrid.com` igual
+que estas.
 
 ## 9. Fase final
 
@@ -452,47 +459,48 @@ Los seis individuales de Grow Golf – Foro 2000, en el orden del acta: **1UP, 2
 Foro 2000, **5&4 de Jorge Chamochin** por Grow Golf, y **5&3 de Mayte Castro Celma** por Foro. Suman
 5-1 y 19 ups a 5, igual que la cabecera.
 
-### 14.3 Grupo 5 de fin de semana: el 4 de octubre es una final · jornada 5 cargada entera
+### 14.3 Grupo 5 de fin de semana · TERMINADO: segundo, y a cuartos como tercer mejor segundo
 
-Con los dos partidos del 2026-09-27 ya cargados —el **4-1 de Cuartillos a Putt & Drive** en Cabanillas
-y el **3,5-1,5 de Foro 2000 a Approach y Putt**— el grupo se queda en dos:
+**Cuartillos perdió 1-4 en La Faisanera el 2026-10-04** (5 ups a 12). Con la ida ganada 2-1, el
+enfrentamiento cae **5-3 para Foro 2000**, que se lleva el punto y el grupo:
 
-| Equipo | Puntos | Enfrentamientos cerrados | Pendiente | Máximo |
-|---|---|---|---|---|
-| **Cuartillos** | **2** | Approach y Putt 4,5-3,5 · Putt & Drive 6-2 | vs Foro 2000 (4 oct) | 3 |
-| **Foro 2000** | **2** | Approach y Putt 5,5-2,5 · Putt & Drive 6-2 | vs Cuartillos (4 oct) | 3 |
-| Approach y Putt | 0 | Cuartillos 3,5-4,5 · Foro 2000 2,5-5,5 | vs Putt & Drive (4 oct) | 1 |
-| Putt & Drive | 0 | Cuartillos 2-6 · Foro 2000 2-6 | vs Approach y Putt (4 oct) | 1 |
-
-Los de abajo ya no pintan: **el único enfrentamiento vivo es Cuartillos – Foro 2000**, y su vuelta es
-justo la del domingo. Approach y Putt lleva la ida ganada 3-0 a Putt & Drive, así que a Putt & Drive
-le harían falta 4,5 de 5 para empatar el enfrentamiento; pase lo que pase ahí, ninguno de los dos
-llega a 2.
-
-**El domingo 4 de octubre, en La Faisanera, con la ida ganada 2-1:**
-
-| En los 5 individuales | Enfrentamiento (8 puntos en juego) | Cuartillos / Foro acaban con | Y entonces |
+| Pos | Equipo | Puntos | Enfrentamientos |
 |---|---|---|---|
-| **2,5 o más** | ganado, 4,5-3,5 o mejor | **3 / 2** | **primero de grupo** |
-| 2 | empatado 4-4, medio punto cada uno (§7) | 2,5 / 2,5 | empate que resuelve el enfrentamiento directo, también empatado, y luego los **ups de ese enfrentamiento**: Cuartillos llega con **+3** de la ida, así que es primero salvo que Foro saque 4 ups o más de ventaja el domingo; con exactamente 3, play off a muerte súbita scratch |
-| 1,5 o menos | perdido | 2 / 3 | **segundo**, y entonces hay que estar entre los tres mejores segundos de los cinco grupos |
+| 1 | Foro 2000 | 3 | Cuartillos 5-3 · Approach y Putt 5,5-2,5 · Putt & Drive 6-2 |
+| **2** | **Cuartillos** | **2** | Foro 2000 3-5 · Approach y Putt 4,5-3,5 · Putt & Drive 6-2 |
+| 3 | Approach y Putt | 0 | Cuartillos 3,5-4,5 · Foro 2000 2,5-5,5 · vs Putt & Drive sin cargar |
+| 4 | Putt & Drive | 0 | Cuartillos 2-6 · Foro 2000 2-6 · vs Approach y Putt sin cargar |
 
-Y ahí está lo que diferencia esta liga de la otra: **quedar segundo no clasifica por sí solo**. En el
-escenario de 20 equipos solo pasan los tres mejores segundos de los cinco grupos, y ese criterio se
-resuelve por puntos → partidos ganados en los tres enfrentamientos → **ups** (§8). Cuartillos lleva
-**32 ups a favor y 13 en contra** en esta liga, 12 de ellos del 27 de septiembre. Por eso un solo up
-cuenta aquí —fue el motivo de la corrección 2 de §13.2— y por eso conviene anotarlos partido a
-partido, como se está haciendo.
+Los cinco individuales del 4 de octubre, en orden del acta: **3&2** de Geoffrey Lonca, **5&3 de
+Francisco Álvarez** por Cuartillos, **1UP** de Antonio Aboy, **6&5** de Marco Frau y **2UP** de Mario
+Torices. Suman 4-1 y 12 ups a 5, igual que la cabecera.
 
-La carrera de los mejores segundos sigue sin poderse calcular: del resto de grupos no hay datos en
-`datos/csc.json`, que solo guarda el Grupo 5.
+**Y aquí ser segundo sí valía, por los pelos.** La RFGM resolvió el orden de los mejores segundos por
+correo el 2026-10-04:
 
-**Un fallo de datos detectado al cargar el 27 de septiembre, y no corregido:** la fila de la jornada 5
-de `partidos_grupo` pone a **Approach y Putt de local, igual que la de la jornada 2**, de modo que ese
-enfrentamiento figura con el mismo local en la ida y en la vuelta. El acta del 27 («9. FORO 2000 VS
-APPROACH Y PUTT») dice que el local era Foro 2000, así que la fila mal puesta es la de la jornada 5.
-Los puntos y los ups se escribieron con el equipo correcto; lo único afectado es la etiqueta del
-calendario.
+- Un equipo quedó **primer mejor segundo con 2,5 puntos** de clasificación de grupo.
+- Los otros tres segundos —**CG Colmenar Viejo, AEPJG y Cuartillos**— empataron **a 2 puntos**, y el
+  primer criterio de desempate es el **número de partidos ganados en los tres enfrentamientos (ida y
+  vuelta)**: **AEPJG 16 · Cuartillos 13,5 · Colmenar Viejo 13**.
+- **AEPJG entra como segundo mejor segundo y Cuartillos como tercero.** Colmenar Viejo se queda fuera
+  **por medio punto**.
+
+**Los 13,5 de la federación cuadran exactamente con `datos/csc.json`**, sumando los puntos de
+Cuartillos en las seis jornadas del grupo. Es la mejor validación que ha tenido el dato de fin de
+semana, y confirma de paso las tres correcciones de §13.2.
+
+Por el cuadro match (§8.1), el tercer mejor segundo juega **contra el 1º del Grupo 1**, el **domingo
+15 de noviembre en Los Ángeles de San Rafael**.
+
+**Corrección de método, anotada a propósito:** mientras se jugaba la fase, aquí ponía que la carrera
+de los mejores segundos «no se puede calcular porque `datos/csc.json` sólo guarda el Grupo 5». El
+motivo estaba mal: **los dos PDF federativos de `fuentes/` traen todos los grupos** —los 4 de entre
+semana y los 5 de fin de semana— y así lo dice el propio §13.1. Lo que sí era cierto es que esos PDF
+se descargaron el 11 de septiembre y les faltaban las dos últimas jornadas, así que la cuenta
+tampoco salía; pero la razón que se dio no era esa. **Antes de decir que un dato no está, mirar en
+`fuentes/`.**
+
+**Ups de Cuartillos en la liga de fin de semana: 37 a favor, 25 en contra.**
 
 **Cosas del reglamento que conviene tener a mano el día de la prueba:**
 
@@ -625,14 +633,16 @@ octubre**.
 | Jueves 2026-10-01, entre semana | lunes 21/09 10:00 | lunes 28/09 10:00 |
 | Domingo 2026-10-04, fin de semana | lunes 21/09 10:00 | lunes 28/09 10:00 |
 | **Martes 2026-10-20, cuartos entre semana** | **miércoles 07/10 10:00** | **miércoles 14/10 10:00** |
+| **Domingo 2026-11-15, cuartos fin de semana** | **lunes 02/11 10:00** | **lunes 09/11 10:00** |
 
 La fila del 1 de octubre estaba mal hasta el 2026-10-04: se le había aplicado la regla de los
 miércoles por ser «entre semana», cuando el partido era jueves. Corregida.
 
 ### Abrir una eliminatoria, que no es una jornada de liga
 
-Los cuartos del 20 de octubre se añadieron a `partidos` de la modalidad `ES` el 2026-10-04 y traen
-tres diferencias respecto a una jornada de liga, que conviene repetir cuando toque semifinales:
+Los cuartos se añadieron a `partidos` como `ESQF` (el 2026-10-04) y `FSQF` (el 2026-10-06), detrás
+de las seis jornadas de liga de cada modalidad. Traen tres diferencias respecto a una jornada de
+liga, que conviene repetir cuando toque semifinales:
 
 - **`"formato": "2 fourball + 2 individuales"`.** `calcNecesarios()` lo lee como **6** jugadores y
   `parseFormato()` saca 2 fourballs y 2 individuales para el modal de asignación. Las dos funciones
@@ -640,10 +650,16 @@ tres diferencias respecto a una jornada de liga, que conviene repetir cuando toq
 - **`"local": null`.** El campo lo designa la federación y no hay local ni visitante. El calendario
   lo pinta como **NEUTRAL** en vez de LOCAL o VISITA; antes del 2026-10-04 solo sabía pintar esas
   dos y un `false` habría dicho VISITA, que es falso.
-- **`"id": "ESQF"`**, fuera de la serie `ES1`..`ES6`, porque no es una jornada. Nada del microsite
-  interpreta el número del `id`: solo se usa tal cual como clave de inscritos vía `pkey()`.
+- **`"id": "ESQF"` y `"FSQF"`**, fuera de las series `ES1`..`ES6` y `FS1`..`FS6`, porque no son
+  jornadas. Nada del microsite interpreta el número del `id`: solo se usa tal cual como clave de
+  inscritos vía `pkey()`.
 
-Mientras no se sepa el rival, el campo `rival` lleva **`1º del Grupo 2 (cuartos)`**, que es lo que
-dice el cuadro match (§8.1). Se ve tal cual en el calendario, en la portada y en el título de la
-tarjeta de inscripción, así que cuando se conozca el equipo basta con cambiar esa cadena y subir
-`CV`.
+Mientras no se sepa el rival, el campo `rival` lleva **`1º del Grupo 2 (cuartos)`** y **`1º del Grupo
+1 (cuartos)`**, que es lo que dice el cuadro match (§8.1). Se ve tal cual en el calendario, en la
+portada y en el título de la tarjeta de inscripción, así que cuando se conozca el equipo basta con
+cambiar esa cadena y subir `CV`.
+
+**Ojo con abrir las dos a la vez:** el microsite admite **una sola inscripción abierta por
+modalidad**, y como son modalidades distintas, el ESQF y el FSQF conviven sin pisarse. Si alguna vez
+hubiera dos pendientes en la misma liga, la segunda no se ve hasta marcar la primera con
+`inscripcionCerrada`.
