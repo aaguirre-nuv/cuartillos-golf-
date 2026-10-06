@@ -475,6 +475,11 @@ Los cinco individuales del 4 de octubre, en orden del acta: **3&2** de Geoffrey 
 Francisco Álvarez** por Cuartillos, **1UP** de Antonio Aboy, **6&5** de Marco Frau y **2UP** de Mario
 Torices. Suman 4-1 y 12 ups a 5, igual que la cabecera.
 
+**Al cargar los nombres, ojo con los motes.** Las actas federativas traen el nombre legal completo y
+el repo usa el corto: el acta dice *Vicente López Calderón* y en el repo eso es **Miche Lopez**, como
+ya constaba en `nombreCompleto` de `datos/jugadores.json`. Antes de dar por bueno que alguien del
+acta no está en `elegibles`, **cruzarlo contra ese campo**.
+
 **Y aquí ser segundo sí valía, por los pelos.** La RFGM resolvió el orden de los mejores segundos por
 correo el 2026-10-04:
 

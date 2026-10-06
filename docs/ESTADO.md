@@ -164,10 +164,23 @@ Viejo 13.**
 seis jornadas del grupo, las tres correcciones de §13.2 del reglamento y la forma de contar los
 medios puntos. Es el mejor contraste que ha tenido el dato de fin de semana.
 
-**Anotado y sin resolver:** en el acta aparece **Vicente López Calderón** jugando por Cuartillos, y
-**no está en la lista de elegibles** de `csc.json`. Se ha grabado tal cual viene del acta; no se ha
-inventado un nombre ni se ha metido en elegibles. Hay que mirar si falta en la lista o si es otra
-cosa.
+**El acta trae los nombres completos y el repo usa los motes.** En el acta figura **Vicente López
+Calderón**, que no está en la lista de elegibles y se cargó así, en crudo, en lugar de adivinar. Lo
+confirmó Álvaro el 2026-10-06: **es Miche**, y de hecho lo decía ya `jugadores.json`, donde
+`Miche Lopez` lleva `nombreCompleto: "Vicente Lopez Calderón"` y licencia `CMA8937096`. Corregido a
+**Miche Lopez**, que es como se le nombra en todo el repo.
+
+**La regla que sale de aquí:** las actas federativas vienen con el nombre legal completo y el repo
+usa el nombre corto. Antes de dar por bueno que alguien no está en elegibles, **cruzar el nombre del
+acta contra `nombreCompleto` de `jugadores.json`**. Hecho con los cinco del FS6, y los cinco cuadran:
+
+| En el acta | En el repo |
+|---|---|
+| Jose Pablo Guil Salvador | José Pablo Guil |
+| Francisco Alvarez Oliva | Francisco Alvarez |
+| **Vicente Lopez Calderón** | **Miche Lopez** |
+| Jorge Alberto Martinez Sanchez | Jorge Alberto Martínez Sánchez |
+| Francisco Javier Gonzalez Salvador | Javier Gonzalez Salvador |
 
 ### Abierta la inscripción de los cuartos de fin de semana
 
@@ -425,11 +438,17 @@ Del Grupo 2 de entre semana sabemos por el PDF federativo que se jugaba entre **
 Colmenar Viejo** el 1 de octubre. Del Grupo 1 de fin de semana (Golf de Golfos, Tres Cantos, CG
 Caminos y Grow Golf) hacían falta las jornadas del 27/09 y el 04/10, que no tenemos.
 
-### 5. Vicente López Calderón no está en los elegibles de fin de semana
+### 5. Los nombres de `jugadores` de `csc.json` están sin normalizar
 
-Jugó el FS6 del 4 de octubre por Cuartillos según el acta federativa, y no aparece en
-`modalidades[FS].elegibles` de `csc.json`. Está grabado en los `jugadores` del partido tal cual viene
-del acta. Falta decidir si se añade a elegibles, si está con otro nombre o si es un error del acta.
+Son texto libre y cada partido se cargó a su manera. El **FS4** guarda `Angel Hernandez Rilova`,
+`Jaime Villanueva Ghisleri`, `Jorge Alberto Martinez`, `Alvaro Nieto Esteban` y `Santiago Diaz`,
+ninguno de los cuales coincide con la lista de elegibles; el **FS2** y el **FS3** usan `Jose Pablo
+Guil` y `José Pablo Guil`, con y sin tilde, para la misma persona. Del FS5 en adelante se usan los
+nombres de elegibles.
+
+No rompe nada —esos nombres sólo se pintan como texto bajo el resultado del partido— pero impide
+cruzarlos con `jugadores.json` sin trabajo. Si alguna vez se quiere contar cuántos CSC ha jugado cada
+uno, hay que normalizarlos antes. **No tocado: son dato, y cambiarlos necesita el ok de Álvaro.**
 
 ## Cuatro trampas de este repo
 
