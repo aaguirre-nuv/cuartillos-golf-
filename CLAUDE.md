@@ -7,6 +7,8 @@ página estática que se sirve tal cual y lee ficheros JSON de la carpeta `datos
 
 ## Qué hay
 
+**En producción: <https://aaguirre-nuv.github.io/cuartillos-golf-/microsite.html>** (GitHub Pages, desde `main`).
+
 - `microsite.html` — la aplicación entera: maquetación, estilos y JavaScript en un solo fichero.
   Secciones: portada, calendario, clasificación, equipos, tarjetas, jugador, estadísticas y **CSC**.
 - `datos/` — los datos, en JSON por temporada (2021 a 2026):
