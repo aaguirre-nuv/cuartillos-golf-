@@ -147,6 +147,35 @@ que no miraba ni los resultados metidos desde el panel ni la marca de cerrada.
 Cómo repetirlo cada jornada, y los plazos federativos, en
 [`reglamento-csc-2026.md`](reglamento-csc-2026.md) §16.
 
+## Qué se hizo el 2026-10-12
+
+### El 5&4 de Nacho González en el ES6 era una incomparecencia
+
+Estaba convocado, llegó tarde y el partido se dio por perdido. El reglamento salda la ausencia de un
+jugador justo con un **5&4** (§6), que es exactamente lo que figuraba en el acta, así que **el dato
+parecía un partido jugado y perdido**. Marcado en `csc.json` con
+`"incomparecencias": ["Nacho Gonzalez"]` en el ES6.
+
+**El marcador y los ups no cambian** —el 4-2 y el 8-5 son los mismos—; lo que cambia es la lectura
+por jugador: esa derrota no es suya en el campo.
+
+**Y hay una consecuencia para más adelante.** Para jugar la **Final** hace falta *haber disputado* al
+menos una prueba de la temporada (§3 y §9). Un walkover no es haber disputado nada, así que si el ES6
+es su única aparición del año —y lo es, en todo el CSC del repo— **para la Final podría no valerle**.
+Para cuartos y semifinales da igual: ahí no hay requisito de participación. Conviene saberlo antes y
+no el día de la convocatoria.
+
+### El Fresnillo y Naturávila son el mismo campo
+
+Lo confirmó Álvaro. `csc.json` lo llama **El Fresnillo**, que es como viene en las actas de la RFGM;
+`calendario.json` y `campos.json` lo llaman **Naturávila**, que es como lo llamamos nosotros. Por eso
+buscar «Naturávila» en el CSC no daba nada.
+
+No se ha unificado: cada fichero usa el nombre de su fuente y cambiarlo tocaría seis temporadas de
+tarjetas. Pero **hay que tenerlo en cuenta para cualquier cruce entre el circuito interno y el CSC**,
+y para el importador de 2027. De paso, `campos.json` escribe **`Naturavila` sin tilde** solo en las
+barras Azules, y `Naturávila` con tilde en las otras tres.
+
 ## Qué se hizo el 2026-10-06
 
 ### Cargado el FS6 y cerrada la fase de grupos de fin de semana

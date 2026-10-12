@@ -431,11 +431,23 @@ el enfrentamiento directo contra Club El Estudiante por **5-4** y suma su segund
 | | Jugador | Resultado |
 |---|---|---|
 | 1 | Carlos Maestro | A/S |
-| 2 | Nacho González | P 5&4 |
+| 2 | Nacho González | P 5&4 · **incomparecencia** |
 | 3 | Alvaro Montoya | A/S |
 | 4 | Alvaro Aguirre | **G 3&2** |
 | 5 | Eduardo Buendía | **G 2&1** |
 | 6 | Javier Chiralt | **G 3&2** |
+
+El **5&4 de Nacho González no se jugó**: estaba convocado, llegó tarde y el partido se dio por
+perdido. El §6 salda la ausencia de un jugador con un 5&4, que es justo lo que pone el acta, de modo
+que en el dato no se distingue de una derrota normal; va marcado aparte con `incomparecencias`. El
+marcador, los ups y la clasificación no cambian.
+
+**Ojo para la Final:** el §3 exige *haber disputado* al menos una prueba de la temporada para
+jugarla, y un walkover no es haberla disputado. Para cuartos y semifinales no hay ningún requisito de
+participación.
+
+**Y el campo:** «El Fresnillo» de las actas federativas es **Naturávila**, que es como lo llaman
+`calendario.json` y `campos.json`. Mismo sitio, dos nombres según la fuente.
 
 **Cuartillos termina segundo del Grupo 3 y está en cuartos**, y no depende de nada más. Sus tres
 enfrentamientos están cerrados: perdido con Foro 2000 (4-5), ganados a Grow Golf (6-3) y a Club El
