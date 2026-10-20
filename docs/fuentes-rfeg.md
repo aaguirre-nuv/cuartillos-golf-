@@ -62,9 +62,12 @@ se pueden ver las vueltas de otro jugador. El inicio de sesión lo tendría que 
 
 ## Lo que queda abierto
 
-- **H1 · ABIERTA.** No hay hoy una fuente pública de las **vueltas** de otros jugadores: la del servidor
-  antiguo está rota y la web nueva solo da el hándicap. Se falsearía encontrando en `app.rfegolf.es`
-  una vista de vueltas de un tercero, o una URL alternativa del servidor antiguo que funcione.
+- **H1 · EN VALIDACIÓN.** No hay hoy una fuente **pública** de las **vueltas** de otros jugadores: la del
+  servidor antiguo está rota y la web nueva sin sesión solo da el hándicap. **Álvaro, 2026-10-20:** *«he
+  visto y extraído las vueltas de todos… sin problema»*. **Sin medir** si fue desde MIGOLF
+  (`app.rfegolf.es`) o con los flujos antiguos. **Lo primero al retomar:** que Álvaro inicie sesión en
+  MIGOLF en el navegador compartido y mirar cómo se llega a las vueltas de otra licencia, y si hay una
+  API por debajo como en el buscador público.
 - Con lo medido sí es posible, sin sesión, una **foto semanal del hándicap** de cada socio desde el
   buscador nuevo, enlazada con el histórico que ya hay (`datos/handicaps.json` desde 2018 y
   `Handicap actual.xlsx` desde 2025-02).
