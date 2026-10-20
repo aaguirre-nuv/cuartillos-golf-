@@ -15,6 +15,11 @@ jugadores no tienen hoy fuente pública** (la página antigua de las 20 últimas
 `docs/Untitled-1.txt` y `docs/Untitled-2.txt` son el texto de los dos flujos antiguos de PAD: **sin
 subir a propósito** (pesan 6 MB y llevan el usuario de la web).
 
+**Para retomar (fin de semana del 24-25/10):** Álvaro dice que ha visto y extraído las vueltas de
+todos sin problema. Primer paso: que inicie sesión en MIGOLF y ver juntos cómo se llega a las vueltas
+de otra licencia. Después, seguir definiendo qué tiene que enseñar el microsite; quedó sin contestar
+**qué miró y qué echó en falta la última vez que eligió a quién llevar a un partido de la CSC**.
+
 ## Lo primero al volver
 
 **Cuartillos está en cuartos de final en las dos ligas, y las dos fases de grupos están cerradas.**
