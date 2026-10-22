@@ -301,7 +301,7 @@ tr:nth-child(3) .rk{color:#cd7f32}
 var BASE='./datos/';
 // Version de cache de los datos. Subirla en CADA cambio de datos/*.json,
 // o los navegadores que ya han visitado la pagina seguiran sirviendo la copia vieja.
-var CV='?v=20261013a';
+var CV='?v=20261018a';
 var IMG='./img/';
 var MES=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
 var MESES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
@@ -1259,10 +1259,11 @@ function renderPortada(){
     var proximo2=null;
     if(s===new Date().getFullYear()){
       for(var i=0;i<torn.length;i++){
-        if(!torn[i].jugado){
+        // Un torneo aplazado no tiene fecha buena: no puede ser el "proximo".
+        if(!torn[i].jugado&&!torn[i].aplazado){
           proximo=torn[i];
           // Check if next tournament is on consecutive day(s)
-          if(i+1<torn.length&&!torn[i+1].jugado){
+          if(i+1<torn.length&&!torn[i+1].jugado&&!torn[i+1].aplazado){
             var d1=parseDate(torn[i].fecha),d2=parseDate(torn[i+1].fecha);
             var diffDays=Math.round((d2-d1)/86400000);
             if(diffDays<=2){proximo2=torn[i+1];}
@@ -1467,7 +1468,7 @@ function renderCal(){
     if(isCur){
       for(var i=0;i<allEv.length;i++){
         var ev=allEv[i];
-        if(ev.tipo==='liga'&&!ev.data.jugado){proxEv=ev;break;}
+        if(ev.tipo==='liga'&&!ev.data.jugado&&!ev.data.aplazado){proxEv=ev;break;}
         if(ev.tipo==='csc'&&!ev.data.resultado){proxEv=ev;break;}
       }
     }
@@ -1503,6 +1504,7 @@ function renderCal(){
             '<span class="tb '+(TC[t.tipoTorneo]||'t2')+'">'+(TIPOS[t.tipoTorneo]||'Liga')+'</span>'+
             (isProx?'<span class="tb tnext">PR&Oacute;XIMO</span>':
              j?'<span class="tb ts">&#10003; Jugado</span>':
+             t.aplazado?'<span class="tb" style="background:#fee2e2;color:#991b1b">APLAZADO</span>':
              '<span class="tb tn">Pendiente</span>')+
             (t.urlGolfDirecto?'<div style="margin-top:6px">'+gdBtn(t)+'</div>':'')+
           '</div>'+

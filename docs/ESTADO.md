@@ -147,6 +147,35 @@ que no miraba ni los resultados metidos desde el panel ni la marca de cerrada.
 Cómo repetirlo cada jornada, y los plazos federativos, en
 [`reglamento-csc-2026.md`](reglamento-csc-2026.md) §16.
 
+## Qué se hizo el 2026-10-18
+
+### El T9 de Naturávila queda aplazado, sin fecha
+
+Primero se movió del domingo 18 al sábado 31, y el 18 se cayó también el 31. **No está cancelado:
+está pendiente de recolocar.** En `calendario.json` lleva ahora `"aplazado": true`, la observación
+«Aplazado · fecha por determinar» y **sin `urlGolfDirecto`**, porque sin fecha no tiene sentido que
+nadie se inscriba.
+
+**La fecha del 31 se ha dejado puesta a propósito**, solo para que el torneo no se descoloque en el
+calendario: el microsite ordena por fecha y `parseDate(null)` devuelve el día de hoy, que sería peor.
+Lo que manda es el flag.
+
+**Esto sí tocó el HTML**, porque no había forma de representar un torneo aplazado:
+
+- La portada y el calendario **ya no lo toman como «próximo»**. Ahora el próximo evento es el cuarto
+  de final del CSC del 20 de octubre, y después el T10 de Layos.
+- El calendario le pinta una etiqueta **APLAZADO** en vez de «Pendiente».
+
+### El T10 pasa a ser el 7º puntuable
+
+**Decisión de Álvaro.** Si el T10 de Layos se juega antes que el T9, será el noveno torneo de la
+temporada, y tras nueve cuentan las **7 mejores**. Así que el T10 pasa de `nTornPunt` 8 a **7**; el
+T11 se queda en 8.
+
+**Si el T9 se recoloca, hay que volver aquí.** La serie de `nTornPunt` está calculada suponiendo que
+el T10 se juega antes; si al final el T9 cae en medio, los números de los tres últimos torneos hay
+que revisarlos. **No deducirlos del dato**: preguntar.
+
 ## Qué se hizo el 2026-10-12
 
 ### El 5&4 de Nacho González en el ES6 era una incomparecencia
