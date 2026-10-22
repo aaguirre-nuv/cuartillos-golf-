@@ -410,9 +410,13 @@ enfrentamiento en 5,5-2,5 y **sube a 2 puntos, los mismos que Cuartillos**. El d
 
 **Encontrado de paso, sin tocar:** la fila de la jornada 5 tiene a **Approach y Putt como local, igual
 que la de la jornada 2**, así que ese enfrentamiento figura con el mismo local en la ida y en la
-vuelta. El título del acta dice que el 27 de septiembre el local era Foro 2000, o sea que la de la
-jornada 5 es la que está del revés. Sólo afecta a la etiqueta del calendario: los puntos y los ups
-se han escrito con el equipo correcto. Es el mismo tipo de fallo que el `local` de ES1 y ES5.
+vuelta. Sólo afecta a la etiqueta del calendario: los puntos y los ups se han escrito con el equipo
+correcto.
+
+> **Rectificado el 2026-10-22.** Aquí se escribió que el título del acta («FORO 2000 VS APPROACH Y
+> PUTT») demostraba que la fila de la jornada 5 era la del revés. **No lo demuestra:** el acta del ES6
+> se titula «6. CUARTILLOS VS CLUB EL ESTUDIANTE» y en esa jornada el local era Club El Estudiante.
+> El orden de los nombres en el título no dice quién es local. Ver el pendiente nº 5.
 
 ### Cargado Grow Golf – Foro 2000 y el Grupo 3 queda cerrado
 
