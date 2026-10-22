@@ -190,9 +190,15 @@ cargar nada:
 
 - **Ignacio González Salvador es Nacho González**, el mismo que no se presentó al ES6. Aquí sí
   jugó.
-- **Eduardo Buendía no casaba** porque el maestro tiene su `nombreCompleto` con una errata:
-  **«Eduado Buendía Pan»**, sin la erre. Se ha identificado por los apellidos. **No corregido**: eso
-  sale del Excel, y `jugadores.json` es el resultado, no la fuente.
+- **Eduardo Buendía no casaba** porque el maestro tenía su `nombreCompleto` con una errata:
+  **«Eduado Buendía Pan»**, sin la erre. Se identificó por los apellidos y el mismo día se corrigió
+  **en el Excel y en `jugadores.json`**, que son las 7 filas del jugador, una por temporada.
+
+  La errata era una **cadena compartida suelta** de `xl/sharedStrings.xml` y salía una sola vez, así
+  que se reescribió el zip entrada por entrada cambiando solo ese `<si>`: ni se añade ni se quita
+  ninguna entrada, los índices no se mueven y **de las 144 entradas del libro cambia una**, lo que se
+  comprueba en el propio script. **Nunca abrir este libro con openpyxl**: tiene tablas dinámicas,
+  modelo de datos y Power Query, y guardarlo con openpyxl se los carga.
 
 **En el microsite**, entre semana se queda sin inscripción abierta —la temporada ha terminado— y el
 calendario pinta el cuarto como PERDIDO. De paso desaparece el «¡HOY!» que la portada enseñaba desde
