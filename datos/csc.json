@@ -203,14 +203,21 @@
           "id": "ESQF",
           "fecha": "2026-10-20",
           "campo": "El Encín",
-          "rival": "1º del Grupo 2 (cuartos)",
+          "rival": "Goldfers",
           "formato": "2 fourball + 2 individuales",
           "local": null,
-          "resultado": null,
-          "detalle": null,
-          "ups_favor": null,
-          "ups_contra": null,
-          "jugadores": []
+          "resultado": "P",
+          "detalle": "1.5-2.5 (ind: G 3&2, P 5&4 · fb: A/S, P 2UP)",
+          "ups_favor": 3,
+          "ups_contra": 7,
+          "jugadores": [
+            "Alvaro Aguirre",
+            "Eduardo Buendía",
+            "Alvaro Montoya",
+            "Javier Chiralt",
+            "Nacho Gonzalez",
+            "David Sequera"
+          ]
         }
       ],
       "partidos_grupo": [

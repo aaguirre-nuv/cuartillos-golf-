@@ -179,12 +179,11 @@ se guardaron en `docs/fuentes/`:
 | 3 | 1º Grupo 3 | 2º Grupo 2 |
 | 4 | **1º Grupo 2** | **2º Grupo 3** |
 
-**Cuartillos termina 2º del Grupo 3, así que su cuarto de final es contra el 1º del Grupo 2.** Ese
-dato no está en `datos/csc.json`, que sólo guarda el grupo propio, pero **sí está en el PDF
-federativo de §13.1**, que trae los cuatro grupos: el **Grupo 2 lo forman Golf Sierra Norte,
-Sultanes del Swing, Goldfers y CG Colmenar Viejo**, y al 11 de septiembre lo lideraban Colmenar Viejo
-y Goldfers empatados a 2, con su enfrentamiento directo pendiente de la vuelta del 1 de octubre en El
-Fresnillo. El primero del grupo es el que ganara esa eliminatoria.
+**Cuartillos terminó 2º del Grupo 3, así que jugó contra el 1º del Grupo 2, que resultó ser
+GOLDfers.** El **Grupo 2 lo forman Golf Sierra Norte, Sultanes del Swing, Goldfers y CG Colmenar
+Viejo** —eso sale del PDF federativo de §13.1, que trae los cuatro grupos, no de `datos/csc.json`,
+que sólo guarda el propio—, y el primer puesto se decidía entre Goldfers y Colmenar Viejo en la
+vuelta del 1 de octubre. **Lo ganó Goldfers**, confirmado por el acta del cuarto de final.
 
 **Escenario de 20 — fin de semana:**
 
@@ -470,6 +469,27 @@ segundo del Grupo 3.**
 Los seis individuales de Grow Golf – Foro 2000, en el orden del acta: **1UP, 2UP, 6&5 y 5&4** de
 Foro 2000, **5&4 de Jorge Chamochin** por Grow Golf, y **5&3 de Mayte Castro Celma** por Foro. Suman
 5-1 y 19 ups a 5, igual que la cabecera.
+
+### 14.2.1 Cuartos de final de entre semana · eliminados el 2026-10-20
+
+**GOLDfers 2,5 – Cuartillos 1,5**, en El Encín, 7 ups a 3. El acta reparte la jornada en dos rondas:
+
+| Ronda | Cuartillos | Resultado |
+|---|---|---|
+| 1 · individuales | Álvaro Aguirre | **G 3&2** |
+| 1 · individuales | Eduardo Buendía | P 5&4 |
+| 2 · fourball | Álvaro Montoya + Javier Chiralt | **A/S** |
+| 2 · fourball | Nacho González + David Sequera | P 2UP |
+
+Individuales 1-1, fourball 0,5-1,5. Suma y ups cuadran con la cabecera.
+
+**Ojo con el formato de las eliminatorias**, que no es el de la liga: **6 jugadores, 2 individuales y
+2 fourball**, y en el acta los individuales van en la Ronda 1 y los fourball en la Ronda 2. Por eso
+el `detalle` de un partido de eliminatoria se escribe marcando las dos partes —`ind: … · fb: …`— en
+vez de como una lista plana: en una lista plana no se sabría cuál es cuál.
+
+**La temporada de entre semana termina aquí.** Queda viva la de fin de semana, cuyo cuarto de final
+es el 15 de noviembre.
 
 ### 14.3 Grupo 5 de fin de semana · TERMINADO: segundo, y a cuartos como tercer mejor segundo
 

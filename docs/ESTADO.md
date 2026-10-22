@@ -22,24 +22,26 @@ de otra licencia. Después, seguir definiendo qué tiene que enseñar el microsi
 
 ## Lo primero al volver
 
-**Cuartillos está en cuartos de final en las dos ligas, y las dos fases de grupos están cerradas.**
+**Entre semana se acabó: Cuartillos cayó en cuartos el 20 de octubre.** Perdió **1,5-2,5 contra
+Goldfers** en El Encín. **Queda viva la de fin de semana**, cuyo cuarto de final es el **domingo 15 de
+noviembre en Los Ángeles de San Rafael**, contra el 1º del Grupo 1, que aún no se sabe quién es.
 
-| Liga | Cómo entró | Cuartos | Rival |
+| Liga | Cómo entró | Cuartos | Resultado |
 |---|---|---|---|
-| Entre semana | 2º del Grupo 3, 2 puntos | **martes 20/10, El Encín** | 1º del Grupo 2, sin decidir |
-| Fin de semana | **tercer mejor segundo**, 2 puntos | **domingo 15/11, Los Ángeles de San Rafael** | 1º del Grupo 1, sin decidir |
+| Entre semana | 2º del Grupo 3, 2 puntos | martes 20/10, El Encín | **perdido 1,5-2,5 vs Goldfers** |
+| Fin de semana | tercer mejor segundo, 2 puntos | **domingo 15/11, Los Ángeles de San Rafael** | pendiente |
 
-**Las dos inscripciones están abiertas en el microsite.** Campo neutral las dos, **2 fourball + 2
-individuales, 6 jugadores** —no es el formato de la liga—. Plazos federativos: **cierra el miércoles
-14/10 a las 10:00** la de entre semana y el **lunes 09/11 a las 10:00** la de fin de semana.
+**La inscripción de fin de semana está abierta** en el microsite. Campo neutral, **2 fourball + 2
+individuales, 6 jugadores** —no es el formato de la liga—. El plazo federativo **cierra el lunes 09/11
+a las 10:00**.
 
-**Lo de fin de semana salió por los pelos.** Se perdió 1-4 en La Faisanera, el grupo se quedó en
-segundo, y en esta liga ser segundo no clasifica solo. La RFGM desempató a los tres segundos de 2
-puntos por partidos ganados: **AEPJG 16, Cuartillos 13,5 y Colmenar Viejo 13**, así que Colmenar se
-queda fuera por medio punto. Detalle en [`reglamento-csc-2026.md`](reglamento-csc-2026.md) §14.3.
+**Y el T9 del circuito interno se ha movido dos veces**: del domingo 18 de octubre al sábado 31, y de
+ahí al **domingo 22 de noviembre en El Encin**, ya con enlace de inscripción nuevo. Entre el T9 y el
+T10 de Layos quedan seis días.
 
-**Único dato de liga sin cargar:** Approach y Putt – Putt & Drive de la jornada 6 de fin de semana.
-No cambia nada: los dos acabaron con 0 puntos y ninguno podía pasar de 1.
+**Datos sin cargar, los dos inocuos:** Approach y Putt – Putt & Drive de la jornada 6 de fin de
+semana (los dos acabaron con 0 puntos y ninguno podía pasar de 1), y los otros tres cuartos de final
+de cada liga, que no son nuestros.
 
 ## Qué se hizo el 2026-09-12
 
@@ -162,6 +164,39 @@ que no miraba ni los resultados metidos desde el panel ni la marca de cerrada.
 
 Cómo repetirlo cada jornada, y los plazos federativos, en
 [`reglamento-csc-2026.md`](reglamento-csc-2026.md) §16.
+
+## Qué se hizo el 2026-10-22
+
+### Cargado el cuarto de final de entre semana · eliminados
+
+**Goldfers 2,5 – Cuartillos 1,5**, en El Encín, 7 ups a 3. El acta reparte el cuarto de final en dos
+rondas, y así está grabado el `detalle`:
+
+| Ronda | | Resultado |
+|---|---|---|
+| 1 · individuales | Álvaro Aguirre | **G 3&2** |
+| 1 · individuales | Eduardo Buendía | P 5&4 |
+| 2 · fourball | Montoya + Chiralt | **A/S** |
+| 2 · fourball | Nacho González + Sequera | P 2UP |
+
+Individuales 1-1, fourball 0,5-1,5. **La suma cuadra con la cabecera** en puntos y en ups, que es la
+comprobación de siempre.
+
+**Y con eso se fija el rival que estaba sin nombre:** el 1º del Grupo 2 de entre semana es
+**Goldfers**, que ganó su vuelta a CG Colmenar Viejo el 1 de octubre.
+
+**Dos cosas de los nombres**, las dos cruzadas contra `nombreCompleto` de `jugadores.json` antes de
+cargar nada:
+
+- **Ignacio González Salvador es Nacho González**, el mismo que no se presentó al ES6. Aquí sí
+  jugó.
+- **Eduardo Buendía no casaba** porque el maestro tiene su `nombreCompleto` con una errata:
+  **«Eduado Buendía Pan»**, sin la erre. Se ha identificado por los apellidos. **No corregido**: eso
+  sale del Excel, y `jugadores.json` es el resultado, no la fuente.
+
+**En el microsite**, entre semana se queda sin inscripción abierta —la temporada ha terminado— y el
+calendario pinta el cuarto como PERDIDO. De paso desaparece el «¡HOY!» que la portada enseñaba desde
+el día 20, que era el partido sin resultado.
 
 ## Qué se hizo el 2026-10-18
 
@@ -433,15 +468,9 @@ escenario de 16 equipos pasan los dos primeros de cada grupo, así que **Cuartil
 como segundo de grupo**. Ups de Cuartillos en la liga: **51 a favor, 35 en contra**; los de Foro,
 76-28.
 
-**Cuartos: martes 20 de octubre en El Encín**, dato que trajo Álvaro el 4 de octubre. Se juega **en
-una sola jornada**, con **6 jugadores: 2 fourball y 2 individuales** —no es el formato de las vueltas
-de liga— y en **campo neutral**. El rival es **el 1º del Grupo 2** según el cuadro match
-([§8.1](reglamento-csc-2026.md#81-el-cuadro-match-que-en-la-circular-va-como-imagen)), pero **todavía
-no se sabe qué equipo es**. La inscripción ya está abierta en el microsite.
-
-**Plazo federativo:** al caer en martes va por la regla de los miércoles, no por la de los lunes que
-usaron las seis jornadas de liga (todas en jueves): **abre el miércoles 07/10 a las 10:00 y cierra el
-miércoles 14/10 a las 10:00**. Conviene cerrar la convocatoria interna con margen sobre esa fecha.
+**Eliminados en cuartos.** El 20 de octubre, en El Encín, **Goldfers 2,5 – Cuartillos 1,5** (7 ups a
+3). Individuales 1-1 —Aguirre gana 3&2, Buendía pierde 5&4— y fourball 0,5-1,5 —Montoya y Chiralt
+empatan, Nacho González y Sequera pierden 2UP—. **La temporada de entre semana termina aquí.**
 
 ### CSC · fin de semana · Grupo 5
 
@@ -501,16 +530,15 @@ primero.**
 - **El PDF federativo de fin de semana se contradice en una celda** (Foro 2000 – Putt & Drive: da ida
   12-0 y vuelta 5-1 en ups pero totaliza 17-2). No afecta a Cuartillos.
 
-### 4. Faltan los dos rivales de cuartos
+### 4. Falta el rival de cuartos de fin de semana
 
-Fechas y campos ya los tenemos; lo que falta es **quién gana el Grupo 2 de entre semana** y **quién
-gana el Grupo 1 de fin de semana**. Mientras tanto los partidos están en `csc.json` como `ESQF` y
-`FSQF` con `rival` puesto a `1º del Grupo 2 (cuartos)` y `1º del Grupo 1 (cuartos)`; cuando se sepan,
-se cambian esas dos cadenas y se sube `CV`, nada más.
+El de entre semana ya se sabe y se jugó: era **Goldfers**. Falta **quién gana el Grupo 1 de fin de
+semana** (Golf de Golfos, Tres Cantos, CG Caminos y Grow Golf), que es contra quien jugamos el 15 de
+noviembre. En `csc.json` el `FSQF` lleva `rival` puesto a `1º del Grupo 1 (cuartos)`; cuando se sepa,
+se cambia esa cadena y se sube `CV`, nada más.
 
-Del Grupo 2 de entre semana sabemos por el PDF federativo que se jugaba entre **Goldfers y CG
-Colmenar Viejo** el 1 de octubre. Del Grupo 1 de fin de semana (Golf de Golfos, Tres Cantos, CG
-Caminos y Grow Golf) hacían falta las jornadas del 27/09 y el 04/10, que no tenemos.
+Del PDF federativo de `fuentes/` solo salen las jornadas hasta el 13 de junio de ese grupo: faltan
+las del 27/09 y el 04/10, que no tenemos.
 
 ### 5. Los nombres de `jugadores` de `csc.json` están sin normalizar
 
