@@ -301,7 +301,7 @@ tr:nth-child(3) .rk{color:#cd7f32}
 var BASE='./datos/';
 // Version de cache de los datos. Subirla en CADA cambio de datos/*.json,
 // o los navegadores que ya han visitado la pagina seguiran sirviendo la copia vieja.
-var CV='?v=20261022c';
+var CV='?v=20261022d';
 var IMG='./img/';
 var MES=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
 var MESES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
@@ -1169,7 +1169,12 @@ var jMode='neto';
 
 function load(f){
   if(cache.hasOwnProperty(f)) return Promise.resolve(cache[f]);
-  return fetch(BASE+f+CV).then(function(r){return r.ok?r.json():null;}).then(function(d){cache[f]=d;return d;}).catch(function(){cache[f]=null;return null;});
+  // cache:'no-cache' obliga al navegador a revalidar contra el servidor en vez
+  // de servir su copia a ciegas. Si el fichero no ha cambiado responde un 304
+  // vacio y no cuesta nada; si ha cambiado, llega el nuevo. Hace falta porque
+  // CV vive dentro de este mismo HTML: con un microsite.html cacheado se usaba
+  // el CV viejo y por tanto el JSON viejo, y subir CV no servia de nada.
+  return fetch(BASE+f+CV,{cache:'no-cache'}).then(function(r){return r.ok?r.json():null;}).then(function(d){cache[f]=d;return d;}).catch(function(){cache[f]=null;return null;});
 }
 function loadAllTarjetas(){
   var k='tarjetas_all.json';

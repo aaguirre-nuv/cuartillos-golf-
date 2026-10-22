@@ -82,7 +82,7 @@
           "campo": "B.A. de Torrejón",
           "rival": "Foro 2000",
           "formato": "3 fourball",
-          "local": false,
+          "local": true,
           "resultado": "G",
           "detalle": "2-1 (A/S, 7&5, A/S)",
           "ups_favor": 7,
@@ -112,7 +112,7 @@
             "David Sequera",
             "Alvaro Aguirre",
             "Javier Chiralt",
-            "Julio Enrique Gonzalez Salvador",
+            "J. Enrique Gonzalez",
             "Jesus Touceda"
           ]
         },
@@ -148,12 +148,12 @@
           "ups_favor": 8,
           "ups_contra": 15,
           "jugadores": [
-            "Alvaro Montoya Soler",
-            "Alvaro Aguirre Rodriguez",
-            "Alfonso Hidalgo Lopez De Ayala",
-            "David Sequera Merino",
-            "Julio Enrique Gonzalez Salvador",
-            "Juan Jose Gonzalez Salvador"
+            "Alvaro Montoya",
+            "Alvaro Aguirre",
+            "Alfonso Hidalgo",
+            "David Sequera",
+            "J. Enrique Gonzalez",
+            "GLEZ JUAN JOSÉ"
           ]
         },
         {
@@ -162,7 +162,7 @@
           "campo": "Montealvar",
           "rival": "Grow Golf",
           "formato": "6 individuales",
-          "local": false,
+          "local": true,
           "resultado": "G",
           "detalle": "4-2 (G 3&1, P 5&4, G 5&4, G 3&1, G 7&6, P 2&1)",
           "ups_favor": 18,
@@ -514,7 +514,7 @@
           "ups_favor": 8,
           "ups_contra": 4,
           "jugadores": [
-            "Jose Pablo Guil",
+            "José Pablo Guil",
             "Angel Santana",
             "Jose Antonio Santana",
             "Jorge Alberto Martínez Sánchez",
@@ -552,11 +552,11 @@
           "ups_favor": 5,
           "ups_contra": 6,
           "jugadores": [
-            "Angel Hernandez Rilova",
-            "Jaime Villanueva Ghisleri",
-            "Jorge Alberto Martinez",
-            "Alvaro Nieto Esteban",
-            "Santiago Diaz"
+            "Angel Hernandez",
+            "Jaime Villanueva",
+            "Jorge Alberto Martínez Sánchez",
+            "Alvaro Nieto",
+            "Santi Diaz"
           ]
         },
         {

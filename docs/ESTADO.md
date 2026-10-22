@@ -167,6 +167,25 @@ Cómo repetirlo cada jornada, y los plazos federativos, en
 
 ## Qué se hizo el 2026-10-22
 
+### Por qué el microsite no se actualizaba aunque se subiera `CV`
+
+**El busca-caché vivía dentro del fichero que se cachea.** `CV` es una variable de `microsite.html`,
+y `load()` la pega a cada JSON. Si el navegador sirve su copia guardada del HTML, usa el **`CV`
+viejo**, pide el JSON con esa misma URL y se la da también de su caché. Resultado: subir `CV`,
+publicar, y que el usuario siga viendo lo de antes. Es exactamente lo que pasó con el cuarto de final
+de entre semana.
+
+**Arreglado con `fetch(..., {cache:'no-cache'})`** en `load()`. Eso obliga al navegador a
+**revalidar** contra el servidor en vez de servir a ciegas: si el fichero no ha cambiado, GitHub
+Pages responde un 304 vacío y no cuesta nada; si ha cambiado, llega el nuevo. Los JSON que carga la
+página son pequeños —`resultados.json`, que pesa 4,5 MB, **no lo pide nadie**— así que el coste es
+despreciable.
+
+**Lo que esto no arregla:** el propio `microsite.html`. Un cambio de código o de maquetado sigue
+necesitando que el navegador se baje el HTML otra vez. Pero los cambios de **dato**, que son casi
+todos, ya no dependen de eso.
+
+
 ### Cargado el cuarto de final de entre semana · eliminados
 
 **Goldfers 2,5 – Cuartillos 1,5**, en El Encín, 7 ups a 3. El acta reparte el cuarto de final en dos
@@ -546,17 +565,32 @@ se cambia esa cadena y se sube `CV`, nada más.
 Del PDF federativo de `fuentes/` solo salen las jornadas hasta el 13 de junio de ese grupo: faltan
 las del 27/09 y el 04/10, que no tenemos.
 
-### 5. Los nombres de `jugadores` de `csc.json` están sin normalizar
+### 5. El `local` de fin de semana no es de fiar, y el título del acta tampoco lo arregla
 
-Son texto libre y cada partido se cargó a su manera. El **FS4** guarda `Angel Hernandez Rilova`,
-`Jaime Villanueva Ghisleri`, `Jorge Alberto Martinez`, `Alvaro Nieto Esteban` y `Santiago Diaz`,
-ninguno de los cuales coincide con la lista de elegibles; el **FS2** y el **FS3** usan `Jose Pablo
-Guil` y `José Pablo Guil`, con y sin tilde, para la misma persona. Del FS5 en adelante se usan los
-nombres de elegibles.
+**En entre semana las seis filas de `partidos_grupo` alternan local y visitante en las seis
+parejas**, o sea que son coherentes entre sí. El campo `local` del partido las contradecía en ES1 y
+ES5, y **esos dos se han corregido** el 2026-10-22.
 
-No rompe nada —esos nombres sólo se pintan como texto bajo el resultado del partido— pero impide
-cruzarlos con `jugadores.json` sin trabajo. Si alguna vez se quiere contar cuántos CSC ha jugado cada
-uno, hay que normalizarlos antes. **No tocado: son dato, y cambiarlos necesita el ok de Álvaro.**
+**En fin de semana no.** Ahí **cuatro de las seis parejas tienen el mismo local en la ida y en la
+vuelta**, así que el fallo está en las propias filas de grupo y no se puede deducir cuál de las dos
+es la mala. **No se ha tocado nada**: haría falta el acta de cada jornada.
+
+**Y una corrección de lo que se escribió el 2026-10-01.** Al cargar la jornada 5 de fin de semana se
+dio por hecho que el título del acta («FORO 2000 VS APPROACH Y PUTT») decía quién era el local. **No
+lo dice**: el acta del ES6 se titula «6. CUARTILLOS VS CLUB EL ESTUDIANTE» y en esa jornada el local
+era Club El Estudiante. El número de delante es el orden del partido dentro de la agrupación, y el
+orden de los nombres no significa nada. Así que aquella fila **no está demostrada del revés**, solo
+es una más de las que no cuadran.
+
+Esto solo afecta a la etiqueta LOCAL/VISITA del calendario. Puntos, ups y clasificación van aparte y
+están bien.
+
+### 6. Jaime Villanueva jugó el FS4 y no está en los elegibles
+
+Sale en los `jugadores` del FS4 del 13 de junio y no aparece en
+`modalidades[FS].elegibles` de `csc.json`. Mismo caso que el de Miche, pero este **no se ha podido
+resolver**: el nombre sí está en `jugadores.json`, lo que falta es la línea en la lista de
+elegibles. Hay que decidir si se añade.
 
 ## Cuatro trampas de este repo
 
