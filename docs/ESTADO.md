@@ -4,6 +4,22 @@
 
 ---
 
+## Frente nuevo · evolución de forma y hándicap por jugador (2026-10-20, en exploración)
+
+Álvaro quiere ver en el microsite la evolución semanal de cada socio —forma y hándicap— como ayuda
+para seleccionar a la CSC. Se está definiendo; **no hay nada construido ni diseño aprobado**. Las
+fuentes de la RFEG medidas el 2026-10-20 están en [`fuentes-rfeg.md`](fuentes-rfeg.md): el hándicap
+actual de cualquier licencia sale de una API pública de la web nueva, pero **las vueltas de otros
+jugadores no tienen hoy fuente pública** (la página antigua de las 20 últimas está rota).
+
+`docs/Untitled-1.txt` y `docs/Untitled-2.txt` son el texto de los dos flujos antiguos de PAD: **sin
+subir a propósito** (pesan 6 MB y llevan el usuario de la web).
+
+**Para retomar (fin de semana del 24-25/10):** Álvaro dice que ha visto y extraído las vueltas de
+todos sin problema. Primer paso: que inicie sesión en MIGOLF y ver juntos cómo se llega a las vueltas
+de otra licencia. Después, seguir definiendo qué tiene que enseñar el microsite; quedó sin contestar
+**qué miró y qué echó en falta la última vez que eligió a quién llevar a un partido de la CSC**.
+
 ## Lo primero al volver
 
 **Cuartillos está en cuartos de final en las dos ligas, y las dos fases de grupos están cerradas.**
