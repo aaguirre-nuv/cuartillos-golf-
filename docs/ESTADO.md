@@ -167,6 +167,22 @@ Cómo repetirlo cada jornada, y los plazos federativos, en
 
 ## Qué se hizo el 2026-10-22
 
+### Alta de tres elegibles en fin de semana
+
+**Jaime Villanueva, Marcos Ruiz y Nicolás Sequera**, con su licencia de `jugadores.json`. Jaime ya
+había jugado el FS4 del 13 de junio sin estar en la lista; Marcos y Nicolás son los socios que se
+incorporaron esta temporada. El criterio, de Álvaro: **el que no esté en entre semana va a fin de
+semana**.
+
+La lista pasa de **26 a 29 de los 30** que permite el §3, así que **queda un solo hueco**. También se
+ha puesto `ligaCSC` a `FINDE` en sus filas de 2026 de `jugadores.json`, que es el reflejo de estas
+listas. Comprobado que ninguno de los tres estaba en la lista de entre semana: el §3 prohíbe estar en
+las dos.
+
+**Queda pendiente lo que de verdad les habilita**, que es constar en la lista de la RFGM. Ver el
+pendiente nº 6.
+
+
 ### Por qué el microsite no se actualizaba aunque se subiera `CV`
 
 **El busca-caché vivía dentro del fichero que se cachea.** `CV` es una variable de `microsite.html`,
@@ -589,12 +605,19 @@ es una más de las que no cuadran.
 Esto solo afecta a la etiqueta LOCAL/VISITA del calendario. Puntos, ups y clasificación van aparte y
 están bien.
 
-### 6. Jaime Villanueva jugó el FS4 y no está en los elegibles
+### 6. ¿Están los tres nuevos de fin de semana comunicados a la RFGM?
 
-Sale en los `jugadores` del FS4 del 13 de junio y no aparece en
-`modalidades[FS].elegibles` de `csc.json`. Mismo caso que el de Miche, pero este **no se ha podido
-resolver**: el nombre sí está en `jugadores.json`, lo que falta es la línea en la lista de
-elegibles. Hay que decidir si se añade.
+El 2026-10-22 se dieron de alta en `modalidades[FS].elegibles` de `csc.json` a **Jaime Villanueva,
+Marcos Ruiz y Nicolás Sequera**, por criterio de Álvaro: el que no está en la lista de entre semana
+va a la de fin de semana. La lista pasa de 26 a **29 de los 30** que permite el §3.
+
+**Pero esa es nuestra lista, no la que vale.** La que decide quién puede jugar es la que tenga la
+federación: el §3 exige «estar en la lista de elegibles enviada en la inscripción», y el §11 que las
+ampliaciones se manden a `competiciones@fedgolfmadrid.com`. **Falta confirmar que se ha comunicado.**
+
+Hasta entonces hay una trampa abierta: **en el microsite ya pueden apuntarse**, porque el botón de
+Apuntarme mira esta lista. Si no constan en la RFGM, podrían salir convocados y no poder jugar. Si
+se confirma que no se ha comunicado, lo prudente es sacarlos de `elegibles` hasta que se haga.
 
 ## Cuatro trampas de este repo
 
