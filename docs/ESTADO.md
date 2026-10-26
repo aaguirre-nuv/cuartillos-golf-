@@ -33,6 +33,35 @@ alcance sea añadir filas, no cambiar la estructura.
 
 ## Qué se hizo el 2026-10-26 · nextcaddy abierto y barrido completo
 
+### Sección CSC rehecha · paso 3 del rediseño
+
+La sección lee ya **`csc2.json`**, con la convocatoria arriba. `buildGroupTable` y el `showCSC` viejo
+—376 líneas— se han sustituido por 278, y con ellas se fueron **las ocho copias de
+`calcNecesarios`**: el formato ahora sale de contar los partidos del encuentro, no de interpretar una
+cadena de texto.
+
+**Cómo queda la página**, de arriba abajo:
+
+1. **CONVOCATORIA**, en grande: rival, fecha, campo, formato, cuántos faltan, los inscritos con su
+   plaza por ranking y el botón de apuntarse. Si la temporada ha terminado, lo dice.
+2. **Dónde estamos**: una línea con el grupo, la posición, los puntos, los partidos ganados y los ups.
+3. **Clasificación**, **Calendario**, **Ranking de selección** y **Elegibles**, los cuatro **plegados**
+   con `<details>`, que no necesita JavaScript.
+
+**La puerta de la federación ya funciona.** `altaRFGM` lleva el 2026-02-16 —el plazo del §11 para
+mandar la lista— en los 39 de la lista original, y **`null` en Jaime Villanueva, Marcos Ruiz y
+Nicolás Sequera**, que se añadieron el 22 de octubre. Medido contra el primer commit de `csc.json`:
+son los únicos posteriores. A esos tres el botón les sale **desactivado**, con el motivo escrito.
+Cuando se confirme que constan en la RFGM, se les pone la fecha y pueden apuntarse.
+
+**Las inscripciones ya guardadas no se pierden.** Cada encuentro arrastra su `insId` (`FS6`, `FSQF`…),
+que es la clave con la que están en jsonbin. Si se hubiera cambiado por el id nuevo, los que ya se
+apuntaron al 15 de noviembre habrían desaparecido.
+
+**La portada sigue leyendo `csc.json`**, a propósito: el paso 4 del plan es pasarla también y sólo
+entonces borrar el fichero viejo. Mientras tanto conviven, y el convertidor regenera `csc2.json`
+desde las actas cuando haga falta.
+
 ### Convertidor al modelo nuevo · paso 1 y 2 del rediseño, hechos
 
 `datos/csc2.json` ya existe, generado **desde las actas**, no desde `csc.json`. Las herramientas

@@ -301,7 +301,7 @@ tr:nth-child(3) .rk{color:#cd7f32}
 var BASE='./datos/';
 // Version de cache de los datos. Subirla en CADA cambio de datos/*.json,
 // o los navegadores que ya han visitado la pagina seguiran sirviendo la copia vieja.
-var CV='?v=20261026a';
+var CV='?v=20261026b';
 var IMG='./img/';
 var MES=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
 var MESES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
@@ -433,14 +433,16 @@ function portCSCNav(btn) {
     b.classList.toggle('active', ['portada','calendario','clasificacion','equipos','tarjetas','jugador','estadisticas','csc'][i]==='csc');
   });
   // Load and show CSC in correct mode - bypass done cache
-  if(cscData) {
+  if(csc2Data) {
     loadIns().then(function(){ showCSC(modId, null); });
   } else {
     Promise.all([
-      fetch(BASE+'csc.json'+CV).then(function(r){return r.ok?r.json():null;}),
-      fetch(BASE+'tarjetas_2026.json'+CV).then(function(r){return r.ok?r.json():null;})
+      fetch(BASE+'csc.json'+CV,{cache:'no-cache'}).then(function(r){return r.ok?r.json():null;}),
+      fetch(BASE+'tarjetas_2026.json'+CV,{cache:'no-cache'}).then(function(r){return r.ok?r.json():null;}),
+      fetch(BASE+'csc2.json'+CV,{cache:'no-cache'}).then(function(r){return r.ok?r.json():null;})
     ]).then(function(res){
       cscData = res[0];
+      csc2Data = res[2];
       window._cscTarjetas = res[1];
       loadIns();
       populateJugSel();
@@ -450,7 +452,8 @@ function portCSCNav(btn) {
 }
 
 // ── CSC INSCRIPTION SYSTEM ──────────────────────────────
-var cscData = null;
+var cscData = null;   // csc.json, el modelo viejo: lo sigue usando la portada
+var csc2Data = null;  // csc2.json, el modelo nuevo: lo usa la seccion CSC
 var cscMode = 'ES';
 var cscJugador = '';
 var cscAdmin = false;
@@ -459,9 +462,10 @@ var insData = {ES:{}, FS:{}};
 var _pairCtx = null;
 
 function renderCSC() {
-  Promise.all([load('csc.json'), load('tarjetas_2026.json')]).then(function(res) {
+  Promise.all([load('csc.json'), load('tarjetas_2026.json'), load('csc2.json')]).then(function(res) {
     cscData = res[0];
     window._cscTarjetas = res[1];
+    csc2Data = res[2];
     loadIns().then(function() {
       populateJugSel();
       showCSC(cscMode, null);
@@ -786,379 +790,282 @@ function buildCSCRanking(mod, tarjetas, mode) {
   return {ranking: ranking, ultimos3: ultimos3};
 }
 
-function buildGroupTable(mod, mode, modeColor) {
-  var teams = mod.equiposGrupo || [];
-  if (!teams.length || !mod.partidos_grupo) return '';
+// ============================================================================
+// Seccion CSC, reescrita el 2026-10-26 sobre datos/csc2.json.
+// El plan y el modelo estan en docs/rediseno-csc.md. Lo que manda aqui:
+//   - arriba la convocatoria, que es a lo que entra la gente;
+//   - lo demas plegado, con <details>, que no necesita JavaScript;
+//   - el formato y el marcador salen de los partidos, no de una cadena;
+//   - no hay local ni visitante: en clubes sin campo nadie juega en casa.
+// ============================================================================
 
-  // Agrupar jornadas por par de equipos (enfrentamiento = ida + vuelta)
-  var pares = {};
-  mod.partidos_grupo.forEach(function(pg){
-    var key = [pg.local, pg.visitante].sort().join('|||');
-    if (!pares[key]) pares[key] = { eqA: pg.local, eqB: pg.visitante, jornadas: [] };
-    pares[key].jornadas.push(pg);
-  });
-
-  // Calcular stats por equipo basadas en enfrentamientos completos
-  var stats = {};
-  teams.forEach(function(t){ stats[t]={W:0,L:0,D:0,pts_liga:0,ups_f:0,ups_c:0,enfrentamientos:[]}; });
-
-  Object.keys(pares).forEach(function(key){
-    var enf = pares[key];
-    var eqA = enf.eqA, eqB = enf.eqB;
-    if (!stats[eqA] || !stats[eqB]) return;
-    var jugadas = enf.jornadas.filter(function(j){ return j.pts_l!==null && j.pts_l!==undefined; });
-    var completo = jugadas.length === enf.jornadas.length && jugadas.length > 0;
-    var ptsA=0, ptsB=0, upsA=0, upsB=0;
-    jugadas.forEach(function(j){
-      var aL = j.local===eqA;
-      ptsA += aL?j.pts_l:j.pts_v; ptsB += aL?j.pts_v:j.pts_l;
-      upsA += aL?j.ups_l:j.ups_v; upsB += aL?j.ups_v:j.ups_l;
-    });
-    // UPs acumulados (todas las jornadas jugadas, no solo completas)
-    if (stats[eqA]) { stats[eqA].ups_f+=upsA; stats[eqA].ups_c+=upsB; }
-    if (stats[eqB]) { stats[eqB].ups_f+=upsB; stats[eqB].ups_c+=upsA; }
-    // Punto de liga solo si enfrentamiento completo
-    var ptosLigaA=0, ptosLigaB=0;
-    if (completo) {
-      if (ptsA>ptsB){ stats[eqA].W++; stats[eqB].L++; ptosLigaA=1; }
-      else if (ptsB>ptsA){ stats[eqB].W++; stats[eqA].L++; ptosLigaB=1; }
-      else { stats[eqA].D++; stats[eqB].D++; ptosLigaA=0.5; ptosLigaB=0.5; }
-      stats[eqA].pts_liga+=ptosLigaA; stats[eqB].pts_liga+=ptosLigaB;
-    }
-    // Guardar enfrentamiento en cada equipo para el detalle
-    stats[eqA].enfrentamientos.push({ rival:eqB, jornadas:enf.jornadas, jugadas:jugadas, completo:completo, ptsNos:ptsA, ptsRiv:ptsB, upsNos:upsA, upsRiv:upsB, ptosLiga:ptosLigaA });
-    stats[eqB].enfrentamientos.push({ rival:eqA, jornadas:enf.jornadas, jugadas:jugadas, completo:completo, ptsNos:ptsB, ptsRiv:ptsA, upsNos:upsB, upsRiv:upsA, ptosLiga:ptosLigaB });
-  });
-
-  // Desempate: 1) pts_liga  2) pts_liga entre empatados  3) ups entre empatados  4) ups global
-  function ptosEntreEllos(eqs, a) {
-    var sub=0;
-    stats[a].enfrentamientos.forEach(function(enf){
-      if(eqs.indexOf(enf.rival)>=0 && enf.completo) sub+=enf.ptosLiga;
-    });
-    return sub;
-  }
-  function upsEntreEllos(eqs, a) {
-    var sub=0;
-    stats[a].enfrentamientos.forEach(function(enf){
-      if(eqs.indexOf(enf.rival)>=0) sub+=(enf.upsNos-enf.upsRiv);
-    });
-    return sub;
-  }
-  var ranked=teams.slice().sort(function(a,b){
-    if(stats[b].pts_liga!==stats[a].pts_liga) return stats[b].pts_liga-stats[a].pts_liga;
-    var grupo=teams.filter(function(t){ return stats[t].pts_liga===stats[a].pts_liga; });
-    if(grupo.length>=2){
-      var peA=ptosEntreEllos(grupo,a), peB=ptosEntreEllos(grupo,b);
-      if(peB!==peA) return peB-peA;
-      var ueA=upsEntreEllos(grupo,a), ueB=upsEntreEllos(grupo,b);
-      if(ueB!==ueA) return ueB-ueA;
-    }
-    return(stats[b].ups_f-stats[b].ups_c)-(stats[a].ups_f-stats[a].ups_c);
-  });
-  var fmtD2=function(f){if(!f)return'';var d=parseDate(f);return d.getDate()+' '+MES[d.getMonth()];};
-  var fmtRes=function(pg,team){
-    if(pg.pts_l===null||pg.pts_l===undefined)return'<span style="font-size:10px;color:#9ca3af">Pendiente</span>';
-    var won=(pg.local===team&&pg.pts_l>pg.pts_v)||(pg.visitante===team&&pg.pts_v>pg.pts_l);
-    var lost=(pg.local===team&&pg.pts_l<pg.pts_v)||(pg.visitante===team&&pg.pts_v<pg.pts_l);
-    var col=won?'#16a34a':lost?'#dc2626':'#d97706';
-    var lbl=won?'G':lost?'P':'E';
-    var pf=pg.local===team?pg.pts_l:pg.pts_v,pc=pg.local===team?pg.pts_v:pg.pts_l;
-    var uf=pg.local===team?pg.ups_l:pg.ups_v,uc=pg.local===team?pg.ups_v:pg.ups_l;
-    return'<span style="font-weight:700;color:'+col+'">'+lbl+' '+pf+'-'+pc+'</span>'+
-           '<span style="font-size:10px;color:#6b7a9a;margin-left:4px">'+uf+'-'+uc+' ups</span>';
+function cscLiga(mode) {
+  if (!csc2Data) return null;
+  for (var i = 0; i < csc2Data.ligas.length; i++)
+    if (csc2Data.ligas[i].id === mode) return csc2Data.ligas[i];
+  return null;
+}
+function esNuestro(e) {
+  return e.equipos.some(function(q) { return q.nombre === 'Cuartillos'; });
+}
+// Marcador de un encuentro desde nuestro punto de vista.
+function cscMarcador(e) {
+  var i = e.equipos[0].nombre === 'Cuartillos' ? 0 : 1, j = 1 - i;
+  var res = (insData[cscMode] && e.insId && insData[cscMode][pkey(e.insId) + '_res']) || null;
+  return {
+    rival: e.equipos[j].nombre,
+    nos: e.equipos[i].puntos, ellos: e.equipos[j].puntos,
+    upsNos: e.equipos[i].ups, upsEllos: e.equipos[j].ups,
+    yo: i, jugado: !!e.partidos.length,
+    res: res || (!e.partidos.length ? null :
+         e.equipos[i].puntos > e.equipos[j].puntos ? 'G' :
+         e.equipos[i].puntos < e.equipos[j].puntos ? 'P' : 'E')
   };
-  var o='<div class="card" style="margin-bottom:14px">';
-  o+='<div class="ct">Clasificaci\u00f3n \u2014 '+mod.grupo+'</div>';
-  o+='<div style="background:#fff7f0;border-bottom:1px solid #fed7aa;padding:7px 12px;font-size:10px;color:#92400e"><b>Pts Liga:</b> 1 pto al ganar el enfrentamiento completo (ida+vuelta). Desempate: \u2460 pts entre empatados \u00b7 \u2461 UPs entre empatados \u00b7 \u2462 UPs global</div>';
-  o+='<div style="display:grid;grid-template-columns:22px 1fr 32px 28px 28px 50px;gap:4px;padding:5px 12px;font-size:10px;font-weight:700;color:#6b7a9a;text-transform:uppercase;border-bottom:2px solid '+modeColor+'">';
-  o+='<div>#</div><div>Equipo</div><div style="text-align:center">PL</div><div style="text-align:center">G</div><div style="text-align:center">P</div><div style="text-align:right">UPs\u00b1</div></div>';
-  ranked.forEach(function(team,idx){
-    var s=stats[team],dif=s.ups_f-s.ups_c,isUs=(team==='Cuartillos');
-    var rowId='cscgrp'+mode+idx;
-    o+='<div style="border-bottom:1px solid #f1f5f9">';
-    o+='<div onclick="var d=document.getElementById(\'' +rowId+ '\');d.style.display=d.style.display===\'none\'?\'block\':\'none\'" style="display:grid;grid-template-columns:22px 1fr 32px 28px 28px 50px;gap:4px;padding:8px 12px;cursor:pointer;align-items:center;'+(isUs?'background:linear-gradient(90deg,'+modeColor+'18,transparent);':'')+'">';
-    o+='<div style="font-weight:700;color:'+modeColor+'">'+(idx+1)+'</div>';
-    o+='<div style="font-weight:'+(isUs?'700':'500')+';font-size:13px">'+team+(isUs?'<span style="font-size:9px;background:'+modeColor+';color:#fff;padding:1px 5px;border-radius:8px;margin-left:5px">Nosotros</span>':'')+'</div>';
-    o+='<div style="text-align:center;font-weight:800;color:'+modeColor+'">'+s.pts_liga+'</div>';
-    o+='<div style="text-align:center;font-weight:700;color:#16a34a">'+s.W+'</div>';
-    o+='<div style="text-align:center;color:#dc2626">'+s.L+'</div>';
-    o+='<div style="text-align:right;font-weight:700;color:'+(dif>=0?'#16a34a':'#dc2626')+'">'+(dif>=0?'+':'')+dif+'</div>';
-    o+='</div>';
-    o+='<div id="'+rowId+'" style="display:none;background:#f8fafc;padding:8px 12px;border-top:1px solid #e2e8f0">';
-    s.enfrentamientos.slice().sort(function(a,b){
-      var ja=Math.min.apply(null,a.jornadas.map(function(j){return j.jornada;}));
-      var jb=Math.min.apply(null,b.jornadas.map(function(j){return j.jornada;}));
-      return ja-jb;
-    }).forEach(function(enf){
-      var ganando=enf.ptsNos>enf.ptsRiv, perdiendo=enf.ptsNos<enf.ptsRiv;
-      var col=enf.completo?(ganando?'#16a34a':perdiendo?'#dc2626':'#d97706'):'#94a3b8';
-      var lbl=enf.completo?(ganando?'GANADO':perdiendo?'PERDIDO':'EMPATE'):'EN CURSO';
-      var jMin=Math.min.apply(null,enf.jornadas.map(function(j){return j.jornada;}));
-      var jMax=Math.max.apply(null,enf.jornadas.map(function(j){return j.jornada;}));
-      o+='<div style="padding:6px 0;border-bottom:1px solid #e2e8f0;font-size:12px">';
-      o+='<div style="display:flex;justify-content:space-between;align-items:center">';
-      o+='<div><span style="color:#9ca3af;margin-right:5px">J'+jMin+'+J'+jMax+'</span>vs '+enf.rival+
-         (enf.completo?'':' <span style="font-size:9px;color:#f59e0b;background:#fef3c7;padding:1px 4px;border-radius:3px">'+enf.jugadas.length+'/'+enf.jornadas.length+' jornadas</span>')+'</div>';
-      o+='<div>';
-      if(enf.jugadas.length>0){
-        o+='<span style="font-weight:700;color:'+col+'">'+enf.ptsNos+'\u2013'+enf.ptsRiv+' pts</span>';
-        o+='<span style="font-size:10px;color:#6b7a9a;margin-left:4px">'+enf.upsNos+'\u2013'+enf.upsRiv+' ups</span>';
-      }
-      o+='</div></div>';
-      if(enf.completo){
-        o+='<div style="font-size:10px;font-weight:700;color:'+col+';margin-top:2px">'+lbl+' \u2192 '+enf.ptosLiga+' pto liga</div>';
-      }
-      // Detalle de cada jornada dentro del enfrentamiento
-      enf.jornadas.forEach(function(j){
-        var loc=j.local===team;
-        var locB=loc?'<span style="background:#dbeafe;color:#1e40af;font-size:8px;font-weight:700;padding:1px 4px;border-radius:3px">L</span>':'<span style="background:#f3f4f6;color:#6b7280;font-size:8px;padding:1px 4px;border-radius:3px">V</span>';
-        o+='<div style="display:flex;justify-content:space-between;padding:3px 0 0 8px;font-size:11px;color:#64748b">';
-        o+='<div>'+locB+' J'+j.jornada+' '+fmtD2(j.fecha)+'</div>';
-        o+='<div>'+fmtRes(j,team)+'</div></div>';
-      });
-      o+='</div>';
-    });
-    o+='</div></div>';
+}
+// Cuantos jugadores hay que convocar. De los partidos si ya se jugo; del
+// formato previsto si aun no.
+function cscFormato(e) {
+  if (e.partidos.length) {
+    var fb = 0, ind = 0;
+    e.partidos.forEach(function(p) { if (p.tipo === 'fourball') fb++; else ind++; });
+    return {fourball: fb, individual: ind};
+  }
+  return e.formatoPrevisto || {fourball: 0, individual: 0};
+}
+function cscTxtFormato(f) {
+  var t = [];
+  if (f.fourball) t.push(f.fourball + ' fourball');
+  if (f.individual) t.push(f.individual + (f.individual > 1 ? ' individuales' : ' individual'));
+  return t.join(' + ');
+}
+function cscNecesarios(f) { return f.fourball * 2 + f.individual; }
+
+// Clasificacion de un grupo: se calcula, no se guarda.
+function cscTablaGrupo(L, gid) {
+  var g = null;
+  L.grupos.forEach(function(x) { if (x.id === gid) g = x; });
+  if (!g) return null;
+  var st = {};
+  g.equipos.forEach(function(t) { st[t] = {pts: 0, gan: 0, uf: 0, uc: 0, enf: []}; });
+  var pares = {};
+  L.encuentros.forEach(function(e) {
+    if (e.grupo !== gid || !e.partidos.length) return;
+    var k = e.equipos.map(function(q) { return q.nombre; }).sort().join('|');
+    (pares[k] = pares[k] || []).push(e);
   });
-  o+='</div>';
-  return o;
+  Object.keys(pares).forEach(function(k) {
+    var xs = pares[k], a = k.split('|')[0], b = k.split('|')[1];
+    var s = {}, u = {}; s[a] = s[b] = u[a] = u[b] = 0;
+    xs.forEach(function(e) {
+      e.equipos.forEach(function(q) { s[q.nombre] += q.puntos; u[q.nombre] += q.ups; });
+    });
+    [[a, b], [b, a]].forEach(function(p) {
+      st[p[0]].gan += s[p[0]]; st[p[0]].uf += u[p[0]]; st[p[0]].uc += u[p[1]];
+      st[p[0]].enf.push({rival: p[1], nos: s[p[0]], ellos: s[p[1]], completo: xs.length === 2});
+    });
+    if (xs.length === 2) {
+      if (s[a] > s[b]) st[a].pts += 1;
+      else if (s[b] > s[a]) st[b].pts += 1;
+      else { st[a].pts += .5; st[b].pts += .5; }
+    }
+  });
+  var orden = g.equipos.slice().sort(function(x, y) {
+    return (st[y].pts - st[x].pts) || (st[y].gan - st[x].gan) ||
+           ((st[y].uf - st[y].uc) - (st[x].uf - st[x].uc));
+  });
+  return {grupo: g, st: st, orden: orden};
+}
+
+function bloqueDet(titulo, cuerpo, abierto) {
+  return '<details class="card" style="margin-bottom:14px"' + (abierto ? ' open' : '') + '>' +
+         '<summary class="ct" style="cursor:pointer;list-style:revert">' + titulo + '</summary>' +
+         cuerpo + '</details>';
 }
 
 function showCSC(mode, btn) {
   cscMode = mode;
   var modeColor = mode === 'ES' ? '#C8102E' : '#b8860b';
-  var modeBg    = mode === 'ES' ? '#fde8eb' : '#fef9c3';
 
-  // Color tabs
   document.querySelectorAll('#csc-tabs .ttab').forEach(function(b) {
-    b.classList.remove('active');
-    b.style.background = '';
-    b.style.borderColor = '';
-    b.style.color = '';
+    b.classList.remove('active'); b.style.background = ''; b.style.borderColor = ''; b.style.color = '';
   });
   var activeTab = btn || document.getElementById('csc-tab-' + mode);
   if (activeTab) {
     activeTab.classList.add('active');
-    activeTab.style.background   = modeColor;
-    activeTab.style.borderColor  = modeColor;
-    activeTab.style.color        = '#fff';
+    activeTab.style.background = modeColor; activeTab.style.borderColor = modeColor;
+    activeTab.style.color = '#fff';
   }
-  // Color section title and accent line
   var sh = document.querySelector('#sec-csc .sh h2');
   if (sh) sh.style.color = modeColor;
   var ac = document.querySelector('#sec-csc .sh .ac');
   if (ac) ac.style.background = 'linear-gradient(90deg,' + modeColor + ',transparent)';
 
-  if (!cscData) return;
-  var mod = null;
-  for (var mi = 0; mi < cscData.modalidades.length; mi++) {
-    if (cscData.modalidades[mi].id === mode) { mod = cscData.modalidades[mi]; break; }
-  }
-  if (!mod) return;
+  var L = cscLiga(mode);
+  if (!L) { el('csc-content').innerHTML = '<div class="card" style="padding:16px">Cargando…</div>'; return; }
 
-  var pend = cscPendientes(mod, mode);
-  var proxP = pend.abierto;
-
-  // Build output string
+  var nuestros = L.encuentros.filter(esNuestro);
+  var prox = nuestros.filter(function(e) { return !e.partidos.length; })[0] || null;
   var o = '';
 
-  // Banner clasificatorio (compact)
-  o += '<div style="background:#f8fafc;border:1px solid #e2e8f0;border-left:3px solid '+modeColor+';border-radius:6px;padding:8px 14px;margin-bottom:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">';
-  o += '<span style="background:'+modeColor+';color:#fff;font-family:Bebas Neue,sans-serif;font-size:13px;padding:2px 8px;border-radius:4px">'+mod.grupo+'</span>';
-  o += '<span style="font-size:12px;color:var(--muted)">Clasificatorio '+fmtD(mod.fechaClasificatorio)+' &mdash; '+mod.campoClasificatorio+'</span>';
-  o += '<span style="margin-left:auto;font-size:11px;color:var(--muted)">'+mod.posClasificatorio+'\u00ba clasificados &middot; <strong style="color:var(--navy)">'+mod.ptosClasificatorio+' pts</strong></span>';
-  o += '</div>';
+  // ---------------------------------------------------------------- 1. CONVOCATORIA
+  if (prox) {
+    var f = cscFormato(prox), nNec = cscNecesarios(f);
+    var m = cscMarcador(prox);
+    var key = pkey(prox.insId || prox.id);
+    var apunt = (insData[mode] && insData[mode][key]) || [];
+    var parejas = (insData[mode] && insData[mode][key + '_parejas']) || [];
+    var hoy = new Date(); hoy.setHours(12, 0, 0, 0);
+    var dias = Math.round((parseDate(prox.fecha) - hoy) / 86400000);
+    var dTxt = dias < 0 ? 'ya jugado' : dias === 0 ? '¡HOY!' : dias === 1 ? 'mañana' : 'en ' + dias + ' días';
 
-  o += buildGroupTable(mod, mode, modeColor);
-  o += '<div class="g2" style="margin-bottom:14px">';
+    var eleg = null;
+    L.elegibles.forEach(function(x) { if (x.nombre === cscJugador) eleg = x; });
+    var yoApuntado = cscJugador && apunt.indexOf(cscJugador) >= 0;
 
-  // Calendar
-  o += '<div class="card"><div class="ct">Calendario &mdash; ' + mod.nombre + '</div>';
-  for (var ci = 0; ci < mod.partidos.length; ci++) {
-    var cp = mod.partidos[ci];
-    var dt = parseDate(cp.fecha);
-    var res1 = (insData[mode] && insData[mode][pkey(cp.id) + '_res']) || cp.resultado;
-    var isNext = proxP && cp.id === proxP.id;
-    o += '<div style="border-bottom:1px solid #e2e8f0;padding:10px 14px;' + (isNext ? 'background:#fffbea' : '') + '">';
-    o += '<div style="display:flex;align-items:center;gap:10px">';
-    o += '<div style="background:' + (isNext ? '#F5B900' : modeColor) + ';color:' + (isNext ? '#1B3A72' : '#fff') + ';border-radius:5px;padding:5px 8px;text-align:center;min-width:40px">';
-    o += '<div style="font-family:Bebas Neue,sans-serif;font-size:18px;line-height:1">' + dt.getDate() + '</div>';
-    o += '<div style="font-size:8px;text-transform:uppercase">' + MES[dt.getMonth()] + '</div></div>';
-    o += '<div style="flex:1"><div style="font-weight:700;font-size:13px">';
-    // Las eliminatorias se juegan en campo designado por la federacion, sin local ni
-    // visitante: eso se marca con "local": null en csc.json.
-    if (cp.local == null) o += '<span style="background:#f1f5f9;color:#64748b;font-size:9px;font-weight:700;padding:1px 4px;border-radius:3px;margin-right:4px">NEUTRAL</span>';
-    else o += (cp.local ? '<span style="background:#dbeafe;color:#1e40af;font-size:9px;font-weight:700;padding:1px 4px;border-radius:3px;margin-right:4px">LOCAL</span>' : '<span style="background:#f3f4f6;color:#6b7280;font-size:9px;padding:1px 4px;border-radius:3px;margin-right:4px">VISITA</span>');
-    o += 'vs ' + cp.rival + '</div>';
-    o += '<div style="font-size:11px;color:#6b7a9a">' + cp.campo + ' \u00b7 ' + cp.formato + '</div>';
-    if (res1 && cp.jugadores && cp.jugadores.length) {
-      o += '<div style="font-size:10px;color:#6b7a9a;margin-top:1px">' + cp.jugadores.join(' \u00b7 ') + '</div>';
-    }
+    o += '<div class="card" style="margin-bottom:14px;border-top:4px solid ' + modeColor + '">';
+    o += '<div style="padding:16px 18px 0"><div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">';
+    o += '<span style="font-family:Bebas Neue,sans-serif;font-size:26px;color:' + modeColor + '">CONVOCATORIA</span>';
+    o += '<span style="background:' + modeColor + ';color:#fff;font-size:11px;font-weight:700;padding:2px 9px;border-radius:10px">' + dTxt + '</span>';
+    if (prox.fase !== 'liga') o += '<span style="background:#1B3A72;color:#fff;font-size:11px;font-weight:700;padding:2px 9px;border-radius:10px;text-transform:uppercase">' + prox.fase + '</span>';
     o += '</div>';
-    if (res1 === 'G') {
-      o += '<div style="text-align:right;flex-shrink:0"><span style="font-size:11px;font-weight:700;color:#16a34a">GANADO \u2713</span>';
-      if (cp.detalle) o += '<div style="font-size:10px;color:#6b7a9a;margin-top:2px;white-space:nowrap">' + cp.detalle + '</div>';
-      o += '</div>';
-    } else if (res1 === 'P') {
-      o += '<div style="text-align:right;flex-shrink:0"><span style="font-size:11px;font-weight:700;color:#dc2626">PERDIDO</span>';
-      if (cp.detalle) o += '<div style="font-size:10px;color:#6b7a9a;margin-top:2px;white-space:nowrap">' + cp.detalle + '</div>';
-      o += '</div>';
-    } else if (res1 === 'E') {
-      o += '<div style="text-align:right;flex-shrink:0"><span style="font-size:11px;font-weight:700;color:#d97706">EMPATE</span>';
-      if (cp.detalle) o += '<div style="font-size:10px;color:#6b7a9a;margin-top:2px;white-space:nowrap">' + cp.detalle + '</div>';
-      o += '</div>';
-    } else if (isNext) o += '<span class="tb tnext">PR\u00d3XIMO</span>';
-    else if (cp.inscripcionCerrada) o += '<span style="font-size:10px;font-weight:700;color:#d97706;white-space:nowrap">CONVOCADO</span>';
-    else o += '<span style="font-size:10px;color:#6b7a9a">Pendiente</span>';
-    if (cscAdmin && !res1) o += '<button class="ins-btn" style="font-size:10px;padding:3px 8px;margin-left:6px" onclick="cscResultado(\'' + mode + '\',\'' + cp.id + '\')">Resultado</button>';
-    o += '</div></div>';
-  }
-  o += '</div>';
-
-  // Columna derecha de la rejilla: arriba la jornada abierta a inscripcion y debajo
-  // las convocatorias ya cerradas que siguen pendientes de jugarse.
-  var oIzq = o; o = '';
-
-  // Inscription
-  if (proxP) {
-    var pid2 = proxP.id;
-    var apuntados2 = (insData[mode] && insData[mode][pkey(pid2)]) || [];
-    var parejas2 = (insData[mode] && insData[mode][pkey(pid2) + '_parejas']) || [];
-    var esFB2 = proxP.formato.indexOf('fourball') >= 0;
-    var nF2 = parseInt(proxP.formato.split(' ')[0]);
-    var nNec = calcNecesarios(proxP.formato);
-    var yoApuntado = cscJugador && apuntados2.indexOf(cscJugador) >= 0;
-    var esEleg = mod.elegibles.some(function(e) { return e.nombre === cscJugador; });
-
-    o += '<div class="card"><div class="ct">Inscripci\u00f3n &mdash; ' + proxP.rival + '</div><div style="padding:14px">';
-    o += '<div style="background:#f4f6f9;border-radius:6px;padding:10px 12px;margin-bottom:12px">';
-    o += '<strong>' + proxP.campo + '</strong> \u00b7 ' + fmtD(proxP.fecha);
-    o += '<div style="font-size:11px;color:#6b7a9a;margin-top:2px">' + proxP.formato + ' \u00b7 Necesarios: ' + nNec + '</div></div>';
-
-    // Rank inscritos by selection ranking to show who has a spot
-    var rankData2 = window._cscTarjetas ? buildCSCRanking(mod, window._cscTarjetas, mode) : null;
-    var topInscritos = [];
-    if (rankData2 && apuntados2.length) {
-      var rankOrder2 = rankData2.ranking.map(function(r){ return r.nombre; });
-      var sorted2 = apuntados2.slice().sort(function(a,b){
-        var ia=rankOrder2.indexOf(a); var ib=rankOrder2.indexOf(b);
-        if(ia===-1)ia=999; if(ib===-1)ib=999; return ia-ib;
-      });
-      topInscritos = sorted2.slice(0, nNec);
-    }
-    o += '<div style="margin-bottom:12px"><div style="font-size:11px;font-weight:700;color:#6b7a9a;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px">Inscritos (' + apuntados2.length + '/' + nNec + ')</div>';
-    if (!apuntados2.length) {
-      o += '<div style="font-size:12px;color:#6b7a9a">Nadie se ha apuntado a\u00fan</div>';
-    } else {
-      apuntados2.forEach(function(n) {
-        var esYo = n === cscJugador;
-        var hasSpot = topInscritos.indexOf(n) >= 0;
-        var bg = hasSpot ? modeColor : '#f1f5f9';
-        var col = hasSpot ? '#fff' : '#6b7a9a';
-        var fw = hasSpot ? '700' : '400';
-        o += '<span style="display:inline-flex;align-items:center;gap:4px;background:' + bg + ';color:' + col + ';font-size:12px;font-weight:' + fw + ';padding:3px 10px;border-radius:12px;margin:2px">';
-        o += n + (hasSpot ? ' ✓' : '');
-        if (cscAdmin) o += ' <span onclick="cscBorrar(\'' + mode + '\',\'' + pid2 + '\',\'' + n + '\')" style="cursor:pointer;font-weight:700;margin-left:2px">x</span>';
-        else if (esYo) o += ' <span onclick="cscDesapuntar(\'' + mode + '\',\'' + pid2 + '\')" style="cursor:pointer;opacity:.6;margin-left:2px">x</span>';
-        o += '</span>';
-      });
-      if (topInscritos.length > 0) {
-        o += '<div style="font-size:10px;color:#6b7a9a;margin-top:6px">✓ plaza por ranking &nbsp; gris = lista de espera</div>';
-      }
-    }
+    o += '<div style="font-family:Bebas Neue,sans-serif;font-size:30px;line-height:1.1;margin-top:6px">vs ' + m.rival + '</div>';
+    o += '<div style="font-size:13px;color:var(--muted);margin-bottom:4px">' + fmtD(prox.fecha) + ' &middot; <strong>' + prox.campo + '</strong> &middot; ' + cscTxtFormato(f) + '</div>';
     o += '</div>';
 
-    o += '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">';
-    if (!yoApuntado && esEleg) {
-      o += '<button class="ins-btn green" onclick="cscApuntarse(\'' + mode + '\',\'' + pid2 + '\')">&#10003; Apuntarme</button>';
+    // inscritos, marcando quien tiene plaza por ranking
+    var rankData = window._cscTarjetas ? buildCSCRanking(L, window._cscTarjetas, mode) : null;
+    var conPlaza = [];
+    if (rankData && apunt.length) {
+      var ord = rankData.ranking.map(function(r) { return r.nombre; });
+      conPlaza = apunt.slice().sort(function(a, b) {
+        var ia = ord.indexOf(a), ib = ord.indexOf(b);
+        return (ia < 0 ? 999 : ia) - (ib < 0 ? 999 : ib);
+      }).slice(0, nNec);
+    }
+    o += '<div style="padding:10px 18px 0"><div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Inscritos ' + apunt.length + ' de ' + nNec + '</div>';
+    if (!apunt.length) o += '<div style="font-size:13px;color:var(--muted)">Nadie se ha apuntado aún</div>';
+    apunt.forEach(function(n) {
+      var tiene = conPlaza.indexOf(n) >= 0, yo = n === cscJugador;
+      o += '<span style="display:inline-flex;align-items:center;gap:5px;background:' + (tiene ? modeColor : '#f1f5f9') + ';color:' + (tiene ? '#fff' : '#64748b') + ';font-size:12px;font-weight:' + (tiene ? '700' : '400') + ';padding:4px 11px;border-radius:14px;margin:2px">' + n + (tiene ? ' ✓' : '');
+      if (cscAdmin) o += '<span onclick="cscBorrar(\'' + mode + '\',\'' + (prox.insId || prox.id) + '\',\'' + n + '\')" style="cursor:pointer;font-weight:700">×</span>';
+      else if (yo) o += '<span onclick="cscDesapuntar(\'' + mode + '\',\'' + (prox.insId || prox.id) + '\')" style="cursor:pointer;opacity:.7">×</span>';
+      o += '</span>';
+    });
+    if (conPlaza.length) o += '<div style="font-size:10px;color:var(--muted);margin-top:5px">✓ plaza por ranking &nbsp; gris = lista de espera</div>';
+    o += '</div>';
+
+    // boton, con la puerta de la federacion
+    o += '<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:12px 18px 16px">';
+    if (!cscJugador) {
+      o += '<span style="font-size:12px;color:var(--muted)">Selecciona tu nombre arriba para apuntarte</span>';
+    } else if (!eleg) {
+      o += '<span style="font-size:12px;color:var(--muted)">No estás en la lista de elegibles de ' + L.nombre + '</span>';
+    } else if (!eleg.altaRFGM) {
+      o += '<button class="ins-btn gray" disabled style="opacity:.6;cursor:not-allowed">✓ Apuntarme</button>';
+      o += '<span style="font-size:12px;color:#92400e;background:#fef3c7;padding:4px 10px;border-radius:6px">Falta confirmar que la federación te tiene en la lista de elegibles</span>';
     } else if (yoApuntado) {
-      o += '<button class="ins-btn red" onclick="cscDesapuntar(\'' + mode + '\',\'' + pid2 + '\')">Quitar inscripci\u00f3n</button>';
-    } else if (!cscJugador) {
-      o += '<span style="font-size:11px;color:#6b7a9a">Selecciona tu nombre arriba</span>';
-    } else if (!esEleg) {
-      o += '<span style="font-size:11px;color:#6b7a9a">No eres elegible en ' + mod.nombre + '</span>';
+      o += '<button class="ins-btn red" onclick="cscDesapuntar(\'' + mode + '\',\'' + (prox.insId || prox.id) + '\')">Quitar inscripción</button>';
+    } else {
+      o += '<button class="ins-btn green" onclick="cscApuntarse(\'' + mode + '\',\'' + (prox.insId || prox.id) + '\')">✓ Apuntarme</button>';
     }
-    if (cscAdmin && apuntados2.length >= 2) {
-      o += '<button class="ins-btn" onclick="cscParejas(\'' + mode + '\',\'' + pid2 + '\',\'' + proxP.formato + '\',' + nF2 + ')">&#9968; Asignar</button>';
-    }
+    if (cscAdmin && apunt.length >= 2)
+      o += '<button class="ins-btn" onclick="cscParejas(\'' + mode + '\',\'' + (prox.insId || prox.id) + '\',\'' + cscTxtFormato(f) + '\',0)">⛳ Asignar</button>';
     o += '</div>';
-
-    o += bloqueParejas(parejas2, esFB2);
-    o += '</div></div>';
+    if (parejas.length) o += '<div style="padding:0 18px 16px">' + bloqueParejas(parejas, f.fourball > 0) + '</div>';
+    o += '</div>';
+  } else {
+    o += '<div class="card" style="margin-bottom:14px;padding:16px 18px;border-top:4px solid ' + modeColor + '">' +
+         '<div style="font-family:Bebas Neue,sans-serif;font-size:24px;color:' + modeColor + '">SIN CONVOCATORIA ABIERTA</div>' +
+         '<div style="font-size:13px;color:var(--muted)">La temporada de ' + L.nombre.toLowerCase() + ' ha terminado.</div></div>';
   }
 
-  // Convocatorias ya cerradas que siguen pendientes de jugarse: se ven, en solo lectura
-  pend.cerrados.forEach(function(cc) {
-    var conv = (insData[mode] && insData[mode][pkey(cc.id)]) || [];
-    var parC = (insData[mode] && insData[mode][pkey(cc.id) + '_parejas']) || [];
-    o += '<div class="card"><div class="ct">Convocatoria cerrada &mdash; ' + cc.rival + '</div><div style="padding:14px">';
-    o += '<div style="background:#fffbea;border-radius:6px;padding:10px 12px;margin-bottom:12px">';
-    o += '<strong>' + cc.campo + '</strong> · ' + fmtD(cc.fecha);
-    o += '<div style="font-size:11px;color:#6b7a9a;margin-top:2px">' + cc.formato + ' · ' + conv.length + ' convocados · inscripción cerrada</div></div>';
-    if (conv.length) {
-      conv.forEach(function(n) {
-        o += '<span style="display:inline-block;background:#f1f5f9;color:#334155;font-size:12px;padding:3px 10px;border-radius:12px;margin:2px">' + n + '</span>';
-      });
-    } else {
-      o += '<div style="font-size:12px;color:#6b7a9a">Nadie llego a apuntarse</div>';
+  // ---------------------------------------------------------------- 2. DONDE ESTAMOS
+  var gid = null;
+  L.grupos.forEach(function(g) { if (g.nuestro) gid = g.id; });
+  var T = cscTablaGrupo(L, gid);
+  if (T) {
+    var pos = T.orden.indexOf('Cuartillos') + 1, s = T.st['Cuartillos'];
+    o += '<div style="background:#f8fafc;border:1px solid var(--gray2);border-left:3px solid ' + modeColor + ';border-radius:6px;padding:9px 14px;margin-bottom:14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-size:12px">';
+    o += '<span style="background:' + modeColor + ';color:#fff;font-family:Bebas Neue,sans-serif;font-size:13px;padding:2px 9px;border-radius:4px">' + (T.grupo.nombre || 'Grupo') + '</span>';
+    o += '<span><strong>' + pos + 'º</strong> de ' + T.orden.length + ' &middot; ' + s.pts + ' pts</span>';
+    o += '<span style="color:var(--muted)">' + s.gan + ' partidos ganados &middot; ups ' + s.uf + '-' + s.uc + '</span>';
+    o += '<span style="margin-left:auto;color:var(--muted)">Clasificatorio ' + fmtD(L.clasificatorio.fecha) + ' &mdash; ' + L.clasificatorio.posicion + 'º con ' + L.clasificatorio.puntos + ' pts</span>';
+    o += '</div>';
+
+    // -------------------------------------------------------------- 3. CLASIFICACION
+    var c = '<div class="tw"><table><thead><tr><th>#</th><th>Equipo</th><th>Pts</th><th>Ganados</th><th>Ups</th></tr></thead><tbody>';
+    T.orden.forEach(function(t, i) {
+      var x = T.st[t], mio = t === 'Cuartillos';
+      c += '<tr style="' + (mio ? 'background:#fffbea;font-weight:700' : '') + '"><td class="rk">' + (i + 1) + '</td><td>' + t +
+           (mio ? ' <span style="background:' + modeColor + ';color:#fff;font-size:9px;padding:1px 6px;border-radius:8px">nosotros</span>' : '') +
+           '</td><td><strong>' + x.pts + '</strong></td><td>' + x.gan + '</td><td>' + x.uf + '-' + x.uc + '</td></tr>';
+    });
+    c += '</tbody></table></div><div style="padding:8px 14px;font-size:10px;color:var(--muted)">1 punto por enfrentamiento completo ganado (ida+vuelta), medio si se empata. Desempate: enfrentamiento directo → ups de ese enfrentamiento.</div>';
+    o += bloqueDet('Clasificación &mdash; ' + (T.grupo.nombre || 'nuestro grupo'), c, false);
+  }
+
+  // ---------------------------------------------------------------- 4. CALENDARIO
+  var cal = '';
+  nuestros.forEach(function(e) {
+    var m = cscMarcador(e), dt = parseDate(e.fecha), f = cscFormato(e);
+    var col = m.res === 'G' ? '#16a34a' : m.res === 'P' ? '#dc2626' : m.res === 'E' ? '#d97706' : '#94a3b8';
+    cal += '<div style="border-bottom:1px solid var(--gray2);padding:10px 14px;display:flex;align-items:center;gap:11px">';
+    cal += '<div style="background:' + (m.jugado ? modeColor : '#F5B900') + ';color:' + (m.jugado ? '#fff' : '#1B3A72') + ';border-radius:5px;padding:5px 8px;text-align:center;min-width:42px">' +
+           '<div style="font-family:Bebas Neue,sans-serif;font-size:18px;line-height:1">' + dt.getDate() + '</div>' +
+           '<div style="font-size:8px;text-transform:uppercase">' + MES[dt.getMonth()] + '</div></div>';
+    cal += '<div style="flex:1;min-width:0"><div style="font-weight:700;font-size:13px">' +
+           (e.fase !== 'liga' ? '<span style="background:#1B3A72;color:#fff;font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-right:5px;text-transform:uppercase">' + e.fase + '</span>' : '') +
+           'vs ' + m.rival + '</div>';
+    cal += '<div style="font-size:11px;color:var(--muted)">' + e.campo + ' &middot; ' + cscTxtFormato(f) + (e.vuelta ? ' &middot; ' + (e.vuelta === 1 ? 'ida' : 'vuelta') : '') + '</div>';
+    if (m.jugado) {
+      var det = e.partidos.map(function(p) {
+        var g = p.ganador === null ? 'E' : (p.ganador === m.yo ? 'G' : 'P');
+        return (g === 'E' ? '' : g + ' ') + (p.margen || '') + (p.incomparecencia !== null && p.incomparecencia === m.yo ? ' (NP)' : '');
+      }).join(', ');
+      cal += '<div style="font-size:10px;color:var(--muted);margin-top:2px">' + det + '</div>';
     }
-    o += bloqueParejas(parC, cc.formato.indexOf('fourball') >= 0);
-    o += '</div></div>';
+    cal += '</div>';
+    cal += '<div style="text-align:right;flex-shrink:0"><span style="font-size:12px;font-weight:700;color:' + col + '">' +
+           (m.jugado ? m.nos + '-' + m.ellos : 'Pendiente') + '</span>' +
+           (m.jugado ? '<div style="font-size:10px;color:var(--muted)">ups ' + m.upsNos + '-' + m.upsEllos + '</div>' : '') + '</div>';
+    cal += '</div>';
   });
+  o += bloqueDet('Calendario &mdash; ' + L.nombre, cal, false);
 
-  o = oIzq + '<div style="display:flex;flex-direction:column;gap:14px">' + o + '</div>';
-  o += '</div>';
-
-  // Ranking selector
-  var rankData = window._cscTarjetas ? buildCSCRanking(mod, window._cscTarjetas, mode) : null;
-  if (rankData) {
-    var rk = rankData.ranking;
-    var u3 = rankData.ultimos3;
-    o += '<div class="card" style="margin-bottom:14px"><div class="ct">Ranking de selecci\u00f3n &mdash; 2 mejores de \u00faltimos ' + u3.length + ' torneos liga</div>';
-    o += '<div class="tw"><table><thead><tr><th>#</th><th>Jugador</th>';
-    u3.forEach(function(n) { o += '<th>T' + n + '</th>'; });
-    o += '<th>Total</th></tr></thead><tbody>';
-    var pos = 0;
-    rk.forEach(function(r) {
-      if (r.total !== null) pos++;
-      var yoApR = r.nombre === cscJugador;
-      var apR = (insData[mode] && insData[mode][(proxP ? proxP.id : '')] || []).indexOf(r.nombre) >= 0;
-      o += '<tr style="' + (yoApR ? 'background:#fffbea' : '') + (apR ? 'background:#f0fdf4' : '') + '">';
-      o += '<td class="rk">' + (r.total !== null ? pos : '&mdash;') + '</td>';
-      o += '<td style="font-weight:' + (apR ? '700' : '400') + '">' + r.nombre + (apR ? ' <span style="background:#d1fae5;color:#065f46;font-size:9px;padding:1px 5px;border-radius:10px;font-weight:700">INSCRITO</span>' : '') + '</td>';
+  // ---------------------------------------------------------------- 5. RANKING
+  var rk2 = window._cscTarjetas ? buildCSCRanking(L, window._cscTarjetas, mode) : null;
+  if (rk2) {
+    var u3 = rk2.ultimos3, r = '<div class="tw"><table><thead><tr><th>#</th><th>Jugador</th>';
+    u3.forEach(function(n) { r += '<th>T' + n + '</th>'; });
+    r += '<th>Total</th></tr></thead><tbody>';
+    var pos2 = 0;
+    rk2.ranking.forEach(function(x) {
+      if (x.total !== null) pos2++;
+      r += '<tr style="' + (x.nombre === cscJugador ? 'background:#fffbea' : '') + '"><td class="rk">' + (x.total !== null ? pos2 : '&mdash;') + '</td><td>' + x.nombre + '</td>';
       u3.forEach(function(nt) {
         var pt = null;
-        r.porTorneo.forEach(function(p) { if (p.ntorn === nt) pt = p; });
-        if (!pt) { o += '<td style="color:#cbd5e1">&mdash;</td>'; return; }
-        var dif = pt.dif;
-        var isBest = r.best2.indexOf(dif) >= 0;
-        var col = dif <= 0 ? '#16a34a' : dif <= 5 ? '#d97706' : '#dc2626';
-        o += '<td style="color:' + col + ';font-weight:' + (isBest ? '700' : '400') + '">' + fmtDif(dif) + (isBest ? '*' : '') +
-             (pt.rondas > 1 ? '<span style="font-size:9px;color:#6b7a9a;font-weight:400"> media de ' + pt.rondas + '</span>' : '') + '</td>';
+        x.porTorneo.forEach(function(p) { if (p.ntorn === nt) pt = p; });
+        if (!pt) { r += '<td style="color:#cbd5e1">&mdash;</td>'; return; }
+        var best = x.best2.indexOf(pt.dif) >= 0;
+        r += '<td style="color:' + (pt.dif <= 0 ? '#16a34a' : pt.dif <= 5 ? '#d97706' : '#dc2626') + ';font-weight:' + (best ? '700' : '400') + '">' + fmtDif(pt.dif) + (best ? '*' : '') + '</td>';
       });
-      if (r.total !== null) {
-        var tcol = r.total <= 0 ? '#16a34a' : r.total <= 10 ? '#d97706' : '#dc2626';
-        o += '<td style="font-weight:700;color:' + tcol + '">' + fmtDif(r.total) + '</td>';
-      } else {
-        o += '<td style="color:#cbd5e1">&mdash;</td>';
-      }
-      o += '</tr>';
+      r += '<td style="font-weight:700">' + (x.total !== null ? fmtDif(x.total) : '&mdash;') + '</td></tr>';
     });
-    o += '</tbody></table>';
-    o += '<div style="padding:8px 14px;font-size:10px;color:#6b7a9a">* Torneos que computan en el total. En los torneos a doble vuelta se toma la media de las dos rondas, para que cuenten como un solo torneo.</div>';
-    o += '</div></div>';
+    r += '</tbody></table></div><div style="padding:8px 14px;font-size:10px;color:var(--muted)">* Las dos que computan. En los torneos a doble vuelta se toma la media de las dos rondas.</div>';
+    o += bloqueDet('Ranking de selección &mdash; 2 mejores de los últimos ' + u3.length + ' torneos', r, false);
   }
 
-  // Elegibles
-  o += '<div class="card"><div class="ct">Elegibles &mdash; ' + mod.elegibles.length + ' miembros</div><div style="display:flex;flex-wrap:wrap;gap:6px;padding:12px 14px">';
-  mod.elegibles.forEach(function(j) {
-    var clasif = mod.jugadoresClasificatorio.indexOf(j.nombre) >= 0;
-    var mp = mod.partidos.some(function(p) { return ((insData[mode] && insData[mode][pkey(p.id)]) || []).indexOf(j.nombre) >= 0; });
-    var yo = j.nombre === cscJugador;
-    o += '<div style="background:' + (yo ? '#fef9c3' : mp ? '#dbeafe' : clasif ? '#d1fae5' : '#f4f6f9') + ';border-radius:20px;padding:4px 12px;font-size:12px;font-weight:' + (yo||mp||clasif ? '700' : '400') + ';border:' + (yo ? '1px solid #F5B900' : '1px solid transparent') + '">' + j.nombre + '</div>';
+  // ---------------------------------------------------------------- 6. ELEGIBLES
+  var sinAlta = L.elegibles.filter(function(x) { return !x.altaRFGM; }).length;
+  var eg = '<div style="display:flex;flex-wrap:wrap;gap:6px;padding:12px 14px">';
+  L.elegibles.forEach(function(j) {
+    var yo = j.nombre === cscJugador, pend = !j.altaRFGM;
+    eg += '<div title="' + (pend ? 'Sin confirmar en la federación' : '') + '" style="background:' + (yo ? '#fef9c3' : '#f4f6f9') + ';border-radius:20px;padding:4px 12px;font-size:12px;font-weight:' + (yo ? '700' : '400') + ';border:1px solid ' + (yo ? '#F5B900' : 'transparent') + ';opacity:' + (pend ? '.55' : '1') + '">' + j.nombre + (pend ? ' · ?' : '') + '</div>';
   });
-  o += '</div><div style="padding:0 14px 10px;font-size:10px;color:#6b7a9a">&#128993; Yo &nbsp; &#128994; Clasif. &nbsp; &#128309; Ha jugado MP</div></div>';
+  eg += '</div><div style="padding:0 14px 10px;font-size:10px;color:var(--muted)">' +
+        (sinAlta ? '<strong>? ' + sinAlta + ' sin confirmar en la federación</strong>, no pueden apuntarse. ' : '') +
+        'El reglamento permite hasta 30 por liga.</div>';
+  o += bloqueDet('Elegibles &mdash; ' + L.elegibles.length + ' de 30', eg, false);
 
   el('csc-content').innerHTML = o;
 }

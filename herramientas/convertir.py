@@ -17,6 +17,8 @@ from collections import defaultdict
 
 FUENTE, VIEJO, SALIDA = sys.argv[1], sys.argv[2], sys.argv[3]
 
+POSTERIORES = {'Jaime Villanueva', 'Marcos Ruiz', 'Nicolas Sequera'}
+
 # --- nombres de club -------------------------------------------------------
 # Las actas escriben 24 clubes de 81 formas distintas: la tabla esta en
 # herramientas/clubes.py, y alli se comprueba que los grupos salen 4 de 4 en
@@ -48,6 +50,11 @@ for e in E:
     porliga[e['liga']].append(e)
 fechas = {l: sorted({x['fecha'] for x in v if x['fase'] == 'liga' and x['fecha']})
           for l, v in porliga.items()}
+
+# Nextcaddy escribe los campos con su nombre largo ("Layos Casa Campo S A").
+# Donde tenemos el nuestro, manda el nuestro.
+campo_nuestro = {(m['id'], p['fecha']): p['campo']
+                 for m in V['modalidades'] for p in m['partidos']}
 
 ligas = []
 for lid in ('ES', 'FS'):
@@ -93,7 +100,7 @@ for lid in ('ES', 'FS'):
             'jornada': fechas[lid].index(e['fecha']) + 1 if e['fase'] == 'liga' and e['fecha'] in fechas[lid] else None,
             'vuelta': orden_pareja.get(id(e)),
             'fecha': e['fecha'],
-            'campo': e['campo'],
+            'campo': campo_nuestro.get((lid, e['fecha']), e['campo']),
             'equipos': [{'nombre': eqs[i], 'puntos': q['puntos'], 'ups': q['ups']}
                         for i, q in enumerate(e['equipos'])],
             'partidos': [],
@@ -117,7 +124,44 @@ for lid in ('ES', 'FS'):
                 'ups': int(m.group(1)) if m else (1 if (pa['resultado'] or '').endswith('UP') else 0),
                 'incomparecencia': None,
             })
+        if nuestro:
+            v = next((x for x in vj['partidos'] if x['fecha'] == e['fecha']), None)
+            if v:
+                enc['insId'] = v['id']
+                # Las incomparecencias no estan en el acta: el 6 del reglamento
+                # las salda con un 5&4, igual que una derrota jugada. Vienen de
+                # csc.json, donde se anotaron a mano.
+                for nom in v.get('incomparecencias', []):
+                    for pa in enc['partidos']:
+                        for lado in pa['lados']:
+                            if nom in lado['jugadores']:
+                                pa['incomparecencia'] = lado['equipo']
         encs.append(enc)
+
+    # Los encuentros aun sin jugar no tienen acta, asi que vienen de csc.json.
+    # Se guardan sin `partidos` y con el formato previsto, que es lo que el
+    # microsite necesita para saber cuantos convocar.
+    for p in vj['partidos']:
+        if p['resultado'] is not None:
+            continue
+        fb = ind = 0
+        for seg in p['formato'].split('+'):
+            m = re.search(r'\d+', seg)
+            n = int(m.group()) if m else 0
+            if 'fourball' in seg: fb += n
+            else: ind += n
+        encs.append({
+            'id': f"{lid}-{'cuartos' if p['id'].endswith('QF') else 'liga'}-{p['fecha']}",
+            'fase': 'cuartos' if p['id'].endswith('QF') else 'liga',
+            'grupo': None, 'jornada': None, 'vuelta': None,
+            'fecha': p['fecha'], 'campo': p['campo'],
+            'equipos': [{'nombre': 'Cuartillos', 'puntos': None, 'ups': None},
+                        {'nombre': p['rival'], 'puntos': None, 'ups': None}],
+            'formatoPrevisto': {'fourball': fb, 'individual': ind},
+            'insId': p['id'],
+            'partidos': [],
+        })
+    encs.sort(key=lambda e: e['fecha'] or '9999')
 
     ligas.append({
         'id': lid, 'nombre': vj['nombre'],
@@ -127,7 +171,13 @@ for lid in ('ES', 'FS'):
         'clasificatorio': {'fecha': vj['fechaClasificatorio'], 'campo': vj['campoClasificatorio'],
                            'posicion': vj['posClasificatorio'], 'puntos': vj['ptosClasificatorio'],
                            'jugadores': vj['jugadoresClasificatorio']},
-        'elegibles': [{**x, 'altaRFGM': None} for x in vj['elegibles']],
+        # altaRFGM: la fecha en que el jugador consta en la lista de la RFGM.
+        # Los de la lista original van con el plazo del 11 del reglamento (10:00
+        # del 16 de febrero); los anadidos despues, a null hasta que se confirme.
+        # Medido contra el primer commit de csc.json: los unicos posteriores son
+        # Jaime Villanueva, Marcos Ruiz y Nicolas Sequera, de alta el 2026-10-22.
+        'elegibles': [{**x, 'altaRFGM': None if x['nombre'] in POSTERIORES else '2026-02-16'}
+                      for x in vj['elegibles']],
         'encuentros': encs,
     })
 
