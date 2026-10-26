@@ -613,7 +613,7 @@
           "id": "FSQF",
           "fecha": "2026-11-15",
           "campo": "Los Ángeles de San Rafael",
-          "rival": "1º del Grupo 1 (cuartos)",
+          "rival": "CG Caminos",
           "formato": "2 fourball + 2 individuales",
           "local": null,
           "resultado": null,
@@ -750,11 +750,11 @@
           "fecha": "2026-10-04",
           "local": "Approach y Putt",
           "visitante": "Putt & Drive",
-          "pts_l": null,
-          "pts_v": null,
-          "ups_l": null,
-          "ups_v": null,
-          "detalle": null
+          "pts_l": 3,
+          "pts_v": 2,
+          "ups_l": 11,
+          "ups_v": 10,
+          "detalle": "3-2 (3&2 A, 6&5 A, 2&1 A, 5&3 P, 5&4 P)"
         }
       ]
     }

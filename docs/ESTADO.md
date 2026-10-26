@@ -31,6 +31,51 @@ pueda traer de nextcaddy** y se hace **ya, sobre la temporada en curso**.
 access. Mientras no esté, se trabaja con nuestro grupo; el modelo está pensado para que ampliar el
 alcance sea añadir filas, no cambiar la estructura.
 
+## Qué se hizo el 2026-10-26 · nextcaddy abierto y barrido completo
+
+Álvaro abrió la red del entorno y **nextcaddy resulta ser una fuente muchísimo mejor de lo esperado**.
+
+**Cómo funciona.** Cada «agrupación» (`/agrupacion/N`) es **una jornada entera de una liga**, con los
+enfrentamientos de todos los grupos. Las de 2026 son de la **13 a la 26**, alternando entre semana y
+fin de semana; la **25** son los cuartos de entre semana y la **26**, los de fin de semana. Y cada
+acta (`/{id}/ryder-cup/livescoring`) **trae el resultado entero en un JSON embebido** en
+`data-symfony--ux-react--props-value`: equipos, puntos, ups, cada partido con sus jugadores y quién
+ganó. **No hay que interpretar capturas nunca más.**
+
+Bajados los **113 partidos** de la temporada: 108 con datos, 454 partidos individuales. Los cinco sin
+datos son los **cuatro cuartos de fin de semana**, que no se han jugado, y el **CG Caminos – Grow
+Golf** de la jornada 3, que el PDF federativo ya daba sin jugar. Todo extraído a
+[`fuentes/nextcaddy-2026.json`](fuentes/nextcaddy-2026.json), que es la materia prima de la
+migración.
+
+### El dato del repo queda validado entero
+
+Contrastados **los 13 enfrentamientos de Cuartillos**, puntos y ups, contra el acta federativa:
+**cero desajustes**. Incluye los 15 partidos ganados de entre semana y los **13,5 de fin de semana**,
+que es la cifra con la que la RFGM desempató a los mejores segundos.
+
+### Rival de cuartos de fin de semana: **CG Caminos**
+
+Lo fija el emparejamiento que publica la propia RFGM en la agrupación 26: «1. C.G. Caminos VS
+Cuartillos Golf». Ya está puesto en `csc.json`, donde estaba como `1º del Grupo 1 (cuartos)`.
+
+### Cargada la última fila que faltaba
+
+**Approach y Putt 3 – Putt & Drive 2** (11 ups a 10), jornada 6 de fin de semana. Con eso **el Grupo 5
+queda completo**. No cambia nada de la clasificación: los dos acabaron con 0 puntos.
+
+### Lo que esto cambia del plan de rediseño
+
+[`rediseno-csc.md`](rediseno-csc.md) daba por hecho que habría que migrar **dejando huecos** donde no
+supiéramos atribuir cada punto a cada jugador —casi todas las jornadas, porque el dato venía de
+cargas antiguas sin acta—. **Con esta fuente no hay huecos.** El ES2, que tenía dos puntos sin dueño,
+se resuelve solo.
+
+**Pendiente del barrido:** los nombres de equipo cambian de acta a acta —«Golf de Golfos» / «CDE
+GOLFDEGOLFOS», «Ingenieros Industriales» / «INGENIEROS INDUSTRIALES DE MADRID»— y la normalización
+automática no los une todos. Para nuestros dos grupos no afecta; para los ajenos hace falta una tabla
+de alias a mano.
+
 ## Lo primero al volver
 
 **Entre semana se acabó: Cuartillos cayó en cuartos el 20 de octubre.** Perdió **1,5-2,5 contra
