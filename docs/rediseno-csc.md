@@ -45,30 +45,49 @@ La unidad es el **encuentro**: un día de competición entre dos clubes, con sus
   "grupo": "Grupo 3",                // null en las eliminatorias
   "jornada": 6,
   "fecha": "2026-10-01",
-  "campo": "El Encin",
-  "sede": "visitante",               // local | visitante | neutral  (una sola vez, no dos)
-  "local": "Club El Estudiante",
-  "visitante": "Cuartillos",
+  "campo": "El Fresnillo",
+  "vuelta": 2,                       // 1 = ida, 2 = vuelta. Es lo que fija el formato
+  "equipos": [                       // orden del acta: estable, pero sin significado
+    { "nombre": "Cuartillos",         "puntos": 4, "ups": 8 },
+    { "nombre": "Club El Estudiante", "puntos": 2, "ups": 5 }
+  ],
   "partidos": [
     {
       "orden": 1,
       "tipo": "individual",          // individual | fourball
-      "local":     { "jugadores": ["Alvaro Hernandez Ruiz"], "golpes": 0 },
-      "visitante": { "jugadores": ["Carlos Maestro"],        "golpes": 0 },
-      "ganador": null,               // local | visitante | null = empatado
+      "lados": [
+        { "equipo": 0, "jugadores": ["Carlos Maestro"] },
+        { "equipo": 1, "jugadores": ["Alvaro Hernandez Ruiz"] }
+      ],
+      "ganador": null,               // 0 | 1 | null = empatado
       "margen": "A/S",
       "ups": 0,
-      "incomparecencia": null        // local | visitante | null
+      "incomparecencia": null        // 0 | 1 | null
     }
   ]
 }
 ```
 
+### Por qué no hay local ni visitante · medido el 2026-10-26
+
+El modelo de arriba **no tiene `local` ni `visitante`**, y no es un olvido. Medido sobre las actas de
+nextcaddy: de las **38 parejas** de 2026 con ida y vuelta identificables, el orden en que salen los dos
+equipos en el título **no se invierte en ninguna**. Es un orden fijo por pareja.
+
+Y es que **esta es la liga de clubes sin campo**: ningún club tiene campo propio, así que **nadie
+juega en casa**. Cada jornada se disputa en un campo neutral que designa la federación. El reglamento
+no menciona local ni visitante en ninguna regla —solo **ida y vuelta**, que es lo que fija el formato
+(§5)—.
+
+Conclusión: la etiqueta **LOCAL/VISITA del calendario informa de algo que no existe**. Los fallos del
+`local` en ES1 y ES5 y en cuatro de las seis parejas de fin de semana **no eran errores de carga**:
+eran el síntoma de guardar un campo sin sentido. En el modelo nuevo **desaparece**, y con él esa clase
+entera de error.
+
 Lo que esto arregla, punto por punto:
 
-- **Una sola verdad por partido.** El marcador del encuentro, los ups, el G/P/E desde nuestro punto de
-  vista y la clasificación del grupo **se calculan**, no se guardan. Desaparece la clase de error de
-  ES1/ES5 y la de las cuatro parejas de fin de semana: no hay dos sitios que puedan discrepar.
+- **Una sola verdad por partido.** El G/P/E desde nuestro punto de vista y la clasificación del grupo
+  **se calculan**, no se guardan. No hay dos sitios que puedan discrepar.
 - **El `detalle` desaparece.** `ganador` + `margen` + `ups` por partido es lo que `detalle` intentaba
   decir en una cadena. Y con `jugadores` dentro de cada partido, atribuir resultados deja de depender
   de que dos listas vayan en el mismo orden.
@@ -97,11 +116,12 @@ escrito. Hoy mismo afecta a tres.
 El riesgo de hacerlo en caliente es inventar dato al convertir. La regla es la de siempre:
 **lo que no se sabe, se queda vacío.**
 
-De las seis jornadas de cada liga, la atribución jugador-por-partido **solo está verificada contra el
-acta en ES6, FS5, FS6 y ESQF**. En las demás, la correspondencia entre la lista de jugadores y el
-orden de los resultados viene de cargas antiguas y no se puede comprobar; en el ES2 directamente no
-hay forma de saber qué pareja perdió. Todo eso se migra con `jugadores: []` y `ganador: null` donde
-toque, y se rellena cuando aparezca el acta — que es justo lo que el importador de nextcaddy traerá.
+**Actualizado el 2026-10-26: ya no hay huecos.** Esto se escribió cuando la atribución
+jugador-por-partido solo estaba verificada en ES6, FS5, FS6 y ESQF. Con el barrido de nextcaddy están
+**los 454 partidos individuales de la temporada** con sus jugadores y su resultado, así que la
+migración **no parte de `csc.json`, parte de las actas**. Hasta el ES2, que tenía dos puntos sin
+dueño, queda resuelto. `csc.json` solo aporta lo que las actas no traen: elegibles con su licencia,
+el clasificatorio, los nombres de campo como los escribimos nosotros y la incomparecencia del ES6.
 
 Pasos, en este orden:
 

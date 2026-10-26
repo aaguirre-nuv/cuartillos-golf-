@@ -33,6 +33,38 @@ alcance sea añadir filas, no cambiar la estructura.
 
 ## Qué se hizo el 2026-10-26 · nextcaddy abierto y barrido completo
 
+### Convertidor al modelo nuevo · paso 1 y 2 del rediseño, hechos
+
+`datos/csc2.json` ya existe, generado **desde las actas**, no desde `csc.json`. Las herramientas
+están en `herramientas/`: `convertir.py`, `clubes.py` (la tabla de alias) y `clasificacion.py` (la
+verificación). `csc.json` **sigue intacto**, como dice el plan: no se borra hasta que la sección esté
+rehecha.
+
+**Lo que trae:** 108 encuentros, **454 partidos individuales** con sus jugadores, los **9 grupos de
+las dos ligas** y los elegibles con `altaRFGM`.
+
+**Verificado por equivalencia**, que era el paso 2: los puntos de liga, los partidos ganados y los
+ups de Cuartillos salen **idénticos** a `csc.json` en las dos ligas, incluidos los **15** de entre
+semana y los **13,5** de fin de semana que usó la RFGM para el desempate. Y la suma de los partidos
+de cada encuentro cuadra con su marcador en los trece.
+
+**Dos validaciones de propina:**
+
+- **Los grupos salen solos**, de quién juega contra quién: **4 de 4 equipos en entre semana y 5 de 4
+  en fin de semana**, que es justo el escenario de 16 y el de 20 del §5. Las composiciones coinciden
+  con el PDF federativo.
+- **El modelo reproduce una decisión de la federación.** En el grupo de CG Caminos la tabla queda
+  empatada a 1,5 con Tres Cantos; su enfrentamiento directo acabó **4-4** y lo desempatan los **ups de
+  ese enfrentamiento**, 16 a 12 para Caminos (§7). Por eso Caminos es primero de grupo y por eso nos
+  toca a nosotros en cuartos.
+
+**Lo que no sabemos:** el **número federativo de los grupos ajenos**. El nuestro sí (Grupo 3 y Grupo
+5, de `csc.json`); los demás van con id propio (`ES-g1`, `FS-g4`…) y `nombre: null`, porque las actas
+no lo dicen y **no se inventa**.
+
+**Siguiente paso:** el 3 del plan, rehacer la sección con la convocatoria arriba sobre `csc2.json`.
+
+
 Álvaro abrió la red del entorno y **nextcaddy resulta ser una fuente muchísimo mejor de lo esperado**.
 
 **Cómo funciona.** Cada «agrupación» (`/agrupacion/N`) es **una jornada entera de una liga**, con los
