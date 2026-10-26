@@ -46,6 +46,13 @@ para que se vean: [`docs/incorporacion-de-socios.md`](docs/incorporacion-de-soci
   El `teamScore` son los 2 mejores `difNeto` de **cada ronda**, los puntos de asistencia son 10 por
   jugador presentado, y el desempate entre equipos usa el hándicap de juego sumado.
 
+## Rediseño de la sección CSC, en marcha
+
+Desde el 2026-10-26 la sección CSC y `datos/csc.json` se están rehaciendo: fases, un solo registro
+por partido y la convocatoria arriba. **Antes de tocar nada de ahí, leer
+[`docs/rediseno-csc.md`](docs/rediseno-csc.md)**, que trae el modelo nuevo, los siete fallos que lo
+motivan y cómo se migra sin romper la temporada en curso.
+
 ## Reglamento CSC 2026
 
 Las reglas de la competición federativa —formatos, golpes de ventaja, límites de hándicap, listas de

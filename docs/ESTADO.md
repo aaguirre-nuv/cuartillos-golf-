@@ -20,6 +20,17 @@ todos sin problema. Primer paso: que inicie sesión en MIGOLF y ver juntos cómo
 de otra licencia. Después, seguir definiendo qué tiene que enseñar el microsite; quedó sin contestar
 **qué miró y qué echó en falta la última vez que eligió a quién llevar a un partido de la CSC**.
 
+## Frente abierto · rediseño de la sección CSC (2026-10-26)
+
+**El plan está en [`rediseno-csc.md`](rediseno-csc.md). Leerlo antes de tocar la sección CSC o
+`csc.json`.** Decidido con Álvaro: **la convocatoria va arriba**, el alcance es **todo lo que se
+pueda traer de nextcaddy** y se hace **ya, sobre la temporada en curso**.
+
+**Lo que bloquea el alcance completo es la red del entorno**, que no deja entrar en
+`www.nextcaddy.com` ni en `fedgolfmadrid.com`. Se abre en el menú del entorno → Edit → Network
+access. Mientras no esté, se trabaja con nuestro grupo; el modelo está pensado para que ampliar el
+alcance sea añadir filas, no cambiar la estructura.
+
 ## Lo primero al volver
 
 **Entre semana se acabó: Cuartillos cayó en cuartos el 20 de octubre.** Perdió **1,5-2,5 contra
