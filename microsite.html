@@ -301,7 +301,7 @@ tr:nth-child(3) .rk{color:#cd7f32}
 var BASE='./datos/';
 // Version de cache de los datos. Subirla en CADA cambio de datos/*.json,
 // o los navegadores que ya han visitado la pagina seguiran sirviendo la copia vieja.
-var CV='?v=20261116b';
+var CV='?v=20261116c';
 var IMG='./img/';
 var MES=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
 var MESES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
@@ -1202,7 +1202,8 @@ function renderPortada(){
         '<div style="flex:1">'+
           '<div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:2px">'+label+'</div>'+
           '<div style="font-family:Bebas Neue,sans-serif;font-size:22px;color:#fff">'+t.campo+'</div>'+
-          '<div style="font-size:12px;color:rgba(255,255,255,.7)">Torneo n&ordm;'+t.nTorneo+' &middot; '+(t.tipoNombre||'Liga')+(t.precio?' &middot; '+t.precio+'&euro;':'')+'</div>'+
+          '<div style="font-size:12px;color:rgba(255,255,255,.7)">Torneo n&ordm;'+t.nTorneo+' &middot; '+(t.tipoNombre||'Liga')+(t.hora?' &middot; '+t.hora+' h':'')+(t.precio?' &middot; '+t.precio+'&euro;':'')+'</div>'+
+          (t.observaciones?'<div style="font-size:11px;font-style:italic;color:rgba(255,255,255,.6);margin-top:2px">'+t.observaciones+'</div>':'')+
           (t.urlGolfDirecto?'<div style="margin-top:8px">'+gdBtn(t)+'</div>':'')+
         '</div>'+
         '<div style="font-family:Bebas Neue,sans-serif;font-size:40px;color:rgba(255,255,255,.15)">'+t.nTorneo+'</div>'+
@@ -1289,7 +1290,7 @@ function renderPortada(){
           evH+='<span style="background:#dbeafe;color:#1e40af;font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px">&#9968; Liga Cuartillos</span>';
           evH+='<span style="font-size:10px;color:var(--muted)">&mdash; '+dTxt+'</span></div>';
           evH+='<div style="font-weight:700;font-size:14px">'+p.campo+'</div>';
-          evH+='<div style="font-size:11px;color:var(--muted)">T'+p.nTorneo+' &middot; '+(p.tipoNombre||'Liga')+(p.precio?' &middot; '+p.precio+'&euro;':'')+'</div></div>';
+          evH+='<div style="font-size:11px;color:var(--muted)">T'+p.nTorneo+' &middot; '+(p.tipoNombre||'Liga')+(p.hora?' &middot; '+p.hora+' h':'')+(p.precio?' &middot; '+p.precio+'&euro;':'')+'</div></div>';
           evH+=(p.urlGolfDirecto?'<a href="'+p.urlGolfDirecto+'" target="_blank" rel="noopener" style="background:#16a34a;color:#fff;font-family:Barlow Condensed,sans-serif;font-size:11px;font-weight:700;padding:5px 12px;border-radius:5px;text-decoration:none;white-space:nowrap">&#9997; Inscribirse</a>':'<span class="tb tnext">PR&Oacute;XIMO</span>')+'</div>';
         } else {
           var mod=ev.mod,p=ev.data;
@@ -1411,7 +1412,7 @@ function renderCal(){
               (t.porConfirmar?'<span style="margin-left:8px;background:#fef9c3;color:#713f12;font-size:9px;font-weight:700;padding:2px 6px;border-radius:8px">? por confirmar</span>':'')+
             '</div>'+
             '<div class="cim">Torneo n&ordm;'+t.nTorneo+' &middot; Barras '+(t.barras||'&mdash;')+
-              ' &middot; Par '+(t.parTotal||72)+(t.precio?' &middot; '+t.precio+'&euro;':'')+'</div>'+
+              ' &middot; Par '+(t.parTotal||72)+(t.hora&&!t.jugado?' &middot; '+t.hora+' h':'')+(t.precio?' &middot; '+t.precio+'&euro;':'')+'</div>'+
             (t.observaciones&&!t.porConfirmar?'<div class="cim" style="font-style:italic">'+t.observaciones+'</div>':'')+
             (t.nTornPunt?'<div class="cim" style="margin-top:3px">'+
               '<span style="background:#e8f4fd;color:#1B3A72;font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px">'+

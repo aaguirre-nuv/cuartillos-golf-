@@ -173,6 +173,14 @@ días». Comprobado con `node --check` y simulando la selección sobre `calendar
 No mirado en el navegador. Cuando se publique la del T11 (Santander, 19/12) saldrá igual en cuanto el
 T10 sea el próximo.
 
+**Precio y hora salen del micrositio de golfdirecto** (`herramientas/info_golfdirecto.py`, que lee la
+API pública `/api/v2/public/game/<id>/active`). Medido el 2026-11-16 y pasado a `calendario.json`:
+T9 El Encín, salidas sucesivas desde las 11:30, 57 € sin comida (el precio con comida está en
+blanco); T10 Layos, a tiro a las 9:00, 48 € sin comida y 70 € con cocido. Los dos dicen «computan 7/9»
+y «8/10», que cuadra con `nTornPunt`. **La API no publica fecha de cierre de inscripción.** La
+portada, «Próximos eventos» y el calendario enseñan ahora la hora; la tarjeta de portada, también las
+observaciones.
+
 **Datos sin cargar, los dos inocuos:** Approach y Putt – Putt & Drive de la jornada 6 de fin de
 semana (los dos acabaron con 0 puntos y ninguno podía pasar de 1), y los otros tres cuartos de final
 de cada liga, que no son nuestros.
