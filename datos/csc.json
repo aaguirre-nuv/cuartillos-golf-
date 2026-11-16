@@ -616,11 +616,18 @@
           "rival": "CG Caminos",
           "formato": "2 fourball + 2 individuales",
           "local": null,
-          "resultado": null,
-          "detalle": null,
-          "ups_favor": null,
-          "ups_contra": null,
-          "jugadores": []
+          "resultado": "P",
+          "detalle": "1.5-2.5 (ind: P 7&6, P 1UP · fb: G 3&2, A/S)",
+          "ups_favor": 3,
+          "ups_contra": 8,
+          "jugadores": [
+            "José Pablo Guil",
+            "Angel Santana",
+            "Angel Hernandez",
+            "Santi Diaz",
+            "Jose Antonio Santana",
+            "Miche Lopez"
+          ]
         }
       ],
       "partidos_grupo": [

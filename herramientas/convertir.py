@@ -182,7 +182,8 @@ for lid in ('ES', 'FS'):
     })
 
 out = {'temporada': 2026,
-       'fuente': 'actas de nextcaddy, agrupaciones 13-26, bajadas el 2026-10-26',
+       'fuente': 'actas de nextcaddy, agrupaciones 13-26, bajadas el 2026-10-26; '
+                 'cuartos de fin de semana (agrupacion 26) el 2026-11-16',
        'ligas': ligas}
 with open(SALIDA, 'w', encoding='utf-8') as f:
     json.dump(out, f, ensure_ascii=False, indent=1)

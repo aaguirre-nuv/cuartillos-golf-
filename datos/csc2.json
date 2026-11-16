@@ -1,6 +1,6 @@
 {
  "temporada": 2026,
- "fuente": "actas de nextcaddy, agrupaciones 13-26, bajadas el 2026-10-26",
+ "fuente": "actas de nextcaddy, agrupaciones 13-26, bajadas el 2026-10-26; cuartos de fin de semana (agrupacion 26) el 2026-11-16",
  "ligas": [
   {
    "id": "ES",
@@ -13130,22 +13130,456 @@
      "campo": "Los Ángeles de San Rafael",
      "equipos": [
       {
-       "nombre": "Cuartillos",
-       "puntos": null,
-       "ups": null
+       "nombre": "CG Caminos",
+       "puntos": 2.5,
+       "ups": 8
       },
       {
-       "nombre": "CG Caminos",
-       "puntos": null,
-       "ups": null
+       "nombre": "Cuartillos",
+       "puntos": 1.5,
+       "ups": 3
       }
      ],
-     "formatoPrevisto": {
-      "fourball": 2,
-      "individual": 2
-     },
-     "insId": "FSQF",
-     "partidos": []
+     "partidos": [
+      {
+       "orden": 1,
+       "tipo": "individual",
+       "lados": [
+        {
+         "equipo": 0,
+         "jugadores": [
+          "Alvaro Ruiz Avila"
+         ]
+        },
+        {
+         "equipo": 1,
+         "jugadores": [
+          "José Pablo Guil"
+         ]
+        }
+       ],
+       "ganador": 0,
+       "margen": "7&6",
+       "ups": 7,
+       "incomparecencia": null
+      },
+      {
+       "orden": 2,
+       "tipo": "individual",
+       "lados": [
+        {
+         "equipo": 0,
+         "jugadores": [
+          "Jose Antonio Ortega Martinez"
+         ]
+        },
+        {
+         "equipo": 1,
+         "jugadores": [
+          "Angel Santana"
+         ]
+        }
+       ],
+       "ganador": 0,
+       "margen": "1UP",
+       "ups": 1,
+       "incomparecencia": null
+      },
+      {
+       "orden": 1,
+       "tipo": "fourball",
+       "lados": [
+        {
+         "equipo": 0,
+         "jugadores": [
+          "Abad Ramos Infante",
+          "Felix Sancho Colmenarejo"
+         ]
+        },
+        {
+         "equipo": 1,
+         "jugadores": [
+          "Angel Hernandez",
+          "Santi Diaz"
+         ]
+        }
+       ],
+       "ganador": 1,
+       "margen": "3&2",
+       "ups": 3,
+       "incomparecencia": null
+      },
+      {
+       "orden": 2,
+       "tipo": "fourball",
+       "lados": [
+        {
+         "equipo": 0,
+         "jugadores": [
+          "Mariano Calabuig Vergara",
+          "Fernando Alvarez Bermejo"
+         ]
+        },
+        {
+         "equipo": 1,
+         "jugadores": [
+          "Jose Antonio Santana",
+          "Miche Lopez"
+         ]
+        }
+       ],
+       "ganador": null,
+       "margen": "A/S",
+       "ups": 0,
+       "incomparecencia": null
+      }
+     ],
+     "insId": "FSQF"
+    },
+    {
+     "id": "FS-cuartos-2026-11-15",
+     "fase": "cuartos",
+     "grupo": null,
+     "jornada": null,
+     "vuelta": null,
+     "fecha": "2026-11-15",
+     "campo": "Los Ángeles de San Rafael",
+     "equipos": [
+      {
+       "nombre": "CG Arganda",
+       "puntos": 1,
+       "ups": 2
+      },
+      {
+       "nombre": "Foro 2000",
+       "puntos": 3,
+       "ups": 6
+      }
+     ],
+     "partidos": [
+      {
+       "orden": 1,
+       "tipo": "individual",
+       "lados": [
+        {
+         "equipo": 0,
+         "jugadores": [
+          "Francisco Garcia Ramirez"
+         ]
+        },
+        {
+         "equipo": 1,
+         "jugadores": [
+          "David Gorroño Ruiz"
+         ]
+        }
+       ],
+       "ganador": 1,
+       "margen": "3&1",
+       "ups": 3,
+       "incomparecencia": null
+      },
+      {
+       "orden": 2,
+       "tipo": "individual",
+       "lados": [
+        {
+         "equipo": 0,
+         "jugadores": [
+          "Jose Ignacio Alonso Calzada"
+         ]
+        },
+        {
+         "equipo": 1,
+         "jugadores": [
+          "Marco Frau Madrid"
+         ]
+        }
+       ],
+       "ganador": 1,
+       "margen": "2UP",
+       "ups": 2,
+       "incomparecencia": null
+      },
+      {
+       "orden": 1,
+       "tipo": "fourball",
+       "lados": [
+        {
+         "equipo": 0,
+         "jugadores": [
+          "Jose Maria Grueso Sanchez",
+          "Alejandro Miguel Sanchez Arias"
+         ]
+        },
+        {
+         "equipo": 1,
+         "jugadores": [
+          "Antonio Aboy Sáez",
+          "Jaime Lillo Otaegui"
+         ]
+        }
+       ],
+       "ganador": 0,
+       "margen": "2&1",
+       "ups": 2,
+       "incomparecencia": null
+      },
+      {
+       "orden": 2,
+       "tipo": "fourball",
+       "lados": [
+        {
+         "equipo": 0,
+         "jugadores": [
+          "Javier Villalmanzo Bonilla",
+          "Juan Carlos Garcia Tornero"
+         ]
+        },
+        {
+         "equipo": 1,
+         "jugadores": [
+          "Daniel Hernan Cristobal",
+          "Julian De Lago Lopez"
+         ]
+        }
+       ],
+       "ganador": 1,
+       "margen": "1UP",
+       "ups": 1,
+       "incomparecencia": null
+      }
+     ]
+    },
+    {
+     "id": "FS-cuartos-2026-11-15",
+     "fase": "cuartos",
+     "grupo": null,
+     "jornada": null,
+     "vuelta": null,
+     "fecha": "2026-11-15",
+     "campo": "Los Ángeles de San Rafael",
+     "equipos": [
+      {
+       "nombre": "GLX Golf",
+       "puntos": 2,
+       "ups": 3
+      },
+      {
+       "nombre": "Tres Cantos",
+       "puntos": 2,
+       "ups": 10
+      }
+     ],
+     "partidos": [
+      {
+       "orden": 1,
+       "tipo": "individual",
+       "lados": [
+        {
+         "equipo": 0,
+         "jugadores": [
+          "Jesus Borjas Astorga"
+         ]
+        },
+        {
+         "equipo": 1,
+         "jugadores": [
+          "Roberto Espinosa Gila"
+         ]
+        }
+       ],
+       "ganador": 1,
+       "margen": "6&5",
+       "ups": 6,
+       "incomparecencia": null
+      },
+      {
+       "orden": 2,
+       "tipo": "individual",
+       "lados": [
+        {
+         "equipo": 0,
+         "jugadores": [
+          "Daniel Oroz Suarez"
+         ]
+        },
+        {
+         "equipo": 1,
+         "jugadores": [
+          "Carlos Gomez Barrero"
+         ]
+        }
+       ],
+       "ganador": 1,
+       "margen": "4&2",
+       "ups": 4,
+       "incomparecencia": null
+      },
+      {
+       "orden": 1,
+       "tipo": "fourball",
+       "lados": [
+        {
+         "equipo": 0,
+         "jugadores": [
+          "Daniel Perez Lopez-Brea",
+          "Jose Vicente Albert Reig"
+         ]
+        },
+        {
+         "equipo": 1,
+         "jugadores": [
+          "David Lancho Cano",
+          "Nicolas Aguilera Sevilla"
+         ]
+        }
+       ],
+       "ganador": 0,
+       "margen": "2&1",
+       "ups": 2,
+       "incomparecencia": null
+      },
+      {
+       "orden": 2,
+       "tipo": "fourball",
+       "lados": [
+        {
+         "equipo": 0,
+         "jugadores": [
+          "Jose Luis Ramirez Gomez",
+          "Antonio Javier Lancho Nogal"
+         ]
+        },
+        {
+         "equipo": 1,
+         "jugadores": [
+          "Ako Pavia Fernandez",
+          "Alfonso Lopez Del Pozo"
+         ]
+        }
+       ],
+       "ganador": 0,
+       "margen": "1UP",
+       "ups": 1,
+       "incomparecencia": null
+      }
+     ]
+    },
+    {
+     "id": "FS-cuartos-2026-11-15",
+     "fase": "cuartos",
+     "grupo": null,
+     "jornada": null,
+     "vuelta": null,
+     "fecha": "2026-11-15",
+     "campo": "Los Ángeles de San Rafael",
+     "equipos": [
+      {
+       "nombre": "AEPJG",
+       "puntos": 0,
+       "ups": 0
+      },
+      {
+       "nombre": "Sultanes del Swing",
+       "puntos": 4,
+       "ups": 10
+      }
+     ],
+     "partidos": [
+      {
+       "orden": 1,
+       "tipo": "individual",
+       "lados": [
+        {
+         "equipo": 0,
+         "jugadores": [
+          "Pedro Niembro Sandres"
+         ]
+        },
+        {
+         "equipo": 1,
+         "jugadores": [
+          "Francisco Aragon Rubio"
+         ]
+        }
+       ],
+       "ganador": 1,
+       "margen": "2&1",
+       "ups": 2,
+       "incomparecencia": null
+      },
+      {
+       "orden": 2,
+       "tipo": "individual",
+       "lados": [
+        {
+         "equipo": 0,
+         "jugadores": [
+          "Tomas Muñoz Montijano"
+         ]
+        },
+        {
+         "equipo": 1,
+         "jugadores": [
+          "Manuel Martin Arribas"
+         ]
+        }
+       ],
+       "ganador": 1,
+       "margen": "4&2",
+       "ups": 4,
+       "incomparecencia": null
+      },
+      {
+       "orden": 1,
+       "tipo": "fourball",
+       "lados": [
+        {
+         "equipo": 0,
+         "jugadores": [
+          "Ignacio Visiers Echeveste",
+          "Carlos Lopez Portaña"
+         ]
+        },
+        {
+         "equipo": 1,
+         "jugadores": [
+          "Miguel Angel Aguilera Rivas",
+          "Borja Lopez Fondevila"
+         ]
+        }
+       ],
+       "ganador": 1,
+       "margen": "1UP",
+       "ups": 1,
+       "incomparecencia": null
+      },
+      {
+       "orden": 2,
+       "tipo": "fourball",
+       "lados": [
+        {
+         "equipo": 0,
+         "jugadores": [
+          "Alfonso Gutierrez De Teran Gonzalez",
+          "Jesus Pastor Camacho"
+         ]
+        },
+        {
+         "equipo": 1,
+         "jugadores": [
+          "David Extremera Soto",
+          "Fernando Ruiz Morales"
+         ]
+        }
+       ],
+       "ganador": 1,
+       "margen": "3&1",
+       "ups": 3,
+       "incomparecencia": null
+      }
+     ]
     }
    ]
   }

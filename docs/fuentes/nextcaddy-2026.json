@@ -12962,5 +12962,489 @@
     ]
    }
   ]
+ },
+ {
+  "agrupacion": 26,
+  "liga": "FS",
+  "fase": "cuartos",
+  "id": 74743,
+  "nombre": "1. C.G. Caminos VS Cuartillos Golf",
+  "campo": "Los Angeles de San Rafael Golf",
+  "fecha": "2026-11-15",
+  "equipos": [
+   {
+    "id": "122783",
+    "nombre": "Caminos Golf",
+    "puntos": 2.5,
+    "ups": 8
+   },
+   {
+    "id": "123106",
+    "nombre": "CUARTILLOS CLUB DE GOLF",
+    "puntos": 1.5,
+    "ups": 3
+   }
+  ],
+  "partidos": [
+   {
+    "ronda": 1,
+    "modalidad": "Individual",
+    "orden": 1,
+    "resultado": "7&6",
+    "finalizado": true,
+    "lados": [
+     {
+      "equipo": "Caminos Golf",
+      "gana": true,
+      "jugadores": [
+       "Alvaro Ruiz Avila"
+      ]
+     },
+     {
+      "equipo": "CUARTILLOS CLUB DE GOLF",
+      "gana": false,
+      "jugadores": [
+       "Jose Pablo Guil Salvador"
+      ]
+     }
+    ]
+   },
+   {
+    "ronda": 1,
+    "modalidad": "Individual",
+    "orden": 2,
+    "resultado": "1UP",
+    "finalizado": true,
+    "lados": [
+     {
+      "equipo": "Caminos Golf",
+      "gana": true,
+      "jugadores": [
+       "Jose Antonio Ortega Martinez"
+      ]
+     },
+     {
+      "equipo": "CUARTILLOS CLUB DE GOLF",
+      "gana": false,
+      "jugadores": [
+       "Angel Santana Aguilera"
+      ]
+     }
+    ]
+   },
+   {
+    "ronda": 2,
+    "modalidad": "Four Ball Best Ball",
+    "orden": 1,
+    "resultado": "3&2",
+    "finalizado": false,
+    "lados": [
+     {
+      "equipo": "Caminos Golf",
+      "gana": false,
+      "jugadores": [
+       "Abad Ramos Infante",
+       "Felix Sancho Colmenarejo"
+      ]
+     },
+     {
+      "equipo": "CUARTILLOS CLUB DE GOLF",
+      "gana": true,
+      "jugadores": [
+       "Angel Hernandez Rilova",
+       "Santiago Diaz Dominguez"
+      ]
+     }
+    ]
+   },
+   {
+    "ronda": 2,
+    "modalidad": "Four Ball Best Ball",
+    "orden": 2,
+    "resultado": "A/S",
+    "finalizado": false,
+    "lados": [
+     {
+      "equipo": "Caminos Golf",
+      "gana": false,
+      "jugadores": [
+       "Mariano Calabuig Vergara",
+       "Fernando Alvarez Bermejo"
+      ]
+     },
+     {
+      "equipo": "CUARTILLOS CLUB DE GOLF",
+      "gana": false,
+      "jugadores": [
+       "Jose Antonio Santana Sanchez",
+       "Vicente Lopez Calderon"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "agrupacion": 26,
+  "liga": "FS",
+  "fase": "cuartos",
+  "id": 74746,
+  "nombre": "2. C.G. Arganda VS Foro 2000",
+  "campo": "Los Angeles de San Rafael Golf",
+  "fecha": "2026-11-15",
+  "equipos": [
+   {
+    "id": "123095",
+    "nombre": "C.G. ARGANDA",
+    "puntos": 1,
+    "ups": 2
+   },
+   {
+    "id": "123098",
+    "nombre": "Foro 2000",
+    "puntos": 3,
+    "ups": 6
+   }
+  ],
+  "partidos": [
+   {
+    "ronda": 1,
+    "modalidad": "Individual",
+    "orden": 1,
+    "resultado": "3&1",
+    "finalizado": true,
+    "lados": [
+     {
+      "equipo": "C.G. ARGANDA",
+      "gana": false,
+      "jugadores": [
+       "Francisco Garcia Ramirez"
+      ]
+     },
+     {
+      "equipo": "Foro 2000",
+      "gana": true,
+      "jugadores": [
+       "David Gorroño Ruiz"
+      ]
+     }
+    ]
+   },
+   {
+    "ronda": 1,
+    "modalidad": "Individual",
+    "orden": 2,
+    "resultado": "2UP",
+    "finalizado": false,
+    "lados": [
+     {
+      "equipo": "C.G. ARGANDA",
+      "gana": false,
+      "jugadores": [
+       "Jose Ignacio Alonso Calzada"
+      ]
+     },
+     {
+      "equipo": "Foro 2000",
+      "gana": true,
+      "jugadores": [
+       "Marco Frau Madrid"
+      ]
+     }
+    ]
+   },
+   {
+    "ronda": 2,
+    "modalidad": "Four Ball Best Ball",
+    "orden": 1,
+    "resultado": "2&1",
+    "finalizado": true,
+    "lados": [
+     {
+      "equipo": "C.G. ARGANDA",
+      "gana": true,
+      "jugadores": [
+       "Jose Maria Grueso Sanchez",
+       "Alejandro Miguel Sanchez Arias"
+      ]
+     },
+     {
+      "equipo": "Foro 2000",
+      "gana": false,
+      "jugadores": [
+       "Antonio Aboy Sáez",
+       "Jaime Lillo Otaegui"
+      ]
+     }
+    ]
+   },
+   {
+    "ronda": 2,
+    "modalidad": "Four Ball Best Ball",
+    "orden": 2,
+    "resultado": "1UP",
+    "finalizado": true,
+    "lados": [
+     {
+      "equipo": "C.G. ARGANDA",
+      "gana": false,
+      "jugadores": [
+       "Javier Villalmanzo Bonilla",
+       "Juan Carlos Garcia Tornero"
+      ]
+     },
+     {
+      "equipo": "Foro 2000",
+      "gana": true,
+      "jugadores": [
+       "Daniel Hernan Cristobal",
+       "Julian De Lago Lopez"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "agrupacion": 26,
+  "liga": "FS",
+  "fase": "cuartos",
+  "id": 74747,
+  "nombre": "3. GLX Golf VS Tres Cantos Golf",
+  "campo": "Los Angeles de San Rafael Golf",
+  "fecha": "2026-11-15",
+  "equipos": [
+   {
+    "id": "122786",
+    "nombre": "GLX Golf",
+    "puntos": 2,
+    "ups": 3
+   },
+   {
+    "id": "122884",
+    "nombre": "Tres Cantos",
+    "puntos": 2,
+    "ups": 10
+   }
+  ],
+  "partidos": [
+   {
+    "ronda": 1,
+    "modalidad": "Individual",
+    "orden": 1,
+    "resultado": "6&5",
+    "finalizado": true,
+    "lados": [
+     {
+      "equipo": "GLX Golf",
+      "gana": false,
+      "jugadores": [
+       "Jesus Borjas Astorga"
+      ]
+     },
+     {
+      "equipo": "Tres Cantos",
+      "gana": true,
+      "jugadores": [
+       "Roberto Espinosa Gila"
+      ]
+     }
+    ]
+   },
+   {
+    "ronda": 1,
+    "modalidad": "Individual",
+    "orden": 2,
+    "resultado": "4&2",
+    "finalizado": true,
+    "lados": [
+     {
+      "equipo": "GLX Golf",
+      "gana": false,
+      "jugadores": [
+       "Daniel Oroz Suarez"
+      ]
+     },
+     {
+      "equipo": "Tres Cantos",
+      "gana": true,
+      "jugadores": [
+       "Carlos Gomez Barrero"
+      ]
+     }
+    ]
+   },
+   {
+    "ronda": 2,
+    "modalidad": "Four Ball Best Ball",
+    "orden": 1,
+    "resultado": "2&1",
+    "finalizado": true,
+    "lados": [
+     {
+      "equipo": "GLX Golf",
+      "gana": true,
+      "jugadores": [
+       "Daniel Perez Lopez-Brea",
+       "Jose Vicente Albert Reig"
+      ]
+     },
+     {
+      "equipo": "Tres Cantos",
+      "gana": false,
+      "jugadores": [
+       "David Lancho Cano",
+       "Nicolas Aguilera Sevilla"
+      ]
+     }
+    ]
+   },
+   {
+    "ronda": 2,
+    "modalidad": "Four Ball Best Ball",
+    "orden": 2,
+    "resultado": "1UP",
+    "finalizado": true,
+    "lados": [
+     {
+      "equipo": "GLX Golf",
+      "gana": true,
+      "jugadores": [
+       "Jose Luis Ramirez Gomez",
+       "Antonio Javier Lancho Nogal"
+      ]
+     },
+     {
+      "equipo": "Tres Cantos",
+      "gana": false,
+      "jugadores": [
+       "Ako Pavia Fernandez",
+       "Alfonso Lopez Del Pozo"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "agrupacion": 26,
+  "liga": "FS",
+  "fase": "cuartos",
+  "id": 74748,
+  "nombre": "4. Sultanes del Swing VS AEPJG",
+  "campo": "Los Angeles de San Rafael Golf",
+  "fecha": "2026-11-15",
+  "equipos": [
+   {
+    "id": "122885",
+    "nombre": "AEPJG",
+    "puntos": 0,
+    "ups": 0
+   },
+   {
+    "id": "122966",
+    "nombre": "SULTANES DEL SWING",
+    "puntos": 4,
+    "ups": 10
+   }
+  ],
+  "partidos": [
+   {
+    "ronda": 1,
+    "modalidad": "Individual",
+    "orden": 1,
+    "resultado": "2&1",
+    "finalizado": true,
+    "lados": [
+     {
+      "equipo": "AEPJG",
+      "gana": false,
+      "jugadores": [
+       "Pedro Niembro Sandres"
+      ]
+     },
+     {
+      "equipo": "SULTANES DEL SWING",
+      "gana": true,
+      "jugadores": [
+       "Francisco Aragon Rubio"
+      ]
+     }
+    ]
+   },
+   {
+    "ronda": 1,
+    "modalidad": "Individual",
+    "orden": 2,
+    "resultado": "4&2",
+    "finalizado": false,
+    "lados": [
+     {
+      "equipo": "AEPJG",
+      "gana": false,
+      "jugadores": [
+       "Tomas Muñoz Montijano"
+      ]
+     },
+     {
+      "equipo": "SULTANES DEL SWING",
+      "gana": true,
+      "jugadores": [
+       "Manuel Martin Arribas"
+      ]
+     }
+    ]
+   },
+   {
+    "ronda": 2,
+    "modalidad": "Four Ball Best Ball",
+    "orden": 1,
+    "resultado": "1UP",
+    "finalizado": true,
+    "lados": [
+     {
+      "equipo": "AEPJG",
+      "gana": false,
+      "jugadores": [
+       "Ignacio Visiers Echeveste",
+       "Carlos Lopez Portaña"
+      ]
+     },
+     {
+      "equipo": "SULTANES DEL SWING",
+      "gana": true,
+      "jugadores": [
+       "Miguel Angel Aguilera Rivas",
+       "Borja Lopez Fondevila"
+      ]
+     }
+    ]
+   },
+   {
+    "ronda": 2,
+    "modalidad": "Four Ball Best Ball",
+    "orden": 2,
+    "resultado": "3&1",
+    "finalizado": false,
+    "lados": [
+     {
+      "equipo": "AEPJG",
+      "gana": false,
+      "jugadores": [
+       "Alfonso Gutierrez De Teran Gonzalez",
+       "Jesus Pastor Camacho"
+      ]
+     },
+     {
+      "equipo": "SULTANES DEL SWING",
+      "gana": true,
+      "jugadores": [
+       "David Extremera Soto",
+       "Fernando Ruiz Morales"
+      ]
+     }
+    ]
+   }
+  ]
  }
 ]

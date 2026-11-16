@@ -139,18 +139,28 @@ de alias a mano.
 
 ## Lo primero al volver
 
-**Entre semana se acabó: Cuartillos cayó en cuartos el 20 de octubre.** Perdió **1,5-2,5 contra
-Goldfers** en El Encín. **Queda viva la de fin de semana**, cuyo cuarto de final es el **domingo 15 de
-noviembre en Los Ángeles de San Rafael**, contra el 1º del Grupo 1, que aún no se sabe quién es.
+**La temporada CSC 2026 ha terminado para Cuartillos: eliminado en cuartos en las dos ligas.**
 
 | Liga | Cómo entró | Cuartos | Resultado |
 |---|---|---|---|
-| Entre semana | 2º del Grupo 3, 2 puntos | martes 20/10, El Encín | **perdido 1,5-2,5 vs Goldfers** |
-| Fin de semana | tercer mejor segundo, 2 puntos | **domingo 15/11, Los Ángeles de San Rafael** | pendiente |
+| Entre semana | 2º del Grupo 3, 2 puntos | martes 20/10, El Encín | **perdido 1,5-2,5 vs Goldfers** (3-7 ups) |
+| Fin de semana | tercer mejor segundo, 2 puntos | domingo 15/11, Los Ángeles de San Rafael | **perdido 1,5-2,5 vs CG Caminos** (3-8 ups) |
 
-**La inscripción de fin de semana está abierta** en el microsite. Campo neutral, **2 fourball + 2
-individuales, 6 jugadores** —no es el formato de la liga—. El plazo federativo **cierra el lunes 09/11
-a las 10:00**.
+**2026-11-16 · cuarto de fin de semana cargado desde el acta de nextcaddy** (competición 74743,
+agrupación 26), con los otros tres cuartos de esa liga. Individuales: Guil pierde 7&6 y Angel
+Santana 1UP; fourball: Angel Hernandez y Santi Diaz ganan 3&2, Jose Antonio Santana y Miche Lopez
+empatan. Suma 1,5-2,5 y 3-8 ups, que cuadra con el marcador del acta. **Ojo:** el acta marcaba los dos
+fourball como `finalized: false` aunque ya tenían resultado; si la RFGM corrigiera algo, se vuelve a
+bajar con `herramientas/bajar_actas.py 26 FS cuartos 74743 74746 74747 74748` y se regenera
+`csc2.json` con `convertir.py`.
+
+**Con eso desaparece la convocatoria de fin de semana** de la portada y de la sección CSC, que pasa a
+decir «temporada terminada». Simulado con `node` sobre los dos ficheros; no mirado en el navegador. Las
+inscripciones guardadas en jsonbin bajo `FSQF` siguen ahí, pero ya no se enseñan.
+
+`herramientas/bajar_actas.py` es nuevo: el guion del barrido del 2026-10-26 no quedó en el repo, y la
+URL de las actas tampoco estaba apuntada. Es `https://www.nextcaddy.com/<id>/ryder-cup/livescoring`, y
+los ids de una jornada salen de `https://www.nextcaddy.com/agrupacion/<n>`.
 
 **Y el T9 del circuito interno se ha movido dos veces**: del domingo 18 de octubre al sábado 31, y de
 ahí al **domingo 22 de noviembre en El Encin**, ya con enlace de inscripción nuevo. Entre el T9 y el
