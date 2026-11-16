@@ -301,7 +301,7 @@ tr:nth-child(3) .rk{color:#cd7f32}
 var BASE='./datos/';
 // Version de cache de los datos. Subirla en CADA cambio de datos/*.json,
 // o los navegadores que ya han visitado la pagina seguiran sirviendo la copia vieja.
-var CV='?v=20261026b';
+var CV='?v=20261116a';
 var IMG='./img/';
 var MES=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
 var MESES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
@@ -1168,17 +1168,18 @@ function renderPortada(){
     var torn=cal?cal.filter(function(t){return t.temporada===s;}):[],
         jugados=torn.filter(function(t){return t.jugado===1;}).length,
         proximo=null;
-    var proximo2=null;
+    var proximo2=null,proximo2Doble=false;
     if(s===new Date().getFullYear()){
       for(var i=0;i<torn.length;i++){
         // Un torneo aplazado no tiene fecha buena: no puede ser el "proximo".
         if(!torn[i].jugado&&!torn[i].aplazado){
           proximo=torn[i];
-          // Check if next tournament is on consecutive day(s)
+          // El siguiente tambien sale en portada si es del mismo fin de semana
+          // o si ya tiene la inscripcion publicada en golfdirecto.
           if(i+1<torn.length&&!torn[i+1].jugado&&!torn[i+1].aplazado){
             var d1=parseDate(torn[i].fecha),d2=parseDate(torn[i+1].fecha);
             var diffDays=Math.round((d2-d1)/86400000);
-            if(diffDays<=2){proximo2=torn[i+1];}
+            if(diffDays<=2||torn[i+1].urlGolfDirecto){proximo2=torn[i+1];proximo2Doble=diffDays<=2;}
           }
           break;
         }
@@ -1211,9 +1212,13 @@ function renderPortada(){
     if(proximo){
       var dt=parseDate(proximo.fecha),dias=Math.round((dt-today)/86400000);
       var dTxt=dias<=0?'&#161;HOY!':dias===1?'ma&ntilde;ana':'en '+dias+' d&iacute;as';
-      if(proximo2){
+      if(proximo2&&proximo2Doble){
         nextH=mkTornCard(proximo,'&#127944; Finde doble &mdash; '+dTxt,8)+
               mkTornCard(proximo2,'2&ordm; torneo del fin de semana',14);
+      } else if(proximo2){
+        var dias2=Math.round((parseDate(proximo2.fecha)-today)/86400000);
+        nextH=mkTornCard(proximo,'Pr&oacute;ximo torneo &mdash; '+dTxt,8)+
+              mkTornCard(proximo2,'Y despu&eacute;s &mdash; en '+dias2+' d&iacute;as',14);
       } else {
         nextH=mkTornCard(proximo,'Pr&oacute;ximo torneo &mdash; '+dTxt,14);
       }

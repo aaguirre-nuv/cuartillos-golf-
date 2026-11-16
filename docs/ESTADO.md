@@ -156,6 +156,13 @@ a las 10:00**.
 ahí al **domingo 22 de noviembre en El Encin**, ya con enlace de inscripción nuevo. Entre el T9 y el
 T10 de Layos quedan seis días.
 
+**2026-11-16 · el T10 de Layos (sábado 28/11) ya tiene inscripción en golfdirecto**, y la portada
+enseña los dos torneos. Antes solo juntaba dos tarjetas si eran del mismo fin de semana (≤2 días);
+ahora **el siguiente también sale si ya tiene `urlGolfDirecto`**, con la etiqueta «Y después — en N
+días». Comprobado con `node --check` y simulando la selección sobre `calendario.json`: sale T9 + T10.
+No mirado en el navegador. Cuando se publique la del T11 (Santander, 19/12) saldrá igual en cuanto el
+T10 sea el próximo.
+
 **Datos sin cargar, los dos inocuos:** Approach y Putt – Putt & Drive de la jornada 6 de fin de
 semana (los dos acabaron con 0 puntos y ninguno podía pasar de 1), y los otros tres cuartos de final
 de cada liga, que no son nuestros.
