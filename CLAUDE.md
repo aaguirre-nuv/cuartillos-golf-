@@ -29,6 +29,14 @@ página estática que se sirve tal cual y lee ficheros JSON de la carpeta `datos
    compite contra otros clubes. Reglamento propio, ajeno al club, y con dos ligas independientes.
    Vive en `datos/csc.json` y en la sección CSC del microsite.
 
+## Cargar un torneo del circuito interno
+
+Con los tres Excel del torneo (`Jugadores`, `Resultados HANDICAP`, `Resultados SCRATCH`) en una
+carpeta: `python herramientas/cargar_torneo.py --temp <año> --torneo <n> --carpeta <carpeta>`, que
+simula; con `--aplicar` escribe los cuatro JSON, marca el torneo jugado y sube `CV`. Las reglas que
+aplica y cómo trata invitados, bajas y no clasificados están en la cabecera del propio guion. Los
+guiones del repo van en `herramientas/`.
+
 ## Incorporación de socios y puntos del circuito interno
 
 Cómo se reconocen los puntos de alguien que jugó un torneo sin ser socio y se incorpora después, qué

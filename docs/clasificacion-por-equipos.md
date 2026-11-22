@@ -82,6 +82,18 @@ En el bloque `equipos`, por cada equipo:
 
 Desde el torneo 8 de 2026, `nTornPunt` es **6**: cuentan los seis mejores torneos de cada equipo.
 
+## No clasificados y equipos con un solo resultado
+
+Desde el torneo 9 de 2026 (`herramientas/cargar_torneo.py`):
+
+- **Un jugador no clasificado** (tarjeta incompleta o no entregada) **cuenta en `nJugadores` y en la
+  asistencia** de su equipo, pero no en el `teamScore`. Figura en `jugadores` con `difNeto: null` y
+  `noClasificado: true`. Decisión de Álvaro del 2026-11-22, con Javier Cervera.
+- **Un equipo con un solo resultado válido** lleva `teamScore` = ese resultado, **`valid: false`**, y
+  se clasifica **por detrás de todos los válidos**, como en los torneos 2 y 4 de 2026. El torneo 6 de
+  2026 lo hizo al revés (Cerdos Arqueros, un jugador, primero). Criterio aplicado por Claude con la
+  mayoría de precedentes y **revisable**: en el T9 de 2026 decide los puestos 4 a 7.
+
 ## El campo `valid`
 
 Marca si la puntuación del equipo es comparable. En el dato **no es consistente**: en 2026 hay equipos

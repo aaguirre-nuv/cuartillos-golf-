@@ -1,8 +1,56 @@
 # Estado del proyecto
 
-**Al 2026-10-06.** Los estados anteriores están en el historial de git.
+**Al 2026-11-22.** Los estados anteriores están en el historial de git.
 
 ---
+
+## Qué se hizo el 2026-11-22 · torneo 9 de El Encín cargado
+
+Cargado desde los tres Excel del torneo (`Jugadores` del día 22, `HANDICAP` y `SCRATCH`) con el
+guion nuevo **`herramientas/cargar_torneo.py`**, que sirve para el T10 y siguientes. Antes de añadir
+nada **reproduce la general y la de equipos ya publicadas** con las mismas reglas y para si no cuadran.
+
+**Gana José Antonio Santana con 70 netos**; Javier Chiralt segundo con 71. 23 inscritos y 22 tarjetas:
+
+- **José Pablo Guil, baja**: inscrito y sin tarjeta, sin puntos ni asistencia, como Santana en el T8.
+- **Jaime Orlando Larregui, invitado**: tercero en neto. Cargado como Javier Aguirre en el 2026:3
+  (`tipoParticipacion: Inv`, puesto de torneo 3, `rankingSocios` 0, 0 puntos), fuera de la general y
+  de equipos. Los socios que van detrás cobran el puesto de socio, no el del torneo.
+- **Javier Cervera, no clasificado**: jugó 13 hoyos y la tarjeta figura como no entregada
+  (`notReturned`). **Decisión de Álvaro del 2026-11-22: no clasificado, con asistencia.** Va en
+  `clasificacion_2026.json` con `noClasificado: true`, sin puesto ni puntos, y cuenta 10 de
+  asistencia para No Te La Lleves Mamado. **No tiene tarjeta en `tarjetas_2026.json`, a propósito**:
+  el microsite ordena el torneo por neto y su 62 de 13 hoyos lo pondría el primero, y el ranking de
+  selección CSC también lo leería como su mejor resultado. *(Decidido por Claude; revisable. Si está
+  mal, lo que cuesta es que no se ven sus 13 hoyos en la página del torneo.)*
+
+El orden del Excel del club coincide en los 21 con el criterio RFEG. Al ser el **noveno torneo**,
+cuentan las **7 mejores** (`nTornPunt` 7, ya puesto en el calendario) y la general sube para todos los
+que tenían más de seis.
+
+**Equipos.** Dos equipos tienen un solo resultado válido: No Te La Lleves Mamado (Cervera no
+clasifica) y La Amenaza Fantasma (solo Touceda). Se han tratado **como en los torneos 2 y 4**:
+`valid: false` y por detrás de los válidos, aunque su +5 sea mejor que el +8 y el +10 de Me Alivio y
+Cerdos. En el torneo 6 se hizo al revés (Cerdos con un jugador, primero). *(Decidido por Claude con la
+mayoría de precedentes; revisable. Si fuera al revés, No Te La Lleves y La Amenaza quedarían 4ª y 5ª
+con 200 y 175 en vez de 150 y 125, y Me Alivio y Cerdos 6ª y 7ª.)* Gimbros y Guardianes empatan a +2
+y lo resuelve el hándicap de juego sumado, 33 contra 40.
+
+### Carlos Maestro ha cambiado de licencia
+
+Medido el 2026-11-22 en el buscador público de la RFEG: su licencia hoy es **`CM00188458`**, con
+club **Real Federación de Golf de Madrid** (licencia independiente, sin club), hándicap 1,1. La que
+usa todo el repo desde 2022, **`4401188458`**, **ya no aparece** en el buscador. Que el cambio venga
+de un cambio de club es lo más probable, pero **no se puede medir**: el buscador no guarda histórico
+y nuestros datos no tienen el club. El T9 se ha cargado con la nueva; **el maestro (Excel y
+`jugadores.json`) y los elegibles de `csc.json` siguen con la vieja**: pendiente nº 7.
+
+### Defecto encontrado: P3, P4 y P5 de las tarjetas de 2026:3 a 2026:8
+
+De 2021 al torneo 2 de 2026, `p3`, `p4` y `p5` son **los golpes sobre el par en los hoyos de par 3, 4
+y 5** (suman `difPar`), y así los pinta el microsite, con signo. **Del torneo 3 al 8 de 2026 se
+guardó el número de hoyos de cada par** (4, 9 y 5 en Naturávila para todos los jugadores): **302
+valores**, todos de esas columnas. El T9 ya va bien. Pendiente nº 8: corregirlos desde `hoyos`.
 
 ## Frente nuevo · evolución de forma y hándicap por jugador (2026-10-20, en exploración)
 
@@ -599,28 +647,29 @@ luego se cita como si fuera del acta. **Lo que no se ve no se inventa, aunque se
 
 ### Circuito interno · general
 
-Cuentan las 6 mejores de 8 torneos jugados. Quedan el 9 (Naturávila, 18/10), el 10 (Layos, 28/11) y
+**Al 2026-11-22.** Cuentan las 7 mejores de 9 torneos jugados. Quedan el 10 (Layos, Major, 28/11) y
 la Final (Santander, 19/12).
 
 | | Jugador | Total |
 |---|---|---|
-| 1 | José Pablo Guil | 1363 |
-| 2 | Miche Lopez | 1130 |
-| 3 | Alvaro Nieto | 953 |
-| 4 | Alvaro Aguirre | 911 |
-| 5 | Eduardo Buendía | 895 |
+| 1 | José Pablo Guil | 1404 |
+| 2 | Miche Lopez | 1177 |
+| 3 | Javier Chiralt | 1081 |
+| 4 | Alvaro Aguirre | 1001 |
+| 5 | Alvaro Nieto | 953 |
+| 6 | Jose Antonio Santana | 953 |
 
 ### Circuito interno · equipos
 
 | | Equipo | Total |
 |---|---|---|
-| 1 | Me Alivio Golf Club | 2540 |
-| 2 | La Orden del Swing Sagrado | 2305 |
-| 3 | Cerdos Arqueros | 2120 |
-| 4 | Los Guardianes del Datáfono | 2115 |
-| 5 | No Te La Lleves Mamado | 1855 |
-| 6 | La Amenaza Fantasma | 1805 |
-| 7 | Gimbros | 1445 |
+| 1 | La Orden del Swing Sagrado | 2835 |
+| 2 | Me Alivio Golf Club | 2770 |
+| 3 | Los Guardianes del Datáfono | 2465 |
+| 4 | Cerdos Arqueros | 2335 |
+| 5 | No Te La Lleves Mamado | 2060 |
+| 6 | La Amenaza Fantasma | 1985 |
+| 7 | Gimbros | 1875 |
 
 ### Circuito interno · plantillas de 2026
 
@@ -760,6 +809,19 @@ ampliaciones se manden a `competiciones@fedgolfmadrid.com`. **Falta confirmar qu
 Hasta entonces hay una trampa abierta: **en el microsite ya pueden apuntarse**, porque el botón de
 Apuntarme mira esta lista. Si no constan en la RFGM, podrían salir convocados y no poder jugar. Si
 se confirma que no se ha comunicado, lo prudente es sacarlos de `elegibles` hasta que se haga.
+
+### 7. Licencia de Carlos Maestro en el maestro y en la CSC
+
+Hoy es `CM00188458` (RFEG, medido el 2026-11-22); el Excel `TodasDimensiones.xlsx`, `jugadores.json`
+(7 filas), `csc.json` y `csc2.json` siguen con `4401188458`, que ya no existe en el buscador. El
+cargador lo casa por nombre y avisa, así que no bloquea nada. Para cambiarlo en el Excel, la misma
+técnica que con la errata de Eduardo Buendía (reescribir solo esa cadena del zip; **nunca openpyxl**).
+**Sin hacer: pendiente de que Álvaro lo pida.**
+
+### 8. P3, P4 y P5 mal guardados de 2026:3 a 2026:8
+
+Ver la sección del 2026-11-22. Se arregla recalculándolos desde `hoyos` (la función `derivar` de
+`herramientas/cargar_torneo.py` ya lo hace) y subiendo `CV`. No cambia ningún punto. **Sin hacer.**
 
 ## Cuatro trampas de este repo
 
